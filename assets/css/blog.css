@@ -1,4 +1,4 @@
-@import 'jekyll-theme-leap-day';
+@import "{{ site.theme }}";
 
 
 a {
@@ -6,7 +6,7 @@ a {
 }
 
 .wrapper {
-    width: 900px;
+    width: auto;
     margin: 0 auto;
     position: relative;
 }
