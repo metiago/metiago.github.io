@@ -14,22 +14,26 @@ layout: default
   <title>Tiago Ribeiro</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <h1> lkk{{ page.title }}</h1>
-    <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
-    
-    {{ content }}
+    <div class="container">
+      
+      </p>
+        <h1> {{ page.title }} - {{ page.date | date: "%-d %B %Y" }}</h1>
+      <p>   
+      
+      {{ content }}
+
+    </div>
 
 </body>
 

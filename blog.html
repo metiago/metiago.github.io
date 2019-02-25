@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: post
 title: Blog
+pagination: 
+  enabled: true
+  paginate: 2
 ---
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,13 +18,12 @@ title: Blog
   <title>Tiago Ribeiro</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/resume.css" rel="stylesheet">
@@ -32,46 +32,41 @@ title: Blog
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-          <span class="d-block d-lg-none">Tiago Ribeiro</span>
-          <span class="d-none d-lg-block">
-            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
-          </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/blog.html">Blog</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
   <div class="container">
-    
-       {% for post in site.posts %}
 
-          <P>
-       
-            <a href="{{ post.url }}">
-              <h2> {{ post.title }} <small> {{ post.date | date_to_string }} </small> </h2>
-            </a>
-       
-            {{ post.excerpt }}
-       
-          </P>
+    {% for post in site.posts %}
 
-        {% endfor %}
+    <p>
 
-     </div>
+      <a href="{{ post.url }}">
+        <h2> {{ post.title }} <small> {{ post.date | date_to_string }} </small> </h2>
+      </a>
+
+      {{ post.excerpt }}
+
+    </p>
+
+    {% endfor %}
+
+    <!-- 
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+  -->
+    {% if paginator.total_pages > 1 %}
+    <ul class="pager">
+      {% if paginator.previous_page %}
+      <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+
+  </div>
 
 </body>
 
