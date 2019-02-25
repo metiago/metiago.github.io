@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: default
 title: Blog
-pagination: 
+pagination:
   enabled: true
-  paginate: 2
+permalink: /blog/
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ pagination:
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tiago Ribeiro</title>
+  <title>Tiago R.</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -25,18 +25,17 @@ pagination:
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/resume.css" rel="stylesheet">
-
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    {% for post in site.posts %}
+  <div class="content">
 
-    <p>
+    {% for post in paginator.posts %}
+
+      <p></p>
 
       <a href="{{ post.url }}">
         <h2> {{ post.title }} <small> {{ post.date | date_to_string }} </small> </h2>
@@ -44,30 +43,35 @@ pagination:
 
       {{ post.excerpt }}
 
-    </p>
-
     {% endfor %}
 
-    <!-- 
-    Showing buttons to move to the next and to the previous list of posts (pager buttons).
-  -->
+    <!-- Paginator -->
     {% if paginator.total_pages > 1 %}
-    <ul class="pager">
+    <div class="pager">
       {% if paginator.previous_page %}
-      <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-      </li>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
       {% endif %}
       {% if paginator.next_page %}
-      <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-      </li>
+        <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
       {% endif %}
-    </ul>
+    </div>
     {% endif %}
 
   </div>
 
-</body>
+</div>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="//unpkg.com/jscroll/dist/jquery.jscroll.min.js"></script>
+
+<script type="text/javascript">
+  $('.content').jscroll({
+    contentSelector: ".content",
+    nextSelector: '.next'
+  });
+</script>
+
+</body>
 </html>
