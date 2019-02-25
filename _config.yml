@@ -1,13 +1,4 @@
-gems: [jekyll-paginate-v2]
-
-# Build settings
-markdown: kramdown
-theme: minima
-plugins_dir:
-  - jekyll-paginate-v2
-exclude:
-  - Gemfile
-  - Gemfile.lock
+plugins: [jekyll-paginate-v2]
 
 # Produces a cleaner folder structure when using categories
 permalink: /:year/:month/:title.html
