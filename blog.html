@@ -8,14 +8,14 @@ permalink: /blog/
 
 {% for post in site.posts %}
 
-<p></p>
-
-<a href="{{ post.url }}">
-  <h2> {{ post.title }} <small> {{ post.date | date_to_string }} </small> </h2>
-</a>
-
-{{ post.excerpt }}
-
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+  <a href="{{ post.url }}">
+    <h2> {{ post.title }} <small> {{ post.date | date_to_string }} </small> </h2>
+  </a>
+    {{ post.excerpt }}
+  </div>
+</div>
 {% endfor %}
 
 <!-- Paginator -->

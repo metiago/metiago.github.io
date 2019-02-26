@@ -18,5 +18,3 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
-  
-# theme: jekyll-theme-leap-day
