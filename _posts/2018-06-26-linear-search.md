@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  Linear Searching in Go
 date:   2018-06-26 20:18:00 +0100
 category: Dev
