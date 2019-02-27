@@ -3,7 +3,6 @@ layout: post
 title:  Linear Searching in Go
 date:   2018-06-26 20:18:00 +0100
 category: Dev
-tags: [algorithm, golang]
 ---
 
 ## Linear Search
@@ -45,3 +44,4 @@ func findMinorValue(actuals []int) int {
 	}
 	return actuals[minor]
 }
+```
