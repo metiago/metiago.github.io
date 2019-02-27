@@ -7,7 +7,7 @@ category: Dev
 
 ## Linear Search
 
-Linear search a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched.
+Linear search a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched. Linear search has a time complexity of O(n)
 
 ```bash
 
@@ -17,7 +17,7 @@ import (
 	"fmt"
 )
 
-// Time Complexity: O(n)
+// Test Example
 func main() {
 	arr := []int{2002, 4004, 3003, 5005, 1001, 6006, 7007}
 	res := hasElemInArray(arr, 3003)
