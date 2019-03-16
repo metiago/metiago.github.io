@@ -27,7 +27,7 @@ a {
 }
 a:focus,
 a:hover {
-  color: #0085a1;
+  color: #fd971f;
 }
 blockquote {
   font-style: italic;
@@ -50,7 +50,7 @@ blockquote {
 }
 ::selection {
   color: #fff;
-  background: #0085a1;
+  background: #fd971f;
   text-shadow: none;
 }
 img::selection {
@@ -129,14 +129,14 @@ img::-moz-selection {
   }
   #mainNav.is-fixed .navbar-brand:focus,
   #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085a1;
+    color: #fd971f;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085a1;
+    color: #fd971f;
   }
   #mainNav.is-visible {
     -webkit-transform: translate3d(0, 100%, 0);
@@ -234,7 +234,7 @@ header.masthead .post-heading .meta a {
 .post-preview > a:focus,
 .post-preview > a:hover {
   text-decoration: none;
-  color: #0085a1;
+  color: #fd971f;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -258,7 +258,7 @@ header.masthead .post-heading .meta a {
 .post-preview > .post-meta > a:focus,
 .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #0085a1;
+  color: #fd971f;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -313,7 +313,7 @@ header.masthead .post-heading .meta a {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #0085a1;
+  color: #fd971f;
 }
 form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6;
@@ -340,15 +340,15 @@ footer .copyright {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn-primary {
-  background-color: #0085a1;
-  border-color: #0085a1;
+  background-color: #fd971f;
+  border-color: #fd971f;
 }
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
   color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
+  background-color: #fd971f !important;
+  border-color: #fd971f !important;
 }
 .btn-lg {
   font-size: 16px;
@@ -362,6 +362,7 @@ footer .copyright {
 
 .navbar {
   background-color: #333;
+  color: #FFFFFF;
   -moz-box-shadow: 0 0 10px -2px #000;
   -webkit-box-shadow: 0 0 10px -2px #000;
   box-shadow: 0 0 10px -2px #000;
@@ -370,14 +371,14 @@ footer .copyright {
 table {
   border-collapse: collapse;
   border-spacing: 2px;
-  border: 2px solid #000000;
+  border: 2px solid #FFFFFF;
   width: 100%;
 }
 
 th {
-  border: 2px solid #000000;
+  border: 2px solid #FFFFFF;
 }
 
 td {
-  border: 1px solid #000000;
+  border: 1px solid #FFFFFF;
 }
