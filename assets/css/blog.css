@@ -361,11 +361,6 @@ footer .copyright {
 /* CUSTOM */
 
 .navbar {
-  height: 60px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
   background-color: #333;
   -moz-box-shadow: 0 0 10px -2px #000;
   -webkit-box-shadow: 0 0 10px -2px #000;
