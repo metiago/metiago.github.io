@@ -1,6 +1,6 @@
 title: 
 logo: /assets/img/logo.png
-description: A simple blog about Java, Go, Python, Javascript
+description: A simple blog about programming
 show_downloads: false
 
 plugins: [jekyll-paginate-v2]
