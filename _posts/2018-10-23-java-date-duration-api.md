@@ -5,7 +5,7 @@ date:   2018-10-23 20:18:00 +0100
 category: Dev
 ---
 
-## String to Date Java - JDK 8+
+## Java Date API (Duration) - JDK 8+
 
 Below there are some examples using Java's date API - Duration.
 
