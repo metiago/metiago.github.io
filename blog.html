@@ -7,20 +7,19 @@ permalink: /blog/
 ---
 {% seo %}
 
+<!-- Html Elements for Search -->
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="search..." />
+  <ul id="results-container"></ul>
+</div>
 
 {% for post in site.posts %}
-    {
-    
-      "title"    : "{{ post.title | escape }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "date"     : "{{ post.date }}"
-      
-    } {% unless forloop.last %},{% endunless %}
-  {% endfor %}
-
-
+  <a href="{{ post.url }}">
+    <h4> {{ post.title }}  </h4>
+    <small> {{ post.date | date_to_string }} </small>
+  </a>
+  <hr/>
+{% endfor %}
 
 <!-- Paginator -->
 {% if paginator.total_pages > 1 %}
@@ -37,12 +36,22 @@ permalink: /blog/
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+  
 <script src="//unpkg.com/jscroll/dist/jquery.jscroll.min.js"></script>
 
 <script type="text/javascript">
   $('.content').jscroll({
     contentSelector: ".content",
     nextSelector: '.next'
+  });
+</script>
+
+<!-- Search Configuration -->
+<script src="/path/to/search-script.js" type="text/javascript"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("results-container"),
+    json: "/search.json"
   });
 </script>
