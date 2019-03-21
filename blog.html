@@ -47,9 +47,14 @@ permalink: /blog/
 <!-- Search Configuration Scripts -->
 <script src="{{site.github.url}}/assets/js/simple-jekyll-search.min.js" type="text/javascript"></script>
 <script>
-  SimpleJekyllSearch({
-    searchInput: document.getElementById("search-input"),
-    resultsContainer: document.getElementById("results-container"),
-    json: "/_layouts/search.json"
-  });
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/_layouts/search.json',
+        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
 </script>
