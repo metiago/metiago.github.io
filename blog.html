@@ -1,60 +1,77 @@
 ---
 layout: default
-title: 
+title:
 pagination:
   enabled: true
 permalink: /blog/
 ---
+
 {% seo %}
 
 <!-- Search Bar -->
-<div id="search-container">
-  <input type="text" id="search-input" placeholder="search..." />
+<div class="row">
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="search..." />
+  </div>
 </div>
 
-{% for post in site.posts %}
-  <div id="results-container"> 
+<div class="row">
+  {% for post in site.posts %}
+  <div id="results-container">
     <a href="{{ post.url }}">
-      <h4> {{ post.title }}  </h4>
+      <h4>{{ post.title }}</h4>
       <small> {{ post.date | date_to_string }} </small>
     </a>
   </div>
-  <hr/>
-{% endfor %}
+  <hr />
+  {% endfor %}
+</div>
 
 <!-- Paginator -->
 {% if paginator.total_pages > 1 %}
 <div class="pager">
   {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
-  {% endif %}
-  {% if paginator.next_page %}
-  <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
+  <a
+    href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+  ></a>
+  {% endif %} {% if paginator.next_page %}
+  <a
+    class="next"
+    href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"
+  ></a>
   {% endif %}
 </div>
 {% endif %}
 
 <!-- Scroll Pagination Scripts -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"
+></script>
 <script src="//unpkg.com/jscroll/dist/jquery.jscroll.min.js"></script>
 <script type="text/javascript">
-  $('.content').jscroll({
+  $(".content").jscroll({
     contentSelector: ".content",
-    nextSelector: '.next'
+    nextSelector: ".next"
   });
 </script>
 
 <!-- Search Configuration Scripts -->
-<script src="{{site.github.url}}/assets/js/simple-jekyll-search.min.js" type="text/javascript"></script>
+<script
+  src="{{ site.github.url }}/assets/js/simple-jekyll-search.min.js"
+  type="text/javascript"
+></script>
 <script>
   window.simpleJekyllSearch = new SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '{{ site.baseurl }}/_layouts/search.json',
-        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
-        noResultsText: 'No results found',
-        limit: 10,
-        fuzzy: false,
-        exclude: ['Welcome']
-      })
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("results-container"),
+    json: "{{ site.baseurl }}/_layouts/search.json",
+    searchResultTemplate:
+      '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+    noResultsText: "No results found",
+    limit: 10,
+    fuzzy: false,
+    exclude: ["Welcome"]
+  });
 </script>
