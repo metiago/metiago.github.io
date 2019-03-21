@@ -18,35 +18,31 @@ Relational databases store data sets as “relations”: tables with rows and co
 
 After an early flood of vendors tried to take advantage of the system’s popularity with not-quite-relational products, creator E.F. Codd outlined a set of rules that must be followed by all relational database management systems. Codd’s 12 rules revolve around imposing strict internal structure protocols, making sure that searches reliably return requested data, and preventing structural alterations (at least by users). The framework ensured that relational databases are consistent and reliable to this day. 
 
-[ From InfoWorld’s experts: What is SQL? The language of databases explained. | Database slow? Improve the speed and scalability of your RDBMS with these 17 rules for faster SQL queries. • 7 essential SQL Server security tips. ] 
-
-###### Strengths 
+##### Strengths 
 
 Relational databases excel at handling highly structured data and provide support for ACID (Atomicity, Consistency, Isolation, and Durability) transactions. Data is easily stored and retrieved using SQL queries. The structure can be scaled up quickly because adding data without modifying existing data is simple. 
 
 Creating limits on what certain user types can access or modify is built into the structure of an RDBMS. Because of this, relational databases are well-suited to applications that require tiered access. For example, customers could view their accounts while agents could both view and make necessary changes. 
 
-###### Weaknesses 
+##### Weaknesses 
 
 The biggest weakness of relational databases is the mirror of their biggest strength. As good as they are at handling structured data, they have a hard time with unstructured data. Representing real world entities in context is difficult in the bounds of an RDBMS. “Sliced” data has to be reassembled from tables into something more readable, and speed can be negatively impacted. The fixed schema doesn’t react well to change, either. 
 
 Cost is a consideration with relational databases. They tend to be more expensive to set up and grow. Horizontal scaling, or scaling by adding more servers, is usually both faster and more economical than vertical scaling, which involves adding more resources to a server. However, the structure of relational databases complicates the process. Sharding (where data is horizontally partitioned and distributed across a collection of machines) is necessary to scale out a relational database. Sharding relational databases while maintaining ACID compliance can be a challenge. 
 
-Use a relational database for: 
+##### Use a relational database for: 
 
-Situations where data integrity is absolutely paramount (i.e., for financial applications, defense and security, and private health information) 
+1. Situations where data integrity is absolutely paramount (i.e., for financial applications, defense and security, and private health information) 
 
-Highly structured data 
+1. Highly structured data 
 
-Automation of internal processes 
+1. Automation of internal processes 
 
 #### Document store (MongoDB, Couchbase) 
 
 A document store is a nonrelational database that stores data in JSON, BSON, or XML documents. They feature a flexible schema. Unlike SQL databases, where users must declare a table’s schema before inserting data, document stores don’t enforce document structure. Documents can contain any data desired. They have key-value pairs but also embed attribute metadata to make querying easier. 
 
-[ The essentials from InfoWorld: NoSQL grudge match: MongoDB vs. Couchbase Server • Review: MongoDB learns cool new tricks • The essential guide to MongoDB security. • How to work with MongoDB in .Net. | Go deep into analytics and big data with the InfoWorld Big Data and Analytics Report newsletter. ] 
-
-###### Strengths 
+##### Strengths 
 
 Document stores are very flexible. They handle semistructured and unstructured data well. Users don’t need to know during set-up what types of data will be stored, so this is a good choice when it isn’t clear in advance what sort of data will be incoming. 
 
@@ -54,19 +50,19 @@ Users can create their desired structure in a particular document without affect
 
 Besides flexibility, developers like document stores because they’re easy to scale horizontally. The sharding necessary for horizontal scaling is much more intuitive than with relational databases, so document stores scale out fast and efficiently. 
 
-###### Weaknesses 
+##### Weaknesses 
 
 Document databases sacrifice ACID compliance for flexibility. Also, while querying can be done in a document it’s not possible across documents. 
 
-Use a document database for: 
+##### Use a document database for: 
 
-Unstructured or semistructured data 
+1. Unstructured or semistructured data 
 
-Content management 
+1. Content management 
 
-In-depth data analysis 
+1. In-depth data analysis 
 
-Rapid prototyping 
+1. Rapid prototyping 
 
 #### Key-value store (Redis, Memcached) 
 
@@ -76,7 +72,6 @@ The “key” is a unique identifier associated only with the value. Keys can be
 
 “Values” are stored as blobs and don’t need predefined schema. They can take nearly any form: numbers, strings, counters, JSON, XML, HTML, PHP, binaries, images, short videos, lists, and even another key-value pair encapsulated in an object. Some DBMSs allow for the data type to be specified, but it isn’t mandatory. 
 
-[ The essentials from InfoWorld: Why Redis beats Memcached for caching •How to use Redis for real-time stream processing • Manage access control using Redis Bitfields. • How to work with Redis Cache in .Net. | Go deep into analytics and big data with the InfoWorld Big Data and Analytics Report newsletter. ] 
 
 Strengths 
 
@@ -86,17 +81,17 @@ Weaknesses
 
 Flexibility comes at a price. It’s impossible to query values, because they’re stored as a blob and can only be returned as such. This makes it hard to do reporting or edit parts of values. Not all objects are easy to model as key-value pairs, either. 
 
-Use a key-value store for: 
+##### Use a key-value store for: 
 
-Recommendations 
+1. Recommendations 
 
-User profiles and settings 
+1. User profiles and settings 
 
-Unstructured data such as product reviews or blog comments 
+1. Unstructured data such as product reviews or blog comments 
 
-Session management at scale 
+1. Session management at scale 
 
-Data that will be accessed frequently but not often updated 
+1. Data that will be accessed frequently but not often updated 
 
 #### Wide-column store (Cassandra, HBase) 
 
@@ -104,45 +99,43 @@ Wide-column stores, also called column stores or extensible record stores, are d
 
 Wide-column stores use the concept of a keyspace instead of schemas. A keyspace encompasses column families (similar to tables but more flexible in structure), each of which contains multiple rows with distinct columns. Each row doesn’t need to have the same number or type of column. A timestamp determines the most recent version of data. 
 
-[ The essentials from InfoWorld: Get to know Cassandra, the NoSQL maverick • Review: Cassandra lowers the barriers to big data. | HBase: The database big data left behind. • Review: HBase is massively scalable—and hugely complex. | Go deep into analytics and big data with the InfoWorld Big Data and Analytics Report newsletter. ] 
-
-###### Strengths 
+##### Strengths 
 
 This type of database has some benefits of both relational and nonrelational databases. It deals better with both structured and semistructured data than other nonrelational databases, and it’s easier to update. Compared to relational databases, it’s more horizontally scalable and faster at scale. 
 
 Columnar databases compress better than row-based systems. Also, large data sets are simple to explore. Wide-column stores are particularly good at aggregation queries, for example. 
 
-###### Weaknesses 
+##### Weaknesses 
 
 Writes are expensive in the small. While updating is easy to do in bulk, uploading and updating individual records is hard. Plus, wide-column stores are slower than relational databases when handling transactions. 
 
-Use a wide-column store for: 
+##### Use a wide-column store for: 
 
-Big data analytics where speed is important 
+1. Big data analytics where speed is important 
 
-Data warehousing on big data 
+1. Data warehousing on big data 
 
-Large scale projects (this database style is not a good tool for average transactional applications) 
+1. Large scale projects (this database style is not a good tool for average transactional applications) 
 
 #### Search engine (Elasticsearch) 
 
 It may seem strange to include search engines in an article about database types. However, Elasticsearch has seen increased popularity in this sphere as developers look for innovative ways to cut down search lag. Elastisearch is a nonrelational, document-based data storage and retrieval solution specifically arranged and optimized for the storage and rapid retrieval of data. 
 
-###### Strengths 
+##### Strengths 
 
 Elastisearch is very scalable. It features flexible schema and fast retrieval of records, with advanced search options including full text search, suggestions, and complex search expressions. 
 
 One of the most interesting search features is stemming. Stemming analyzes the root form of a word to find relevant records even when another form is used. For example, a user searching an employment database for “paying jobs” would also find positions tagged as “paid” and “pay.” 
 
-###### Weaknesses 
+##### Weaknesses 
 
 Elastisearch is used more as an intermediary or supplementary store than a primary database. It has low durability and poor security. There’s no innate authentication or access control. Also, Elastisearch doesn’t support transactions. 
 
-Use a search engine like Elastisearch for: 
+##### Use a search engine like Elastisearch for: 
 
-Improving user experience with faster search results 
+1. Improving user experience with faster search results 
 
-Logging 
+1. Logging 
 
 
 ## Visual guide based on CAP Theorem
