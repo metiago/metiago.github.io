@@ -10,15 +10,19 @@ permalink: /blog/
 <!-- Search Bar -->
 <div id="search-container">
   <input type="text" id="search-input" placeholder="search..." />
+  <ul id="results-container"></ul>
+  <hr/>
 </div>
 
 <br/>
 
-  <div id="results-container"> 
-    
-  </div>
-  <hr/>
-
+{% for post in site.posts %}
+    <a href="{{ post.url }}">
+      <h4> {{ post.title }}  </h4>
+      <small> {{ post.date | date_to_string }} </small>
+    </a>  
+    <hr/>
+{% endfor %}
 
 <!-- Paginator -->
 {% if paginator.total_pages > 1 %}
