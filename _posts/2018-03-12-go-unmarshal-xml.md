@@ -1,11 +1,11 @@
 ---
 layout: default
-title:  Parse XML in Golang
+title:  Unmarshal XML in Golang
 date:   2018-03-12 20:18:00 +0100
 category: Dev
 ---
 
-## Parse XML in Golang
+## Unmarshal XML in Golang
 
 Follow a simple example of how to unmarshal a XML structure using Golang.
 First we have to create a XML file called data-example.xml, like below
