@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Stompo Protocol Golang
+title:  Stomp Protocol Golang
 date:   2018-10-25 20:18:00 +0100
 category: Dev
 ---
@@ -11,7 +11,7 @@ STOMP is the Simple (or Streaming) Text Orientated Messaging Protocol.
 
 STOMP provides an interoperable wire format so that STOMP clients can communicate with any STOMP message broker to provide easy and widespread messaging interoperability among many languages, platforms and brokers.
 
-To test these examples it necessary to run on of the brokers weach implement the stompo protocol (Apache MQ, Rabbit MQ).
+To test these examples it necessary to run on of the brokers weach implement the stomp protocol (Apache MQ, Rabbit MQ).
 
 producer.go
 
