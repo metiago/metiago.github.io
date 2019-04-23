@@ -12,7 +12,7 @@ Observers are basically interested and want to be notified when there is a chang
 So, they register themselves to that subject. When they lose interest in the subject they simply unregister
 from the subject. Sometimes this model is also referred to as the Publisher-Subscriber model.
 
-# Example
+#### Example
 
 In the world of computer science, consider a simple UI-based example, where this UI is connected with
 some database (or business logic). A user can execute some query through that UI and after searching the
