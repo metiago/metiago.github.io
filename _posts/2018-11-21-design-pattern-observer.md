@@ -22,77 +22,88 @@ change.
 
 ```bash
 
-package observer;
-
 import java.util.ArrayList;
-
 import java.util.List;
 
-class Observer {
-
-    public void update() {
-        System.out.println("flag value changed in subject");
-    }
+interface IObserver {
+    void update(int i);
 }
 
 interface ISubject {
 
-    void register(Observer o);
+    void register(IObserver o);
 
-    void unregister(Observer o);
+    void unregister(IObserver o);
 
-    void notifyObservers();
+    void notifyObservers(int i);
+}
+
+class Observer1 implements IObserver {
+
+    @Override
+    public void update(int i) {
+        System.out.println("Observer1: value in subject is : " + i);
+    }
+}
+
+class Observer2 implements IObserver {
+    
+    @Override
+    public void update(int i) {
+        System.out.println("Observer2: value in subject is :" + i);
+    }
 }
 
 class Subject implements ISubject {
 
-    List<Observer> observerList = new ArrayList<>();
+    List<IObserver> observersList = new ArrayList<IObserver>();
+    private int myValue;
 
-    private int _flag;
-
-    public int getFlag() {
-        return _flag;
+    public int getMyValue() {
+        return myValue;
     }
 
-    public void setFlag(int _flag) {
-        this._flag = _flag;
-        notifyObservers();
-    }
-
-    @Override
-    public void register(Observer o) {
-        observerList.add(o);
+    public void setMyValue(int myValue) {
+        this.myValue = myValue;
+        notifyObservers(myValue);
     }
 
     @Override
-    public void unregister(Observer o) {
-        observerList.remove(o);
+    public void register(IObserver o) {
+        observersList.add(o);
     }
 
     @Override
-    public void notifyObservers() {
-        for (int i = 0; i < observerList.size(); i++) {
-            observerList.get(i).update();
+    public void unregister(IObserver o) {
+        observersList.remove(o);
+    }
+
+    @Override
+    public void notifyObservers(int updatedValue) {
+        for (int i = 0; i < observersList.size(); i++) {
+            observersList.get(i).update(updatedValue);
         }
     }
-
 }
 
-class ObserverPatternEx {
+class ObserverPatternOneToMany {
 
     public static void main(String[] args) {
-        
-        Observer o1 = new Observer();
-        Subject sub1 = new Subject();
-        sub1.register(o1);
-        System.out.println("Setting Flag = 5 ");
-        sub1.setFlag(5);
-        System.out.println("Setting Flag = 25 ");
-        sub1.setFlag(25);
-        sub1.unregister(o1);
-        // No notification due to unregistered client
-        System.out.println("Setting Flag = 50 ");
-        sub1.setFlag(50);
+
+        Subject sub = new Subject();
+        Observer1 ob1 = new Observer1();
+        Observer2 ob2 = new Observer2();
+
+        sub.register(ob1);
+        sub.register(ob2);
+
+        sub.setMyValue(5);
+
+        sub.setMyValue(25);
+
+        sub.unregister(ob1); // observer wont receive the next value
+
+        sub.setMyValue(100);
     }
 }
 
