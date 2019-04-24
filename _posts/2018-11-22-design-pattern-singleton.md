@@ -9,7 +9,7 @@ category: Dev
 
 A particular class should have only one instance. We will use only that instance whenever we are in need.
 
-# Example
+#### Example
 
 In a software system sometimes we may decide to use only one file system. Usually we may use it for the
 centralized management of resources.
