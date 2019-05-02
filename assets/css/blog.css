@@ -1,5 +1,5 @@
 body {
-  background-color: #333333;
+  background-color: #696969;
   font-size: 20px;
   color: #FFFFFF;
   font-family: cm,Georgia,serif;
@@ -27,7 +27,7 @@ a {
 }
 a:focus,
 a:hover {
-  color: #fd971f;
+  color: #742AA6;
 }
 blockquote {
   font-style: italic;
@@ -50,7 +50,7 @@ blockquote {
 }
 ::selection {
   color: #fff;
-  background: #fd971f;
+  background: #742AA6;
   text-shadow: none;
 }
 img::selection {
@@ -129,14 +129,14 @@ img::-moz-selection {
   }
   #mainNav.is-fixed .navbar-brand:focus,
   #mainNav.is-fixed .navbar-brand:hover {
-    color: #fd971f;
+    color: #742AA6;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #fd971f;
+    color: #742AA6;
   }
   #mainNav.is-visible {
     -webkit-transform: translate3d(0, 100%, 0);
@@ -234,7 +234,7 @@ header.masthead .post-heading .meta a {
 .post-preview > a:focus,
 .post-preview > a:hover {
   text-decoration: none;
-  color: #fd971f;
+  color: #742AA6;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -258,7 +258,7 @@ header.masthead .post-heading .meta a {
 .post-preview > .post-meta > a:focus,
 .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #fd971f;
+  color: #742AA6;
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -313,7 +313,7 @@ header.masthead .post-heading .meta a {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #fd971f;
+  color: #742AA6;
 }
 form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6;
@@ -340,15 +340,15 @@ footer .copyright {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn-primary {
-  background-color: #fd971f;
-  border-color: #fd971f;
+  background-color: #742AA6;
+  border-color: #742AA6;
 }
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
   color: #fff;
-  background-color: #fd971f !important;
-  border-color: #fd971f !important;
+  background-color: #742AA6 !important;
+  border-color: #742AA6 !important;
 }
 .btn-lg {
   font-size: 16px;
