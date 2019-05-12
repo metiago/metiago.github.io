@@ -5,6 +5,8 @@ date:   2018-12-06 20:18:00 +0100
 category: Dev
 ---
 
+## Strategy Design Pattern
+
 #### Concept
 
 We can select the behavior of an algorithm dynamically at runtime

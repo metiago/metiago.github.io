@@ -5,6 +5,8 @@ date:   2018-11-27 20:18:00 +0100
 category: Dev
 ---
 
+## Decorator Design Pattern
+
 #### Concept
 
 This main principle of this pattern says that we cannot modify existing functionalities but we can extend

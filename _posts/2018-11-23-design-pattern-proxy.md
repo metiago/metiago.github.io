@@ -5,6 +5,8 @@ date:   2018-11-23 20:18:00 +0100
 category: Dev
 ---
 
+## Proxy Design Pattern
+
 #### Concept
 
 We want to use a class which can perform as an interface to something else.

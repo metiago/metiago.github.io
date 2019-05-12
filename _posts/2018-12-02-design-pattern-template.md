@@ -5,6 +5,8 @@ date:   2018-12-02 20:18:00 +0100
 category: Dev
 ---
 
+## Template Design Pattern
+
 #### Concept
 
 GoF Definition: Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. The

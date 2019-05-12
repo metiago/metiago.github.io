@@ -5,6 +5,8 @@ date:   2018-11-21 20:18:00 +0100
 category: Dev
 ---
 
+## Adapter Design Pattern
+
 #### Concept
 
 Convert the interface of a class into another interface that clients expect. The adapter

@@ -5,6 +5,8 @@ date:   2018-11-22 20:18:00 +0100
 category: Dev
 ---
 
+## Singleton Design Pattern
+
 #### Concept
 
 A particular class should have only one instance. We will use only that instance whenever we are in need.
