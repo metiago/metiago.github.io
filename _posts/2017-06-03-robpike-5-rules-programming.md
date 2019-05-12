@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Rob Pike's 5 Rules of Programming.md
+title:  Rob Pike's 5 Rules of Programming
 date:   2017-06-03 20:18:00 +0100
 category: Dev
 ---
