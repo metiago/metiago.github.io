@@ -1,7 +1,7 @@
 body {
-  background-color: #49392C;
+  background-color: #F0F7EF;
   font-size: 20px;
-  color: #E1F2FE;
+  color: #4F6699;
   font-family: cm,Georgia,serif;
 }
 p {
@@ -361,7 +361,7 @@ footer .copyright {
 /* CUSTOM */
 
 .navbar {
-  background-color: #333;
+  background-color: #F0F7EF;
   color: #FFFFFF;
   -moz-box-shadow: 0 0 10px -2px #000;
   -webkit-box-shadow: 0 0 10px -2px #000;
