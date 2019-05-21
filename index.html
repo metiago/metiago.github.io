@@ -18,14 +18,10 @@
 
   <link href="assets/css/resume.css" rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/lightbox/css/lightbox.min.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
-
-  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js.map"></script>
-  
+  <script src="assets/lightbox/js/lightbox-plus-jquery.min.js"></script>
+  <script src="assets/lightbox/js/lightbox.min.js"></script>
 
 </head>
 
@@ -291,7 +287,7 @@
           </div>
           <div class="col-sm">
             Soon
-            <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox">
+            <a href="https://unsplash.it/1200/768.jpg?image=251" data-lightbox="image-1" data-title="My caption">
               <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
             </a>
           </div>
@@ -313,10 +309,10 @@
 
   <script>
     $(document).ready(function () {
-      $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
-      });
+      lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+      })
     });
   </script>
 
