@@ -21,13 +21,13 @@ h6 {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 a {
-  color: #98D2EB;
+  color: #4F6699;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 a:focus,
 a:hover {
-  color: #E1F2FE;
+  color: #252449;
 }
 blockquote {
   font-style: italic;
