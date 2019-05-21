@@ -17,16 +17,12 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
   <link href="assets/css/resume.css" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
-  <script>
-    $(document).ready(function () {
-      $('.image-link').magnificPopup({ type: 'image' });
-    });
-  </script>
-    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
+
+
 </head>
 
 <body id="page-top">
@@ -267,7 +263,7 @@
         </ul>
       </div>
     </section>
-    
+
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="portfolio">
       <div class="my-auto">
         <h2 class="mb-5">Portfolio</h2>
@@ -283,14 +279,17 @@
               <img src="assets/img/portfolio/zbx3.png" width="200" height="150" />
             </a>
             <p>
-              Monitoring application to check remote hosts connectivities. 
-              The back-end was written in Java Vert.x using concepts of multithreading 
-              and the front-end was written in Angular 6 and it uses websocket technology to achieve real time monitoring.
+              Monitoring application to check remote hosts connectivities.
+              The back-end was written in Java Vert.x using concepts of multithreading
+              and the front-end was written in Angular 6 and it uses websocket technology to achieve real time
+              monitoring.
             </p>
           </div>
           <div class="col-sm">
             Soon
-            <a class="test-popup-link" href="assets/img/portfolio/zbx3.png">Open popup</a>
+            <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox">
+              <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
+          </a>
           </div>
         </div>
       </div>
@@ -307,6 +306,15 @@
 
   <!-- Custom scripts for this template -->
   <script src="assets/js/resume.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+    });
+  </script>
 
 </body>
 
