@@ -17,7 +17,16 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
   <link href="assets/css/resume.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
+  <script>
+    $(document).ready(function () {
+      $('.image-link').magnificPopup({ type: 'image' });
+    });
+  </script>
+    
 </head>
 
 <body id="page-top">
@@ -281,6 +290,7 @@
           </div>
           <div class="col-sm">
             Soon
+            <a class="test-popup-link" href="assets/img/portfolio/zbx3.png">Open popup</a>
           </div>
         </div>
       </div>
