@@ -19,7 +19,7 @@ We can think about a case where we use a method from a library. The user doesnâ€
 implemented in the library. He/she just calls the method to serve his/her easy purpose. The pattern can be
 best described by the example that follows.
 
-```bash
+```java
 public class RobotFacade {
 
     RobotColor rc;
@@ -43,7 +43,7 @@ public class RobotFacade {
 }
 ```
 
-```bash
+```java
 public class RobotBody {
     public void CreateBody() {
         System.out.println("Body Creation done");
@@ -51,7 +51,7 @@ public class RobotBody {
 }
 ```
 
-```bash
+```java
 public class RobotColor {
 
     private String color;
@@ -63,7 +63,7 @@ public class RobotColor {
 }
 ```
 
-```bash
+```java
 public class RobotMetal {
 
     private String metal;
@@ -75,7 +75,7 @@ public class RobotMetal {
 }
 ```
 
-```bash
+```java
 public class FacadePattern {
 
     public static void main(String[] args) {
