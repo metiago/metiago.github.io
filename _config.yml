@@ -5,9 +5,6 @@ show_downloads: false
 
 plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch]
 
-# Produces a cleaner folder structure when using categories
-permalink: /:year/:month/:title.html
-
 # Pagination Settings
 pagination:
   enabled: true
