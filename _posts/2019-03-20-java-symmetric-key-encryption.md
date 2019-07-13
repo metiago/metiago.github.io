@@ -35,7 +35,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class CryptoAdvent {
+public class CryptoExample {
 
     public static String encrypt(byte[] key, byte[] initVector, String value) throws Exception {
         
