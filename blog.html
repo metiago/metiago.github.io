@@ -14,9 +14,7 @@ permalink: /blog/
   <hr/>
 </div>
 
-<br/>
-
-{% for post in site.posts %}
+{% for post in paginator.posts %}
     <a href="{{ post.url }}">
       <h4> {{ post.title }}  </h4>
       <small> {{ post.date | date_to_string }} </small>
@@ -25,16 +23,23 @@ permalink: /blog/
 {% endfor %}
 
 <!-- Paginator -->
-{% if paginator.total_pages > 1 %}
-<div class="pager">
+<div class="pagination">
   {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
+    <a href="{{ paginator.previous_page_path }}" class="btn btn-primary">
+      Previous
+    </a>
+  {% else %}
+    <span class="btn t-disabled" aria-disabled="true">Previous</span>
   {% endif %}
+  <span class="page_number">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
   {% if paginator.next_page %}
-  <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"></a>
+    <a href="{{ paginator.next_page_path }}" class="btn btn-primary">Next</a>
+  {% else %}
+    <span class="btn t-disabled" aria-disabled="true">Next</span>
   {% endif %}
 </div>
-{% endif %}
 
 <!-- Scroll Pagination Scripts -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

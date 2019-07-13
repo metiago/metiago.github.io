@@ -339,21 +339,31 @@ footer .copyright {
   border-radius: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .btn-primary {
   background-color: #742AA6;
   border-color: #742AA6;
 }
+
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
   color: #fff;
-  background-color: #742AA6 !important;
-  border-color: #742AA6 !important;
+  background-color: rgb(128, 64, 170) !important;
+  border-color: rgb(128, 64, 170) !important;
 }
+
+.t-disabled {
+  color: #fff;
+  background-color: rgb(233, 233, 233) !important;
+  border-color: rgb(233, 233, 233) !important;
+}
+
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
 }
+
 .main-box {
   margin-top: 40px;
 }
@@ -389,4 +399,16 @@ hr {
 
 pre {
   color: #FFFFFF;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.pagination a {
+  margin: 5px;
+}
+
+.pagination span {
+  margin: 5px;
 }
