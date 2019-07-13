@@ -3,7 +3,7 @@ logo: /assets/img/logo.png
 description: A simple blog about programming
 show_downloads: false
 
-plugins: [jekyll-seo-tag, jekyll-paginate, jekyll-watch]
+plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch]
 
 # Pagination Settings
 pagination:
@@ -17,4 +17,4 @@ pagination:
   sort_reverse: true
 
 whitelist:
-  - jekyll-paginate
+  - jekyll-paginate-v2
