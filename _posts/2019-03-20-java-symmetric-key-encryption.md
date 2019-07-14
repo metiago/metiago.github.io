@@ -79,7 +79,7 @@ public class CryptoExample {
             byte[] key = new byte[16];
             sr.nextBytes(key); // 128 bit key
             byte[] initVector = new byte[16];
-            sr.nextBytes(initVector); // 16 bytes IV
+            sr.nextBytes(initVector); // 16 bytes
             
             String payload = "This is a plaintext example.";
             System.out.println("Original text: " + payload);
