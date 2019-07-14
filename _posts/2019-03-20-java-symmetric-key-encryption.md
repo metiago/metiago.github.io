@@ -81,7 +81,7 @@ public class CryptoExample {
             byte[] initVector = new byte[16];
             sr.nextBytes(initVector); // 16 bytes IV
             
-            String payload = "This is the plaintext from Erik and Milton's article.";
+            String payload = "This is a plaintext example.";
             System.out.println("Original text: " + payload);
 
             String encrypted = encrypt(key, initVector, payload);
