@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Java Symmetric Key Encryption
-date:   2019-03-30 20:18:00 +0100
+date:   2019-03-20 20:18:00 +0100
 category: Dev
 ---
 
