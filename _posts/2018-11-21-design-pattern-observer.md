@@ -22,7 +22,7 @@ database, the result is reflected back in the UI. In most of the cases we segreg
 a change occurs in the database, the UI should be notified so that it can update its display according to the
 change.
 
-```bash
+```java
 
 import java.util.ArrayList;
 import java.util.List;

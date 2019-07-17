@@ -19,7 +19,7 @@ contain some kind of constraint within themselves. To deal with this kind of inc
 interfaces, we may need to introduce adapters.
 
 
-```bash
+```java
 class Triangle {
 
     public double base;
@@ -32,14 +32,14 @@ class Triangle {
 }
 ```
 
-```bash
+```java
 class Rect {
     public double l;
     public double w;
 }
 ```
 
-```bash
+```java
 class CalculatorAdapter {
     Calculator calculator;
     Triangle triangle;
@@ -56,7 +56,7 @@ class CalculatorAdapter {
 }
 ```
 
-```bash
+```java
 class Calculator {
 
     Rect rectangle;
@@ -68,7 +68,7 @@ class Calculator {
 }
 ```
 
-```bash
+```java
 public class AdapterPattern {
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@ The above concept is applicable to a computer football game also. Or, we can thi
 memories where upon fulfillment of one memory, we start storing the data in the second available memory.
 So, a runtime check is necessary before the storing of data, and based on the situation, we’ll proceed.
 
-```bash
+```java
 public class Context {
 
     private IChoice myC;
@@ -36,7 +36,7 @@ public class Context {
 }
 ```
 
-```bash
+```java
 public class FirstChoice implements IChoice {
 
     @Override
@@ -52,14 +52,14 @@ public class FirstChoice implements IChoice {
 }
 ```
 
-```bash
+```java
 public interface IChoice {
     void myChoice(String s1, String s2);
 }
 
 ```
 
-```bash
+```java
 public class SecondChoice implements IChoice {
 
     @Override
@@ -71,7 +71,7 @@ public class SecondChoice implements IChoice {
 }
 ```
 
-```bash
+```java
 import java.util.Scanner;
 
 public class StrategyPatternEx {

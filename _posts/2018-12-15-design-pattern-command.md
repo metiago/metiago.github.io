@@ -22,13 +22,13 @@ The above scenario applies with Microsoft paint also. There we can do the undo/r
 through some menu options or shortcut keys.
 
 
-```bash
+```java
 public interface ICommand {
     void Do();
 }
 ```
 
-```bash
+```java
 public class Invoke {
 
     ICommand cmd;
@@ -40,7 +40,7 @@ public class Invoke {
 }
 ```
 
-```bash
+```java
 public class MyRedoCommand implements ICommand {
 
     private Receiver receiver;
@@ -56,7 +56,7 @@ public class MyRedoCommand implements ICommand {
 }
 ```
 
-```bash
+```java
 public class MyUndoCommand implements ICommand {
 
     private Receiver receiver;
@@ -72,7 +72,7 @@ public class MyUndoCommand implements ICommand {
 }
 ```
 
-```bash
+```java
 public class Receiver {
 
     public void performUndo() {
@@ -85,7 +85,7 @@ public class Receiver {
 }
 ```
 
-```bash
+```java
 public class CommandPatternEx {
 
     public static void main(String[] args) {

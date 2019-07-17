@@ -9,7 +9,7 @@ category: Dev
 
 Binary search, is a search algorithm that finds the position of a target value within a sorted array. Binary search has a time complexity of O(log n) in Big O notation.
 
-```bash
+```java
 
 package main
 

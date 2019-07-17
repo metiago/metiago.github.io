@@ -24,7 +24,7 @@ The major drawback of symmetric cryptography is that if the key is leaked to the
 
 #### Example
 
-```bash
+```java
 
 package com.ctw.crypto;
 

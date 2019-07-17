@@ -24,7 +24,7 @@ object. The enclosing object is termed “decorator.” It conforms to the inter
 decorates. It forwards requests to the component. It can perform additional operations before or after those
 forwarding requests. An unlimited number of responsibilities can be added with this concept.
 
-```bash
+```java
 
 package jdp.decorator;
 

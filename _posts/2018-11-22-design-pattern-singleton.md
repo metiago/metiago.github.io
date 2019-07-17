@@ -16,7 +16,7 @@ A particular class should have only one instance. We will use only that instance
 In a software system sometimes we may decide to use only one file system. Usually we may use it for the
 centralized management of resources.
 
-```bash
+```java
 class DB {
     
     private static DB _captain;

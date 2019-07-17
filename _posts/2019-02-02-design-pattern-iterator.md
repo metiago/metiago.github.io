@@ -19,7 +19,7 @@ may use linked list data structure to store their students’ records. The main 
 access those data through the common methods—it doesn’t care which data structure is used by individual
 departments.
 
-```bash
+```java
 public interface IIterator {
 
     void first();//Reset to first element
@@ -32,14 +32,14 @@ public interface IIterator {
 }
 ```
 
-```bash
+```java
 public interface ISubject {
 
     IIterator createIterator();
 }
 ```
 
-```bash
+```java
 public class Science implements ISubject {
 
     private LinkedList<String> subjects;
@@ -87,7 +87,7 @@ public class Science implements ISubject {
 
 ```
 
-```bash
+```java
 public class Arts implements ISubject {
 
     private String[] subjects;
@@ -131,7 +131,7 @@ public class Arts implements ISubject {
 }
 ```
 
-```bash
+```java
 public class IteratorPattern {
 
     public static void main(String[] args) {

@@ -19,7 +19,7 @@ creation of multiple instances of a complex object (heavy object) is very costly
 create multiple proxy objects (which must point to an original object) and the total creation of actual objects
 can be carried out on a demand basis. Thus we can save both the memory and creational time.
 
-```bash
+```java
 public class ConcreteSubject extends Subject {
 
     @Override
@@ -30,7 +30,7 @@ public class ConcreteSubject extends Subject {
 ```
 
 
-```bash
+```java
 public class Proxy extends Subject {
     
     ConcreteSubject cs;
@@ -47,14 +47,14 @@ public class Proxy extends Subject {
 ```
 
 
-```bash
+```java
 public abstract class Subject {
     public abstract void doSomeWork();
 }
 ```
 
 
-```bash
+```java
 class ProxyDesignPattern {
     public static void main(String[] args) {
         Proxy px = new Proxy();

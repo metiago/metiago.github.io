@@ -9,7 +9,7 @@ category: Dev
 
 Implementation example of merge sort algorithm using Java
 
-```bash
+```java
 
 import java.util.Arrays;
 

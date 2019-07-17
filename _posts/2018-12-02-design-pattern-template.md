@@ -23,7 +23,7 @@ concentrations. Later, additional papers are added in his/her course based on hi
 (Computer Science, Electronics, etc.).
 
 
-```bash
+```java
 public abstract class BasicEngineering {
 
     public void Papers() {
@@ -44,7 +44,7 @@ public abstract class BasicEngineering {
 }
 ```
 
-```bash
+```java
 public class ComputerScience extends BasicEngineering {
 
     @Override
@@ -55,7 +55,7 @@ public class ComputerScience extends BasicEngineering {
 
 ```
 
-```bash
+```java
 public class Electronics extends BasicEngineering {
 
     @Override
@@ -65,7 +65,7 @@ public class Electronics extends BasicEngineering {
 }
 ```
 
-```bash
+```java
 public class TemplateMethodPatternEx {
 
     public static void main(String[] args) {

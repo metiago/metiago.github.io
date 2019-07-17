@@ -9,7 +9,7 @@ category: Dev
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. This algorithm has a time complexity of O(n2)
 
-```bash
+```java
 
 package main
 
