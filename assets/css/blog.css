@@ -1,7 +1,7 @@
 body {
-  background-color: #F0F7EF;
+  background-color: #ffffff;
   font-size: 20px;
-  color: #4F6699;
+  color: #003459;
   font-family: cm,Georgia,serif;
 }
 p {
@@ -63,20 +63,20 @@ img::-moz-selection {
 }
 #mainNav {
   position: absolute;
-  border-bottom: 1px solid #e9ecef;
-  background-color: #fff;
+  border-bottom: 1px solid #000;
+  background-color: #ffffff;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #mainNav .navbar-brand {
   font-weight: 800;
-  color: #343a40;
+  color: #ffffff;
 }
 #mainNav .navbar-toggler {
   font-size: 12px;
   font-weight: 800;
   padding: 13px;
   text-transform: uppercase;
-  color: #343a40;
+  color: #ffffff;
 }
 #mainNav .navbar-nav > li.nav-item > a {
   font-size: 12px;
@@ -371,7 +371,7 @@ footer .copyright {
 /* CUSTOM */
 
 .navbar {
-  background-color: #F0F7EF;
+  background-color: ##FFFFFF;
   color: #FFFFFF;
   -moz-box-shadow: 0 0 10px -2px #000;
   -webkit-box-shadow: 0 0 10px -2px #000;
