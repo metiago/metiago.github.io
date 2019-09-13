@@ -55,18 +55,18 @@ this.http.get<any>('https://mybackendapi.com/v2/search?q=javascriptscript').subs
 
 #### Post request 
 ```javascript
-this.http.post<Post>(`${config.API_URL}/posts`, JSON.stringify(post)).subscribe(() => console.log("do something"));
+this.http.post<Post>(`${config.API_URL}/posts`, JSON.stringify(post)).subscribe(() => console.log("ok"));
 ```
 
 #### Put request 
-#### 
+
 ```javascript
-this.http.put<Post>(`${config.API_URL}/posts`, JSON.stringify(post)).subscribe(() => console.log("do something"));
+this.http.put<Post>(`${config.API_URL}/posts`, JSON.stringify(post)).subscribe(() => console.log("ok"));
 ```
 
 #### Delete request
 ```javascript
-this.http.delete<Post>(`${this.API_URL}/${key}`).subscribe(() => console.log("do something"));
+this.http.delete<Post>(`${this.API_URL}/${key}`).subscribe(() => console.log("ok"));
 ```
 
 
