@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Python – Lists
-date:   2019-04-19 20:18:00 +0100
+date:   2019-05-03 20:18:00 +0100
 category: Dev
 ---
 
