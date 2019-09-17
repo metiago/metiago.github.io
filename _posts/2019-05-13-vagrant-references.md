@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Vagrant References
-date:   2019-05-11 20:18:00 +0100
+date:   2019-05-12 20:18:00 +0100
 category: Dev
 ---
 
