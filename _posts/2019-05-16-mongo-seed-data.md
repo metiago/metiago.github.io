@@ -20,6 +20,7 @@ CMD python3 /seedMongo.py
 
 2. Create a docker-compose.yml
 ```bash
+
 version: '3'
 services:
   mongo:
@@ -37,6 +38,7 @@ services:
       - "8081:8081"
     depends_on:
       - mongo
+
 ```
 
 3. Create a Python file called seedMongo.py
