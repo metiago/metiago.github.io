@@ -5,7 +5,7 @@ date:   2019-06-12 20:18:00 +0100
 category: Dev
 ---
 
-## Node JS SSL Deployment
+## Python Guess Game
 
 In this simple example, I'm posting a simple Python guessing game to demostrate how to use the random module.
 
