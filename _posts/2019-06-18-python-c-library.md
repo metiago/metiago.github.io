@@ -84,7 +84,7 @@ gcc -shared hello.o -o hello.dll
 import sys
 import ctypes, ctypes.util
 
-lib_path = ctypes.util.find_library("C:/Users/ctw00244/Desktop/py-c/hello.dll")
+lib_path = ctypes.util.find_library("C:/Users/tiago/Desktop/py-c/hello.dll")
 if not lib_path:
     print("Unable to find the specified library.")
     sys.exit()
