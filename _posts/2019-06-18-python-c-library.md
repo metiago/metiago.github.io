@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Python - Random Game
+title:  Python - C and C++ libraries with ctypes
 date:   2019-06-18 20:18:00 +0100
 category: Dev
 ---
