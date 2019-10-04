@@ -35,7 +35,8 @@ import requests
 
 
 def authorize():
-    ''' This method is responsible to get a JWT from the authorization endpoint '''    
+    ''' This method is responsible to get a JWT from the authorization endpoint '''
+
     res = requests.post("https://54.93.95.128/manage/v1/users/login", data={"username":"admin","password":"fa39d424037d94cb4efcbfd5e4b05b9e6a8bb91c"}, verify=False)
     headers = res.headers
     return headers['Access-Token']
@@ -43,6 +44,7 @@ def authorize():
 
 def get_total_records(token):
     ''' This method is responsible to fetch all vehicles for the first page '''
+
     cookies = {'Access-Token': token}
     res = requests.get("https://54.93.95.128/manage/v1/vehicles?page=0&page_size=10", verify=False, cookies=cookies)
     json_response = res.json()
@@ -51,6 +53,7 @@ def get_total_records(token):
 
 def poll_vin(token, total_records):
     ''' This method is recursivly called to get date from all pages '''
+    
     cookies = {'Access-Token': token}
     page = 0
     pages = math.ceil(total_records / 10)
@@ -67,9 +70,13 @@ def poll_vin(token, total_records):
 
 def post_vin(number):
     '''This method do a post request to another API in order to persit vehicles information in block-chain.'''
+    
     headers = {'Content-Type': 'application/json'}    
-    data = dict(vin=number, status=True)
-    res = requests.post("http://pyg.westeurope.cloudapp.azure.com:8080/api/v1/b2c/ethereum/usersConsent", headers=headers, data=json.dumps(data))
+    data = dict(vin=number, status=True)    
+    res = requests.post("http://pyg.westeurope.cloudapp.azure.com:8080/api/v1/b2c/ethereum/usersConsent", 
+                        headers=headers, 
+                        data=json.dumps(data))
+
     if res.status_code == 200:
         print("{} has been sent successfully".format(number))
     else:
