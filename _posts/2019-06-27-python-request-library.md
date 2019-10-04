@@ -24,6 +24,8 @@ source venv\bin\activate
 pip install requests
 ```
 
+Now we are ready to implement our code, as demonstrated below.
+
 ```python
 import time
 import math
