@@ -1,14 +1,15 @@
 ---
 layout: default
-title:  Python - Standard Library Examples
+title:  Python - Handle File Examples
 date:   2019-06-27 20:18:00 +0100
 category: Dev
 ---
 
 ## Python Standard Library Examples
 
-In this post, I'm going to share a simple example to manipulate files with Python standard library, these libraries are called
-`shutil` and `path` respectively, follow below a self-explanatory code.
+In this post, I'm going to share examples of how to handle files with Python standard library.
+
+Follow below a self-explanatory code.
 
 ```python
 import shutil
