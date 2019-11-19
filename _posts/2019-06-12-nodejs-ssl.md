@@ -55,7 +55,7 @@ pm2 flush (Clear logs)
 # To make sure app starts when reboot
 pm2 startup ubuntu
 ```
-##### You should now be able to access your app using your IP and port. Now we want to setup a firewall blocking that port and setup NGINX as a reverse proxy so we can access it directly using port 80 (http)
+You should now be able to access your app using your IP and port. Now we want to setup a firewall blocking that port and setup NGINX as a reverse proxy so we can access it directly using port 80 (http)
 
 #### 7. Setup ufw firewall
 ```bash
@@ -94,7 +94,7 @@ sudo nginx -t
 sudo service restart nginx
 ```
 
-#### You should now be able to visit your IP with no port (port 80) and see your app. Now let's add a domain
+You should now be able to visit your IP with no port (port 80) and see your app. Now let's add a domain
 
 #### 9. Add domain in Digital Ocean
 In Digital Ocean, go to networking and add a domain
