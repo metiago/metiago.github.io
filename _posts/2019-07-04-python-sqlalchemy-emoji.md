@@ -10,7 +10,7 @@ category: Dev
 Today, I'm going to share a possibly useful solution to persist unicode string in MySQL using SQLAlchemy ORM.
 
 
-## Example 
+## Example
 
 In order to persist unicode string inside MySQL database, we need to register a SQLAlchemy event listener during the connection phase.
 Basically it will change the database table collate to `UTF8MB4` and adapt the cursor to save unicode data.
