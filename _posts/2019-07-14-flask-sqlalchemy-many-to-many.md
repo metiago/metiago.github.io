@@ -17,7 +17,7 @@ This example simulate a relationship like, many people have many chat histories.
 ```python
 
 class PersonChat(db.Model):
-    __tablename__ = "person_chat_history"
+    __tablename__ = "person_chat"
     id = db.Column(db.Integer, primary_key=True)
     person_id = db.Column(db.Integer)
     chat_history_id = db.Column(db.Integer)
