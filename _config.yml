@@ -1,6 +1,6 @@
 title: 
 logo: /assets/img/logo.png
-description: A simple blog about programming
+# description: A simple blog about programming
 show_downloads: false
 
 plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch]
