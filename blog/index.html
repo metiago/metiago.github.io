@@ -3,17 +3,12 @@ layout: default
 title: 
 pagination:
   enabled: true
+  per_page: 6
+  offset: 2
 ---
 {% seo %}
 
-<!-- Search Bar -->
-<div id="search-container">
-  <input type="text" id="search-input" placeholder=" search..." />
-  <p id="results-container"> </p>
-  <hr/>
-</div>
-
-{% for post in site.posts %}
+{% for post in paginator.posts %}
     <a href="{{ post.url }}">
       <h4> {{ post.title }}  </h4>
       <small> {{ post.date | date_to_string }} </small>
@@ -22,13 +17,13 @@ pagination:
 {% endfor %}
 
 <!-- Paginator -->
-<!-- <div class="pagination">
+<div class="pagination">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}" class="btn btn-primary">
       Previous
     </a>
-  {% else %}
-    <span class="btn t-disabled" aria-disabled="true">Previous</span>
+  {% else %}    
+    <span class="btn btn-secondary">Previous</span>
   {% endif %}
   <span class="page_number">
     Page: {{ paginator.page }} of {{ paginator.total_pages }}
@@ -38,19 +33,4 @@ pagination:
   {% else %}
     <span class="btn t-disabled" aria-disabled="true">Next</span>
   {% endif %}
-</div> -->
-
-<!-- Search Configuration Scripts -->
-<script src="{{site.github.url}}/assets/js/simple-jekyll-search.min.js" type="text/javascript"></script>
-<script>
-  window.simpleJekyllSearch = new SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '{{site.github.url}}/search.json',
-        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
-        noResultsText: 'No results found',
-        limit: 10,
-        fuzzy: false,
-        exclude: ['Welcome']
-      })
-</script>
+</div>
