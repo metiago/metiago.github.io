@@ -21,46 +21,27 @@ import java.util.Objects;
 
 public class ArrayChunk {
 
+    private static final int NUM_OF_CHUNKS = 4;
+
+    private static final List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 30, 40, 50, 60, 70, 80);
+
     public static void main(final String... argvs) {
 
-        final List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 6);
+        final List<List<Integer>> result = new ArrayList<>();
 
-        final int index = arr.size() / 2;
+        final AtomicInteger counter = new AtomicInteger();
 
-        List<int[]> result = get_chuncks(arr, index);
+        for (final int number : arr) {
 
-        for (int[] is : result) {
-            
-            for (int i = 0; i < is.length; i++) {
-                System.out.println(is[i]);
+            if (counter.getAndIncrement() % NUM_OF_CHUNKS == 0) {
+                result.add(new ArrayList<>());
             }
+            result.get(result.size() - 1).add(number);
         }
+
+        System.out.println(result);
     }
-
-    private static List<int[]> get_chuncks(final List<Integer> list, int index) {
-
-        final List<int[]> result = new ArrayList<>();
-
-        int[] primitive = list.stream().filter(Objects::nonNull).mapToInt(Integer::intValue).toArray();
-
-        for (int i = 0; i <= primitive.length; i++) {
-            
-            if(i > 0) {
-                i = index;
-                index = index * 2;
-            }
-
-            if(index > primitive.length) {
-                break;
-            }
-
-            int[] slice = Arrays.copyOfRange(primitive, i, index);
-            
-            result.add(slice);
-        }		
-
-        return result;
-    }
+    
 }
 
 ```
