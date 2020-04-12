@@ -58,7 +58,7 @@ func load(data interface{}, filename string) {
 }
 
 func main() {
-	post := Post{Id: 1, Content: "Hello World!", Author: "Sau Sheong"}
+	post := Post{Id: 1, Content: "Hello World!", Author: "Ziggy"}
 	store(post, "post1")
 	var postRead Post
 	load(&postRead, "post1")
