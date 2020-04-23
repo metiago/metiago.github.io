@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Bubble Sort in Go
+title:  Bubble Sort - Java
 date:   2018-08-27 20:18:00 +0100
 category: Dev
 ---
@@ -11,71 +11,53 @@ Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping 
 
 ```java
 
-package main
+public class BubbleSort{
 
-import (
-	"fmt"
-)
+    static int[] data = new int[6];
 
-func main() {
-	arr := []int{123, 3, 72, 12, 65, 88, 24, 57, 93, 101}
-	ascResult := bubbleSortOrderAsc(arr)
-	fmt.Println(ascResult)
-	descResult := bubbleSortOrderDesc(arr)
-	fmt.Println(descResult)
+    public static void main(String[] args) {
+        data[0] = 5;
+        data[1] = 3;
+        data[2] = 6;
+        data[3] = 4;
+        data[4] = 2;
+        data[5] = 1;
+        
+        bubbleSort(data);
+        
+        for (int i = 0; i < data.length; i++) {
+            System.out.println(data[i]);
+        }
+    }
+
+    public static void bubbleSort(int[] array) {
+
+        boolean isSorted = false;
+        int lastUnsorted = array.length - 1;
+
+        while(!isSorted) {
+            
+            isSorted = true;
+            
+            for(int i = 0; i <= lastUnsorted - 1; i++) {
+                
+                if(array[i] > array[i + 1]) {
+                    swap(array, i, i + 1);
+                    isSorted = false;
+                } 
+            }
+
+            lastUnsorted--;
+        }
+    }
+
+    public static void swap(int[] array, int i, int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
 }
 
-func bubbleSortOrderAsc(arr []int) []int {
 
-	if len(arr) <= 1 {
-		panic("The array must be greater than 0")
-	}
-
-	var flag = true
-	var swap int
-
-	for flag {
-
-		flag = false
-
-		for i := 0; i < len(arr)-1; i++ {
-
-			if arr[i+1] < arr[i] {
-				swap = arr[i]
-				arr[i] = arr[i+1]
-				arr[i+1] = swap
-				flag = true
-			}
-		}
-	}
-
-	return arr
-}
-
-func bubbleSortOrderDesc(arr []int) []int {
-
-	if len(arr) <= 1 {
-		panic("The array must be greater than 0")
-	}
-
-	var flag = true
-	var temp int
-
-	for flag {
-
-		flag = false
-
-		for i := 0; i < len(arr)-1; i++ {
-
-			if arr[i] < arr[i+1] {
-				temp = arr[i]
-				arr[i] = arr[i+1]
-				arr[i+1] = temp
-				flag = true
-			}
-		}
-	}
-
-	return arr
-}
 ```
