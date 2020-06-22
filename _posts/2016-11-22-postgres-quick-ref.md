@@ -10,6 +10,7 @@ category: Dev
 Simple reference to quick start working with Postgres SQL
 
 ```bash
+
 ### Create database
 
 -U postgres -A password -E utf8 -W -D C:\Users\tiago.ribeiro\Desktop\Java\pgsql\database
@@ -36,3 +37,5 @@ grant all privileges on database myproject to tiago;
 
 ### To log into db
 psql DBNAME USERNAME
+
+```
