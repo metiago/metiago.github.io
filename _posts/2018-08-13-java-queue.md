@@ -22,9 +22,9 @@ public class Queue {
         }
     }
 
-    private Node head; // Remove from the head
+    private Node head;
 
-    private Node tail; // Add to the tail
+    private Node tail;
 
     public boolean isEmpty() {
         return head == null;
