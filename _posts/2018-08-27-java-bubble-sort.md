@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Bubble Sort - Java
+title:  Bubble Sort in Java
 date:   2018-08-27 20:18:00 +0100
 category: Dev
 ---
@@ -11,22 +11,16 @@ Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping 
 
 ```java
 
-public class BubbleSort{
-
-    static int[] data = new int[6];
+public class BubbleSort {
 
     public static void main(String[] args) {
-        data[0] = 5;
-        data[1] = 3;
-        data[2] = 6;
-        data[3] = 4;
-        data[4] = 2;
-        data[5] = 1;
-        
-        bubbleSort(data);
-        
-        for (int i = 0; i < data.length; i++) {
-            System.out.println(data[i]);
+
+        int[] items = {9, 3, 72, 101, 12, 65, 1, 6, 57, 5, 2};
+
+        bubbleSort(items);
+
+        for (int i = 0; i < items.length; i++) {
+            System.out.println(items[i]);
         }
     }
 
@@ -36,15 +30,15 @@ public class BubbleSort{
         int lastUnsorted = array.length - 1;
 
         while(!isSorted) {
-            
+
             isSorted = true;
-            
+
             for(int i = 0; i <= lastUnsorted - 1; i++) {
-                
+
                 if(array[i] > array[i + 1]) {
                     swap(array, i, i + 1);
                     isSorted = false;
-                } 
+                }
             }
 
             lastUnsorted--;
@@ -56,7 +50,6 @@ public class BubbleSort{
         array[i] = array[j];
         array[j] = tmp;
     }
-
 }
 
 
