@@ -116,6 +116,59 @@ public class MainVerticle extends AbstractVerticle {
 
 ```
 
+```java
+import io.vertx.core.Vertx;
+import io.vertx.junit5.VertxExtension;
+import io.vertx.junit5.VertxTestContext;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+
+@ExtendWith(VertxExtension.class)
+public class TestMainVerticle {
+
+  private static final String ENDPOINT = "http://localhost:8888/api/logs";
+
+  private static final HttpClient httpClient = HttpClient.newBuilder()
+    .version(HttpClient.Version.HTTP_1_1)
+    .connectTimeout(Duration.ofSeconds(10))
+    .build();
+
+  @BeforeEach
+  void deploy_verticle(Vertx vertx, VertxTestContext testContext) {
+    vertx.deployVerticle(new MainVerticle(), testContext.succeeding(id -> testContext.completeNow()));
+  }
+
+  @Test
+  void post(Vertx vertx, VertxTestContext testContext) throws Throwable {
+    String json = new StringBuilder()
+      .append("{")
+      .append("\"author\":\"Tiago\",")
+      .append("\"message\":\"Testing VertX + Elasticsearch.\"")
+      .append("}").toString();
+
+    HttpRequest request = HttpRequest.newBuilder()
+      .POST(HttpRequest.BodyPublishers.ofString(json))
+      .uri(URI.create(ENDPOINT))
+      .setHeader("User-Agent", "Java Bot")
+      .header("Content-Type", "application/json")
+      .build();
+
+    HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+    assert response.statusCode() == 201;
+
+    testContext.completeNow();
+  }
+```
+
 #### 3. Testing
 
 ```bash
