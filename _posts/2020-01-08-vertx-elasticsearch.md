@@ -9,8 +9,6 @@ category: Dev
 
 This page contains an example of a "custom logging aggreagator" built with [Eclipse VertX](https://vertx.io/) [Elasticsearch](https://www.elastic.co/).
 
-The idea is to expose a Restful endpoint that receive generic json payloads indexing them in Elasticsearch.
-
 #### 1. Running Elasticsearch
 
 ```bash
