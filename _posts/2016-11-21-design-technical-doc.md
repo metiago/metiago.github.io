@@ -18,14 +18,14 @@ List stakeholders for project/feature.
 
 | Role					| Person			|
 |-----------------------|-------------------|
-| Dev Owner 			|					|
-| Other Dev 1 (Engine)	|					|
-| Other Dev 2 (Hub)		|					|
-| Product				|					|
-| Docs					|					|
-| QA					|					|
-| Program Management	|					|
-| UX					|					|
+| :Dev Owner: 			|					|
+| :Other Dev 1 (Engine):|					|
+| :Other Dev 2 (Hub):	|					|
+| :Product:				|					|
+| :Docs:				|					|
+| :QA:					|					|
+| :Program Management:	|					|
+| :UX:					|					|
 
 ## Problem Statement
 
