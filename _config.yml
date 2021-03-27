@@ -1,7 +1,7 @@
 layout: default
 title: Tiago S.
 logo: /assets/img/logo.png
-# description: A simple blog about programming
+description: Articles and references about Java, Python, Javascript and AWS.
 show_downloads: false
 
 plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch]
