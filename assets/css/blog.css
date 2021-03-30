@@ -30,9 +30,10 @@ a:hover {
   color: #65afff;
 }
 
-/* CUSTOM */
+.container-paginator {
+  margin-left: -10px;
+}
 
-.page_number {
-  margin: 5px;
-  font-size: 12px;
+.page-item {
+  margin-left: 10px;
 }

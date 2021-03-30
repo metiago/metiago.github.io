@@ -5,10 +5,32 @@ pagination:
   enabled: true
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
     <a href="{{ post.url }}">
       <h4> {{ post.title }}  </h4>
       <small> {{ post.date | date_to_string }} </small>
     </a>  
     <hr/>
 {% endfor %}
+
+ <!-- 
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+  -->
+  <div class="container-paginator">
+    
+  {% if paginator.total_pages > 1 %}
+  <ul class="pagination">
+      {% if paginator.previous_page %}
+      <li class="page-item">
+          <a class="btn btn-outline-primary" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Previous</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="page-item">
+          <a class="btn btn-outline-primary" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rarr;</a>
+      </li>
+      {% endif %}
+  </ul>
+  {% endif %}
+
+  </div>
