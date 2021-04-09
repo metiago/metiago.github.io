@@ -9,6 +9,10 @@ category: Dev
 In this simple docker reference, I'll show you some useful commands to manage docker images for development
 
 ```bash
+
+# Show log after 30 sec.
+docker logs --since 30s -f <container_name_or_id>
+
 # Show last 20 lines of the log file
 docker logs --tail 20 -f <image_id>
 
