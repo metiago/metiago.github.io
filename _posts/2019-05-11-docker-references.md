@@ -9,6 +9,9 @@ category: Dev
 In this simple docker reference, I'll show you some useful commands to manage docker images for development
 
 ```bash
+# Show last 20 lines of the log file
+docker logs --tail 20 -f <image_id>
+
 # Build a new image, it should be executed in the same folder which contains your custom Dockerfile
 docker build --rm --no-cache -t gitlab-vm .
 
