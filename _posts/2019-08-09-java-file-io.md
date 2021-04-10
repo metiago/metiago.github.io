@@ -10,7 +10,7 @@ category: Dev
 This example shows an implementation that I had to develop during my jurney as a software developer at TOTVS. 
 
 TOTVS is a Brazilian company that provide ERP systems for different banks around the world. It's pretty common to use file integration
-throgut the communication between legacy system e.g a power builder application and Java EE one.
+throught the communication between legacy system e.g a power builder application and Java EE one.
 
 
 ## Example
