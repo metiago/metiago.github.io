@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  Java 8 Lambdas and Streams
-date:   2016-07-11 20:18:00 +0100
+date:   2017-07-11 20:18:00 +0100
 category: Dev
 ---
 
