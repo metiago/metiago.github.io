@@ -1,39 +1,361 @@
+/* https://coolors.co/ffffff-00171f-003459-007ea7-00a8e8 */
+
+html {
+  margin: 0;
+}
+
 body {
-  font-family: 'Merriweather', serif;
-  color: #0E0F13;
-  background: #F8F6F7;
-  line-height: 2.0;
-  font-size: 16px;
-}
-
-main > .container {
-  padding: 10px 15px 0;
-}
-
-.footer {
-  background-color: #0E0F13;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  color: #00171F;
+  background-color: #FFFFFF;
+  overflow: auto !important;
 }
 
 a {
-  color: #1B2845;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  cursor: pointer;
 }
 
-a:focus,
-a:hover {
-  color: #65afff;
+
+nav {
+  color: #fff;
+  background-color: #003459 !important;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
 }
 
-.container-paginator {
-  margin-left: -10px;
+nav ul a {
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  font-size: 1rem;
+  color: #FFFFC7;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
-.page-item {
-  margin-left: 10px;
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.1rem;
+  padding: 0;
+  width: 265px !important;
+}
+
+nav .brand-logo img { 
+margin: 0.3em;
+height: 46px !important;
+width: 46px !important;  
+}
+
+.ctw-menu {
+margin-right: 10px;
+}
+
+.btn, .btn-large, .btn-small {
+  text-decoration: none;
+  color: #fff;
+  background-color: #00A8E8 !important;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  cursor: pointer;
+}
+
+.btn, .btn-large, .btn-small:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #04aff3 !important;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  cursor: pointer;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+  background-color: #F64939;
+}
+
+.modal .modal-content {
+  padding: 24px;
+  background-color: #007EA7 !important;
+}
+
+.modal h4 {  
+  color: #FFF !important;
+}
+
+.modal p {  
+  color: #FFF !important;
+}
+
+.validate {
+  color: #FFFFFF !important;
+}
+
+.input-field input:focus + label {
+  color: #FFFFFF !important;
+}
+
+.row .input-field input:focus {
+  border-bottom: 1px solid #FFFFFF !important;
+  box-shadow: 0 1px 0 0 #FFFFFF !important
+}
+
+.clazz-success {
+  background-color: #5cb85c;
+  font-weight: bold;
+}
+
+.clazz-warning {
+  background-color: #f57f17;
+  font-weight: bold;
+}
+
+.clazz-danger {
+  background-color: #c9302c;
+  font-weight: bold;
+}
+
+.sidenav {
+  position: fixed;
+  width: 300px;
+  left: 0;
+  top: 0;
+  margin: 0;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  height: 100%;
+  height: calc(100% + 60px);
+  height: -moz-calc(100%);
+  padding-bottom: 60px;
+  background-color: #003459 !important;
+  z-index: 999;
+  overflow-y: auto;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);
+}
+
+.sidenav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  height: 120vh;
+  background-color: rgba(0,0,0,0);
+  z-index: 997;
+  display: none;
+}
+
+.sidenav li>a {
+  color: #FFFFFF !important;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px;
+}
+
+.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  margin: 0 32px 0 0;
+  width: 24px;
+  color: #FFFFFF;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 16px;
+  color: #393E41;
+  display: block;
+  line-height: 22px;
+  padding: 14px 16px;
+}
+
+.select-wrapper input.select-dropdown {
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  height: 3rem;
+  line-height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  color: #FFFFFF;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 1;
+}
+
+input[type=range] {
+  border: 1px solid #FFFFFF;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF !important;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: box-shadow .3s, border .3s;
+}
+
+.input-field>label {
+  color: #FFFFFF !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  cursor: text;
+  transition: transform .2s ease-out, color .2s ease-out;
+  transform-origin: 0% 100%;
+  text-align: initial;
+  transform: translateY(12px);
+}
+
+.toast-success {
+  color: #3c763d !important;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+}
+
+.toast-info {
+  color: #31708f !important;
+  background-color: #d9edf7 !important;
+  border-color: #bce8f1 !important;
+}
+
+.toast-danger {
+  color: #a94442 !important;
+  background-color: #f2dede !important;
+  border-color: #ebccd1 !important;
+}
+
+.toast-warning {
+  color: #8a6d3b !important;
+  background-color: #fcf8e3 !important;
+  border-color: #faebcc !important;
+}
+
+.mt-dt-icon {
+  margin-right: 20px;
+}
+
+.mt-dt-color {
+  color: #007EA7;
+}
+
+.card {
+  position: relative;
+  margin: .5rem 0 1rem 0;
+  background-color: #007EA7 !important;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.wallet-wordwrap {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.input-field input:focus + label {
+  color: #04aff3 !important;
+}
+
+.row .input-field input:focus {
+  border-bottom: 1px solid #04aff3 !important;
+  box-shadow: 0 1px 0 0 #04aff3 !important;
+}
+
+.validate {
+  color: #04aff3 !important;
+}
+
+.input-field input:focus + label {
+  color: #04aff3 !important;
+}
+
+.row .input-field input:focus {
+  border-bottom: 1px solid #04aff3 !important;
+  box-shadow: 0 1px 0 0 #04aff3 !important;
+}
+
+input[type="range"] {
+  border: 1px solid #04aff3;
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="url"]:not(.browser-default),
+input[type="time"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="datetime"]:not(.browser-default),
+input[type="datetime-local"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+input[type="number"]:not(.browser-default),
+input[type="search"]:not(.browser-default),
+textarea.materialize-textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #04aff3 !important;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+.input-field > label {
+  color: #04aff3 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transform-origin: 0% 100%;
+  text-align: initial;
+  transform: translateY(12px);
 }
