@@ -46,7 +46,7 @@ layout: default
       <nav>
         <div class="container">
           <div class="nav-wrapper">
-            <a href="/" class="brand-logo center">Souza</a>
+            <a href="/" class="brand-logo center">SOUZA</a>
             <ul class="right hide-on-med-and-down">
               <!-- <li><a href="/"><i class="material-icons">home</i></a></li> -->
             </ul>
@@ -56,19 +56,34 @@ layout: default
     </div>
   </header>
 
-  <main role="main" class="flex-shrink-0">
+  <main>
 
     <div class="container">
 
-      <div class="input-field col s6">
-        <input id="search-input" type="text" class="validate">
-        <label for="search-input">Search</label>
-      </div>
-      <div class="input-field col s6">
-        <p id="results-container"> </p>
+      <div class="row">
+        
+        <div class="input-field col s12">
+          <input id="search-input" type="text" class="validate">
+          <label for="search-input">Search</label>
+        </div>
+
       </div>
 
-      {{ content }}
+      <div class="row">
+        <div class="input-field col s12">
+          <p id="results-container"> </p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col s12">
+
+          {{ content }}
+
+        </div>
+
+      </div>
 
     </div>
 
