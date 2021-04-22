@@ -20,3 +20,4 @@ pagination:
 
 whitelist:
   - jekyll-paginate-v2
+  - jekyll-sitemap
