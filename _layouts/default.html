@@ -45,33 +45,22 @@ layout: default
     </div>
   </header>
 
-  <!-- <form class="form-inline">
-    <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  </form> -->
-
   <main role="main" class="flex-shrink-0">
-    
-    <div class="container">
-      
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="search-input" type="text" class="validate">
-              <label for="search-input">Search</label>
-            </div>
-          </div>
-        </form>
-      </div>
 
-      <div id="search-container" class="search-container">
+    <div class="container">
+
+      <div class="input-field col s6">
+        <input id="search-input" type="text" class="validate">
+        <label for="search-input">Search</label>
+      </div>
+      <div class="input-field col s6">
         <p id="results-container"> </p>
       </div>
 
-      <div class="main-box">
-        {{ content }}
-      </div>
+      {{ content }}
+
     </div>
+
   </main>
 
   <!-- Search Configuration Scripts -->
