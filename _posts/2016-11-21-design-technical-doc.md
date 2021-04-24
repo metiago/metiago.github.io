@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Designing Technical Documents
 date:   2016-12-21 20:18:00 +0100
 category: Dev
+tags: architecture
 ---
 
 #### Designing Technical Documents

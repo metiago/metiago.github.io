@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Linear Searching in Java - Minor Element
 date:   2019-12-06 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Linear Search

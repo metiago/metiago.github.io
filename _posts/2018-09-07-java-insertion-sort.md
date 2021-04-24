@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Insertion Sort in Java
 date:   2018-09-07 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Insertion Sort

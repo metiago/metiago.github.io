@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Linear Searching in Java
 date:   2018-06-26 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Linear Search

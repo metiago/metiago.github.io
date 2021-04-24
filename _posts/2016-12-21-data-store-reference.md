@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Data Store Reference
 date:   2016-12-21 20:18:00 +0100
 category: Dev
+tags: architecture databases
 ---
 
 ## Reference guide for data stores

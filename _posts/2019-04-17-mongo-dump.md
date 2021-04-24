@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  MongoDB - How to backup and restore a database
 date:   2019-04-17 20:18:00 +0100
 category: Dev
+tags: mongodb databases
 ---
 
 #### Backup MongoDB database using date for the folder name

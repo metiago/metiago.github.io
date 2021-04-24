@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  UFW Linux Firewall 
 date:   2018-09-03 20:18:00 +0100
 category: Dev
+tags: os linux firewall
 ---
 
 ## UFW - Linux Firewall

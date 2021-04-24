@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Bubble Sort in Java
 date:   2018-08-27 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Bubble Sort

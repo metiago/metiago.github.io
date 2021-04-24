@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Strategy
 date:   2018-12-06 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Strategy Design Pattern

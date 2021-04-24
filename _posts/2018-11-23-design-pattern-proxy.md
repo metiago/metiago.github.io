@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Proxy
 date:   2018-11-23 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Proxy Design Pattern

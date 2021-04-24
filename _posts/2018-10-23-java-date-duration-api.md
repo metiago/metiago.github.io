@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Date Api - Duration
 date:   2018-10-23 20:18:00 +0100
 category: Dev
+tags: algorithm java
 ---
 
 ## Java Date API (Duration) - JDK 8+

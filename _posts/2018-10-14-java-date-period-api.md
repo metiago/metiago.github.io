@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  Java Date Api - Period
 date:   2018-10-09 20:18:00 +0100
 category: Dev

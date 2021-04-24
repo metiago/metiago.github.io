@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Docker References
 date:   2019-05-11 20:18:00 +0100
 category: Dev
+tags: docker containers design
 ---
 
 ## Docker Command References

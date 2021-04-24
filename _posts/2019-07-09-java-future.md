@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - Completable Futures
 date:   2019-07-09 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure java
 ---
 
 ## Java - Completable Futures

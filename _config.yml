@@ -2,9 +2,10 @@ layout: default
 title: Tiago Souza
 logo: /assets/img/logo.png
 description: Articles and references about Java, Python, Javascript and AWS.
-show_downloads: false
+tagline: 'Tiago Souza'
+url: "https://metiago.github.io/"
 
-url: "https://metiago.github.io/archive/"
+
 plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch, jekyll-sitemap]
 
 # Pagination Settings

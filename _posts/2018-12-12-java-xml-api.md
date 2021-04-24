@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - XML API
 date:   2018-12-12 20:18:00 +0100
 category: Dev
+tags: java xml
 ---
 
 ## Java - Java - XML API

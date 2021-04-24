@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  String to Date in Java
 date:   2018-10-09 20:18:00 +0100
 category: Dev
+tags: algorithm java 
 ---
 
 ## String to Date Java - JDK 8+

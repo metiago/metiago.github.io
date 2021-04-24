@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - File API
 date:   2019-08-09 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure java
 ---
 
 ## Java File API

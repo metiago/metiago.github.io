@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title: Java - Apache Camel
 date: 2017-02-08 20:18:00 +0100
 category: Dev
+tags: apache camel java
 ---
 
 ## Java - Apache Camel

@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Factory
 date:   2019-03-22 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Factory Design Pattern

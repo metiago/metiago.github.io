@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Binary Searching in Java
 date:   2018-07-16 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Binary Search

@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  PostgreSQL CTE
 date:   2019-11-19 20:18:00 +0100
 category: Dev
+tags: postgres databases
 ---
 
 ## PostgreSQL CTE

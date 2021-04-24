@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java ZeroMQ Example
 date:   2018-12-03 20:18:00 +0100
 category: Dev
+tags: zeomq java
 ---
 
 ## Java ZeroMQ Example

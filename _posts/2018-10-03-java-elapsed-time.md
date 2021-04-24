@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Elapsed Time in Java
 date:   2018-10-03 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Elapsed Time in Java - JDK 8+

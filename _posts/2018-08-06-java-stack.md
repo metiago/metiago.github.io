@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Data Structure in Java - Stack
 date:   2018-08-06 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Stack

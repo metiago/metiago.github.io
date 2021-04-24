@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Iterator
 date:   2019-02-02 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Iterator Design Pattern

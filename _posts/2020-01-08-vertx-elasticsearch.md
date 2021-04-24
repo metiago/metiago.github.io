@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Elasticsearch + VertX
 date:   2020-01-08 20:18:00 +0100
 category: Dev
+tags: vertx java elasticsearch
 ---
 
 ## Intro

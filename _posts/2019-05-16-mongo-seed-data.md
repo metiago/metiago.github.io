@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Mongo DB Seed Data
 date:   2019-05-16 20:18:00 +0100
 category: Dev
+tags: mongodb databases design
 ---
 
 ## Mongo DB Seed Data

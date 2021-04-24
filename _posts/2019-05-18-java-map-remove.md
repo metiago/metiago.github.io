@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - Remove Map Element
 date:   2019-07-09 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Java - Remove Map Element 

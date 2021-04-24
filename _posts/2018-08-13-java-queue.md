@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Data Structure in Java - Queue
 date:   2018-08-13 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Queue

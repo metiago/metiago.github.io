@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Singleton
 date:   2018-11-22 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Singleton Design Pattern

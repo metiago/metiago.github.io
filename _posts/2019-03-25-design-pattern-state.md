@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - State
 date:   2019-03-25 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## State Design Pattern

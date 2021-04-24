@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - Create CSV File
 date:   2018-12-05 20:18:00 +0100
 category: Dev
+tags: java csv
 ---
 
 ## Java - Create CSV File

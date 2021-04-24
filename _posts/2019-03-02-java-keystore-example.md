@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java JDK Key Tool
 date:   2019-03-02 20:18:00 +0100
 category: Dev
+tags: java keystore
 ---
 
 ## Java Key Tool Command References

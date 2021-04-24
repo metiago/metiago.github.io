@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Design Pattern - Facade
 date:   2019-02-15 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Facade Design Pattern

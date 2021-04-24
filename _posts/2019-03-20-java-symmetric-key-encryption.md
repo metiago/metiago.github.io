@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Symmetric Key Encryption
 date:   2019-03-20 20:18:00 +0100
 category: Dev
+tags: algorithm java encryption
 ---
 
 ## Symmetric Key Encryption

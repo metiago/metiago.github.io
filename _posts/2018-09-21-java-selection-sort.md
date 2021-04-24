@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Selection Sort in Java
 date:   2018-09-21 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Selection Sort

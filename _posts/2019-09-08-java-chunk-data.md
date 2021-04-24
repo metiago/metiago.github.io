@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java - Chunk Data
 date:   2019-09-08 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure java
 ---
 
 ## Java - Chunk Data

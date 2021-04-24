@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Set up MySQL 8 in AWS EC2
 date:   2018-12-05 20:18:00 +0100
 category: Dev
+tags: aws mysql databases
 ---
 
 ## MySQL 8 + AWS EC2

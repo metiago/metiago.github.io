@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java NIO Append Example
 date:   2020-01-06 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure design
 ---
 
 ## Intro

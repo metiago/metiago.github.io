@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Merge Sort Java
 date:   2018-08-17 20:18:00 +0100
 category: Dev
+tags: algorithm datastructure
 ---
 
 ## Merge Sort

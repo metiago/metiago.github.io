@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Java Key Store JKS
 date:   2017-06-04 20:18:00 +0100
 category: Dev
+tags: java keystore certificates
 ---
 
 #### Java Key Store JKS

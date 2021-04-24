@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Postgres Quick Ref
 date:   2016-11-22 20:18:00 +0100
 category: Dev
+tags: postgres databases
 ---
 
 ## Postgres Quick Ref

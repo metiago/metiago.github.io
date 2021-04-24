@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title:  Linux – Listing used ports
 date:   2019-08-18 20:18:00 +0100
 category: Dev
+tags: os linux
 ---
 
 ## Linux – Listing used ports
