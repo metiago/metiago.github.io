@@ -6,8 +6,6 @@ category: Dev
 tags: apache camel java
 ---
 
-## Java - Apache Camel
-
 ## What is Camel ?
 
 Camel is an integration framework that aims to make your integration projects productive and fun.
