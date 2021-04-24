@@ -6,10 +6,6 @@ category: Dev
 tags: apache camel java
 ---
 
-## What is Camel ?
-
-I wrote a brief introduction about Apache Camel in this [post](2017-02-08-java-apache-camel.md)
-
 ## XML Example
 
 When working with heterogeneous systems sometimes we need to integrate them using an XML file.
