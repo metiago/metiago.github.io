@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - Apache Camel
+title: Java - Apache Camel FTP
 date: 2017-02-08 20:18:00 +0100
 category: Dev
 tags: apache camel java

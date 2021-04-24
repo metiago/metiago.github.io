@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - Apache Camel
+title: Java - Apache Camel XML
 date: 2017-02-12 20:18:00 +0100
 category: Dev
 tags: apache camel java
@@ -16,7 +16,8 @@ When working with heterogeneous systems sometimes we need to integrate them usin
 
 Today we are going to implement a simple how-to, using Camel XML features to read a XML file from one directory and save it in another one.
 
-Save this XML below as `animal.xml` in a directory called `data/inbox` in the root folder of your Java project.
+Save this XML below as `animal.xml` in a directory called `data/inbox` in the root folder of your Java project. This XML represents a list of
+animals with some metadata.
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <animals>
@@ -821,6 +822,126 @@ Save this XML below as `animal.xml` in a directory called `data/inbox` in the ro
         <age>28</age>
     </animal>
 </animals>
+```
+
+Here we have our JAXB mapped classes representing the XML above:
+
+```java
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Animal implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @XmlElement
+    private int id;
+    @XmlElement
+    private String scientificName;
+    @XmlElement
+    private String status;
+    @XmlElement
+    private String veterinarian;
+    @XmlElement
+    private Date created;
+    @XmlElement
+    private int age;
+
+    public Animal() {
+    }
+
+    public Animal(int id, String scientificName, String status, String veterinarian, Date created, int age) {
+        this.id = id;
+        this.scientificName = scientificName;
+        this.status = status;
+        this.veterinarian = veterinarian;
+        this.created = created;
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getVeterinarian() {
+        return veterinarian;
+    }
+
+    public void setVeterinarian(String veterinarian) {
+        this.veterinarian = veterinarian;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
+
+```java
+import java.io.Serializable;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Animals implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
+    @XmlElement(name = "animal")
+    private List<Animal> animals;
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
+    }
+}
 ```
 
 
