@@ -833,15 +833,15 @@ import org.apache.camel.builder.RouteBuilder;
 
 public class XmlRouter extends RouteBuilder {
 
-    @Override
-    public void configure() {
-        from("direct:author")
-                .log("Find all authors")
-                .split().tokenizeXML("author")
-                .streaming()
-                .log("${body} split size: ${header.CamelSplitSize}")
-                .end();
-    }
+    JAXBContext context = JAXBContext.newInstance(new Class[]{io.tiago.feed.Animals.class});
+    JaxbDataFormat xmlDataFormat = new JaxbDataFormat();
+    xmlDataFormat.setContext(context);
+
+    from(INBOX).doTry().unmarshal(xmlDataFormat)
+            .split().tokenizeXML("status")
+            .streaming()
+            .to("file://data/outbox")
+            .end();
 }
 ```
 
@@ -867,5 +867,5 @@ public class App {
 }
 ```
 
-[Apache Camel](https://camel.apache.org/) to read/write a tabular file. Camel DSL contains a rich API which can
-provide you enough power to integrate different systems writing less and clean code.
+Apache Camel has many built-in component to handle XML easily I would recommend to take a look at [Camel Documentation](https://camel.apache.org/docs/)
+to get know more about its API.
