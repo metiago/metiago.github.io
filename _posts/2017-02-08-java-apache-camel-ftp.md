@@ -6,14 +6,14 @@ category: Dev
 tags: apache camel java
 ---
 
-## What is Camel ?
+#### What is Camel ?
 
 Camel is an integration framework that aims to make your integration projects productive and fun.
 
 Camel offers higher-level abstractions that allow you to interact with various systems
 by using the same API regardless of the protocol or data type the systems are using. Components in Camel provide specific implementations of the API that target differ-ent protocols and data types using enterprise application patterns (EAP).
 
-## FTP Example
+#### Example
 
 This example below demonstrate how to fetch Apache Zookeeper from an FTP server to a folder in our local machine.
 

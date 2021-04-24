@@ -6,11 +6,12 @@ category: Dev
 tags: apache camel java
 ---
 
-## XML Example
+#### Introduction
 
 When working with heterogeneous systems sometimes we need to integrate them using an XML file.
-
 Today we are going to implement a simple how-to, using Camel XML features to read a XML file from one directory and save it in another one.
+
+#### Example
 
 Save this XML below as `animal.xml` in a directory called `data/inbox` in the root folder of your Java project. This XML represents a list of
 animals with some metadata.
