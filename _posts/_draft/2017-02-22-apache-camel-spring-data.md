@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Java - Apache Camel Filter
-date: 2017-02-20 20:18:00 +0100
+title: Java - Apache Camel & Spring Data
+date: 2017-02-22 20:18:00 +0100
 category: Dev
 tags: apache camel java
 ---
