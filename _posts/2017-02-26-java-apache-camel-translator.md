@@ -110,7 +110,10 @@ public class JmsRouter extends RouteBuilder {
                 .to("direct:c");
 
         from("direct:xml")
-                .errorHandler(deadLetterChannel("direct:error").maximumRedeliveries(2).logHandled(true).logExhaustedMessageHistory(true))
+                .errorHandler(deadLetterChannel("direct:error")
+                .maximumRedeliveries(2)
+                .logHandled(true)
+                .logExhaustedMessageHistory(true))
                 .bean(new XmlTranslator(), "xmlToObject")
                 .split(simple("body"))
                 .log("Sending xml data to queue...")
