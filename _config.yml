@@ -8,17 +8,6 @@ url: "https://metiago.github.io/"
 
 plugins: [jekyll-seo-tag, jekyll-paginate-v2, jekyll-watch, jekyll-sitemap]
 
-# Pagination Settings
-pagination:
-  enabled: true
-  per_page: 6
-  offset: 2
-  permalink: '/page/:num/'
-  title: ':title - page :num of :max'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-
 whitelist:
   - jekyll-paginate-v2
   - jekyll-sitemap
