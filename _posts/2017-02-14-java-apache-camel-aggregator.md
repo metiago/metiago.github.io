@@ -13,7 +13,7 @@ The Aggregator from the EIP patterns allows you to combine a number of messages 
 #### Example
 
 Save this CSV below as `animal.csv` in a directory called `data/inbox` in the root folder of your Java project.
-```csv
+```bash
 28,Mustela nigripes,bad,Fran,2013-11-29
 22,Spheniscus mendiculus,bad,Ziggy,2013-04-06
 6,Diceros bicornis,good,Fran,2013-06-15

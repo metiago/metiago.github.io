@@ -26,7 +26,7 @@ sudo docker run --name='activemq' -e ACTIVEMQ_ADMIN_LOGIN='admin' -e ACTIVEMQ_AD
 
 Create a directory called `/data/inbox` and add these two files below called `animals.csv` and `animals.xml` respectively.
 
-```csv
+```bash
 28,Mustela nigripes,bad,Fran,2013-11-29
 22,Spheniscus mendiculus,bad,Ziggy,2013-04-06
 6,Diceros bicornis,good,Fran,2013-06-15
