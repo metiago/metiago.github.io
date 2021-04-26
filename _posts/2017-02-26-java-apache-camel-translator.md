@@ -159,7 +159,7 @@ public class App {
 }
 ```
 
-You can take a look at http://127.0.0.1:8161/ to access Active MQ console and to see how many messages were enqueued.
+You can take a look at http://127.0.0.1:8161/ to access Active MQ console and check out how many messages were enqueued.
 
 This simple examples show a little bit about Translator which is an EIP as well as other important features of Apache Camel where
 you can read more [here](https://camel.apache.org/components/latest/eips/enterprise-integration-patterns.html)
