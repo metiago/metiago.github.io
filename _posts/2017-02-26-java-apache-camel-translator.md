@@ -24,7 +24,7 @@ Firs of all, spin up an Active MQ instance using this docker command below:
 sudo docker run --name='activemq' -e ACTIVEMQ_ADMIN_LOGIN='admin' -e ACTIVEMQ_ADMIN_PASSWORD='12345678' -d --rm -P webcenter/activemq:latest
 ```
 
-Create a directory called `/data/inbox` and add in these files below.
+Create a directory called `/data/inbox` and add these two files below called `animals.csv` and `animals.xml` respectively.
 
 ```csv
 28,Mustela nigripes,bad,Fran,2013-11-29
