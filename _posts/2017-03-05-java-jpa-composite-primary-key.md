@@ -8,9 +8,7 @@ tags: java hibernate jpa
 
 #### Composite Primary Key Mapping
 
-The Many-To-Many mapping represents many values which are associated to many values. It can be unidirectional or bidirectional. In a bidirectional
-mapping, as demonstrated below, where many post has many tags, we can access data from both side of the relationship, for example, from `Post`
-we can access `Tag` information and from `Tag` to `Post`.
+A composite primary key is a combination of 2 or more columns used to create a unique primary key. The term key can refer to a unique key, which can be designated and used as primary key or non-unique key, which can be used as a search key for an index for a distinct table.
 
 #### Example
 
