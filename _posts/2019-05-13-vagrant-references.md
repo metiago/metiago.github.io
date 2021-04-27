@@ -89,27 +89,27 @@ end
 
 ```
 
-3. You can launch a new VM typing
+3. Launch a new VM
 ```bash
 vagrant up
 ```
 
-4. You can SSH in that VM typing:
+4. SSH into VM
 ```bash
 vagrant ssh
 ```
 
-5. If you add a new shell line, for exempla, apt install mysqlserver, you can just type:
+5. Reload VM config
 ```bash
 vagrant reload
 ```
 
-6. You can shutdown your VM typing:
+6. Shutdown VM
 ```bash
 vagrant halt
 ```
 
-7. You can destroy your VM typing
+7. Destroy VM
 ```bash
 vagrant destroy
 ```
