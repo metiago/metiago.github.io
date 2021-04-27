@@ -59,7 +59,9 @@ public class User implements Serializable {
 
     // Hibernate requires a no-arg constructor
     public User() {
-        // Hibernate, and code in general that creates objects via reflection use Class<T>.newInstance() to create a new instance of your classes. This method requires a public no-arg constructor to be able to instantiate the object.
+        // Hibernate, and code in general that creates objects via reflection use 
+        // Class<T>.newInstance() to create a new instance of your classes. 
+        // This method requires a public no-arg constructor to be able to instantiate the object.
     }
 
     public User(String firstName, String lastName, String email, String password) {
