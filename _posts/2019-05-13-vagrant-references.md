@@ -89,28 +89,21 @@ end
 
 ```
 
-3. Launch a new VM
+
 ```bash
+# Launch new VM
 vagrant up
-```
 
-4. SSH into VM
-```bash
+# SSH into VM
 vagrant ssh
-```
 
-5. Reload VM config
-```bash
+# Reload VM config
 vagrant reload
-```
 
-6. Shutdown VM
-```bash
+# Shutdown VM
 vagrant halt
-```
 
-7. Destroy VM
-```bash
+# Destroy VM
 vagrant destroy
 ```
 
