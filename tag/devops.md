@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: vm"
-tag: vm
+title: "Tag: devops"
+tag: devops
 robots: noindex
 ---

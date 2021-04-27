@@ -3,7 +3,7 @@ layout: post
 title:  Vagrant References
 date:   2019-05-12 20:18:00 +0100
 category: Dev
-tags: vagrant vm design
+tags: vagrant devops
 ---
 
 ## Vagrant Command References
