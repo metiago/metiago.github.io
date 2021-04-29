@@ -31,5 +31,8 @@ kubectl logs my-pod --tail=10
 
 # get services
 kubectl get svc
+
+# log into a pod
+kubectl exec --stdin --tty $pod_name -- /bin/bash
 ```
 
