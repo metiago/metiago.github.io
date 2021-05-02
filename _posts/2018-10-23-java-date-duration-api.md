@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm java
 ---
 
-## Java Date API (Duration) - JDK 8+
+#### Java Date API (Duration) - JDK 8+
 
 Below there are some examples using Java's date API - Duration.
 

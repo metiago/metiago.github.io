@@ -6,7 +6,7 @@ category: Dev
 tags: postgres databases
 ---
 
-## Postgres Quick Ref
+#### Postgres Quick Ref
 
 Simple reference to quick start working with Postgres SQL
 

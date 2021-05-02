@@ -13,7 +13,7 @@ we have a template that I think that it is very useful to help other possible de
 
 # Design Doc Title
 
-## Stakeholders
+#### Stakeholders
 
 List stakeholders for project/feature.
 
@@ -29,11 +29,11 @@ List stakeholders for project/feature.
 | Program Management	|					|
 | UX					|					|
 
-## Problem Statement
+#### Problem Statement
 
 Describe what you are trying to solve. Reference JIRAs etc. as needed.
 
-## Goals
+#### Goals
 
 List goals you are planning on achieving with the project/feature.
 
@@ -41,36 +41,36 @@ List goals you are planning on achieving with the project/feature.
 2. Goal 2
 3. Goal 3
 
-## Non-Goals
+#### Non-Goals
 
 List anything that should be called out explicitly as a non-goal (i.e., things
 that would not be addressed with this project/feature). This section is
 optional and can be left blank.
 
-## Design
+#### Design
 
 One-pager of the design and implementation plan. Can be high level and does not
 need to call out explicit functional code, though it is up to the owner on how
 deep they want to go.
 
-## API
+#### API
 
 What API endpoints will be exposed to the user as part of this feature?
 
-## Dependencies
+#### Dependencies
 
 List any external component and/or cross functional dependencies.
 
-## Testing
+#### Testing
 
-### Functional Testing
+#### Functional Testing
 
 Plan for functional testing (automated, non-automated, etc).
 
-### Performance Testing
+#### Performance Testing
 
 Plan for performance testing (automated, non-automated, etc) if needed.
 
-### Scale Testing
+#### Scale Testing
 
 Plan for scale testing (automated, non-automated, etc) if needed.

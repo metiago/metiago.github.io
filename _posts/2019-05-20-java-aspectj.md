@@ -6,8 +6,6 @@ category: Dev
 tags: java aspectj
 ---
 
-#### Introduction
-
 AspectJ is a [Java library](https://www.eclipse.org/aspectj/) where developers can write code on a paradigm called Aspect-oriented programming (AOP).
 
 Basically saying, we can add a behaviour before, at, or after a method calling without modifying the code itself. Here on [Wikipedia](https://en.wikipedia.org/wiki/Aspect-oriented_programming) you can find a complete explanation about AOP.

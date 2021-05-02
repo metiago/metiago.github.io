@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Singleton Design Pattern
+#### Singleton Design Pattern
 
 #### Concept
 

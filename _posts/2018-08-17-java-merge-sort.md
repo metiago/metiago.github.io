@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-## Merge Sort
+#### Merge Sort
 
 Implementation example of merge sort algorithm using Java
 

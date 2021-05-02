@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Decorator Design Pattern
+#### Decorator Design Pattern
 
 #### Concept
 

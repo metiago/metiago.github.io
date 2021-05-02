@@ -5,7 +5,7 @@ date:   2018-10-09 20:18:00 +0100
 category: Dev
 ---
 
-## Java Date API (Period) - JDK 8+
+#### Java Date API (Period) - JDK 8+
 
 Below there are some examples using Java's date API - Period.
 

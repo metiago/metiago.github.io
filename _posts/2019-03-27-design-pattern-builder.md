@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Builder Design Pattern
-
 
 #### Concept
 

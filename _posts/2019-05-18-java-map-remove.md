@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-## Java - Remove Map Element 
-
 Snipet of how to remove an element from a Map data structure.
 
 ```java

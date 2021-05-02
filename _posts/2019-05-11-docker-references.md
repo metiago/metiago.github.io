@@ -6,7 +6,6 @@ category: Dev
 tags: docker containers design
 ---
 
-## Docker Command References
 In this simple docker reference, I'll show you some useful commands to manage docker images for development
 
 ```bash

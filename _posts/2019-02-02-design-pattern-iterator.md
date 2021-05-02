@@ -6,9 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Iterator Design Pattern
-
-
 #### Concept
 
 Iterators are generally used to traverse a container to access its elements.

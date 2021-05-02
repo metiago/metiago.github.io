@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## State Design Pattern
-
 
 #### Concept
 

@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm java encryption
 ---
 
-## Symmetric Key Encryption
-
 
 #### Concept
 

@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Template Design Pattern
+#### Template Design Pattern
 
 #### Concept
 

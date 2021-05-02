@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Command Design Pattern
-
 #### Concept
 
 Here requests are encapsulated as objects. In general, four terms are associated—invoker, client, command,

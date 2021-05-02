@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-## Stack
+#### Stack
 
 Stack is a data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
 

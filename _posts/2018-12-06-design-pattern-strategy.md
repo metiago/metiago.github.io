@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Strategy Design Pattern
-
 #### Concept
 
 We can select the behavior of an algorithm dynamically at runtime

@@ -6,7 +6,7 @@ category: Dev
 tags: os linux firewall
 ---
 
-## UFW - Linux Firewall
+#### UFW - Linux Firewall
 
 UFW - Uncomplicated Firewall, is an interface for Linux IpTables which makes easy to manage firewall settings on host-based firewalls.
 

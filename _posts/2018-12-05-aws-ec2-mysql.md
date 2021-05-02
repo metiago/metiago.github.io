@@ -6,10 +6,6 @@ category: Dev
 tags: aws mysql databases
 ---
 
-## MySQL 8 + AWS EC2
-
-#### Intro
-
 These steps below are references to set up MySQL in a EC2 instance in order to have a development database which can be used among team members.
 
 #### 1. Key Pairs

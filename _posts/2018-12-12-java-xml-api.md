@@ -6,8 +6,6 @@ category: Dev
 tags: java xml
 ---
 
-## Java - Java - XML API
-
 In this post I'm sharing a java class that make use of the different XML API provided by Java.
 
 ```java

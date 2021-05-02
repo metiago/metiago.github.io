@@ -6,7 +6,6 @@ category: Dev
 tags: vagrant devops
 ---
 
-## Vagrant Command References
 In this vagrant reference, I'll show you how to set up an ubuntu/trusty64 VM with Postgres Database and how to run some
 important command for software dvelopment
 

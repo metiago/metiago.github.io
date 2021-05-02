@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Adapter Design Pattern
-
 #### Concept
 
 Convert the interface of a class into another interface that clients expect. The adapter

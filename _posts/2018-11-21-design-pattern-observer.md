@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Observer Design Pattern
+#### Observer Design Pattern
 
 #### Concept
 

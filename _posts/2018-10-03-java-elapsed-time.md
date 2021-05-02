@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-## Elapsed Time in Java - JDK 8+
+#### Elapsed Time in Java - JDK 8+
 
 Below there is a simple example of how to get the time spent by a certain algorithm.
 
