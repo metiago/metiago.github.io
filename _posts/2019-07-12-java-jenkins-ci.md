@@ -110,7 +110,7 @@ end
 
 #### Java Project
 
-Here we have a VertX application to be used in our CI pipeline.
+This project is basic VertX web application to simulate our workflow.
 
 `pom.xml`
 ```xml
