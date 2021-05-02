@@ -7,7 +7,7 @@ html {
 	background-color: #F8F6F7;
 	font-size: 18px;
   line-height: 1.5;
-	color: #0E0F13;
+	color: #00171F;
 }
 
 a {
@@ -372,6 +372,6 @@ textarea.materialize-textarea {
 }
 
 .highlighter-rouge {
-  color: #007EA7;
+  color: #00171F;
   font-weight: bolder;
 }
