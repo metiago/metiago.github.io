@@ -329,7 +329,7 @@ public class TestMainVerticle {
 
 At this point we have a VertX application returning a simple text message and a small unit/integration test. 
 
-You can create aa deployment package with `mvn clean package` and run it executing `java -jar target/demo-0.1.0.jar`. Once it's running you can
+You can create a deployment package with `mvn clean package` and run it executing `java -jar target/demo-0.1.0.jar`. Once it's running you can
 call `curl http://localhost:8001` from a terminal to get our response `Hello v1` back.
 
 Finally a `Dockerfile` to create our docker image for later deployment. 
