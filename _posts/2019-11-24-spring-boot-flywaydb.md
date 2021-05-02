@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Sprint Boot - Flyway
-date:   2020-01-15 20:18:00 +0100
+date:   2019-11-24 20:18:00 +0100
 category: Dev
 tags: java springboot databases
 ---

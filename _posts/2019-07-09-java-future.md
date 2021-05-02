@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure java
 ---
 
-## Java - Completable Futures
+#### Java - Completable Futures
 
 A CompltableFuture is used for asynchronous programming. Asynchronous programming means writing non-blocking code. It runs a task on a separate thread than the main application thread and notifies the main thread about its progress, completion or failure. A CompletableFuture is an extension to Java's Future API which was introduced in Java 8.
 
