@@ -2,7 +2,7 @@
 layout: post
 title:  JPA - Sequence Maping
 date:   2017-06-07 20:18:00 +0100
-category: Dev
+tags: java hibernate jpa
 ---
 
 When working with Oracle or Postgres databases is pretty common to use sequences to manage increment ID(s). 
