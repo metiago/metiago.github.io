@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  JPA - Sequence Maping
+title:  JPA - Sequence Mapping
 date:   2017-06-07 20:18:00 +0100
 tags: java hibernate jpa
 ---
