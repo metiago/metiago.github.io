@@ -11,11 +11,13 @@ html {
 }
 
 a {
+  text-decoration: none;
   cursor: pointer;
   color: #00A8E8;
 }
 
 a:hover {
+  text-decoration: none;
   color: #007EA7;
 }
 
