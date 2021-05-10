@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - SOAP WS
+title: Java - JAX WS
 date: 2011-03-15 20:18:00 +0100
 category: Dev
 tags: java soap jaxws
