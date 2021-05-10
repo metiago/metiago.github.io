@@ -6,6 +6,9 @@ category: Dev
 tags: spring java
 ---
 
+Spring Boot provides annotation support for task scheduling. Simply add the annotation `@EnableScheduling` on the main component and it'll be enable. 
+
+In this example, we will see how to use Spring `@EnableScheduling` to schedule a task.
 
 #### Example
 
