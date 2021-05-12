@@ -6,9 +6,7 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Intro
-
-This is a small algorithm using Java NIO API which read files from a given directory, filter by a given extension and append some texts to each of them.
+Small algorithm using Java NIO API which read files from a given directory, filter by a given extension and append some texts to each of them.
 
 ```java
 
