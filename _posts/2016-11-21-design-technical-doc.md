@@ -6,28 +6,44 @@ category: Dev
 tags: architecture
 ---
 
-#### Designing Technical Documents
+When we are developing a product or even fixing a bug it's really important to document all the scope of it. 
+Technical specs have immense benefits to everyone involved in a project: the engineers who write them, the teams that use them, even the projects that are designed off of them. Here are some reasons why you should write one. 
 
-When we are developing a product or even fixing a bug it's really important to document all the scope of it. Below
-we have a template that I think that it is very useful to help other possible developers understand what was done. 
+A technical spec is a straightforward and efficient way to communicate project design ideas between a team and other stakeholders. The whole team can  collaboratively solve a problem and create a solution. As more teammates and stakeholders contribute to a spec, it makes them more invested in the project and encourages them to take ownership and responsibility for it. With everyone on the same page, it limits complications that may arise from overlapping work. Newer teammates unfamiliar with the project can onboard themselves and contribute to the implementation earlier.  
 
-# Design Doc Title
+#### Example
 
-#### Stakeholders
+#### Front matter
 
-List stakeholders for project/feature.
+1. Title
+1. Author(s)
+1. Team
+1. Reviewer(s)
+1. Created on
+1. Last updated
+1. Epic, ticket, issue, or task tracker reference link
 
-| Role					| Person			|
-|-----------------------|-------------------|
-|            :-:        |        :-:        |
-| Dev Owner 			|					|
-| Other Dev 1 (Engine)	|					|
-| Other Dev 2 (Hub)		|					|
-| Product				|					|
-| Docs					|					|
-| QA					|					|
-| Program Management	|					|
-| UX					|					|
+#### Overview, Problem Description, Summary, or Abstract
+
+Summary of the problem (from the perspective of the user), the context, suggested solution, and the stakeholders. 
+
+#### Glossary  or Terminology
+New terms you come across as you research your design or terms you may suspect your readers/stakeholders not to know.  
+
+#### Context or Background
+Reasons why the problem is worth solving
+
+Origin of the problem
+
+How the problem affects users and company goals
+
+Past efforts made to solve the solution and why they were not effective
+
+How the product relates to team goals, OKRs
+
+How the solution fits into the overall product roadmap and strategy
+
+How the solution fits into the technical strategy
 
 #### Problem Statement
 
