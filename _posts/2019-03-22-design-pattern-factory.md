@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Factory Design Pattern
-
 
 #### Concept
 

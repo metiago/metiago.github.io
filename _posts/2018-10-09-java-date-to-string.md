@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm java 
 ---
 
-#### String to Date Java - JDK 8+
-
 Below there is a simple example to convert a given string.
 
 

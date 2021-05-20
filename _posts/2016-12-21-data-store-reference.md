@@ -6,8 +6,6 @@ category: Dev
 tags: architecture databases
 ---
 
-#### Reference guide for data stores
-
 Below I am sharing some chunks of information about the different data store that we have today to propose the better solution for a given
 business problem. I believe this reference is useful when we have to decide which data store is better for our problems in a given moment.
  

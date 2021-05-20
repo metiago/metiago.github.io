@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-#### Singleton Design Pattern
-
 #### Concept
 
 A particular class should have only one instance. We will use only that instance whenever we are in need.

@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-#### Concept
-
 We can select the behavior of an algorithm dynamically at runtime
 
 #### Example

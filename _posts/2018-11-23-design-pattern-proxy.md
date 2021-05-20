@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-## Proxy Design Pattern
-
 #### Concept
 
 We want to use a class which can perform as an interface to something else.

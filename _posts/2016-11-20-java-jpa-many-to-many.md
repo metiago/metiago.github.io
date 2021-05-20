@@ -6,8 +6,6 @@ category: Dev
 tags: java hibernate jpa
 ---
 
-#### Many to Many Mappings
-
 The Many-To-Many mapping represents many values which are associated to many values. It can be unidirectional or bidirectional. In a bidirectional
 mapping, as demonstrated below, where many post has many tags, we can access data from both side of the relationship, for example, from `Post`
 we can access `Tag` information and from `Tag` to `Post`.

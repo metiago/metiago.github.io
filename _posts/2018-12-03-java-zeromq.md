@@ -6,8 +6,6 @@ category: Dev
 tags: zeomq java
 ---
 
-#### Java ZeroMQ Example
-
 #### Concept
 
 ZeroMQ is a high-performance asynchronous messaging library, aimed at use in distributed or concurrent applications. It provides a message queue, but unlike message-oriented middleware, a ZeroMQ system can run without a dedicated message broker.

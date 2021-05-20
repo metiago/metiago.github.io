@@ -6,8 +6,6 @@ category: Dev
 tags: java hibernate jpa
 ---
 
-#### One to One Mappings
-
 The One-To-One mapping represents a single-valued association where an instance of one entity is associated with an instance of another entity.
 
 #### Example

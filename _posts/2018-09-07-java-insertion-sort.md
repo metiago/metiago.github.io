@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-#### Insertion Sort
-
 Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands with a time Complexity of O(n2) on Big O notation.
 
 

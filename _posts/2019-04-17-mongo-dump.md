@@ -6,7 +6,6 @@ category: Dev
 tags: mongodb databases
 ---
 
-#### Backup MongoDB database using date for the folder name
 The mongodump command will create a backup / dump of the MongoDB database with the name specified by the --db [DB NAME] argument.
 
 The --out /home/db/backups/`date +"%Y%m%d" argument specifies the output directory as /home/db/backups/[TODAY'S DATE] 

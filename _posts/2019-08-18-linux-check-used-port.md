@@ -6,8 +6,6 @@ category: Dev
 tags: os linux
 ---
 
-## Linux – Listing used ports
-
 Below there are some commands that is pretty useful to check which application has been using a given port.
 
 ## Linux Example

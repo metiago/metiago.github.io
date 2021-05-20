@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-#### Decorator Design Pattern
-
 #### Concept
 
 This main principle of this pattern says that we cannot modify existing functionalities but we can extend

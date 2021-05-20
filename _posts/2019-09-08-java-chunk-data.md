@@ -6,7 +6,7 @@ category: Dev
 tags: algorithm datastructure java
 ---
 
-## Java - Chunk Data
+
 
 This is an example of how to split an array in a predefined chunck of data. 
 

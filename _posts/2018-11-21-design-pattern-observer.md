@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-#### Observer Design Pattern
-
 #### Concept
 
 In this pattern, there are many observers (objects) which are observing a particular subject (object).

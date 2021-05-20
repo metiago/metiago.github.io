@@ -6,8 +6,6 @@ category: Dev
 tags: java hibernate jpa
 ---
 
-#### One to Many Mappings
-
 The One-To-Many mapping represents many values which are associated to a single value. It can be unidirectional or bidirectional. In a unidirectional
 mapping, as demonstrated below, where one post has many comments, we can only access data from one side of the relationship, for example, from `Comment`
 we can access `Post` information but not from `Post` to `Comment`.

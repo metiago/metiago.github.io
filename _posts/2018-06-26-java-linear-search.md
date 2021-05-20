@@ -6,7 +6,6 @@ category: Dev
 tags: algorithm datastructure
 ---
 
-#### Linear Search
 
 Linear search a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched. Linear search has a time complexity of O(n)
 

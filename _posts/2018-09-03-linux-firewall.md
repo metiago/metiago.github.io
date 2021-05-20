@@ -6,8 +6,6 @@ category: Dev
 tags: os linux firewall
 ---
 
-#### UFW - Linux Firewall
-
 UFW - Uncomplicated Firewall, is an interface for Linux IpTables which makes easy to manage firewall settings on host-based firewalls.
 
 Sometimes, we as developers, need to open or close ports of the computer in order to test our applications. Below there are some examples of how to use UFW.

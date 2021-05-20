@@ -6,8 +6,6 @@ category: Dev
 tags: java lambda streams
 ---
 
-## Java 8 Lambdas and Streams - JDK 8+
-
 Quick reference about some Java Lambda and Streams
 
 ##### Main References - JavaStreams.java

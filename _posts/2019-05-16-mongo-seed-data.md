@@ -6,8 +6,6 @@ category: Dev
 tags: mongodb databases design
 ---
 
-## Mongo DB Seed Data
-
 In this post, I'm going to write down some examples to create a `ready to go` development environment
 using Docker Compose and Mongo Database
 

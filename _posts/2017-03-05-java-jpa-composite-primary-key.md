@@ -6,8 +6,6 @@ category: Dev
 tags: java hibernate jpa
 ---
 
-#### Composite Primary Key Mapping
-
 A composite primary key is a combination of 2 or more columns used to create a unique primary key. The term key can refer to a unique key, which can be designated and used as primary key or non-unique key, which can be used as a search key for an index for a distinct table.
 
 #### Example
