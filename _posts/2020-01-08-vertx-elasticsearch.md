@@ -6,8 +6,6 @@ category: Dev
 tags: vertx java elasticsearch
 ---
 
-#### Introduction
-
 This page contains an example of a "custom logging aggreagator" built with [Eclipse VertX](https://vertx.io/) [Elasticsearch](https://www.elastic.co/).
 
 #### 1. Running Elasticsearch

@@ -6,7 +6,7 @@ category: Dev
 tags: apache camel java
 ---
 
-#### Introduction
+
 
 The Aggregator from the EIP patterns allows you to combine a number of messages together into a single message.
 

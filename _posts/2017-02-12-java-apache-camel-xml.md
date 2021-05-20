@@ -6,7 +6,7 @@ category: Dev
 tags: apache camel java
 ---
 
-#### Introduction
+
 
 When working with heterogeneous systems sometimes we need to integrate them using an XML file.
 Today we are going to implement a simple how-to, using Camel XML features to read a XML file from one directory and save it in another one.

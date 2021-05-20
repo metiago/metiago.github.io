@@ -6,8 +6,6 @@ category: Dev
 tags: vertx java jwt mongodb
 ---
 
-#### Introduction
-
 [VertX](https://vertx.io/docs/) is a polyglot event-driven application framework that runs on the Java Virtual Machine.
 
 

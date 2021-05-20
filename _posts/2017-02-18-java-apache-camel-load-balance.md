@@ -6,8 +6,6 @@ category: Dev
 tags: apache camel java
 ---
 
-#### Introduction
-
 The Load Balancer Pattern allows you to delegate to one of a number of endpoints using a variety of different load balancing policies. 
 
 To get know more about this pattern take look at [Camel Load Balance Pattern](https://camel.apache.org/components/latest/eips/loadBalance-eip.html)

@@ -6,7 +6,7 @@ category: Dev
 tags: CI jenkins java docker
 ---
 
-#### Introduction
+
 
 This post contains some steps to configure a Jenkins CI server. 
 

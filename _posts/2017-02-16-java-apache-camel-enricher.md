@@ -6,7 +6,7 @@ category: Dev
 tags: apache camel java
 ---
 
-#### Introduction
+
 
 When sending messages from one system to another it is common for the target system to require more information than the source system can provide.
 Incoming payload may just contain some information and before to save it to the database you require another important information and here is

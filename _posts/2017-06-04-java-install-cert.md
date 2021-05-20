@@ -6,8 +6,6 @@ category: Dev
 tags: java keystore certificates
 ---
 
-#### Java Key Store JKS
-
 A Java KeyStore (JKS) is a repository of security certificates, either authorization certificates or public key certificates,
 plus corresponding private keys, used for instance in SSL encryption.
 

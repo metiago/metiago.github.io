@@ -6,7 +6,7 @@ category: Dev
 tags: apache camel java
 ---
 
-#### Introduction
+
 
 Filters checks an incoming message against a certain criteria that the message should adhere to.
 

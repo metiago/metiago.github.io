@@ -6,8 +6,6 @@ category: Dev
 tags: postgres databases
 ---
 
-## PostgreSQL CTE
-
 Below there is a simple reference to use PostgreSQL CTE feature to fetch recursive data.
 
 

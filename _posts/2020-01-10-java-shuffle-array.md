@@ -6,8 +6,6 @@ category: Dev
 tags: algorithm datastructure design
 ---
 
-#### Introduction
-
 These examples show how to shuffle arrays in Java using two different approaches.
 
 #### Shuffle Array Elements using Collections Class

@@ -6,7 +6,6 @@ category: Dev
 tags: java springboot databases
 ---
 
-#### Introduction
 
 [Flyway](https://flywaydb.org/) is robust version control for databases which integrates really with Sprint Boot.
 
