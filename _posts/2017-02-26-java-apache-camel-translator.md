@@ -9,7 +9,7 @@ tags: apache camel java
 
 
 Translator is a pattern responsible to translate messages between different systems. Therefore If one system uses a CSV file to exchage information
-and this application wants to communicate with an applaication that uses database to exchange information, translator could be used to transform
+and this application wants to communicate with an application that uses database to exchange information, translator could be used to transform
 the data format between them.
 
 
