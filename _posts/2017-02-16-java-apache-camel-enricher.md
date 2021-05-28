@@ -3,7 +3,7 @@ layout: post
 title: Java - Apache Camel Enricher
 date: 2017-02-16 20:18:00 +0100
 category: Dev
-tags: apache camel java
+tags: apache-camel java
 ---
 
 

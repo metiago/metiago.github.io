@@ -3,7 +3,7 @@ layout: post
 title: Java - Apache Camel Load Balance
 date: 2017-02-18 20:18:00 +0100
 category: Dev
-tags: apache camel java
+tags: apache-camel java
 ---
 
 The Load Balancer Pattern allows you to delegate to one of a number of endpoints using a variety of different load balancing policies. 

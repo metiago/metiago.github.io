@@ -3,7 +3,7 @@ layout: post
 title: Java - Apache Camel Aggregator
 date: 2017-02-14 20:18:00 +0100
 category: Dev
-tags: apache camel java
+tags: apache-camel java
 ---
 
 
