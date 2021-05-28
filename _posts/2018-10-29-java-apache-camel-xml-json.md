@@ -86,7 +86,7 @@ public class XMLJson {
 
                 from("file:data/inbox?noop=true&include=.*.xml").to("direct:out");
 
-                from("direct:out").marshal().xmljson().log("JSON task Done: ${body}");
+                from("direct:out").marshal().xmljson().log("Task Done: ${body}");
             }
         });
 
