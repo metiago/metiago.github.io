@@ -87,7 +87,9 @@ public class ThrottleXMLJson {
 
             public void configure() {
 
-                from("file:data/inbox?noop=true&include=.*.xml").throttle(5).to("direct:first").end();
+                from("file:data/inbox?noop=true&include=.*.xml").throttle(5)
+                .timePeriodMillis(2000) // every 2 seconds the Throttler will allow up to 5 messages to be processed.
+                .to("direct:first").end();
 
                 from("direct:first").marshal().xmljson().log("First Route: ${body}");
             }
