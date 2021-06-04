@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Design Principles and Design Patterns
-date:   2021-02-02 20:18:00 +0100
+date:   2020-02-02 20:18:00 +0100
 tags: algorithm datastructure design
 ---
 
