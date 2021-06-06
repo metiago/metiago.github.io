@@ -46,5 +46,8 @@ kubectl cp <pod-name>:</path/to/remote/file> </path/to/local/file>
 
 # Clean up cluster
 kubectl delete deployments --all
+
+# Access container
+kubectl exec --stdin --tty my-pod -- /bin/bash
 ```
 
