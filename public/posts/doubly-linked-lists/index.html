@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> Doubly Linked Lists &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1> Doubly Linked Lists</h1>
+  <time datetime=1500-05-28T19:18:41-0300 class="post-date">Mon, May 28, 1500</time>
+  <p>Doubly linked list is a complex type of linked list in which a node contains a pointer to the previous as well as the next node in the sequence. Therefore, in a doubly linked list, a node consists of three parts: node data, pointer to the next node in sequence next pointer, pointer to the previous node previous pointer.</p>
+<p><code>DoublyLinkedList.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DoublyLinkedList</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Node head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Node tail<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> length<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Node next<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Node prev<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Node<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">DoublyLinkedList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Node newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        tail <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        length <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printList</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>temp <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>temp<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getHead</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Head: null&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Head: &#34;</span> <span style="color:#f92672">+</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getTail</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tail: null&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tail: &#34;</span> <span style="color:#f92672">+</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getLength</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Length: &#34;</span> <span style="color:#f92672">+</span> length<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">append</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Node newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            tail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            newNode<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">removeLast</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            temp<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> temp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">prepend</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Node newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            newNode<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            head<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">removeFirst</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>length <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            tail <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            head <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            head<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> temp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">||</span> index <span style="color:#f92672">&gt;=</span> length<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>index <span style="color:#f92672">&lt;</span> length<span style="color:#f92672">/</span>2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> index<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            temp <span style="color:#f92672">=</span> tail<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> length <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;</span> index<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                temp <span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> temp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">set</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> get<span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>temp <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            temp<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">||</span> index <span style="color:#f92672">&gt;</span> length<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            prepend<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> length<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            append<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        Node newNode <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Node<span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Node before <span style="color:#f92672">=</span> get<span style="color:#f92672">(</span>index <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Node after <span style="color:#f92672">=</span> before<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        newNode<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> before<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        newNode<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> after<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        before<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        after<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> newNode<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Node <span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">||</span> index <span style="color:#f92672">&gt;=</span> length<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> removeFirst<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>index <span style="color:#f92672">==</span> length <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> removeLast<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Node temp <span style="color:#f92672">=</span> get<span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        temp<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        temp<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        temp<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        length<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> temp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>Main.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DoublyLinkedList myDLL <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DoublyLinkedList<span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>4<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DLL before remove():&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">printList</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\nRemoved node:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>2<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DLL after remove() in middle:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">printList</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\nRemoved node:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DLL after remove() of first node:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">printList</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\nRemoved node:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>2<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DLL after remove() of last node:&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        myDLL<span style="color:#f92672">.</span><span style="color:#a6e22e">printList</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

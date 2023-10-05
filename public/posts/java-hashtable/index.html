@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hash Tables &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Hash Tables</h1>
+  <time datetime=1500-05-01T19:18:41-0300 class="post-date">Tue, May 1, 1500</time>
+  <p>Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. One example we can provide that represents a hash table
+is the browser local storage.</p>
+<p>A hash table contains two main functions: put() and get(). put() is used for storing data into the hash table, while get() is used for retrieving data from the hash table. There&rsquo;s another important function which is called <code>hash function</code>. It converts a specific key to an array index where the values are stored.</p>
+<p>One technique that os commonly used to generate a key index is using <code>modulus operator</code> on a prime number e.g</p>
+<ol>
+<li>4 % 11 = 4</li>
+<li>7 % 11 = 7</li>
+<li>9 % 11 = 9</li>
+<li>15 % 11 = 4</li>
+</ol>
+<p>But this technique can cause a key collision as you can see on item 4 <code>15 % 11 = 4</code></p>
+<p>It&rsquo;s possible to avoid these collisions using one of the three strategies below:</p>
+<p>1 - Linear Probing</p>
+<p>It finds the next empty index in the array using linear search.</p>
+<p>2 - Quadratic Probing</p>
+<p>Quadratic probing uses perfect squares instead of incrementing by 1 each time. <code>h + (1)^2, h + (2)^2, h + (3)^2, h + (4)^2</code></p>
+<p>3 - Rehashing / Double-Hashing</p>
+<p>This uniformly distribute the keys by having a second hashing
+function that hashes the result from the original.</p>
+<p><code>hash2(x) = R − (x % R)</code></p>
+<p>x is the result from hashing the first time, and R is less than the size of the hash table.</p>
+<h3 id="examples">Examples</h3>
+<p><code>Linear Probing</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashTable</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> keys<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> values<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> limit<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HashTable</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Table is full&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">=</span> hashedIndex <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> key<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        var hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">=</span> hashedIndex <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> key <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">initArray</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> arr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        HashTable ht <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashTable<span style="color:#f92672">(</span>4<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>7<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>20<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>33<span style="color:#f92672">,</span> 3<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>46<span style="color:#f92672">,</span> 4<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> ht<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>Quadratic Probing</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashTable</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> keys<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> values<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> limit<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HashTable</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Table is full&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> squareIndex <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">+=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">pow</span><span style="color:#f92672">(</span>squareIndex<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            hashedIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            squareIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> key<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> squareIndex <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        var hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">+=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">pow</span><span style="color:#f92672">(</span>squareIndex<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">=</span> hashedIndex <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            squareIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> key <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">initArray</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> arr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        HashTable ht <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashTable<span style="color:#f92672">(</span>20<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>7<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>20<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>33<span style="color:#f92672">,</span> 3<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>46<span style="color:#f92672">,</span> 4<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>50<span style="color:#f92672">,</span> 5<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>63<span style="color:#f92672">,</span> 26<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>77<span style="color:#f92672">,</span> 17<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>91<span style="color:#f92672">,</span> 8<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>Rehashing / Double-Hashing</code></p>
+<p>On the output you can notice the difference on the hash keys where Double-Hashing is more uniformly distributed than Quadratic Probing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashTable</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> keys<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> values<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> limit<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HashTable</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span> <span style="color:#f92672">=</span> initArray<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span> <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Table is full&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">=</span> hashedIndex <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> key<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span><span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        var hashedIndex <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            hashedIndex<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            hashedIndex <span style="color:#f92672">=</span> hashedIndex <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">[</span>hashedIndex<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">secondHash</span><span style="color:#f92672">(</span>key <span style="color:#f92672">%</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">secondHash</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        var R <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">-</span>2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> R <span style="color:#f92672">-</span> key <span style="color:#f92672">%</span> R<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">initArray</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> arr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        HashTable ht <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashTable<span style="color:#f92672">(</span>20<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>7<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>20<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>33<span style="color:#f92672">,</span> 3<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>46<span style="color:#f92672">,</span> 4<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>50<span style="color:#f92672">,</span> 5<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>63<span style="color:#f92672">,</span> 26<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>77<span style="color:#f92672">,</span> 17<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ht<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>91<span style="color:#f92672">,</span> 8<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">keys</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>ht<span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>A hash table is a fixed-sized data structure in which the size is defined at the start.
+Hash tables are implemented using a hash function to generate an index for the array.
+A good hash function is deterministic, efficient, and uniformly distributive.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

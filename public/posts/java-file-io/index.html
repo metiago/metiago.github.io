@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> NIO File API &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1> NIO File API</h1>
+  <time datetime=1500-04-15T19:18:41-0300 class="post-date">Sun, Apr 15, 1500</time>
+  <p>Flat files reading and writing using Java&rsquo;s NIO API.</p>
+<p><code>MappedFile.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.tiago.files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MappedFile</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> Integer position<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> Integer size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> Object data<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MappedFile</span><span style="color:#f92672">(</span>Integer position<span style="color:#f92672">,</span> Integer size<span style="color:#f92672">,</span> Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">position</span> <span style="color:#f92672">=</span> position<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> data<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">getPosition</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> position<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setPosition</span><span style="color:#f92672">(</span>Integer position<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">position</span> <span style="color:#f92672">=</span> position<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">getSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSize</span><span style="color:#f92672">(</span>Integer size<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> data<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setData</span><span style="color:#f92672">(</span>Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> data<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>ReadPositionalFile.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.tiago.files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.file.Files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.file.Path<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.LinkedHashMap<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map.Entry<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.concurrent.atomic.AtomicInteger<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReadPositionalFile</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReadPositionalFile</span><span style="color:#f92672">(</span>File file<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">lines</span> <span style="color:#f92672">=</span> readTextFile<span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">readTabularRangedFile</span><span style="color:#f92672">(</span>LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> range<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>            Integer indexLine<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> returnData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">((</span>String line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">!</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>line<span style="color:#f92672">)).</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">((</span>String index<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> lines<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>indexLine<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> index<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> returnLines <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">int</span> lineNumber <span style="color:#f92672">=</span> indexLine<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    range<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>line<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            String value <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                            returnLines<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                            returnData<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">,</span> returnLines<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnData<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">readTabularRangedFile</span><span style="color:#f92672">(</span>LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> range<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>            Integer startLine<span style="color:#f92672">,</span> Integer finalLine<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> returnData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        AtomicInteger atomicInteger <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicInteger<span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">((</span>String line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">!</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>line<span style="color:#f92672">)).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> returnLines <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> lineNumber <span style="color:#f92672">=</span> atomicInteger<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lineNumber <span style="color:#f92672">&gt;=</span> startLine <span style="color:#f92672">&amp;&amp;</span> lineNumber <span style="color:#f92672">&lt;=</span> finalLine<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                range<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>line<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        String value <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                        returnLines<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                        returnData<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">,</span> returnLines<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnData<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">readTabularRangedFile</span><span style="color:#f92672">(</span>LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> range<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> returnData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        AtomicInteger atomicInteger <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicInteger<span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">((</span>String line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">!</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>line<span style="color:#f92672">)).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> returnLines <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> lineNumber <span style="color:#f92672">=</span> atomicInteger<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            range<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>line<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    String value <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                    returnLines<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                    returnData<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">,</span> returnLines<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnData<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">readTabularRangedFile</span><span style="color:#f92672">(</span>LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> range<span style="color:#f92672">,</span> Integer startLine<span style="color:#f92672">,</span> Integer finalLine<span style="color:#f92672">,</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> validations<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> returnData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        AtomicInteger atomicInteger <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicInteger<span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        AtomicInteger removedLine <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicInteger<span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">((</span>String line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">!</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>line<span style="color:#f92672">)).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>line<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> returnLines <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> lineNumber <span style="color:#f92672">=</span> atomicInteger<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lineNumber <span style="color:#f92672">&gt;=</span> startLine <span style="color:#f92672">&amp;&amp;</span> lineNumber <span style="color:#f92672">&lt;=</span> finalLine<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                range<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">((</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>line<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        String value <span style="color:#f92672">=</span> line<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>k<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>removedLine<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> lineNumber<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            returnLines<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                            returnData<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">,</span> returnLines<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>validations<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>k<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>validateFilterParams<span style="color:#f92672">(</span>validations<span style="color:#f92672">,</span> value<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                                returnData<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                                removedLine<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>lineNumber<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnData<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">validateFilterParams</span><span style="color:#f92672">(</span>LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> filters<span style="color:#f92672">,</span> String value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> hasValidation <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Entry<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> filter <span style="color:#f92672">:</span> filters<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String filterParam <span style="color:#f92672">:</span> filter<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>filterParam<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>value<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    hasValidation <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> hasValidation<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">readTextFile</span><span style="color:#f92672">(</span>File file<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>getFileExtension<span style="color:#f92672">(</span>file<span style="color:#f92672">).</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;txt&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lines <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                Path filePath <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">getAbsolutePath</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                lines <span style="color:#f92672">=</span> Files<span style="color:#f92672">.</span><span style="color:#a6e22e">readAllLines</span><span style="color:#f92672">(</span>filePath<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lines<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> lines<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The file has no data to be read.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> lines<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;The file has not a txt extensions.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numberOfLines</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lines <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> lines<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">getFileExtension</span><span style="color:#f92672">(</span>File file<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String fileName <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span>1 <span style="color:#f92672">&amp;&amp;</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>WriteMappedFile.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.tiago.files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.RandomAccessFile<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.ByteBuffer<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.channels.FileChannel<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.file.Files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WriteMappedFile</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> String filePath<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">WriteMappedFile</span><span style="color:#f92672">(</span>String filePath<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> filePath<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">writeToFile</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>MappedFile<span style="color:#f92672">&gt;&gt;</span> writers<span style="color:#f92672">)</span>	<span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		RandomAccessFile stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RandomAccessFile<span style="color:#f92672">(</span>filePath<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;rw&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		FileChannel channel <span style="color:#f92672">=</span> stream<span style="color:#f92672">.</span><span style="color:#a6e22e">getChannel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>		List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> finalData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> writers<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>									
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>MappedFile outputData <span style="color:#f92672">:</span> writers<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				Object valor <span style="color:#f92672">=</span> convertAndGetValue<span style="color:#f92672">(</span>outputData<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				channel<span style="color:#f92672">.</span><span style="color:#a6e22e">position</span><span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getPosition</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>								
+</span></span><span style="display:flex;"><span>				String value <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>valor<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> strBytes <span style="color:#f92672">=</span> value<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>				ByteBuffer buffer <span style="color:#f92672">=</span> ByteBuffer<span style="color:#f92672">.</span><span style="color:#a6e22e">allocate</span><span style="color:#f92672">(</span>strBytes<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>				buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>strBytes<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>				buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">flip</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>				channel<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			channel<span style="color:#f92672">.</span><span style="color:#a6e22e">position</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			String line <span style="color:#f92672">=</span> stream<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>			finalData<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>line<span style="color:#f92672">);</span>			
+</span></span><span style="display:flex;"><span>			stream<span style="color:#f92672">.</span><span style="color:#a6e22e">setLength</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		stream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		channel<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		Files<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>filePath<span style="color:#f92672">),</span> finalData<span style="color:#f92672">);</span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> Object <span style="color:#a6e22e">convertAndGetValue</span><span style="color:#f92672">(</span>MappedFile outputData<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		Object valor <span style="color:#f92672">=</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">:</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">instanceof</span> String<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			valor <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> valor<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				valor <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%1$-&#34;</span> <span style="color:#f92672">+</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;s&#34;</span><span style="color:#f92672">,</span> valor<span style="color:#f92672">).</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">instanceof</span> Date<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			valor <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>valor<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getTypeName</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">cast</span><span style="color:#f92672">(</span>valor<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> valor<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				valor <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%1$-&#34;</span> <span style="color:#f92672">+</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;s&#34;</span><span style="color:#f92672">,</span> valor<span style="color:#f92672">).</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>	
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">instanceof</span> Number<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			valor <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>valor<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getTypeName</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">cast</span><span style="color:#f92672">(</span>valor<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>valor<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;=</span> valor<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">().</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				valor <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%1$&#34;</span> <span style="color:#f92672">+</span> outputData<span style="color:#f92672">.</span><span style="color:#a6e22e">getSize</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;s&#34;</span><span style="color:#f92672">,</span> valor<span style="color:#f92672">).</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> valor<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>	
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>FilesTest.java</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.tiago.files<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.text.DateFormat<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.text.SimpleDateFormat<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.LinkedHashMap<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Random<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.tiago.random.RandomData<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FilesTest</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String FILE_TXT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;D:\\animals.txt&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> lStartTime <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">().</span><span style="color:#a6e22e">getTime</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ++++++++++++++++++++++++++++++++++++++++++++++++
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        exportFile<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//importFile();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ++++++++++++++++++++++++++++++++++++++++++++++++
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">long</span> lEndTime <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">().</span><span style="color:#a6e22e">getTime</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> difference <span style="color:#f92672">=</span> lEndTime <span style="color:#f92672">-</span> lStartTime<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Elapsed milliseconds: &#34;</span> <span style="color:#f92672">+</span> difference<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">importFile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ReadPositionalFile bmgLoteRecuperaUtils <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReadPositionalFile<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>FILE_TXT<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// HEADER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// LinkedHashMap&lt;Integer, Integer&gt; headerArquivo = new LinkedHashMap&lt;&gt;();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// headerArquivo.put(0, 1); // 0. IDENTIFICADOR HEADER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// headerArquivo.put(1, 4); // 1. CODIGO DO SISTEMA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// headerArquivo.put(4, 18); // 2. DATA E HORA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// LinkedHashMap&lt;Integer, List&lt;String&gt;&gt; resultHeader = bmgLoteRecuperaUtils.readTabularRangedFile(headerArquivo, 0, 0);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// DETALHES
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> detalheArquivo <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span> <span style="color:#75715e">// 0. IDENTIFICADOR DETALHE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 5<span style="color:#f92672">);</span> <span style="color:#75715e">// 1. AGENCIA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>4<span style="color:#f92672">,</span> 14<span style="color:#f92672">);</span> <span style="color:#75715e">// 2. CONTA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>14<span style="color:#f92672">,</span> 22<span style="color:#f92672">);</span> <span style="color:#75715e">// 3. DATA LANCAMENTO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>23<span style="color:#f92672">,</span> 35<span style="color:#f92672">);</span> <span style="color:#75715e">// 4. DOCUMENTO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>35<span style="color:#f92672">,</span> 40<span style="color:#f92672">);</span> <span style="color:#75715e">// 5. PARCELA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>40<span style="color:#f92672">,</span> 56<span style="color:#f92672">);</span> <span style="color:#75715e">// 6. VALOR PARCELA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        detalheArquivo<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>56<span style="color:#f92672">,</span> 72<span style="color:#f92672">);</span> <span style="color:#75715e">// 7. VALOR DEBITADO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> bmgLoteRecuperaUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">readTabularRangedFile</span><span style="color:#f92672">(</span>detalheArquivo<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> bmgLoteRecuperaUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">numberOfLines</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 2<span style="color:#f92672">,</span> mountValidationParams<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// resultDetalhes.forEach((k, v) -&gt; System.out.println(v));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// TRAILER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// LinkedHashMap&lt;Integer, Integer&gt; trailerArquivo = new LinkedHashMap&lt;&gt;();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// trailerArquivo.put(0, 1); // 0. IDENTIFICADOR TRAILER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// trailerArquivo.put(1, 7); // 1. QTD. LANCAMENTOS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// LinkedHashMap&lt;Integer, List&lt;String&gt;&gt; resultTrailer = bmgLoteRecuperaUtils.readTabularRangedFile(trailerArquivo,	bmgLoteRecuperaUtils.numberOfLines() - 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">mountValidationParams</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// EX. DADO APARTIR DA POS. 56 SE FOR IGUAL A 0, REMOVE A LINHA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        LinkedHashMap<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;&gt;</span> validations <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedHashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        validations<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;0001&#34;</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        validations<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>23<span style="color:#f92672">,</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;000013145001&#34;</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> validations<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">exportFile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DateFormat format <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleDateFormat<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yyyyMMdd&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        WriteMappedFile outputmapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WriteMappedFile<span style="color:#f92672">(</span>FILE_TXT<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>FILE_TXT<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            file<span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>MappedFile<span style="color:#f92672">&gt;&gt;</span> writers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>MappedFile<span style="color:#f92672">&gt;</span> dataList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// HEADER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList.add(new MappedFile(0, 1, 1));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList.add(new MappedFile(1, 3, 11));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList.add(new MappedFile(5, 14, format.format(new Date())));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        writers.add(dataList);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> 10000<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> id <span style="color:#f92672">=</span> RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIds</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            String scientificName <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">animalsNames</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">animalsNames</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())));</span>
+</span></span><span style="display:flex;"><span>            String status <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">status</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">status</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())));</span>
+</span></span><span style="display:flex;"><span>            String veterinarian <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">veterinarians</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">veterinarians</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())));</span>
+</span></span><span style="display:flex;"><span>            Date created <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>RandomData<span style="color:#f92672">.</span><span style="color:#a6e22e">getRandomTimeBetweenTwoDates</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            dataList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>            dataList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MappedFile<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> id<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>            dataList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MappedFile<span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> 30<span style="color:#f92672">,</span> scientificName<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>            dataList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MappedFile<span style="color:#f92672">(</span>40<span style="color:#f92672">,</span> 10<span style="color:#f92672">,</span> status<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>            dataList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MappedFile<span style="color:#f92672">(</span>50<span style="color:#f92672">,</span> 50<span style="color:#f92672">,</span> veterinarian<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>            dataList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MappedFile<span style="color:#f92672">(</span>101<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> format<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>created<span style="color:#f92672">)));</span>
+</span></span><span style="display:flex;"><span>            writers<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>dataList<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// FOOTER
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList = new ArrayList&lt;&gt;();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList.add(new MappedFile(0, 1, 3));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        dataList.add(new MappedFile(1, 6, 123));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//        writers.add(dataList);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        outputmapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeToFile</span><span style="color:#f92672">(</span>writers<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

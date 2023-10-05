@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Docker Quick References &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Docker Quick References</h1>
+  <time datetime=1500-02-09T19:18:41-0300 class="post-date">Fri, Feb 9, 1500</time>
+  <p>pretty useful commands for devs building apps in docker containers.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Show log after 30 sec.</span>
+</span></span><span style="display:flex;"><span>docker logs --since 30s -f &lt;container_name_or_id&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Show last 20 lines of the log file</span>
+</span></span><span style="display:flex;"><span>docker logs --tail <span style="color:#ae81ff">20</span> -f &lt;image_id&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build a new image, it should be executed in the same folder which contains your custom Dockerfile</span>
+</span></span><span style="display:flex;"><span>docker build --rm --no-cache -t gitlab-vm .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Running a container in background</span>
+</span></span><span style="display:flex;"><span>docker run -p 8080:3000 -d nginx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enter in a running container</span>
+</span></span><span style="display:flex;"><span>docker exec -it &lt;container_id&gt; /bin/bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Stop all containers</span>
+</span></span><span style="display:flex;"><span>docker stop <span style="color:#66d9ef">$(</span>docker ps -aq<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all containers with status = exited</span>
+</span></span><span style="display:flex;"><span>docker rm <span style="color:#66d9ef">$(</span>docker ps -q -f status<span style="color:#f92672">=</span>exited<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Clean up dangling images</span>
+</span></span><span style="display:flex;"><span>docker rmi <span style="color:#66d9ef">$(</span>docker images -f <span style="color:#e6db74">&#34;dangling=true&#34;</span> -q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all containers no longer running</span>
+</span></span><span style="display:flex;"><span>docker rm <span style="color:#66d9ef">$(</span>docker ps -a -q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all images + Remove unused data</span>
+</span></span><span style="display:flex;"><span>sudo docker rmi -f <span style="color:#66d9ef">$(</span>docker images<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>docker system prune -a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Commit a custom image</span>
+</span></span><span style="display:flex;"><span>docker commit &lt;container_id&gt; &lt;your_custom_image_name&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tag a container image</span>
+</span></span><span style="display:flex;"><span>docker tag &lt;image_id&gt; &lt;repository_name&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Push an image to Docker Hub</span>
+</span></span><span style="display:flex;"><span>docker push &lt;repository_name&gt; ex. myusername/jenkins
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List running containers</span>
+</span></span><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check container information</span>
+</span></span><span style="display:flex;"><span>docker inspect &lt;container_id&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Link containers</span>
+</span></span><span style="display:flex;"><span>docker run --name gogs --link mysql:mysql -p 8080:3000 -d gogs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test listening port inside container</span>
+</span></span><span style="display:flex;"><span>cat &lt; /dev/tcp/127.0.0.1/22
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>read -p <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1: MYSQL
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2: KAFKA
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3: P
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">4: Q
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span> option
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clear
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Stop all containers</span>
+</span></span><span style="display:flex;"><span>docker stop <span style="color:#66d9ef">$(</span>docker ps -aq<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all containers with status = exited</span>
+</span></span><span style="display:flex;"><span>docker rm <span style="color:#66d9ef">$(</span>docker ps -q -f status<span style="color:#f92672">=</span>exited<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Clean up dangling images</span>
+</span></span><span style="display:flex;"><span>docker rmi <span style="color:#66d9ef">$(</span>docker images -f <span style="color:#e6db74">&#34;dangling=true&#34;</span> -q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all containers no longer running</span>
+</span></span><span style="display:flex;"><span>docker rm <span style="color:#66d9ef">$(</span>docker ps -a -q<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove all images + Remove unused data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#sudo docker rmi -f $(docker images)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#docker system prune -a</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $option -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> docker-compose -f docker-compose.mysql.yml up -d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $option -eq <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> docker-compose -f docker-compose.kafka.yml up -d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $option -eq <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#39;*** to implement ****&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $option -eq <span style="color:#ae81ff">4</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#39;*** to implement ****&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h3 id="kafka">Kafka</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">zookeeper</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-zookeeper:7.0.1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">zookeeper</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ZOOKEEPER_CLIENT_PORT</span>: <span style="color:#ae81ff">2181</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ZOOKEEPER_TICK_TIME</span>: <span style="color:#ae81ff">2000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">broker</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-kafka:7.0.1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">broker</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># To learn about configuring Kafka for access across networks see</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9092:9092&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">zookeeper</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_BROKER_ID</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_ZOOKEEPER_CONNECT</span>: <span style="color:#e6db74">&#39;zookeeper:2181&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP</span>: <span style="color:#ae81ff">PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_ADVERTISED_LISTENERS</span>: <span style="color:#ae81ff">PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_TRANSACTION_STATE_LOG_MIN_ISR</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR</span>: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h3 id="mysql">MySQL</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.6&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">adminer_container</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">adminer:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DEFAULT_SERVER</span>: <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DESIGN</span>: <span style="color:#ae81ff">dracula</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mysql8</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:8.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">MYSQL_ROOT_PASSWORD</span>: <span style="color:#ae81ff">root</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">MYSQL_DATABASE</span>: <span style="color:#ae81ff">test</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">MYSQL_ALLOW_EMPTY_PASSWORD</span>: <span style="color:#e6db74">&#34;yes&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;3306:3306&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;./docker/db/data:/var/lib/mysql&#39;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf&#39;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;./docker/db/sql:/docker-entrypoint-initdb.d&#39;</span>
+</span></span></code></pre></div><h3 id="postgres">Postgres</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.6&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">adminer_container</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">adminer:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DEFAULT_SERVER</span>: <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DESIGN</span>: <span style="color:#ae81ff">dracula</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:10.1-alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">postgres_data:/var/lib/postgresql/data/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_PASSWORD=12345678</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_USER=postgres</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">postgres_data</span>:
+</span></span></code></pre></div><h3 id="rabbitmq--mongodb">RabbitMQ &amp; MongoDB</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.2&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mongo</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#34;mongo:4.0.2&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;27017:27017&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: --<span style="color:#ae81ff">profile=1 --slowms=0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">quant_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mongo-express</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#34;mongo-express:0.54&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8081:8081&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ME_CONFIG_MONGODB_ADMINUSERNAME</span>: <span style="color:#ae81ff">root</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ME_CONFIG_MONGODB_ADMINPASSWORD</span>: <span style="color:#ae81ff">admin</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">quant_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rabbitmq</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">rabbitmq:3-management-alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#e6db74">&#39;rabbitmq&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5672</span>:<span style="color:#ae81ff">5672</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">15672</span>:<span style="color:#ae81ff">15672</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">quant_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">quant_net</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
+</span></span></code></pre></div><h3 id="redis--redis-ui--rabbitmq">Redis &amp; Redis UI &amp; RabbitMQ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redis</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.2-alpine</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#e6db74">&#39;6379:6379&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;--appendonly&#34;</span>, <span style="color:#e6db74">&#34;yes&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">south_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redis-commander</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">rediscommander/redis-commander:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">REDIS_HOSTS=local:redis:6379</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">HTTP_USER=root</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">HTTP_PASSWORD=qwerty</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8081</span>:<span style="color:#ae81ff">8081</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">south_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rabbitmq</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">rabbitmq:3-management-alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#e6db74">&#39;rabbitmq&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5672</span>:<span style="color:#ae81ff">5672</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">15672</span>:<span style="color:#ae81ff">15672</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">south_net</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">south_net</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
+</span></span></code></pre></div><h3 id="apache-cassandra--postgres">Apache Cassandra &amp; Postgres</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.6&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">adminer_container</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">adminer:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DEFAULT_SERVER</span>: <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ADMINER_DESIGN</span>: <span style="color:#ae81ff">dracula</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:10.1-alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">postgres_data:/var/lib/postgresql/data/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_PASSWORD=12345678</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">POSTGRES_USER=postgres</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cassandra</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cassandra:3.11.14</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">9042</span>:<span style="color:#ae81ff">9042</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">9160</span>:<span style="color:#ae81ff">9160</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">./docker/cassandra:/var/lib/cassandra</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">CASSANDRA_CLUSTER_NAME=local-cluster</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">postgres_data</span>:
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

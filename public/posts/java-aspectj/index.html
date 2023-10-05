@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AspectJ &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>AspectJ</h1>
+  <time datetime=1500-01-07T19:18:41-0300 class="post-date">Sun, Jan 7, 1500</time>
+  <p>AspectJ is a <!-- raw HTML omitted -->Java library<!-- raw HTML omitted -->
+for <!-- raw HTML omitted -->AOP<!-- raw HTML omitted --></p>
+<h5 id="example">Example</h5>
+<p><code>pom.xml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;groupId&gt;</span>org.aspectj<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;artifactId&gt;</span>aspectjrt<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;version&gt;</span>1.8.2<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependencyManagement&gt;</span>
+</span></span></code></pre></div><p>Crosscutting annotation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.annotation.ElementType<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.annotation.Retention<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.annotation.RetentionPolicy<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.annotation.Target<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> YourAnnotation <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>AspectJ component implmentation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.aspectj.lang.ProceedingJoinPoint<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.aspectj.lang.annotation.*<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.aspectj.lang.JoinPoint<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Aspect</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">YourAspect</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Defines a pointcut that we can use in the @Before, @After, @AfterThrowing, @AfterReturning, @Around specifications
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// The pointcut will look for the @YourAnnotation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Pointcut</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@annotation(YourAnnotation)&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">annotationPointCutDefinition</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Defines a pointcut that we can use in the @Before,@After, @AfterThrowing, @AfterReturning,@Around specifications
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//The pointcut is a catch-all pointcut with the scope of execution
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Pointcut</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;execution(* *(..))&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">atExecution</span><span style="color:#f92672">(){}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Defines a pointcut where the @YourAnnotation exists
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//and combines that with a catch-all pointcut with the scope of execution
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@annotation(YourAnnotation) &amp;&amp; execution(* *(..))&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//ProceedingJointPoint = the reference of the call to the method.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//The difference between ProceedingJointPoint and JointPoint is that a JointPoint can&#39;t be continued (proceeded)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//A ProceedingJointPoint can be continued (proceeded) and is needed for an Around advice
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">aroundAdvice</span><span style="color:#f92672">(</span>ProceedingJoinPoint joinPoint<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Default Object that we can use to return to the consumer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Object returnObject <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;YourAspect&#39;s aroundAdvice&#39;s body is now executed Before yourMethodAround is called.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// We choose to continue the call to the method in question
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            returnObject <span style="color:#f92672">=</span> joinPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// If no exception is thrown we should land here and we can modify the returnObject, if we want to.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Throwable throwable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Here we can catch and modify any exceptions that are called
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// We could potentially not throw the exception to the caller and instead return &#34;null&#34; or a default object.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">throw</span> throwable<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//If we want to be sure that some of our code is executed even if we get an exception
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;YourAspect&#39;s aroundAdvice&#39;s body is now executed After yourMethodAround is called.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnObject<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@After</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;annotationPointCutDefinition() &amp;&amp; atExecution()&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// JointPoint = the reference of the call to the method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printNewLine</span><span style="color:#f92672">(</span>JoinPoint pointcut<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//Just prints new lines after each method that&#39;s executed in
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\n\r&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">YourClass</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        YourClass yourClass <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> YourClass<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        yourClass<span style="color:#f92672">.</span><span style="color:#a6e22e">yourMethodAround</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@YourAnnotation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">yourMethodAround</span><span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Executing TestTarget.yourMethodAround()&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jenkins Job Periodically &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Jenkins Job Periodically</h1>
+  <time datetime=1500-02-11T19:18:41-0300 class="post-date">Sun, Feb 11, 1500</time>
+  <p>In order to run a Jenkins Job periodically, all you need to do is reaching your Job Configuration and move to the Build Triggers section. There you need to check the option Build Periodically and specify a cron expression for your jenkins Job:</p>
+<p><img src="/images/jenkins/jobs-periodically/jobs-periodically.png" alt="bigo"></p>
+<p>In the above example, we have used the cron expression “*/1 * * * *” which means to run the Jenkins job every minute.</p>
+<p>The format used in the Schedule field is as follows:</p>
+<p>MINUTE (0-59), HOUR (0-23), DAY (1-31), MONTH (1-12), DAY OF THE WEEK (0-6)</p>
+<p>Examples:</p>
+<p>Start build daily at 08:30 in the morning, Monday – Friday: 30 08 * * 1-5</p>
+<p>Weekday daily build twice a day, at lunchtime 12:00 and midnight 00:00, Sunday to Thursday: 00 0,12 * * 0-4</p>
+<p>Start build at midnight: @midnight or start build at midnight, every Saturday: 59 23 * * 6</p>
+<p>Every first of every month between 2:00 a.m. – 02:30 a.m. : H(0,30) 02 01 * *</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

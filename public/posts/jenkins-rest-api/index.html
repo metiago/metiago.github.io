@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jenkins REST API &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Jenkins REST API</h1>
+  <time datetime=1500-02-12T19:18:41-0300 class="post-date">Mon, Feb 12, 1500</time>
+  <p>This is an example of, how we can use the REST API to manage Jenkins Jobs remotely.</p>
+<p>Many objects of Jenkins provide the remote access API. They are available at <code>/…/api/</code> where <code>&quot;…&quot;</code> portion is the object for which you’d like to access.</p>
+<p>The simplest way to access Jenkins REST API is to gather the User Token which is available by selecting your User and clicking on Configure.</p>
+<p>If you are running Jenkins on localhost:8080 with user ‘jenkins’ the link to access your User’s configuration is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8080/user/jenkins/configure
+</span></span></code></pre></div><p>From there, browse to the API Token Section and click on the Show API Token button:</p>
+<!-- raw HTML omitted -->
+<p>Now you will use the token as parameter for your authentication. Some examples:</p>
+<p>If your user is ‘jenkins’ and the token is ‘f1499cc9852c899d327a1f644e61a64d’ here is how you can start the job ‘job1’ using Jenkins REST Api:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8080/job/job1/build --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</span></span></code></pre></div><p>You can also schedule the job start-up with some delay:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8080/job/job1/build?delay<span style="color:#f92672">=</span>10sec  --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</span></span></code></pre></div><p>What if you need to build a job with Parameters?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8080/job/job1/build  <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -jenkins:f1499cc9852c899d327a1f644e61a64d <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --data-urlencode json<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;parameter&#34;: [{&#34;name&#34;:&#34;id&#34;, &#34;value&#34;:&#34;100&#34;}, {&#34;name&#34;:&#34;loglevel&#34;, &#34;value&#34;:&#34;high&#34;}]}&#39;</span>
+</span></span></code></pre></div><p>If you want to delete the job ‘job1’ then you can do it using the doDelete method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST http://localhost:8080/job/job1/doDelete --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</span></span></code></pre></div><p>If you want a list of all jobs (with a nicely formatted JSON), then you can invoke the /api/json API with a simple GET request:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X GET http://localhost:8080/api/json?pretty<span style="color:#f92672">=</span>true --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</span></span></code></pre></div><p>If you want to know more about it, Jenkins has a link to their REST API in the bottom right of each page. This link appears on every page of Jenkins and points you to an API output for the exact page you are browsing. That should provide some understanding into how to build the API URls.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-EN" lang="en-EN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> Jakarta EE MicroProfile - Metrics &middot; Old Trunk</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://example.org/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://example.org/"><h1>Old Trunk</h1></a>
+      <p class="lead">
+       just experiments 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://example.org/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1> Jakarta EE MicroProfile - Metrics</h1>
+  <time datetime=1500-05-22T19:18:41-0300 class="post-date">Tue, May 22, 1500</time>
+  <p>MicroProfile is an initiative of Java community that brings the power of Java EE to the microservices world. You can learn more at <!-- raw HTML omitted --><a href="https://microprofile.io/">https://microprofile.io/</a><!-- raw HTML omitted -->.</p>
+<p>Collect metrics of an application in production is very easy with <code>MicroProfile - Metrics</code>, it exports metrics as prometheus data by default and contains a lot of necessary <code>JVM</code> information to analyze microservices behaviur on the cloud.</p>
+<p>The <code>prometheus.yml</code> file configures Prometheus to collect metrics from our app which can be analized in <code>Grafana</code>.</p>
+<p><code>prometheus.yml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">global</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scrape_interval</span>:     <span style="color:#ae81ff">15s</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">external_labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">monitor</span>: <span style="color:#e6db74">&#39;payara5-monitor&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">scrape_configs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job_name</span>: <span style="color:#e6db74">&#39;payara5&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scrape_interval</span>: <span style="color:#ae81ff">2s</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metrics_path</span>: <span style="color:#e6db74">&#39;/metrics&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">static_configs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">targets</span>: [<span style="color:#e6db74">&#39;micro-metrics:8080&#39;</span>]
+</span></span></code></pre></div><p><code>docker-compose.yml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">prometheus</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">prom/prometheus</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">prometheus</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9090:9090&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">~/Desktop/metrics/prometheus.yml:/etc/prometheus/prometheus.yml</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">micro-metrics</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">micro-metrics</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">micro-metrics</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8080:8080&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">grafana</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">grafana/grafana</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">grafana</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">&#34;3000:3000</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
