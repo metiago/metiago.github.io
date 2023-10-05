@@ -1,10 +1,7 @@
 +++
-
 title =  'Regular Expression'
 date = 1500-01-06T19:18:41-03:00
-
 draft = false
-
 +++
 
 Remove special characters.

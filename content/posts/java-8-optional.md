@@ -1,8 +1,7 @@
 +++
-
 title = 'Optional API'
 date = 1500-02-03T19:18:41-03:00
-
+draft = true
 +++
 
 Java 8 Optional API tips.

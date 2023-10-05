@@ -1,15 +1,10 @@
 +++
-
 title =  'Dependency Inversion Principle'
 date = 1500-03-21T19:18:41-03:00
-
 draft = false
-
-
 +++
 
-`Dependency Inversion Principle` is the third principle of `SOLID`, you can read more about it 
-[here](https://metiago.github.io/2018/05/01/java-design-principles-design-patterns.html) and [here](https://en.wikipedia.org/wiki/SOLID). 
+`Dependency Inversion Principle` is the third principle of `SOLID`.
 
 The principle defines two main points:
 

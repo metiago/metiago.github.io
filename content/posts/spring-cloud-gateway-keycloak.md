@@ -1,10 +1,7 @@
 +++
-
 title =  'Spring Cloud Gateway + Keycloak'
 date = 1500-05-07T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 API Gateway is a type of service in a micro services architecture which provides an edge layer for clients to communicate with internal services. 

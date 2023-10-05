@@ -1,10 +1,7 @@
 +++
-
 title =  'Date & Datetime'
 date = 1500-05-19T19:18:41-03:00
-
 draft = false
-
 +++
 
 Java Date & Datetime API samples.

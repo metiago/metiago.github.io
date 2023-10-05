@@ -1,10 +1,7 @@
 +++
-
 title =  'Jenkins REST API'
 date = 1500-02-12T19:18:41-03:00
-
 draft = false
-
 +++
 
 This is an example of, how we can use the REST API to manage Jenkins Jobs remotely.

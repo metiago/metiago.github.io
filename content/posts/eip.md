@@ -1,13 +1,10 @@
 +++
-
 title = 'EIP - Enterprise Integration Patterns'
 date = 1500-03-27T19:18:41-03:00
-
 draft = false
-
 +++
 
-Enterprise integration patterns are very useful when designing system integration in the enterprise environment.
+Designing system for enterprise integration references.
 
 ### References
 

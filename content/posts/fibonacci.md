@@ -3,6 +3,8 @@ title = 'Fibonacci'
 date = 1500-01-02T19:18:41-03:00
 +++
 
+Java fibonacci no recursion
+
 ```java
 public void execute() {
     int a = 0;

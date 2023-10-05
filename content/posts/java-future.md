@@ -1,11 +1,10 @@
 +++
-
 title = 'Completable Futures'
 date = 1500-01-05T19:18:41-03:00
-
 draft = false
-
 +++
+
+Using Java future API to fetch many endpoints at once.
 
 ```java
 public void fetchAllIssuesFromJira(List<FixVersion> fixes) throws CustomException {

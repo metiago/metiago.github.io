@@ -1,12 +1,9 @@
 +++
-
 title = 'DateTime - Duplicates'
 date = 1500-03-13T19:18:41-03:00
-
-
 +++
 
-Algorithm that checks if there are duplicate elements in a list of objects, filtering them out by date and time.
+Finding duplicate elements in a list of objects, filtering them out by date and time.
 
 `PlantChecker.java`
 

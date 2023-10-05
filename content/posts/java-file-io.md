@@ -1,14 +1,10 @@
 +++
-
 title =  ' NIO File API'
 date = 1500-04-15T19:18:41-03:00
-
 draft = false
-
 +++
 
-This is an implementation to write and read flat files using NIO API. It was built aiming to facilitate file
-manipulation when integrating legacy systems.
+Flat files reading and writing using Java's NIO API.
 
 `MappedFile.java`
 

@@ -1,15 +1,10 @@
 +++
-
 title =  'Interface Segregation Principle'
 date = 1500-03-20T19:18:41-03:00
-
 draft = false
-
-
 +++
 
-`Interface Segregation Principle in java` is the fourth principle of `SOLID`, you can read more about it 
-[here](https://metiago.github.io/2018/05/01/java-design-principles-design-patterns.html) and [here](https://en.wikipedia.org/wiki/SOLID). 
+`Interface Segregation Principle in java` is the fourth principle of `SOLID`.
 
 The principle defines that clients should not be forced to implement methods that won't be used.
 

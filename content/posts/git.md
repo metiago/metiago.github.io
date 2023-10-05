@@ -1,11 +1,11 @@
 +++
-
 title = ' Git - Quick References'
 date = 1500-04-20T19:18:41-03:00
-
 +++
 
-###### Stash
+useful git commands for day-to-day devs
+
+### Stash
 ```bash
 # clean up GIT stack
 git stash clear
@@ -17,17 +17,17 @@ git stash
 git stash apply
 ```
 
-###### Fetch Branches
+### Fetch Branches
 ```bash
 git fetch
 ```
 
-###### Track/Checkout Remote Branch
+### Track/Checkout Remote Branch
 ```bash
 git checkout --track origin/<brach_name>
 ```
 
-###### Renaming Branches
+### Renaming Branches
 
 ```bash
 # Rename branch locally
@@ -40,7 +40,7 @@ git push origin :old_branch
 git push --set-upstream origin new_branch   
 ```
 
-###### Delete Branches
+### Delete Branches
 
 ```bash
 # delete local branch

@@ -1,11 +1,7 @@
 +++
-
 title =  'JVM Profiling'
 date = 1500-05-20T19:18:41-03:00
-
 draft = false
-
-
 +++
 
 ### Visual VM
@@ -20,7 +16,7 @@ visualvm --jdkhome "/Home/OpenJDK/jdk-11.0.16.8-hotspot"
 mvn compile quarkus:dev -Dcom.sun.management.jmxremote \
 -Dcom.sun.management.jmxremote.local.only=false -Djava.rmi.server.hostname=localhost
 ```
+![jconsole](/images/conn.png)
 
-<img src="{{site.github.url}}/assets/img/jconsole/chart.png" width="100%" height="100%"/>
-
+![jconsole](/images/chart.png)
 

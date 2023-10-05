@@ -1,9 +1,6 @@
 +++
-
 title =  'Quick Sort'
 date = 1500-01-23T19:18:41-03:00
-
-
 +++
 
 QuickSort is a divide and conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. This algorithm has a time complexy of O(nlog2(n)) on average and O(n2) for worst case.

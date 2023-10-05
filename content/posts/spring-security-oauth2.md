@@ -1,10 +1,7 @@
 +++
-
 title =  'Spring Security - OAuth2'
 date = 1500-04-14T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 This guide walks you through the steps for creating Restful API with Spring using Oauth2 to manage authorization.

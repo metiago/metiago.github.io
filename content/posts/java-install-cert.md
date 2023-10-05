@@ -1,14 +1,12 @@
 +++
-
 title =  'Sun JKS Utility'
 date = 1500-03-10T19:18:41-03:00
-
-
 +++
+
+Very useful utility provided by Sun to download and install public certificates from a given web server.
 
 A Java KeyStore (JKS) is a repository of security certificates, either authorization certificates or public key certificates, plus corresponding private keys, used for instance in SSL encryption.
 
-This code below is an old utility provided by Sun in order to download and install public certificates from a given web server.
 
 ```java
 package com.tiago.cert;

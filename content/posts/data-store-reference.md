@@ -1,15 +1,10 @@
 +++
-
-title =  'Data Store Reference'
+title =  'Data Store References'
 date = 1500-02-19T19:18:41-03:00
-
 draft = false
-
-
 +++
 
-Below I am sharing some chunks of information about the different data store that we have today to propose the better solution for a given
-business problem. I believe this reference is useful when we have to decide which data store is better for our problems in a given moment.
+Weaknesses and strengths of different data stores and when to use each.
  
 ### Relational database management systems (MySQL, PostgreSQL) 
 

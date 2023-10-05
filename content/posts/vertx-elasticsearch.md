@@ -1,12 +1,10 @@
 +++
-
 title = ' VertX + Elasticsearch'
 date = 1500-04-25T19:18:41-03:00
-
 draft = false
-
 +++
-Custom log aggreagator built with 
+
+Log aggreagator on top of
 <a href="https://vertx.io" target="_blank">Eclipse VertX</a>
 <a href="https://www.elastic.co/" target="_blank">Elasticsearch</a>
 

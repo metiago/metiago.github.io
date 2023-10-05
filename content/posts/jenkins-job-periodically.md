@@ -9,8 +9,7 @@ draft = false
 
 In order to run a Jenkins Job periodically, all you need to do is reaching your Job Configuration and move to the Build Triggers section. There you need to check the option Build Periodically and specify a cron expression for your jenkins Job:
 
-<img src="{{site.github.url}}/assets/img/jenkins/jobs-periodically/jobs-periodically.png" width="100%" height="100%"/>
-
+![bigo](/images/jenkins/jobs-periodically/jobs-periodically.png)
 
 In the above example, we have used the cron expression “*/1 * * * *” which means to run the Jenkins job every minute.
 

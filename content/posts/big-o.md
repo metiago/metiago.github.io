@@ -1,24 +1,10 @@
 +++
-
 title =  'Big O Notation'
 date = 1500-01-02T19:18:41-03:00
-
-
 +++
 
 Big-O measures how well an operation will "scale" when you increase the amount of input data it operates on. Big-O can be used to describe how fast an algorithm will run, or it can describe other behaviour such as how much memory an algorithm will use.
 
-| Big-O  | Operations for input of 10 items| Operations for input of 100 items |
-| ++++++++++++- | ++++++++++++- | ++++++++++++- |
-| O(1)  | 1  | 1
-| O(log n)  | 3  | 7
-| O(n)  | 10  | 100
-| O(n log n)  | 30  | 700
-| O(n^2)  | 100  | 1000
-| O(2^n)  | 1024  | 2^100
-| O(n!)  | 3628800  | 100!
-
-<br>
 
 ### O(1)
 Means that no matter how large the input is, the time taken doesn’t change. Its operations run in constant time. Some examples of O(1) operations are:
@@ -79,4 +65,5 @@ An example of an O(n!) operation is the travelling salesman problem using brute 
 
 ### Big-O Graph
 
-![Image of Big O]({{site.github.url}}/assets/img/time_complexity.png)
+![bigo](/images/time_complexity.png)
+

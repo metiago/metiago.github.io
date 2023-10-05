@@ -1,17 +1,12 @@
 +++
-
 title =  'Open Closed Principle'
 date = 1500-03-18T19:18:41-03:00
-
 draft = false
-
-
 +++
 
-`Open Closed Principle` is the second principle of `SOLID`, you can read more about it 
-[here](https://metiago.github.io/2018/05/01/java-design-principles-design-patterns.html) and [here](https://en.wikipedia.org/wiki/SOLID). 
+`Open Closed Principle` is the second principle of `SOLID`.
 
-This pattern says (classes, modules, etc) should be open for extension, but closed for modification. Once we have written the class and tested it, it should not be modified again and again but it should open for extension.
+This pattern says (classes, modules, etc) should be open for extension, but closed for modification. Once we have written the class and tested it, it should not be modified again and again but it should be open for extension.
 
 
 `ReportService.java`

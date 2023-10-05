@@ -1,8 +1,7 @@
 +++
-
 title =  'MongoDB Quick References'
 date = 1500-04-13T19:18:41-03:00
-
+draft = true
 +++
 
 #### MongoDB Seed

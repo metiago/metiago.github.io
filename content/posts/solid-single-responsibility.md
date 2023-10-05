@@ -1,20 +1,12 @@
 +++
-
 title =  'Single Responsibility Principle'
 date = 1500-03-17T19:18:41-03:00
-
 draft = false
-
-
 +++
 
-Today I'm writing about the principle called `Single Responsibility Principle` which is one of the 5 principles of `SOLID`, you can read more about it 
-[here](https://metiago.github.io/2018/05/01/java-design-principles-design-patterns.html) and [here](https://en.wikipedia.org/wiki/SOLID). These patterns are really useful since it helps developers to structure their codes so that future refactoring and maintenance won't break any other part of the system as well as
-make life easier when adding new features.
+The `Single Responsibility Principle` says that a object should handle only one thing well.  
 
-Below we have a Java class which contains three methods, basically we're coupling everything in only one class which doesn't have the `responsibility` to handle that.
-
-### Example
+This UserService class is doing 3 different things, therefore it's breaking this pattern.
 
 ```java
 public class UserService {
@@ -33,9 +25,7 @@ public class UserService {
 }
 ```
 
-The `Single Responsibility Principle` suggest us to split that out in small classes keeping everyone with its own responsibility.
-
-We could make something like:
+To fix that, basically we split that out in classes that handle exactly a single method. 
 
 ```java
 public class AuthService {
@@ -62,7 +52,7 @@ public class ReportGenerator {
     // logic
   }
 }
-```
+``` 
 
 ```java
 public class UserService {

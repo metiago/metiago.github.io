@@ -1,10 +1,7 @@
 +++
-
 title =  'MySQL 8 - AWS EC2'
 date = 1500-04-02T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 MySQL EC2
