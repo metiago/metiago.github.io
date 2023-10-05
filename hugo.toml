@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-EN'
 title = 'Old Trunk'
-theme = ["hyde"]
+theme = ["ananke"]
 enableInlineShortcodes = true
 enableRobotsTXT = true
 summaryLength = 8
