@@ -1,11 +1,7 @@
 +++
-
 title = 'Apache Camel Seda'
 date = 1500-03-24T19:18:41-03:00
-
-draft = false
-
-
+draft = true
 +++
 
 

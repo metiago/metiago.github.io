@@ -1,11 +1,7 @@
 +++
-
 title = 'Apache Camel XML'
 date = 1500-02-22T19:18:41-03:00
-
-draft = false
-
-
+draft = true
 +++
 
 

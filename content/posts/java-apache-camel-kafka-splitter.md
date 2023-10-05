@@ -1,11 +1,7 @@
 +++
-
 title = 'Apache Camel Kafka & Split'
 date = 1500-03-23T19:18:41-03:00
-
-draft = false
-
-
+draft = true
 +++
 
 This guide walks you through the process of using design to build an application that reads data from Kafka, split it and log its output.

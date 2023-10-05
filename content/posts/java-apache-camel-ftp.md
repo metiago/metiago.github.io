@@ -1,11 +1,7 @@
 +++
-
 title = 'Apache Camel FTP'
 date = 1500-02-20T19:18:41-03:00
-
-draft = false
-
-
+draft = true
 +++
 
 ### What is Camel ?

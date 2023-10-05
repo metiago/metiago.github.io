@@ -1,13 +1,8 @@
 +++
-
 title = 'Apache Camel Aggregator'
 date = 1500-02-23T19:18:41-03:00
-
-draft = false
-
-
+draft = true
 +++
-
 
 
 The Aggregator from the EIP patterns allows you to combine a number of messages together into a single message.

@@ -1,10 +1,7 @@
 +++
-
 title = 'Apache Camel Throttler'
 date = 1500-05-02T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 When you need to limit the number of messages flowing through a route during a specified

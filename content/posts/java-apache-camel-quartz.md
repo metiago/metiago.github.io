@@ -1,10 +1,7 @@
 +++
-
 title = 'Apache Camel Quartz'
 date = 1500-02-14T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 How to use <a href="http://www.quartz-scheduler.org/" blank="_blank">Quartz</a> in the routes.
