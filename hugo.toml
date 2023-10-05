@@ -1,10 +1,10 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-EN'
-title = 'Old Trunk'
+title = 'Nothing'
 theme = ["ananke"]
 enableInlineShortcodes = true
 enableRobotsTXT = true
-summaryLength = 8
+summaryLength = 6
 [params]
   description = "just experiments"
   commentoEnable = false
