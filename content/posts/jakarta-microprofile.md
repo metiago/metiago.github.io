@@ -1,7 +1,7 @@
 +++
 title =  'Jakarta EE MicroProfile'
 date = 1500-05-21T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 Eclipse MicroProfile is optimized for developers to build microservices and cloud-native applications using enterprise Java. Using the available APIs in MicroProfile, developers can easily build small and efficient microservices with the power of traditional Java EE frameworks.

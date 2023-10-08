@@ -1,7 +1,7 @@
 +++
 title = ' Jakarta EE MicroProfile - Metrics'
 date = 1500-05-22T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 MicroProfile is an initiative of Java community that brings the power of Java EE to the microservices world. You can learn more at <a href="https://microprofile.io/" target="_blank">https://microprofile.io/</a>. 
