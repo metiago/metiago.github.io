@@ -1,12 +1,8 @@
 +++
-title =  'Date & Datetime'
+title =  'Java Date & Datetime Samples'
 date = 1500-05-19T19:18:41-03:00
 draft = false
 +++
-
-Java Date & Datetime API samples.
-
-Get day of week for a given year.
 
 ```java
 import java.text.SimpleDateFormat;
@@ -27,6 +23,7 @@ public class DateMain {
         System.out.println(findDay(1, 1, 1985));
     }
 
+    // get day of week for a given year.
     public static String findDay(int month, int day, int year) {
 
         TimeZone timezone = TimeZone.getDefault();
@@ -38,14 +35,11 @@ public class DateMain {
 }
 ```
 
-How to convert date format output.
-
 ```java
 class Result {
-
-    // Sample Input => 07:05:45PM    
-    // Sample Output => 19:05:45
-    
+    // convert date format output. 
+    // sample Input => 07:05:45PM    
+    // sample Output => 19:05:45
     public static String timeConversion(String s) {
         DateTimeFormatter parser = DateTimeFormatter.ofPattern("hh:mm:ssa");
         LocalTime time = LocalTime.parse(s, parser);        
