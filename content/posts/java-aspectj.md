@@ -1,7 +1,7 @@
 +++
 title =  'AspectJ'
 date = 1500-01-07T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 AspectJ is a <a href="https://www.eclipse.org/aspectj/" target="_blank">Java library</a> 

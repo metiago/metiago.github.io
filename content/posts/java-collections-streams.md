@@ -4,9 +4,8 @@ date = 1500-02-03T19:18:41-03:00
 draft = false
 +++
 
-Find the first non-repeated value
-
 ```java
+// find the first non-repeated value
 public static void main(String[] args) {
 
     List<Integer> nums = List.of(1, 1, 2, 2, 3, 4, 4, 5, 5);

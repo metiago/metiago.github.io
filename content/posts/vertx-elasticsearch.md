@@ -1,7 +1,7 @@
 +++
 title = ' VertX + Elasticsearch'
 date = 1500-04-25T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 Log aggreagator on top of

@@ -1,7 +1,7 @@
 +++
 title =  'AWS QLDB & Lambda'
 date = 1500-04-05T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 `FaaS` endpoints to perform actions on <a href="https://aws.amazon.com/qldb/" target="_blank"> AWS QLDB </a>.
