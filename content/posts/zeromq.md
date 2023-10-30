@@ -1,17 +1,15 @@
 +++
-
 title = ' Zero MQ'
 date = 1500-05-24T19:18:41-03:00
-
 draft = false
-
 +++
 
-Zeromq is a message library that allow developers to design "brokerless" application. The official website
-can be found <a href="https://zeromq.org/" target="_blank"> here </a>.
+Zeromq is a message library that allow developers to design "brokerless" application. 
+The official website can be found <a href="https://zeromq.org/" target="_blank"> here </a>.
 
 
-These samples was built with Jero MQ which is a  Java implementation of libzmq. You can find more about it <a href="https://github.com/zeromq/jeromq" target="_blank"> here </a>.
+These samples was built with Jero MQ which is a  Java implementation of libzmq. 
+You can find more about it <a href="https://github.com/zeromq/jeromq" target="_blank"> here </a>.
  
 pom.xml
 ```xml
