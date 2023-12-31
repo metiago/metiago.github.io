@@ -2,6 +2,7 @@
 
 Balanced Brackets exemplify how to use Stack data structures.
 
+{% raw %}
 ```java
 import java.util.List;
 import java.util.Stack;
@@ -56,3 +57,4 @@ public class Brackets {
     }
 }
 ```
+{% endraw %}
