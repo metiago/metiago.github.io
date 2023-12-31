@@ -56,21 +56,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/java-file-io/</loc>
-         <lastmod>2023-12-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://example.com/java-find-duplicate-dates/</loc>
-         <lastmod>2023-12-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://example.com/java-find-duplicate-datetime/</loc>
-         <lastmod>2023-12-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://example.com/java-hashtable/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
@@ -81,22 +66,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/java-linear-search-minor-element/</loc>
-         <lastmod>2023-12-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://example.com/java-linear-search/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/java-merge-sort/</loc>
-         <lastmod>2023-12-31</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://example.com/java-min-max/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -126,12 +101,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/java-sockets-multithread/</loc>
+         <loc>https://example.com/java-stack/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/java-stack/</loc>
+         <loc>https://example.com/java-strings/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
     </url>

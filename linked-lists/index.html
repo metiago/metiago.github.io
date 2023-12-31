@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://example.com/linked-lists/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Linked lists - Nothing</title>
+        <title>Java Linked Lists - Nothing</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href="../about.md" class="nav-link">About</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -65,7 +65,71 @@
 </li>
                                     
 <li>
+    <a href="../java-binary-search/" class="dropdown-item">Java Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-bubble-sort/" class="dropdown-item">Java Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-collections-streams/" class="dropdown-item">Java Collections Streams</a>
+</li>
+                                    
+<li>
+    <a href="../java-date-datetime/" class="dropdown-item">Java Date & Time</a>
+</li>
+                                    
+<li>
+    <a href="../java-hashtable/" class="dropdown-item">Java Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../java-insertion-sort/" class="dropdown-item">Java Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search/" class="dropdown-item">Java Linear Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-merge-sort/" class="dropdown-item">Java Merge Sort</a>
+</li>
+                                    
+<li>
     <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                    
+<li>
+    <a href="../java-queue/" class="dropdown-item">Java Queues</a>
+</li>
+                                    
+<li>
+    <a href="../java-quick-sort/" class="dropdown-item">Java Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-regex/" class="dropdown-item">Java Regex</a>
+</li>
+                                    
+<li>
+    <a href="../java-selection-sort/" class="dropdown-item">Java Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-stack/" class="dropdown-item">Java Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../java-strings/" class="dropdown-item">Java Strings</a>
+</li>
+                                    
+<li>
+    <a href="../java-tree/" class="dropdown-item">Java Tree</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Java Linked Lists</a>
 </li>
                                 </ul>
                             </li>
@@ -77,6 +141,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../java-tree/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -94,19 +168,19 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#linked-lists" class="nav-link">Linked Lists</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>+++</p>
-<p>title =  'Linked Lists'
-date = 1500-05-28T19:18:41-03:00</p>
-<p>draft = false</p>
-<p>+++
-A linked-list is a sequence of data structures which are connected together via links. It contains a head which represents the first element in the list and a tail which contains the last element.</p>
+<h1 id="linked-lists">Linked Lists</h1>
+<p>A linked-list is a sequence of data structures which are connected together via links. It contains a head which represents the first element in the list and a tail which contains the last element.</p>
 <p>The value represents the data itself and the next is a pointer to the next node in the list. If next is null, this represents the end of the list.</p>
-<p><code>LinkedList.java</code></p>
 <pre><code class="language-java">class LinkedList {
 
     private Node head;
@@ -263,7 +337,6 @@ A linked-list is a sequence of data structures which are connected together via 
 
 }
 </code></pre>
-<p><code>Main.java</code></p>
 <pre><code class="language-java">public class Main {
 
     public static void main(String[] args) {

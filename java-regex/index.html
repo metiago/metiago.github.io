@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://example.com/java-regex/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Java regex - Nothing</title>
+        <title>Java Regex - Nothing</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href="../about.md" class="nav-link">About</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -65,7 +65,71 @@
 </li>
                                     
 <li>
+    <a href="../java-binary-search/" class="dropdown-item">Java Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-bubble-sort/" class="dropdown-item">Java Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-collections-streams/" class="dropdown-item">Java Collections Streams</a>
+</li>
+                                    
+<li>
+    <a href="../java-date-datetime/" class="dropdown-item">Java Date & Time</a>
+</li>
+                                    
+<li>
+    <a href="../java-hashtable/" class="dropdown-item">Java Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../java-insertion-sort/" class="dropdown-item">Java Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search/" class="dropdown-item">Java Linear Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-merge-sort/" class="dropdown-item">Java Merge Sort</a>
+</li>
+                                    
+<li>
     <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                    
+<li>
+    <a href="../java-queue/" class="dropdown-item">Java Queues</a>
+</li>
+                                    
+<li>
+    <a href="../java-quick-sort/" class="dropdown-item">Java Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Java Regex</a>
+</li>
+                                    
+<li>
+    <a href="../java-selection-sort/" class="dropdown-item">Java Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-stack/" class="dropdown-item">Java Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../java-strings/" class="dropdown-item">Java Strings</a>
+</li>
+                                    
+<li>
+    <a href="../java-tree/" class="dropdown-item">Java Tree</a>
+</li>
+                                    
+<li>
+    <a href="../linked-lists/" class="dropdown-item">Java Linked Lists</a>
 </li>
                                 </ul>
                             </li>
@@ -77,6 +141,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../java-quick-sort/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../java-selection-sort/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -95,18 +169,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            
+            <li class="nav-item" data-level="1"><a href="#regular-expression" class="nav-link">Regular Expression</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>+++
-title =  'Regular Expression'
-date = 1500-01-06T19:18:41-03:00
-draft = false
-+++</p>
-<p>Remove special characters.</p>
+<h1 id="regular-expression">Regular Expression</h1>
+<p><code>Remove special characters.</code></p>
 <pre><code class="language-java"> public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     String s = scan.nextLine();
@@ -123,7 +196,7 @@ draft = false
     scan.close();
 }
 </code></pre>
-<p>Match IP addresses.</p>
+<p><code>Match IP addresses.</code></p>
 <pre><code class="language-java">public static void main(String[] args) {
 
     List&lt;String&gt; ips = List.of(&quot;12.12.12.12&quot;,
@@ -148,7 +221,7 @@ draft = false
     });
 }
 </code></pre>
-<p>Matching words starting with <code>t</code></p>
+<p><code>Matching words starting with "t"</code></p>
 <pre><code class="language-java">import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -168,49 +241,11 @@ public class Example {
 
 }
 </code></pre>
-<p>Repleca JSON keys</p>
+<p><code>Replace JSON keys</code></p>
 <pre><code class="language-bash"># Replace json values
 &quot;name&quot;: \s*&quot;[^&quot;]+?([^\/&quot;]+)&quot;
 
 &quot;name&quot;: &quot;Ziggy&quot;
-</code></pre>
-<h6 id="compare-two-strings-lexicographically">Compare two strings lexicographically.</h6>
-<pre><code class="language-java">public class Main {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        String a = sc.next();
-        String b = sc.next();
-
-        if (a.compareTo(b) &gt; 0) {
-            System.out.println(&quot;A &gt; B&quot;);
-        }
-        else if (a.compareTo(b) &lt; 0) {
-            System.out.println(&quot;B &gt; A&quot;);
-        } else {
-            System.out.println(&quot;B == A&quot;);
-        }
-    }
-}
-</code></pre>
-<h6 id="palindrome">Palindrome</h6>
-<p>A string is said to be palindrome if the reverse of the string is the same as the string. For example, "abba" is a palindrome because the reverse of "abba" will be equal to "abba" so both of these strings are equal and are said to be a palindrome, but "abbc" is not a palindrome.</p>
-<pre><code class="language-java">public static void main(String[] args) {
-    // &quot;abba&quot; = yes
-    // &quot;abbc&quot; = no
-    String word = &quot;abba&quot;;
-
-    StringBuilder sb = new StringBuilder();
-    for (int i = word.length() - 1; i &gt;= 0; i--) {
-        sb.append(word.charAt(i));
-    }
-    if (sb.toString().equals(word)) {
-        System.out.println(&quot;Yes&quot;);
-    } else {
-        System.out.println(&quot;No&quot;);
-    }
-}
 </code></pre></div>
             </div>
         </div>

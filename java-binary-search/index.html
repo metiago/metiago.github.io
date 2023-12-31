@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://example.com/java-binary-search/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Java binary search - Nothing</title>
+        <title>Java Binary Search - Nothing</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href="../about.md" class="nav-link">About</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -65,7 +65,71 @@
 </li>
                                     
 <li>
+    <a href="./" class="dropdown-item active">Java Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-bubble-sort/" class="dropdown-item">Java Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-collections-streams/" class="dropdown-item">Java Collections Streams</a>
+</li>
+                                    
+<li>
+    <a href="../java-date-datetime/" class="dropdown-item">Java Date & Time</a>
+</li>
+                                    
+<li>
+    <a href="../java-hashtable/" class="dropdown-item">Java Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../java-insertion-sort/" class="dropdown-item">Java Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search/" class="dropdown-item">Java Linear Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-merge-sort/" class="dropdown-item">Java Merge Sort</a>
+</li>
+                                    
+<li>
     <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                    
+<li>
+    <a href="../java-queue/" class="dropdown-item">Java Queues</a>
+</li>
+                                    
+<li>
+    <a href="../java-quick-sort/" class="dropdown-item">Java Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-regex/" class="dropdown-item">Java Regex</a>
+</li>
+                                    
+<li>
+    <a href="../java-selection-sort/" class="dropdown-item">Java Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-stack/" class="dropdown-item">Java Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../java-strings/" class="dropdown-item">Java Strings</a>
+</li>
+                                    
+<li>
+    <a href="../java-tree/" class="dropdown-item">Java Tree</a>
+</li>
+                                    
+<li>
+    <a href="../linked-lists/" class="dropdown-item">Java Linked Lists</a>
 </li>
                                 </ul>
                             </li>
@@ -77,6 +141,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../graphs/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../java-bubble-sort/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -95,16 +169,16 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            
+            <li class="nav-item" data-level="1"><a href="#binary-search" class="nav-link">Binary Search</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>+++</p>
-<p>title = ' Binary Search'
-date = 1500-02-01T19:18:41-03:00</p>
-<p>+++</p>
+<h1 id="binary-search">Binary Search</h1>
 <p>Binary search, is a search algorithm that finds the position of a target value within a sorted array. Binary search has a time complexity of O(log n) in Big O notation.</p>
 <h3 id="binary-search-example-1">Binary Search Example 1</h3>
 <pre><code class="language-java">
@@ -134,30 +208,6 @@ public class BinarySearch {
         }
 
         return -1;
-    }
-}
-</code></pre>
-<h3 id="binary-search-example-2">Binary Search Example 2</h3>
-<pre><code class="language-java">public class Solution {
-
-    public int firstBadVersion(int n) {
-
-        int start=1, end=n, mid=1;
-
-        while(end&gt;start) {
-
-            mid=start+(end-start)/2;
-
-            if(isBadVersion(mid)){
-                end=mid;
-            }
-            else{
-                start=mid+1;
-            }
-        }
-
-        return start;
-
     }
 }
 </code></pre></div>

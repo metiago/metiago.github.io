@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://example.com/java-hashtable/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Java hashtable - Nothing</title>
+        <title>Java Hash Tables - Nothing</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                             <li class="navitem">
                                 <a href="../about.md" class="nav-link">About</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -65,7 +65,71 @@
 </li>
                                     
 <li>
+    <a href="../java-binary-search/" class="dropdown-item">Java Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-bubble-sort/" class="dropdown-item">Java Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-collections-streams/" class="dropdown-item">Java Collections Streams</a>
+</li>
+                                    
+<li>
+    <a href="../java-date-datetime/" class="dropdown-item">Java Date & Time</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Java Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../java-insertion-sort/" class="dropdown-item">Java Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search/" class="dropdown-item">Java Linear Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-merge-sort/" class="dropdown-item">Java Merge Sort</a>
+</li>
+                                    
+<li>
     <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                    
+<li>
+    <a href="../java-queue/" class="dropdown-item">Java Queues</a>
+</li>
+                                    
+<li>
+    <a href="../java-quick-sort/" class="dropdown-item">Java Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-regex/" class="dropdown-item">Java Regex</a>
+</li>
+                                    
+<li>
+    <a href="../java-selection-sort/" class="dropdown-item">Java Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-stack/" class="dropdown-item">Java Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../java-strings/" class="dropdown-item">Java Strings</a>
+</li>
+                                    
+<li>
+    <a href="../java-tree/" class="dropdown-item">Java Tree</a>
+</li>
+                                    
+<li>
+    <a href="../linked-lists/" class="dropdown-item">Java Linked Lists</a>
 </li>
                                 </ul>
                             </li>
@@ -77,6 +141,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../java-date-datetime/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../java-insertion-sort/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -95,25 +169,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-level="1"><a href="#hash-tables" class="nav-link">Hash Tables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>+++</p>
-<p>title =  'Hash Tables'
-date = 1500-05-01T19:18:41-03:00</p>
-<p>+++</p>
+<h1 id="hash-tables">Hash Tables</h1>
 <p>Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. One example we can provide that represents a hash table
 is the browser local storage.</p>
 <p>A hash table contains two main functions: put() and get(). put() is used for storing data into the hash table, while get() is used for retrieving data from the hash table. There's another important function which is called <code>hash function</code>. It converts a specific key to an array index where the values are stored.</p>
 <p>One technique that os commonly used to generate a key index is using <code>modulus operator</code> on a prime number e.g</p>
-<ol>
-<li>4 % 11 = 4</li>
-<li>7 % 11 = 7</li>
-<li>9 % 11 = 9</li>
-<li>15 % 11 = 4</li>
-</ol>
+<pre><code class="language-xml">1. 4 % 11 = 4
+2. 7 % 11 = 7
+3. 9 % 11 = 9
+4. 15 % 11 = 4
+</code></pre>
 <p>But this technique can cause a key collision as you can see on item 4 <code>15 % 11 = 4</code></p>
 <p>It's possible to avoid these collisions using one of the three strategies below:</p>
 <p>1 - Linear Probing</p>
