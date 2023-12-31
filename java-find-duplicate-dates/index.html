@@ -4,23 +4,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
-        <link rel="canonical" href="https://example.com/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Nothing</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="canonical" href="https://example.com/java-find-duplicate-dates/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Java find duplicate dates - Nothing</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Nothing</a>
+                <a class="navbar-brand" href="..">Nothing</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -30,42 +30,42 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">Home</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
-                                <a href="about.md" class="nav-link">About</a>
+                                <a href="../about.md" class="nav-link">About</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="big-o/" class="dropdown-item">Big O</a>
+    <a href="../big-o/" class="dropdown-item">Big O</a>
 </li>
                                     
 <li>
-    <a href="balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+    <a href="../balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
 </li>
                                     
 <li>
-    <a href="binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+    <a href="../binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
 </li>
                                     
 <li>
-    <a href="doubly-linked-lists/" class="dropdown-item">Doubly Linked Lists</a>
+    <a href="../doubly-linked-lists/" class="dropdown-item">Doubly Linked Lists</a>
 </li>
                                     
 <li>
-    <a href="fibonacci/" class="dropdown-item">Fibonacci</a>
+    <a href="../fibonacci/" class="dropdown-item">Fibonacci</a>
 </li>
                                     
 <li>
-    <a href="graphs/" class="dropdown-item">Graph</a>
+    <a href="../graphs/" class="dropdown-item">Graph</a>
 </li>
                                     
 <li>
-    <a href="java-optional/" class="dropdown-item">Java Optional</a>
+    <a href="../java-optional/" class="dropdown-item">Java Optional</a>
 </li>
                                 </ul>
                             </li>
@@ -77,16 +77,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="big-o/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -104,17 +94,157 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#home" class="nav-link">Home</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="home">Home</h1></div>
+<p>+++
+title =  'Duplicate Dates'
+date = 1500-03-12T19:18:41-03:00
++++</p>
+<p>Finding duplicate elements in a list of objects, filtering them out by dates.</p>
+<p><code>FlowerChecker.java</code></p>
+<pre><code class="language-java">package io.tiago;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FlowerChecker {
+
+
+    public List&lt;Flower&gt; dateConflictChecker(List&lt;Flower&gt; flowers) {
+
+        List&lt;Flower&gt; conflicts = new ArrayList&lt;&gt;();
+
+        for (int i = 0; i &lt; flowers.size(); i++) {
+
+            Flower current = flowers.get(i);
+
+            for (int j = 0; j &lt; flowers.size(); j++) {
+
+                if (j == i) {
+                    continue;
+                }
+
+                Flower next = flowers.get(j);
+
+                if (current.getDate() != null &amp;&amp; current.getDate().equals(next.getDate())) {
+                    conflicts.add(current);
+                    break;
+                }
+            }
+        }
+
+        return conflicts;
+    }
+
+}
+</code></pre>
+<p><code>FlowerApp.java</code></p>
+<pre><code class="language-java">package io.tiago;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
+
+public final class FlowerApp {
+
+    public static void main(String[] args) {
+
+        List&lt;Flower&gt; flowers = new ArrayList&lt;&gt;();
+
+        for (int i = 0; i &lt;= 100; i++) {
+            int year = getRandomNumberUsingNextInt(2008, 2030);
+            int month = getRandomNumberUsingNextInt(1, 12);
+            int day = getRandomNumberUsingNextInt(1, 28);
+
+            if (year &gt; 2010) {
+                flowers.add(new Flower(getRandomPlantName(), 45L, LocalDate.of(year, month, day)));
+            } else {
+                flowers.add(new Flower(getRandomPlantName(), 45L, null));
+            }
+        }
+
+        FlowerChecker flowerChecker = new FlowerChecker();
+        List&lt;Flower&gt; resp = flowerChecker.dateConflictChecker(flowers);
+
+        Comparator&lt;Flower&gt; comparator = (c1, c2) -&gt; {
+            return c1.getDate().compareTo(c2.getDate());
+        };
+        Collections.sort(resp, comparator);
+
+        resp.stream().forEach(System.out::println);
+    }
+
+    public static int getRandomNumberUsingNextInt(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
+    }
+
+    public static String getRandomPlantName() {
+        String[] plants = new String[] { &quot;Abutilon&quot;, &quot;Abutilon&quot;, &quot;Aconite&quot;, &quot;Bee Balm&quot;, &quot;Bergenia&quot;,
+                &quot;Borage&quot;, &quot;Bottlebrush&quot;, &quot;Calendula&quot;, &quot;Chicory&quot;, &quot;Coneflower&quot; };
+
+        return plants[getRandomNumberUsingNextInt(0, 5)];
+    }
+}
+</code></pre>
+<p><code>Flower.java</code></p>
+<pre><code class="language-java">package io.tiago;
+
+import java.time.LocalDate;
+
+public class Flower {
+
+    // Flower's name
+    private String name;
+
+    // Duration of the light session
+    private Long duration;
+
+    // Light session start date
+    private LocalDate date;
+
+    public Flower(String name, Long duration, LocalDate date) {
+        this.name = name;
+        this.duration = duration;
+        this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Plant [date=&quot; + date + &quot;, duration=&quot; + duration + &quot;, name=&quot; + name + &quot;]&quot;;
+    }
+}
+</code></pre></div>
             </div>
         </div>
 
@@ -122,14 +252,14 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -194,8 +324,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.5.3
-Build Date UTC : 2023-12-31 19:30:46.633636+00:00
--->

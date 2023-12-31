@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/java-hashtable/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Java hashtable - Nothing</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Nothing</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about.md" class="nav-link">About</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../big-o/" class="dropdown-item">Big O</a>
+</li>
+                                    
+<li>
+    <a href="../balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../doubly-linked-lists/" class="dropdown-item">Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../fibonacci/" class="dropdown-item">Fibonacci</a>
+</li>
+                                    
+<li>
+    <a href="../graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>+++</p>
+<p>title =  'Hash Tables'
+date = 1500-05-01T19:18:41-03:00</p>
+<p>+++</p>
+<p>Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. One example we can provide that represents a hash table
+is the browser local storage.</p>
+<p>A hash table contains two main functions: put() and get(). put() is used for storing data into the hash table, while get() is used for retrieving data from the hash table. There's another important function which is called <code>hash function</code>. It converts a specific key to an array index where the values are stored.</p>
+<p>One technique that os commonly used to generate a key index is using <code>modulus operator</code> on a prime number e.g</p>
+<ol>
+<li>4 % 11 = 4</li>
+<li>7 % 11 = 7</li>
+<li>9 % 11 = 9</li>
+<li>15 % 11 = 4</li>
+</ol>
+<p>But this technique can cause a key collision as you can see on item 4 <code>15 % 11 = 4</code></p>
+<p>It's possible to avoid these collisions using one of the three strategies below:</p>
+<p>1 - Linear Probing</p>
+<p>It finds the next empty index in the array using linear search.</p>
+<p>2 - Quadratic Probing</p>
+<p>Quadratic probing uses perfect squares instead of incrementing by 1 each time. <code>h + (1)^2, h + (2)^2, h + (3)^2, h + (4)^2</code></p>
+<p>3 - Rehashing / Double-Hashing</p>
+<p>This uniformly distribute the keys by having a second hashing
+function that hashes the result from the original. </p>
+<p><code>hash2(x) = R − (x % R)</code></p>
+<p>x is the result from hashing the first time, and R is less than the size of the hash table.</p>
+<h3 id="examples">Examples</h3>
+<p><code>Linear Probing</code></p>
+<pre><code class="language-java">public class HashTable {
+
+    int size;
+    int[] keys;
+    int[] values;
+    int limit;
+
+    public HashTable(int size) {
+        this.size = size;
+        this.keys = initArray();
+        this.values = initArray();
+        this.limit = 0;
+    }
+
+    public void put(int key, int value) throws Exception {
+        if (this.limit &gt; this.size) {
+            throw new Exception(&quot;Table is full&quot;);
+        }
+        int hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != 0) {
+            hashedIndex++;
+            hashedIndex = hashedIndex + this.size;
+        }
+        this.keys[hashedIndex] = key;
+        this.values[hashedIndex] = value;
+        this.limit++;
+    }
+
+    public int get(int key) {
+        var hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != key) {
+            hashedIndex++;
+            hashedIndex = hashedIndex % this.size;
+        }
+        return this.values[hashedIndex];
+    }
+
+    public int hash(int key) {
+        return key % this.size;
+    }
+
+    public int[] initArray() {
+        int[] arr = new int[this.size];
+        for (var i = 0; i &lt; this.size; i++) {
+            arr[i] = 0;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) throws Exception {
+        HashTable ht = new HashTable(4);
+        ht.put(7, 1);
+        ht.put(20, 2);
+        ht.put(33, 3);
+        ht.put(46, 4);
+        for (int i = 0; i &lt; ht.size; i++) {
+            System.out.println(ht.keys[i]);
+            System.out.println(ht.values[i]);
+        }
+    }
+}
+</code></pre>
+<p><code>Quadratic Probing</code></p>
+<pre><code class="language-java">import java.util.Arrays;
+
+public class HashTable {
+
+    int size;
+    int[] keys;
+    int[] values;
+    int limit;
+
+    public HashTable(int size) {
+        this.size = size;
+        this.keys = initArray();
+        this.values = initArray();
+        this.limit = 0;
+    }
+
+    public void put(int key, int value) throws Exception {
+        if (this.limit &gt; this.size) {
+            throw new Exception(&quot;Table is full&quot;);
+        }
+        int squareIndex = 1;
+        int hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != 0) {
+            hashedIndex += Math.pow(squareIndex, 2);
+            hashedIndex++;
+            squareIndex++;
+        }
+        this.keys[hashedIndex] = key;
+        this.values[hashedIndex] = value;
+        this.limit++;
+    }
+
+    public int get(int key) {
+        int squareIndex = 1;
+        var hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != key) {
+            hashedIndex += Math.pow(squareIndex, 2);
+            hashedIndex = hashedIndex % this.size;
+            squareIndex++;
+        }
+        return this.values[hashedIndex];
+    }
+
+    public int hash(int key) {
+        return key % this.size;
+    }
+
+    public int[] initArray() {
+        int[] arr = new int[this.size];
+        for (var i = 0; i &lt; this.size; i++) {
+            arr[i] = 0;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) throws Exception {
+        HashTable ht = new HashTable(20);
+        ht.put(7, 1);
+        ht.put(20, 2);
+        ht.put(33, 3);
+        ht.put(46, 4);
+        ht.put(50, 5);
+        ht.put(63, 26);
+        ht.put(77, 17);
+        ht.put(91, 8);
+
+        System.out.println(Arrays.toString(ht.keys));
+        System.out.println(Arrays.toString(ht.values));
+    }
+}
+</code></pre>
+<p><code>Rehashing / Double-Hashing</code></p>
+<p>On the output you can notice the difference on the hash keys where Double-Hashing is more uniformly distributed than Quadratic Probing</p>
+<pre><code class="language-java">import java.util.Arrays;
+
+public class HashTable {
+
+    int size;
+    int[] keys;
+    int[] values;
+    int limit;
+
+    public HashTable(int size) {
+        this.size = size;
+        this.keys = initArray();
+        this.values = initArray();
+        this.limit = 0;
+    }
+
+    public void put(int key, int value) throws Exception {
+        if (this.limit &gt; this.size) {
+            throw new Exception(&quot;Table is full&quot;);
+        }
+
+        int hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != 0) {
+            hashedIndex++;
+            hashedIndex = hashedIndex % this.size;
+        }
+        this.keys[hashedIndex] = key;
+        this.values[hashedIndex] = value;
+        this.limit++;
+    }
+
+    public int get(int key) {
+        var hashedIndex = this.hash(key);
+        while (this.keys[hashedIndex] != key) {
+            hashedIndex++;
+            hashedIndex = hashedIndex % this.size;
+        }
+        return this.values[hashedIndex];
+    }
+
+    public int hash(int key) {
+        return this.secondHash(key % this.size);
+    }
+
+    public int secondHash(int key) {
+        var R = this.size -2;
+        return R - key % R;
+    }
+
+    public int[] initArray() {
+        int[] arr = new int[this.size];
+        for (var i = 0; i &lt; this.size; i++) {
+            arr[i] = 0;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) throws Exception {
+        HashTable ht = new HashTable(20);
+        ht.put(7, 1);
+        ht.put(20, 2);
+        ht.put(33, 3);
+        ht.put(46, 4);
+        ht.put(50, 5);
+        ht.put(63, 26);
+        ht.put(77, 17);
+        ht.put(91, 8);
+
+        System.out.println(Arrays.toString(ht.keys));
+        System.out.println(Arrays.toString(ht.values));
+    }
+}
+</code></pre>
+<p>A hash table is a fixed-sized data structure in which the size is defined at the start.
+Hash tables are implemented using a hash function to generate an index for the array.
+A good hash function is deterministic, efficient, and uniformly distributive.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

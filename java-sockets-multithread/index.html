@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/java-sockets-multithread/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Java sockets multithread - Nothing</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Nothing</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about.md" class="nav-link">About</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../big-o/" class="dropdown-item">Big O</a>
+</li>
+                                    
+<li>
+    <a href="../balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../doubly-linked-lists/" class="dropdown-item">Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../fibonacci/" class="dropdown-item">Fibonacci</a>
+</li>
+                                    
+<li>
+    <a href="../graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../java-optional/" class="dropdown-item">Java Optional</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>+++
+title =  'Java Sockets'
+date = 1500-01-21T19:18:41-03:00
+draft = false
++++</p>
+<p>Tool to check server's health <code>host:port</code> through TCP/IP.</p>
+<h3 id="example">Example</h3>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;project xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;io.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;monitor-server&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+
+    &lt;name&gt;server&lt;/name&gt;
+    &lt;description&gt;Monitoring via TCP&lt;/description&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;1.2.17&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.6.0&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;1.8&lt;/source&gt;
+                    &lt;target&gt;1.8&lt;/target&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p><code>log4j.properties</code></p>
+<pre><code class="language-xml"># Root logger option
+log4j.rootLogger=DEBUG, stdout, file
+
+# Redirect log messages to console
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+
+# Redirect log messages to a log file, support file rolling.
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.File=log4j-application.log
+log4j.appender.file.MaxFileSize=5MB
+log4j.appender.file.MaxBackupIndex=10
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+</code></pre>
+<p><code>Handler.java</code></p>
+<pre><code class="language-java">package io.tiago.server;
+
+import io.tiago.domain.Caller;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.TimeUnit;
+
+
+public class Handler implements Runnable {
+
+    private final static Logger LOGGER = Logger.getLogger(Handler.class.getName());
+
+    private final static String MSG = &quot;Service on %s:%s is up: %s&quot;;
+
+    private Socket clientSocket;
+
+    public Handler(Socket clientSocket) {
+        this.clientSocket = clientSocket;
+    }
+
+    @Override
+    public void run() {
+
+        try {
+
+            LOGGER.info(&quot;Start checking services...&quot;);
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
+            ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
+            Caller c = (Caller) in.readObject();
+
+            if (isScheduledRangeTime(c)) {
+
+                TimeUnit.SECONDS.sleep(c.getPollFrequency());
+
+                if(!givenService(c).isUp()) {
+                    TimeUnit.MILLISECONDS.sleep(c.getExpire());
+                }
+
+                String message = String.format(MSG, c.getHost(), c.getPort(), c.isUp());
+
+                out.write(message);
+                out.flush();
+                out.close();
+                in.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Caller givenService(Caller caller) {
+        try (Socket socket = new Socket()) {
+            LOGGER.info(String.format(&quot;Checking host %s:%s...&quot;, caller.getHost(), caller.getPort()));
+            SocketAddress socketAddress = new InetSocketAddress(caller.getHost(), caller.getPort());
+            socket.connect(socketAddress);
+            caller.setUp(true);
+        } catch (IOException e) {
+            caller.setUp(false);
+        }
+        return caller;
+    }
+
+    private boolean isScheduledRangeTime(Caller c) {
+        LocalTime now = LocalTime.now();
+        return now.isAfter(c.getStart()) &amp;&amp; now.isBefore(c.getEnd());
+    }
+}
+</code></pre>
+<p><code>Server.java</code></p>
+<pre><code class="language-java">package io.tiago.server;
+
+import org.apache.log4j.Logger;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+
+
+public class Server {
+
+    private final static Logger LOGGER = Logger.getLogger(Server.class.getName());
+
+    private final static int DEFAULT_SERVER_PORT = 6000;
+
+    public static void main(String[] args) {
+        Server s = new Server();
+        s.start();
+    }
+
+    private void start() {
+
+        LOGGER.info(&quot;Starting server.&quot;);
+
+        try (ServerSocket serverSocket = new ServerSocket(DEFAULT_SERVER_PORT)) {
+
+            while (!Thread.currentThread().isInterrupted()) {
+
+                Socket clientSocket = serverSocket.accept();
+
+                new Thread(new Handler(clientSocket)).start();
+            }
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+    }
+}
+</code></pre>
+<p><code>Caller.java</code></p>
+<pre><code class="language-java">package io.tiago.domain;
+
+import java.io.Serializable;
+import java.time.LocalTime;
+
+public class Caller implements Serializable {
+
+    private int pollFrequency;
+
+    private LocalTime start;
+
+    private LocalTime end;
+
+    private long expire;
+
+    private String host;
+
+    private int port;
+
+    private boolean up;
+
+    public int getPollFrequency() {
+        return pollFrequency;
+    }
+
+    public void setPollFrequency(int pollFrequency) {
+        this.pollFrequency = pollFrequency;
+    }
+
+    public LocalTime getStart() {
+        return start;
+    }
+
+    public void setStart(LocalTime start) {
+        this.start = start;
+    }
+
+    public LocalTime getEnd() {
+        return end;
+    }
+
+    public void setEnd(LocalTime end) {
+        this.end = end;
+    }
+
+    public long getExpire() {
+        return expire;
+    }
+
+    public void setExpire(long expire) {
+        this.expire = expire;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+}
+</code></pre>
+<pre><code class="language-java">package io.tiago.client;
+
+import io.tiago.domain.Caller;
+import org.apache.log4j.Logger;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.time.LocalTime;
+import java.util.Scanner;
+
+public class Client {
+
+    private final static Logger LOGGER = Logger.getLogger(Client.class.getName());
+
+    public static void main(String[] args) {
+
+        Client client = new Client();
+
+        System.out.print(&quot;Enter host ip: &quot;);
+        Scanner sc = new Scanner(System.in);
+        String host = sc.nextLine();
+
+        System.out.print(&quot;Enter port number: &quot;);
+        sc = new Scanner(System.in);
+        int port = sc.nextInt();
+
+        System.out.print(&quot;Enter poll frequency: &quot;);
+        sc = new Scanner(System.in);
+        int pollFreq = sc.nextInt();
+
+        System.out.print(&quot;Enter schedule start time (HH:mm): &quot;);
+        sc = new Scanner(System.in);
+        LocalTime startTime = LocalTime.parse(sc.nextLine());
+
+        System.out.print(&quot;Enter schedule end time (HH:mm): &quot;);
+        sc = new Scanner(System.in);
+        LocalTime endTime = LocalTime.parse(sc.nextLine());
+
+        System.out.print(&quot;Enter expiration time in milliseconds: &quot;);
+        sc = new Scanner(System.in);
+        long expirationTime = sc.nextLong();
+
+        Caller caller = new Caller();
+        caller.setPollFrequency(pollFreq);
+        caller.setStart(startTime);
+        caller.setEnd(endTime);
+        caller.setExpire(expirationTime);
+        caller.setHost(host);
+        caller.setPort(port);
+
+        new Thread(() -&gt; client.register(caller)).start();
+    }
+
+    private void register(Caller caller) {
+
+        while (!Thread.currentThread().isInterrupted()) {
+
+            try (Socket clientSocket = new Socket(&quot;127.0.0.1&quot;, 6000)) {
+
+                ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+                out.writeObject(caller);
+                String result = in.readLine();
+
+                LOGGER.info(result);
+
+                out.close();
+                in.close();
+
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage(), e);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Once the <code>Server.java</code> is running we can run <code>Client.java</code> with the below input e:g.</p>
+<pre><code class="language-bash">Enter host ip: google.com
+Enter port number: 80
+Enter poll frequency: 5
+Enter schedule start time (HH:mm): 10:00
+Enter schedule end time (HH:mm): 23:00
+Enter expiration time in milliseconds: 5
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
