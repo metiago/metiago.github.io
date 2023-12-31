@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://example.com/about/</loc>
+         <lastmod>2023-12-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://example.com/balanced-brackets/</loc>
          <lastmod>2023-12-31</lastmod>
          <changefreq>daily</changefreq>
