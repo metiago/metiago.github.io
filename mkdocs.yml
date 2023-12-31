@@ -1,0 +1,33 @@
+site_name: Nothing
+site_url: https://example.com/
+nav:
+  - Home: index.md
+  - About: about.md
+  - Posts:
+    - Big O: big-o.md
+    - Balanced Brackets: balanced-brackets.md
+    - Binary Search Tree: binary-search-tree.md
+    - Doubly Linked Lists: doubly-linked-lists.md
+    - Fibonacci: fibonacci.md
+    - Graph: graphs.md
+    - Java Binary Search: java-binary-search.md
+    - Java Bubble Sort: java-bubble-sort.md
+    - Java Collections Streams: java-collections-streams.md
+    - Java Date & Time: java-date-datetime.md
+    - Java Hash Tables: java-hashtable.md
+    - Java Insertion Sort: java-insertion-sort.md
+    - Java Linear Search: java-linear-search.md
+    - Java Merge Sort: java-merge-sort.md
+    - Java Optional: java-optional.md
+    - Java Queues: java-queue.md
+    - Java Quick Sort: java-quick-sort.md
+    - Java Regex: java-regex.md
+    - Java Selection Sort: java-selection-sort.md
+    - Java Stacks: java-stack.md
+    - Java Strings: java-strings.md
+    - Java Tree: java-tree.md
+    - Java Linked Lists: linked-lists.md
+  
+theme:
+  name: mkdocs
+  locale: en
