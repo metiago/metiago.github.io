@@ -3,7 +3,7 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - About: about.md
-  - Posts:
+  - Java DSA:
     - Big O: big-o.md
     - Balanced Brackets: balanced-brackets.md
     - Binary Search Tree: binary-search-tree.md
