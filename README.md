@@ -1,6 +1,6 @@
 ## Reticência
 
-Unfinished thoughts...
+Unfinished thoughts... https://metiago.github.io/
 
 ```bash
 python3 -m venv venv
