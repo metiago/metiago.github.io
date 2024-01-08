@@ -1,4 +1,6 @@
-# Nothing
+## Reticência
+
+Unfinished thoughts...
 
 ```bash
 python3 -m venv venv
