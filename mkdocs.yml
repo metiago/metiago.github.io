@@ -1,9 +1,9 @@
-site_name: Nothing
+site_name: Reticência
 site_url: https://example.com/
 nav:
   - Home: index.md
   - About: about.md
-  - DSA:
+  - DS&A:
     - Big O: big-o.md
     - Balanced Brackets: balanced-brackets.md
     - Binary Search Tree: binary-search-tree.md
