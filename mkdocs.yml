@@ -3,7 +3,7 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - About: about.md
-  - Java DSA:
+  - DSA:
     - Big O: big-o.md
     - Balanced Brackets: balanced-brackets.md
     - Binary Search Tree: binary-search-tree.md
@@ -27,6 +27,8 @@ nav:
     - Java Strings: java-strings.md
     - Java Tree: java-tree.md
     - Java Linked Lists: linked-lists.md
+  - Testing:
+    - Unit Tests: tests.md
   
 theme:
   name: mkdocs
