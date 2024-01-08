@@ -33,3 +33,6 @@ nav:
 theme:
   name: mkdocs
   locale: en
+
+extra_css:
+    - css/reticencia.css

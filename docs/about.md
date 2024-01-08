@@ -1,3 +1,3 @@
 # About
 
-Writing code isn’t the problem. Controlling complexity is.
+Everything I know is because you know.
