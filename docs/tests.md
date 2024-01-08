@@ -1,6 +1,6 @@
 # Testing
 
-`Arrange Act Assert` is a best practice to write readable and organized blocks of code.
+AAA `Arrange Act Assert` is a best practice to write readable and organized blocks of code.
 
 ```java
 @Test
