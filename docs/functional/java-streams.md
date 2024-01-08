@@ -1,33 +1,34 @@
-# Collections, Streams & Lambdas
+# Streams & Lambdas
 
 ```java
-// find the first non-repeated value
 public static void main(String[] args) {
 
-    List<Integer> nums = List.of(1, 1, 2, 2, 3, 4, 4, 5, 5);
+        final var numbers = List.of(1, 2, 3, 2);
 
-    Map<Integer, Integer> x = new LinkedHashMap<>();
+        Map<Integer, Integer> freq = new HashMap<>();
 
-    for (int i = 0; i < nums.size(); i++) {
-        Integer n = nums.get(i);
-        if (!x.containsKey(n)) {
-            x.put(n, 1);
-        } else {
-            Integer v = x.get(n);
-            x.put(n, v + 1);
+        for (Integer e : numbers) {
+
+            if (freq.containsKey(e)) {
+                Integer v = freq.get(e);
+                freq.put(e, v + 1);
+            } else {
+                freq.put(e, 1);
+            }
+
         }
-    }
 
-    for (Map.Entry<Integer, Integer> entry : x.entrySet()) {
+        Optional<Integer> max = freq.entrySet()
+                .stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                .map(m -> m.getKey())
+                .findFirst();
 
-        if (entry.getValue() <= 1) {
-            System.out.println(entry.getKey());
-            break;
-        }
+        System.out.println(max.get());
     }
-} 
 ```
 
+Get frequency of an element in array
 ```java
 import java.util.*;
 import java.util.stream.Collectors;
@@ -41,12 +42,12 @@ public class StreamCountDuplicateElements {
         Map<Integer, Integer> m = input.stream()
                                        .map(Integer::parseInt)
                                        .collect(Collectors.toMap(i-> i, i -> 1, Integer::sum));
-        System.out.println(m);
+        // output: {1=3, 2=1, 4=1, 5=1}
     }
 }
 ```
 
-`JavaStreamSamples.java`
+Trying it out
 
 ```java
 package com.tiago.javacore;
@@ -147,7 +148,7 @@ public class JavaStreamSamples {
 
 ```
 
-`Feed.java`
+Sample data generator
 
 ```java
 package com.tiago.javacore;
@@ -203,7 +204,7 @@ public class Feed {
 }
 ```
 
-`Animal.java`
+The POJO
 
 ```java
 import java.io.Serializable;
@@ -237,116 +238,5 @@ public class Animal implements Serializable {
         this.created = created;
         this.age = age;
     }
-}
-```
-
-`ArrayChunk.java`
-
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
-public class ArrayChunk {
-
-    private static final int NUM_OF_CHUNKS = 4;
-
-    private static final List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 30, 80);
-
-    public static void main(final String... argvs) {
-
-        final List<List<Integer>> result = new ArrayList<>();
-
-        final AtomicInteger counter = new AtomicInteger();
-
-        for (final int number : arr) {
-
-            if (counter.getAndIncrement() % NUM_OF_CHUNKS == 0) {
-                result.add(new ArrayList<>());
-            }
-            result.get(result.size() - 1).add(number);
-        }
-
-        System.out.println(result);
-    }
-    
-}
-```
-
-###### Map
-
-```java
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-public class LoopMap {
-
-    public static void main(String[] args) {
-
-        Map<String, String> map = new HashMap<>();
-        map.put("1", "Jan");
-        map.put("2", "Feb");
-        
-        // tradional loop
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-        }
-        
-        // lambda
-        map.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
-    }
-}
-```
-
-###### Shuffle List
-
-```java
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-public class ShuffleArray {
-
-	public static void main(String[] args) {
-
-		Integer[] intArray = { 1, 2, 3, 4, 5, 6, 7};
-
-		// Arrays.asList() works with an array of objects 
-		// only because autoboxing doesn’t work with generics.
-		List<Integer> intList = Arrays.asList(intArray);
-
-		Collections.shuffle(intList);
-
-		intList.toArray(intArray);
-
-		System.out.println(Arrays.toString(intArray));
-	}
-}
-
-```
-
-```java 
-import java.util.Arrays;
-import java.util.Random;
-
-public class ShuffleArray {
-
-	public static void main(String[] args) {
-		
-		int[] array = { 1, 2, 3, 4, 5, 6, 7 };
-		
-		Random rand = new Random();
-		
-		for (int i = 0; i < array.length; i++) {
-			int randomIndexToSwap = rand.nextInt(array.length);
-			int temp = array[randomIndexToSwap];
-			array[randomIndexToSwap] = array[i];
-			array[i] = temp;
-		}
-		System.out.println(Arrays.toString(array));
-	}
 }
 ```
