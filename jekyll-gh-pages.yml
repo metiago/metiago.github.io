@@ -1,3 +1,7 @@
+defaults:
+  run:
+    working-directory: site
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,4 +17,3 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-        working-directory: site
