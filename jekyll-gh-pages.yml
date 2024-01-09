@@ -1,8 +1,5 @@
-defaults:
-  run:
-    working-directory: site
-
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -17,3 +14,4 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+      - run: mkdocs gh-deploy --force --clean --verbose
