@@ -1,22 +1,18 @@
 +++
-title =  'JVM Profiling'
+title =  'Profiling Quarkus Application'
 date = 1500-05-20T19:18:41-03:00
 draft = true
 +++
 
-### Visual VM
-```bash
-# open up visual vm 
-visualvm --jdkhome "/Home/OpenJDK/jdk-11.0.16.8-hotspot"
-```
+**JConsole** JConsole is a graphical monitoring tool to monitor Java Virtual Machine and Java applications both on a local or remote machine.
 
-### JConsole - Quarkus
+This is how we can activate JMX to profile Quarkus applications.
 
 ```bash
 mvn compile quarkus:dev -Dcom.sun.management.jmxremote \
 -Dcom.sun.management.jmxremote.local.only=false -Djava.rmi.server.hostname=localhost
 ```
-![jconsole](/images/conn.png)
 
-![jconsole](/images/chart.png)
+{{< figure src="/img/jconsole/conn.png" width="auto" >}}
 
+{{< figure src="/img/jconsole/chart.png" width="auto" >}}

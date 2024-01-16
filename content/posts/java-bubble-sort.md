@@ -1,11 +1,7 @@
 +++
-
 title =  'Bubble Sort'
 date = 1500-01-24T19:18:41-03:00
-
-
 +++
-
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. This algorithm has a time complexity of O(n2)
 

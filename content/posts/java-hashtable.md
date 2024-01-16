@@ -1,9 +1,6 @@
 +++
-
 title =  'Hash Tables'
 date = 1500-05-01T19:18:41-03:00
-
-
 +++
 
 Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. One example we can provide that represents a hash table

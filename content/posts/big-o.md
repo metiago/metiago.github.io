@@ -65,5 +65,6 @@ An example of an O(n!) operation is the travelling salesman problem using brute 
 
 ### Big-O Graph
 
-![bigo](/images/time_complexity.png)
+{{< figure src="/img/time_complexity.png" width="auto" >}}
+
 

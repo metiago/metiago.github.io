@@ -1,9 +1,6 @@
 +++
-
 title =  'Selection Sort'
 date = 1500-01-22T19:18:41-03:00
-
-
 +++
 
 The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a given array.

@@ -1,11 +1,9 @@
 +++
-
 title =  'Linked Lists'
 date = 1500-05-28T19:18:41-03:00
-
 draft = true
-
 +++
+
 A linked-list is a sequence of data structures which are connected together via links. It contains a head which represents the first element in the list and a tail which contains the last element.
 
 The value represents the data itself and the next is a pointer to the next node in the list. If next is null, this represents the end of the list.

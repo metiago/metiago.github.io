@@ -1,9 +1,6 @@
 +++
-
 title =  'OS – Listing used ports'
 date = 1500-01-04T19:18:41-03:00
-
-
 +++
 
 ###### Linux 
