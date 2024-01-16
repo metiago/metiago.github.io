@@ -1,7 +1,7 @@
 +++
 title =  'Java JDK Key Tool'
 date = 1500-04-08T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 The Java Keytool is a command line tool which can generate public key / private key pairs and store them in a Java KeyStore. The Keytool executable is distributed with the Java SDK (or JRE), so if you have an SDK installed you will also have the Keytool executable. 

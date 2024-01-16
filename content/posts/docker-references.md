@@ -1,7 +1,7 @@
 +++
 title =  'Docker Quick References'
 date = 1500-02-09T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 pretty useful commands for devs building apps in docker containers.

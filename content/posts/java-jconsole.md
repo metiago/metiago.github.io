@@ -1,7 +1,7 @@
 +++
 title =  'JVM Profiling'
 date = 1500-05-20T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 ### Visual VM

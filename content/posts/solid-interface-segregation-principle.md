@@ -1,7 +1,7 @@
 +++
 title =  'Interface Segregation Principle'
 date = 1500-03-20T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 `Interface Segregation Principle in java` is the fourth principle of `SOLID`.

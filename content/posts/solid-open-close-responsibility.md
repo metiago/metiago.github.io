@@ -1,7 +1,7 @@
 +++
 title =  'Open Closed Principle'
 date = 1500-03-18T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 `Open Closed Principle` is the second principle of `SOLID`.

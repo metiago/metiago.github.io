@@ -1,7 +1,7 @@
 +++
 title =  'Single Responsibility Principle'
 date = 1500-03-17T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 The `Single Responsibility Principle` says that a object should handle only one thing well.  

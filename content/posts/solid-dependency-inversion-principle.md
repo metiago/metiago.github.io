@@ -1,7 +1,7 @@
 +++
 title =  'Dependency Inversion Principle'
 date = 1500-03-21T19:18:41-03:00
-draft = false
+draft = true
 +++
 
 `Dependency Inversion Principle` is the third principle of `SOLID`.

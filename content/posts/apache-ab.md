@@ -1,10 +1,7 @@
 +++
-
 title = ' Apache AB'
 date = 1500-04-19T19:18:41-03:00
-
-draft = false
-
+draft = true
 +++
 
 How to load test Rest APIs with Apache AB.
