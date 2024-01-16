@@ -75,7 +75,7 @@ animals with some metadata.
 </animals>
 ```
 
-Here we have our JAXB mapped classes representing the XML above:
+Here we have our JAXB mapper classes representing the XML above:
 
 ```java
 import java.io.Serializable;
@@ -198,7 +198,7 @@ public class Animals implements Serializable{
 
 This is the Camel implementation which reads XML file from inbox directory, process it and save it in the outbox directory.
 
-Notice the `.streaming()` method which splits payload in streaming mode which means it will split the input message in chunks.
+Note that `.streaming()` method process the payload in chunks.
 
 ```java
 import org.apache.camel.builder.RouteBuilder;
@@ -219,8 +219,7 @@ public class XmlRouter extends RouteBuilder {
 
 Finally our main method which tells Camel to follow its route.
 
-One points to mention here is `context.disableJMX();` this method when called, disable JMX which reduces memory, If you need to monitor your application
-you then can ignore it.
+Here `context.disableJMX();` disable JMX reducing some memory, it's up to you If you want to keep it enable to monitor your app.
 
 ```java
 import org.apache.camel.CamelContext;
@@ -239,5 +238,4 @@ public class App {
 }
 ```
 
-design has many built-in component to handle XML easily I would recommend to take a look at [Camel Documentation](https://camel.apache.org/docs/)
-to get know more about its API.
+Reference [Camel Documentation](https://camel.apache.org/docs/)
