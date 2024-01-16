@@ -1,7 +1,7 @@
 +++
 title = 'Lambda & DynanoDB & Gateway'
 date = 1500-05-13T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Deploying AWS Lambda, API Gateway and DynanoDB using AWS Serverless Application Model(SAM).

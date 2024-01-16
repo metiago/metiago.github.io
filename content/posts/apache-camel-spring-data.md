@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel & Spring Data'
 date = 1500-02-26T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Filters checks an incoming message against a certain criteria that the message should adhere to.

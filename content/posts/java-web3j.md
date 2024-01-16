@@ -1,7 +1,7 @@
 +++
 title =  'Blockchain - Web3j'
 date = 1500-04-09T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Ethereum blockchain with Java & Web3j e.g.

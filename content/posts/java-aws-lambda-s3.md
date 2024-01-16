@@ -1,7 +1,7 @@
 +++
 title = ' Lambda & S3'
 date = 1500-05-11T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Deploying AWS Lambda using Java and AWS Serverless Application Model(SAM).

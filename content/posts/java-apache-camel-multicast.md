@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel MultiCast'
 date = 1500-04-01T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 It routes a message to a number of endpoints where it can be processed in different ways.

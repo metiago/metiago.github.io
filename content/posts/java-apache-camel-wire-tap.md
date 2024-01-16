@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel Wire Tap'
 date = 1500-03-27T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 When you want to process the current message in the background (concurrently) to the main route, without requiring a response, the Wire Tap EIP can help. 

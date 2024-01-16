@@ -1,7 +1,7 @@
 +++
 title =  'Liskov Substitution Principle'
 date = 1500-03-19T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 `Liskov Substitution Principle` is the third principle of `SOLID`.

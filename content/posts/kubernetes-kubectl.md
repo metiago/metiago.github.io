@@ -1,6 +1,7 @@
 +++
 title =  'K8S Kubectl Quick References'
 date = 1500-04-16T19:18:41-03:00
+draft = false
 +++
 
 pretty useful commands for devs building apps in kubernetes.

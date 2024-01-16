@@ -1,7 +1,7 @@
 +++
 title = 'JPA - Composite Primary Key'
 date = 1500-03-01T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 A composite primary key is a combination of 2 or more columns used to create a unique primary key. The term key can refer to a unique key, which can be designated and used as primary key or non-unique key, which can be used as a search key for an index for a distinct table.

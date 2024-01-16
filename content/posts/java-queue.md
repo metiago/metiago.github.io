@@ -1,6 +1,7 @@
 +++
 title =  'Queues'
 date = 1500-01-26T19:18:41-03:00
+draft = false
 +++
 
 A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).

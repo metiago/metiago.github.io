@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel Interceptors'
 date = 1500-02-13T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 This is an example of how to use interceptors in design. Interceptors are pretty useful to execute some logic before the target method execution. 

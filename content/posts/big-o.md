@@ -1,6 +1,7 @@
 +++
 title =  'Big O Notation'
 date = 1500-01-02T19:18:41-03:00
+draft = false
 +++
 
 Big-O measures how well an operation will "scale" when you increase the amount of input data it operates on. Big-O can be used to describe how fast an algorithm will run, or it can describe other behaviour such as how much memory an algorithm will use.

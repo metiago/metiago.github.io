@@ -1,6 +1,7 @@
 +++
 title =  'Merge Sort'
 date = 1500-01-25T19:18:41-03:00
+draft = false
 +++
 
 Sample merge sort algorithm.

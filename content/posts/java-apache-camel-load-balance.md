@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel Load Balance'
 date = 1500-02-25T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 The Load Balancer Pattern allows you to delegate to one of a number of endpoints using a variety of different load balancing policies. 

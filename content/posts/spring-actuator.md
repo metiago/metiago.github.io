@@ -1,7 +1,7 @@
 +++
 title =  'Spring Boot Actuator'
 date = 1500-05-08T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Spring Boot Actuator provide several features for monitoring and managing applications. 

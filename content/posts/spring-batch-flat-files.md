@@ -1,7 +1,7 @@
 +++
 title = 'Spring Batch Flat File'
 date = 1500-05-03T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Loading flat files into MySQL.

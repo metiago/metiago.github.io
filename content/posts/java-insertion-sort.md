@@ -1,6 +1,7 @@
 +++
 title =  'Insertion Sort'
 date = 1500-02-08T19:18:41-03:00
+draft = false
 +++
 
 Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands with a time Complexity of O(n2) on Big O notation.

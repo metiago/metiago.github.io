@@ -1,7 +1,7 @@
 +++
 title = 'Apache Camel Enricher'
 date = 1500-02-24T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 

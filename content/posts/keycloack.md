@@ -1,7 +1,7 @@
 +++
 title = ' Spring Boot + Keycloak'
 date = 1500-05-04T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 [Keycloak](https://www.keycloak.org/) is an open-source identity and access management (IAM) solution for modern applications and services. Keycloak provides both SAML and OpenID protocol solutions.

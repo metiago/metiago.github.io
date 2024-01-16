@@ -1,7 +1,7 @@
 +++
 title =  'Spring Boot - Kafka'
 date = 1500-03-15T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 This is a guide to demonstrate how to set up three `Spring Boot` applications that communicate with `Kafka` message broker.

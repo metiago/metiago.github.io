@@ -1,7 +1,7 @@
 +++
 title = 'Amazon Web Services'
 date = 1500-04-18T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Amazon web services quick reference

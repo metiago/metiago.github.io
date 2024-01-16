@@ -1,7 +1,7 @@
 +++
 title =  'Balanced Brackets'
 date = 1500-05-25T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Balanced Brackets is a pretty cool algorithm that exemplify how to use Stack data structures.

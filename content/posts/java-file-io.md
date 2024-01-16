@@ -1,7 +1,7 @@
 +++
 title =  ' NIO File API'
 date = 1500-04-15T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Flat files reading and writing using Java's NIO API.

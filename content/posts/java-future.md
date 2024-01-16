@@ -1,7 +1,7 @@
 +++
 title = 'Completable Futures'
 date = 1500-01-05T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Using Java future API to fetch many endpoints at once.

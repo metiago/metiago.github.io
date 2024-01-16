@@ -1,7 +1,7 @@
 +++
 title = 'JPA Quick References'
 date = 1500-02-15T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 ### One To One Example

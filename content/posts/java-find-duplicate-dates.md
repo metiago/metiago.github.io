@@ -1,6 +1,7 @@
 +++
 title =  'Duplicate Dates'
 date = 1500-03-12T19:18:41-03:00
+draft = false
 +++
 
 Finding duplicate elements in a list of objects, filtering them out by dates.

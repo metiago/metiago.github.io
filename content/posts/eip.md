@@ -1,7 +1,7 @@
 +++
 title = 'EIP - Enterprise Integration Patterns'
 date = 1500-03-27T19:18:41-03:00
-draft = true
+draft = false
 +++
 
 Designing system for enterprise integration references.
