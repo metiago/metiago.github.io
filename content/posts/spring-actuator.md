@@ -8,8 +8,6 @@ Spring Boot Actuator provide several features for monitoring and managing applic
 
 It's very useful on pos-production phase when we have to manage and monitor applications, especially when working on a SOA ecosystem.
 
-More information can be found: <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator" target="_blank">here.</a>
-
 ### Health Checking
 
 Spring Actuator allow us to inspect our application where we can extract valuable information at runtime during the time it's running on production. It enables to fetch information like:
@@ -19,7 +17,7 @@ Spring Actuator allow us to inspect our application where we can extract valuabl
 1. In case of new deployments, check that all the conditions for the requirement you implemented are in accordance.
 1. Check if it is possible to access the database.
 
-### Example
+### Building the app
 
 This is raw Spring Boot application that expose all `Actuator` endpoints.
 
@@ -143,15 +141,14 @@ public class FileHealth implements HealthIndicator {
 }
 ```
 
-The list with all endpoints can be found when calling:
+### HTTP Samples
 
 ```bash
+# The list with all endpoints can be found when calling
 curl http://localhost:8080/actuator
 ```
 
-Shutdown our application can be done by calling:
-
 ```bash
+# Shutdown our application can be done by calling:
 curl -X POST http://localhost:8080/actuator/shutdown
 ```
-

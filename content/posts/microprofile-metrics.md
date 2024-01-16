@@ -4,14 +4,11 @@ date = 1500-05-22T19:18:41-03:00
 draft = false
 +++
 
-MicroProfile is an initiative of Java community that brings the power of Java EE to the microservices world. You can learn more at <a href="https://microprofile.io/" target="_blank">https://microprofile.io/</a>. 
+MicroProfile brings the power of Java EE (Jakarta EE) specs to the world of microservices.
 
-Collect metrics of an application in production is very easy with `MicroProfile - Metrics`, it exports metrics as prometheus data by default and contains a lot of necessary `JVM` information to analyze microservices behaviur on the cloud. 
+Exporting application metrics in micro profile is very easy and it brings prometheus data format by default.
 
-The `prometheus.yml` file configures Prometheus to collect metrics from our app which can be analized in `Grafana`.
-
-
-`prometheus.yml`
+This `prometheus.yml` file contains a configuration that allows the service to collect metrics from our app and then connected to `Grafana`.
 
 ```yaml
 global:
