@@ -4,8 +4,6 @@ date = 2017-03-21T19:18:41-03:00
 draft = false
 +++
 
-`Dependency Inversion Principle` is the third principle of `SOLID`.
-
 The principle defines two main points:
 
 1. High-level modules should not depend on low-level modules. Both should depend on abstractions.

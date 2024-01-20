@@ -4,9 +4,7 @@ date = 2017-03-20T19:18:41-03:00
 draft = false
 +++
 
-`Interface Segregation Principle in java` is the fourth principle of `SOLID`.
-
-The principle defines that clients should not be forced to implement methods that won't be used.
+The principle defines that clients should not be forced to implement methods that won't be used by them.
 
 `Stack.java`
 

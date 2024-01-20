@@ -4,10 +4,7 @@ date = 2017-03-19T19:18:41-03:00
 draft = false
 +++
 
-`Liskov Substitution Principle` is the third principle of `SOLID`.
-
 This principle states that derived classes must be substitutable for the base class.
-
 
 ### Example
 
@@ -51,7 +48,10 @@ public class Snake extends Animal {
 }
 ```
 
-At this point, we can see that, although snake is an animal, the method cannot be implemented because snakes don't have any legs. These are the kinds of problems that violation of `Liskov Substitution Principle` leads to, and they can most usually be recognized by a method that does nothing, or even can’t be implemented.
+At this point, we can see that, although snake is an animal, the method cannot be implemented because snakes don't have any legs. 
+These are the kinds of problems that violates `Liskov Substitution Principle` and they can be recognized by a method that does nothing 
+or can’t be implemented e.g.
+
 Therefore, to fix this issue, we have to implement a correct inheritance between objects.
 
 ### Example
