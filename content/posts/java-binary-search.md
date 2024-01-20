@@ -1,6 +1,6 @@
 +++
-title = ' Binary Search'
-date = 1500-02-01T19:18:41-03:00
+title = 'Binary Search'
+date = 2010-02-01T19:18:41-03:00
 draft = false
 +++
 

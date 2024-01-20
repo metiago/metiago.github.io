@@ -1,6 +1,6 @@
 +++
-title =  'Merge Sort'
-date = 1500-01-25T19:18:41-03:00
+title = 'Merge Sort'
+date = 2010-01-25T19:18:41-03:00
 draft = false
 +++
 

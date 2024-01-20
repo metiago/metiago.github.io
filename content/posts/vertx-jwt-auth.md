@@ -1,6 +1,6 @@
 +++
-title = ' VertX - JWT Auth & MongoDB'
-date = 1500-04-27T19:18:41-03:00
+title = 'VertX - JWT Auth & MongoDB'
+date = 2020-04-27T19:18:41-03:00
 draft = false
 +++
 

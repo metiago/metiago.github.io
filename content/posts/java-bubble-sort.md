@@ -1,6 +1,6 @@
 +++
 title =  'Bubble Sort'
-date = 1500-01-24T19:18:41-03:00
+date = 2010-01-24T19:18:41-03:00
 draft = false
 +++
 

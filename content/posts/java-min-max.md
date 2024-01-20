@@ -1,6 +1,6 @@
 +++
 title =  'Min & Max Array Value'
-date = 1500-05-17T19:18:41-03:00
+date = 2010-05-17T19:18:41-03:00
 draft = false
 +++
 

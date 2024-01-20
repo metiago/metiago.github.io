@@ -1,6 +1,6 @@
 +++
-title =  'Single Responsibility Principle'
-date = 1500-03-17T19:18:41-03:00
+title = 'Single Responsibility Principle'
+date = 2017-03-17T19:18:41-03:00
 draft = false
 +++
 

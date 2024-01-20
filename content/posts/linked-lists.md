@@ -1,6 +1,6 @@
 +++
 title =  'Linked Lists'
-date = 1500-05-28T19:18:41-03:00
+date = 2010-05-28T19:18:41-03:00
 draft = false
 +++
 

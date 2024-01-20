@@ -1,6 +1,6 @@
 +++
-title =  'Interface Segregation Principle'
-date = 1500-03-20T19:18:41-03:00
+title = 'Interface Segregation Principle'
+date = 2017-03-20T19:18:41-03:00
 draft = false
 +++
 

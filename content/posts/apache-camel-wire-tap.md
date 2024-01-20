@@ -1,10 +1,11 @@
 +++
 title = 'Apache Camel Wire Tap'
-date = 1500-03-27T19:18:41-03:00
+date = 2018-03-27T19:18:41-03:00
 draft = false
 +++
 
-When you want to process the current message in the background (concurrently) to the main route, without requiring a response, the Wire Tap EIP can help. 
+When you want to process the current message in the background (concurrently) to the main route, 
+without requiring a response, the Wire Tap EIP can help.
 
 Typical use cases for this is logging the message to a backend system. The main thread of execution will continue to process the message through the current route as usual, while Wire Tap allows additional messaging processing to occur outside of the main route.
 

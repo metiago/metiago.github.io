@@ -1,6 +1,6 @@
 +++
-title =  'Liskov Substitution Principle'
-date = 1500-03-19T19:18:41-03:00
+title = 'Liskov Substitution Principle'
+date = 2017-03-19T19:18:41-03:00
 draft = false
 +++
 

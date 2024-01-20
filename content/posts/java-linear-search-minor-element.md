@@ -1,6 +1,6 @@
 +++
 title =  'Linear Searching - Minor Element'
-date = 1500-04-23T19:18:41-03:00
+date = 2010-04-23T19:18:41-03:00
 draft = false
 +++
 

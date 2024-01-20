@@ -1,6 +1,6 @@
 +++
 title =  'K8S Kubectl Quick References'
-date = 1500-04-16T19:18:41-03:00
+date = 2018-04-16T19:18:41-03:00
 draft = false
 +++
 

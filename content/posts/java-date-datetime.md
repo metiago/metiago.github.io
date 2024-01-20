@@ -1,6 +1,6 @@
 +++
 title =  'Java Date & Datetime Samples'
-date = 1500-05-19T19:18:41-03:00
+date = 2015-05-19T19:18:41-03:00
 draft = false
 +++
 

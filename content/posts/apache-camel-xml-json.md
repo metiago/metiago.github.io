@@ -1,10 +1,10 @@
 +++
 title = 'Apache Camel XML to JSON'
-date = 1500-03-26T19:18:41-03:00
+date = 2018-03-26T19:18:41-03:00
 draft = false
 +++
 
-This guide walks you through the steps to create a simple design route to convert XML to JSON.
+How to convert XML to JSON.
 
 ### Example
 

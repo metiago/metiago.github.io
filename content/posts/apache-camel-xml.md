@@ -1,18 +1,16 @@
 +++
 title = 'Apache Camel XML'
-date = 1500-02-22T19:18:41-03:00
+date = 2018-02-22T19:18:41-03:00
 draft = false
 +++
 
-
-
-When working with heterogeneous systems sometimes we need to integrate them using an XML file.
-Today we are going to implement a simple how-to, using Camel XML features to read a XML file from one directory and save it in another one.
+How to integrate systems using Camel and XML.
 
 ### Example
 
 Save this XML below as `animal.xml` in a directory called `data/inbox` in the root folder of your Java project. This XML represents a list of
 animals with some metadata.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <animals>
@@ -195,10 +193,7 @@ public class Animals implements Serializable{
 }
 ```
 
-
-This is the Camel implementation which reads XML file from inbox directory, process it and save it in the outbox directory.
-
-Note that `.streaming()` method process the payload in chunks.
+`XmlRouter.java`
 
 ```java
 import org.apache.camel.builder.RouteBuilder;
@@ -211,15 +206,13 @@ public class XmlRouter extends RouteBuilder {
 
     from(INBOX).doTry().unmarshal(xmlDataFormat)
             .split().tokenizeXML("status")
-            .streaming()
+            .streaming() // process the payload in chunks
             .to("file://data/outbox")
             .end();
 }
 ```
 
-Finally our main method which tells Camel to follow its route.
-
-Here `context.disableJMX();` disable JMX reducing some memory, it's up to you If you want to keep it enable to monitor your app.
+`App.java`
 
 ```java
 import org.apache.camel.CamelContext;
@@ -238,4 +231,6 @@ public class App {
 }
 ```
 
-Reference [Camel Documentation](https://camel.apache.org/docs/)
+### Reference 
+
+[Camel Documentation](https://camel.apache.org/docs/)

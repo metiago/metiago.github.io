@@ -1,7 +1,7 @@
 +++
 title = ' MySQL Quick References'
-date = 1500-04-22T19:18:41-03:00
-draft = false
+date = 2018-04-22T19:18:41-03:00
+draft = true
 +++
 
 #### AES Aalgorithm

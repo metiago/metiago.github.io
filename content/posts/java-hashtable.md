@@ -1,6 +1,6 @@
 +++
 title =  'Hash Tables'
-date = 1500-05-01T19:18:41-03:00
+date = 2010-05-01T19:18:41-03:00
 draft = false
 +++
 
