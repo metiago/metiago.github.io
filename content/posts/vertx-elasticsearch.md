@@ -1,6 +1,6 @@
 +++
 title = 'VertX & Elasticsearch'
-date = 2020-04-25T19:18:41-03:00
+date = 2017-04-25T19:18:41-03:00
 draft = false
 +++
 
