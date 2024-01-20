@@ -5,6 +5,7 @@ draft = false
 +++
 
 Zeromq is a message library that allow developers to design "brokerless" application. 
+
 The official website can be found at https://zeromq.org/.
 
 These samples was built with Jero MQ which is a  Java implementation of libzmq https://github.com/zeromq/jeromq.
@@ -60,8 +61,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
 It works like P2P communication allowing client to acknowledge message delivery. 
 
-See https://zeromq.org/socket-api/#request-reply-pattern
-
 ```java
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
@@ -107,6 +106,8 @@ public class ClientRequestReply {
 ```
 
 #### Pub Sub Pattern
+
+The publish-subscribe pattern is used for one-to-many distribution of data from a single publisher to multiple subscriber.
 
 ```java
 package io.tiago.zero;
@@ -178,3 +179,6 @@ public class ClientPubSub {
     }
 }
 ```
+
+### Reference
+https://zeromq.org/socket-api/
