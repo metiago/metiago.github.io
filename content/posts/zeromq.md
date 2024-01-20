@@ -5,11 +5,9 @@ draft = false
 +++
 
 Zeromq is a message library that allow developers to design "brokerless" application. 
-The official website can be found <a href="https://zeromq.org/" target="_blank"> here </a>.
+The official website can be found at https://zeromq.org/.
 
-
-These samples was built with Jero MQ which is a  Java implementation of libzmq. 
-You can find more about it <a href="https://github.com/zeromq/jeromq" target="_blank"> here </a>.
+These samples was built with Jero MQ which is a  Java implementation of libzmq https://github.com/zeromq/jeromq.
  
 pom.xml
 ```xml
