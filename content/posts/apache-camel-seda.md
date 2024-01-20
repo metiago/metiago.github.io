@@ -1,15 +1,13 @@
 +++
 title = 'Apache Camel Seda'
-date = 1500-03-24T19:18:41-03:00
+date = 2018-03-24T19:18:41-03:00
 draft = false
 +++
 
-
 The staged event-driven architecture (SEDA) refers to an approach to software architecture that decomposes a complex, event-driven application into a set of stages connected by queues.
 
-When using Apache Came to integrate services, it isn't uncommon to have a portion of route that take a long time to process. Rather than tying
-up threads with long tasks consuming hours, it may be preferable to split out the time consuming step into a separate route, and let that stage of
-processing be handled by a dedicated pool of threads.
+When using Apache Came to integrate services, it's not uncommon to have a portion of route that take a long time to process. 
+Rather than tying up threads with long tasks consuming hours, it may be preferable to split out the time consuming step into a separate route, and let that stage of processing be handled by a dedicated pool of threads.
 
 ### Example
 

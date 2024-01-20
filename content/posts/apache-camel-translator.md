@@ -1,14 +1,12 @@
 +++
 title = 'Apache Camel Translator'
-date = 1500-02-27T19:18:41-03:00
+date = 2018-02-27T19:18:41-03:00
 draft = false
 +++
 
-
-
-Translator is a pattern responsible to translate messages between different systems. Therefore If one system uses a CSV file to exchage information
-and this application wants to communicate with an application that uses database to exchange information, translator could be used to transform
-the data format between them.
+Translator is a pattern responsible to translate messages between different systems. 
+Therefore If one system uses a CSV file to exchage information and this application wants to communicate 
+with an application that uses database to exchange information, translator could be used to transform the data format between them.
 
 
 ### Example
@@ -16,7 +14,7 @@ the data format between them.
 In this example we're going to see how to use Camel to read files from a directory, translate them based on its extension and then send them to 
 [Active MQ](https://activemq.apache.org/).
 
-Firs of all, spin up an Active MQ instance using this docker command below:
+Firs of all, spin up Active MQ as below:
 
 ```bash
 sudo docker run --name='activemq' -e ACTIVEMQ_ADMIN_LOGIN='admin' -e ACTIVEMQ_ADMIN_PASSWORD='12345678' -d --rm -P webcenter/activemq:latest
@@ -84,7 +82,7 @@ Create a directory called `/data/inbox` and add these two files below called `an
 </animals>
 ```
 
-Remember to include all necessary dependencies in the pom.xml
+`pom.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -348,4 +346,5 @@ public class App {
 
 You can take a look at http://127.0.0.1:8161/ to access Active MQ console and check out how many messages were enqueued.
 
-This simple examples show a little bit about Translator which is an [EIP](https://camel.apache.org/components/latest/eips/enterprise-integration-patterns.html) as well as other important features of design.
+### Reference
+[EIP](https://camel.apache.org/components/latest/eips/enterprise-integration-patterns.html).

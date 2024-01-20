@@ -1,22 +1,21 @@
 +++
 title = 'Apache Camel Enricher'
-date = 1500-02-24T19:18:41-03:00
+date = 2018-02-24T19:18:41-03:00
 draft = false
 +++
 
+When sending messages from one system to another it is common for the 
+target system to require more information than the source system can provide.
 
-
-When sending messages from one system to another it is common for the target system to require more information than the source system can provide.
-Incoming payload may just contain some information and before to save it to the database you require another important information and here is
-where the enricher pattern comes to action.
-
-For example, a system is processing a credit transaction to concede funds to given person but this transaction can only be acepted successuflly If this person
-has a good score points at Experian, so enricher processor can call some Experian's endpoint, check or merge some data into the payload and then send
-this payload to the next component on the Camel's route.
+Incoming payload may just contain some information and before to save it in the database for example,
+you might want another important information, and that is where the enricher pattern comes to action.
 
 ### Example
 
-Enrichers in Camel can be defined implementing the interface Processor,in view of it's a component which process a specific logic.
+A system is processing a credit transaction to concede funds to given person but this transaction can only be acepted successuflly If this person
+has a good score points at Experian, so enricher processor can call some Experian's endpoint, check or merge some data into the payload and then send this payload to the next component on the Camel's route.
+
+Enrichers in Camel can be defined implementing the interface `Processor`.
 
 ```java
 import org.apache.camel.Exchange;
@@ -26,12 +25,12 @@ public class MyEnricher implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        exchange.getIn().getBody();
+        exchange.getIn().getBody(); // call a third-party API and "enrich" the exchange
     }
 }
 ```
 
-This is the implementation of the router which call a RestFul API on each 3 seconds, unmarshal it and send the payload to our Enricher and log to the console.
+`EnricherRouter.java`
 
 ```java
 import org.apache.camel.builder.RouteBuilder;
@@ -51,6 +50,8 @@ public class EnricherRouter extends RouteBuilder {
     }
 }
 ``` 
+
+`App.java`
 
 ```java
 import org.apache.camel.CamelContext;

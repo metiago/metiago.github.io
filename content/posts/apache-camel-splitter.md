@@ -1,17 +1,12 @@
 +++
-title = 'Apache Camel Kafka & Split'
-date = 1500-03-23T19:18:41-03:00
+title = 'Apache Camel Splitter'
+date = 2018-03-23T19:18:41-03:00
 draft = false
 +++
 
-This guide walks you through the process of using design to build an application that reads data from Kafka, split it and log its output.
 Splitter basically split a message into small pieces so that they can be processed individually.
-You can read more about the Splitter [here](https://camel.apache.org/components/latest/eips/split-eip.html).
-
 
 ### Example
-
-Once you have Kafka running, we you can start coding this sample. There is an example of how to set up Kafka single node right [here](https://metiago.github.io/2019/06/22/kafka-single-node.html?query=kafka).
 
 `pom.xml`
 
@@ -250,10 +245,9 @@ public class Splitter {
 }
 ```
 
-Once we execute our application, it consumes messages from Kafka, convert it to a list of Notes and then split them. 
-You shoud have an output similiar to that one below, which demonstrate 5 object splitted out of the array that comes from Kafka.
+Running the app, it consumes messages from Kafka, convert them to a list of Notes and then split them out. 
 
-This pattern is pretty useful when we want to process data separately.
+> This pattern is very useful when we want to process data separately.
 
 ```bash
 [read #1 - KafkaConsumer[camel]] route2                         INFO  Result: Note{to='Ziggy 0', from='Tiago 0', heading='Title 0', body='Content 0', tags=[tag0, tag1]}
@@ -262,3 +256,6 @@ This pattern is pretty useful when we want to process data separately.
 [read #1 - KafkaConsumer[camel]] route2                         INFO  Result: Note{to='Ziggy 3', from='Tiago 3', heading='Title 3', body='Content 3', tags=[tag3, tag4]}
 [read #1 - KafkaConsumer[camel]] route2                         INFO  Result: Note{to='Ziggy 4', from='Tiago 4', heading='Title 4', body='Content 4', tags=[tag4, tag5]}
 ```
+
+### Reference
+[Reference](https://camel.apache.org/components/latest/eips/split-eip.html).

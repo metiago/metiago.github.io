@@ -1,10 +1,10 @@
 +++
 title =  'AWS QLDB & Lambda'
-date = 1500-04-05T19:18:41-03:00
+date = 2018-04-05T19:18:41-03:00
 draft = false
 +++
 
-`FaaS` endpoints to perform actions on <a href="https://aws.amazon.com/qldb/" target="_blank"> AWS QLDB </a>.
+`FaaS` to perform actions AWS QLDB.
 
 `pom.xml`
 
@@ -139,7 +139,7 @@ draft = false
 </project>
 ```
 
-`log4j2.xml` this file is placed in the java project resources folder.
+`log4j2.xml`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -740,6 +740,13 @@ Outputs:
       Name: CarDataCustomerApi
 ```
 
+After set up a standard Java project with the source code, you have to get your AWS roles and private keys and then
+replace them in `Constants.java` class.
+
+### Deploying
+
+Run the script `deploy.sh`, once it's finished, you can access you AWS web console, navigate to the gateway api service and test it.
+
 `deploy.sh`
 
 ```bash
@@ -770,10 +777,4 @@ sleep 10
 aws cloudformation describe-stacks --stack-name $stack
 ```
 
-That's all for our example, once you got everything set up in a standard Java project then you should define your AWS roles and private keys, after that
-you have to add it to `Constants.java` class. 
 
-### Deploying
-
-Run the script `deploy.sh` and wait, once it's finished, you can access you AWS web console, navigate to the gateway api service, a check the urls
-that could be tested by curl e.g.

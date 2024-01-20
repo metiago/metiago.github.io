@@ -1,6 +1,6 @@
 +++
 title =  'Balanced Brackets'
-date = 1500-05-25T19:18:41-03:00
+date = 2014-05-25T19:18:41-03:00
 draft = false
 +++
 

@@ -1,21 +1,23 @@
 +++
-title = ' Apache AB'
-date = 1500-04-19T19:18:41-03:00
+title = 'Apache AB'
+date = 2018-04-19T19:18:41-03:00
 draft = false
 +++
 
-How to load test Rest APIs with Apache AB.
+The ab command is a command line load testing and benchmarking tool for web servers that allows you to simulate high traffic to a website.
 
+#### Execute 100 requests with 10 concurrent clients and save the results in a result.txt file
 ```bash
-# Execute 100 requests with 10 concurrent clients and save the results in a result.txt file
 ab -n 100 -c 10 https://example.com/ > result.txt
-
-# Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file
-# login.txt is a simple txt file which contains a json structure e.g  {"username":"admin", "password":"123"}
-ab -p login.txt -T application/json -c 10 -n 10 https://myapi/auth/login > login_results.txt
-
 ```
 
-## Reference
+#### Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file
 
-<a href="https://httpd.apache.org/docs/2.4/programs/ab.html" target="_blank">https://httpd.apache.org/docs/2.4/programs/ab.html</a>
+```bash
+ab -p login.txt -T application/json -c 10 -n 10 https://myapi/auth/login > login_results.txt
+```
+
+> Note: `login.txt` is a simple txt file which contains a json structure e.g 
+```bash 
+{"username":"admin", "password":"123"} 
+```

@@ -1,10 +1,10 @@
 +++
 title = 'Apache Camel Quartz'
-date = 1500-02-14T19:18:41-03:00
+date = 2018-02-14T19:18:41-03:00
 draft = false
 +++
 
-How to use <a href="http://www.quartz-scheduler.org/" blank="_blank">Quartz</a> in the routes.
+Quartz is a richly featured and open source job scheduling library.
 
 ### Example
 

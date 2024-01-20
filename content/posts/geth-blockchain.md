@@ -1,13 +1,14 @@
 +++
 title = ' Blockchain - Geth Ethereum'
-date = 1500-04-04T19:18:41-03:00
+date = 2018-04-04T19:18:41-03:00
 draft = false
 +++
 
 **POC** using Geth to create a private blockchain network running asynchronous events on top of it.
 
-In order to create a new blockchain peer we have to create these files **Dockerfile** and **genesis.json**. 
-This will create a new Geth instance and an testing account.
+In order to create a blockchain peer we have to create two files **Dockerfile** and **genesis.json**.
+
+This set up gives us a testing accont and a single node connected to a private network. @see -> chainId
 
 `Dockerfile`
 
@@ -67,10 +68,10 @@ CMD exec ./geth --testnet --syncmode "fast" -cache 2048 --verbosity=4 --rpc --rp
 }
 ```
 
-This `docker-compose` launches Geth, MongoDB, Graphana, Prometheus and Metrics Web service instance.
+This `docker-compose` starts Geth, MongoDB, Graphana, Prometheus and Metrics Web service instance.
 
-1. Dashboard export metrics to Prometheus gathering information from Geth;
-1. Geth is the implemetation of Etheraum protocol;
+1. Dashboard export metrics to Prometheus that gets information from Geth;
+1. Geth is the implemetation of Ethereum protocol;
 1. Grafana is a dashboard for data analysis;
 1. Prometheus stores time series data;
 1. MongoDB stores application events;
@@ -146,8 +147,7 @@ services:
 
 ### Blockchain Contract
 
-Before start executing transactions in our private blockchain we have to deploy a contract. Contracts works as an agreement between peers 
-in the application.
+Basically, contracts works as an agreement between peers in the application. 
 
 `DIContract.sol` 
 

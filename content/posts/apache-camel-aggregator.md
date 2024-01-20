@@ -1,15 +1,15 @@
 +++
 title = 'Apache Camel Aggregator'
-date = 1500-02-23T19:18:41-03:00
+date = 2018-02-23T19:18:41-03:00
 draft = false
 +++
 
-
-The Aggregator from the EIP patterns allows you to combine a number of messages together into a single message.
+Aggregators allows you to combine a number of messages together into a single message.
 
 ### Example
 
-Save this CSV below as `animal.csv` in a directory called `data/inbox` in the root folder of your Java project.
+Save this data format as `animal.csv` in a directory called `data/inbox` in the root folder of your Java project.
+
 ```bash
 28,Mustela nigripes,bad,Fran,2013-11-29
 22,Spheniscus mendiculus,bad,Ziggy,2013-04-06
@@ -57,10 +57,6 @@ public class MyAggregator implements AggregationStrategy {
 }
 ```
 
-Now we have the Camel route which reads the CSV file choosing only that one with CSV extensions. There're many important details in this snippet
-using Camel's DSL. I suggest you to take a look at [Camel Documentation](https://camel.apache.org/components/latest/eips/aggregate-eip.html) 
-which contains a rich explanation about each one.
-
 ```java
 import org.apache.camel.builder.RouteBuilder;
 
@@ -98,5 +94,6 @@ public class App {
 }
 ```
 
-design has many built-in component to handle XML easily I would recommend to take a look at [Camel Documentation](https://camel.apache.org/docs/)
-to get know more about its API.
+### Reference
+
+[Camel Documentation](https://camel.apache.org/components/latest/eips/aggregate-eip.html)

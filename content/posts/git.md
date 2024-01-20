@@ -1,6 +1,6 @@
 +++
 title = ' Git - Quick References'
-date = 1500-04-20T19:18:41-03:00
+date = 2015-04-20T19:18:41-03:00
 draft = false
 +++
 

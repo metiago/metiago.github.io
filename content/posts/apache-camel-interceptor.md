@@ -4,12 +4,11 @@ date = 1500-02-13T19:18:41-03:00
 draft = false
 +++
 
-This is an example of how to use interceptors in design. Interceptors are pretty useful to execute some logic before the target method execution. 
+Interceptors are useful to execute some logic before the target method execution. 
 
 ### Example
 
-First of all, we have to create a folder called `data/inbox` in the project's root folder and then put those files below in it. 
-These files would be our system integration messages.
+Create a folder named `data/inbox` in the project's root folder and save these files below as:
 
 `message1.xml`
 
@@ -18,7 +17,7 @@ These files would be our system integration messages.
 <person user="tiago">
   <firstName>Tiago</firstName>
   <lastName>Souza</lastName>
-  <city>Florianopolis</city>
+  <city>POA</city>
 </person>
 ```
 
@@ -32,8 +31,6 @@ These files would be our system integration messages.
   <city>Tampa</city>
 </person>
 ```
-
-Now, let's take a look on the code itself.
 
 `pom.xml`
 
@@ -165,7 +162,7 @@ public class MyRouteBuilder {
 
                 from("file:data/inbox?noop=true").
                         choice()
-                        .when(xpath("/person/city = 'Florianopolis'"))
+                        .when(xpath("/person/city = 'POA'"))
                         .to("file:data/outbox/br").
                         otherwise().to("file:data/outbox/us")
                         .end()

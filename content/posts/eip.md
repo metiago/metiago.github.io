@@ -1,6 +1,6 @@
 +++
 title = 'EIP - Enterprise Integration Patterns'
-date = 1500-03-27T19:18:41-03:00
+date = 2016-03-27T19:18:41-03:00
 draft = false
 +++
 

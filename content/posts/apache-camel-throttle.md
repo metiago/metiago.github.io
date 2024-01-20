@@ -1,12 +1,12 @@
 +++
 title = 'Apache Camel Throttler'
-date = 1500-05-02T19:18:41-03:00
+date = 2018-05-02T19:18:41-03:00
 draft = false
 +++
 
-When you need to limit the number of messages flowing through a route during a specified
-time period, we can use Throttler EIP. If you have a downstream system that can only handle 10 requests per second, 
-using a Throttler within your route can ensure that you do not exceed that rate.
+Throttler limits the number of messages flowing through a route during a specified
+time period. For intance, If you have a downstream system that can only handle 10 requests per second, 
+using a throttler within your route can ensure that you do not exceed that rate.
 
 ### Example
 
@@ -62,7 +62,7 @@ using a Throttler within your route can ensure that you do not exceed that rate.
     <heading>Reminder</heading>
     <body>See beyond!</body>
     <tags>
-        <name>light</name>
+        <name>kind</name>
         <name>love</name>
     </tags>
 </note>

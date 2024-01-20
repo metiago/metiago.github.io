@@ -1,10 +1,10 @@
 +++
-title = 'Apache Camel MultiCast'
-date = 1500-04-01T19:18:41-03:00
+title = 'Apache Camel JSON to XML'
+date = 2018-03-25T19:18:41-03:00
 draft = false
 +++
 
-It routes a message to a number of endpoints where it can be processed in different ways.
+Converting payload from JSON to XML.
 
 ### Example
 
@@ -50,49 +50,48 @@ It routes a message to a number of endpoints where it can be processed in differ
 </project>
 ```
 
-`data/inbox/message.xml`
+`data/inbox/message.json`
 
-```xml
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<note>
-    <to>Francy</to>
-    <from>Jani</from>
-    <heading>Reminder</heading>
-    <body>See beyond!</body>
-    <tags>
-        <name>light</name>
-        <name>love</name>
-    </tags>
-</note>
+```json
+{
+  "note": {
+    "to": "Francy",
+    "from": "Tiago",
+    "heading": "Reminder",
+    "body": "See beyond!",
+    "tags": ["love", "knowledge"]
+  }
+}
 ```
 
-`MultiCast.java`
+`JsonXML.java`
 
 ```java
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.model.dataformat.XmlJsonDataFormat;
 
-public class MultiCast {
+import java.util.Arrays;
+
+public class JsonXML {
 
     public static void main(String args[]) throws Exception {
 
         CamelContext context = new DefaultCamelContext();
 
+        XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();
+        xmlJsonFormat.setRootName("reminders");
+        xmlJsonFormat.setElementName("note");
+        xmlJsonFormat.setExpandableProperties(Arrays.asList("tags", "tags"));
+
         context.addRoutes(new RouteBuilder() {
+
             public void configure() {
 
-                from("file:data/inbox?noop=true&include=.*.xml").multicast()
-                        .to("direct:first")
-                        .to("direct:second")
-                        .to("direct:third")
-                        .end();
+                from("file:data/inbox?noop=true&include=.*.json").to("direct:out");
 
-                from("direct:first").marshal().xmljson().log("First Route: ${body}");
-
-                from("direct:second").log("Second route: ${body}");
-
-                from("direct:third").transform(simple("<test>${body}</test>")).log("Third Route: ${body}");
+                from("direct:out").unmarshal(xmlJsonFormat).log("Task Done: ${body}").to("file:data/outbox");
             }
         });
 
@@ -100,5 +99,6 @@ public class MultiCast {
         Thread.sleep(10000);
         context.stop();
     }
+
 }
 ```
