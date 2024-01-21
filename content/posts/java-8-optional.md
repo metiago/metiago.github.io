@@ -1,13 +1,12 @@
 +++
-title = 'Optional API'
+title = 'Java Optional API'
 date = 2016-02-03T19:18:41-03:00
 draft = false
 +++
 
-Java 8 Optional API tips.
 
-###### Never Assign Null to an Optional Variable
-[lambda & streams]
+### Never Assign Null to an Optional Variable
+
 ```java
 // AVOID
 public Optional<Cart> fetchCart() {
@@ -20,7 +19,7 @@ public Optional<Cart> fetchCart() {
 }      
 ```
 
-###### Ensure That an Optional Has a Value Before Calling Optional.get()
+### Ensure That an Optional Has a Value Before Calling Optional.get()
 
 ```java
 // AVOID
@@ -32,7 +31,7 @@ if (cart.isPresent()) {
 }
 ```
 
-###### When No Value Is Present, Set/Return an Already-Constructed Default Object Via the Optional.orElse() Method
+### When No Value Is Present, Set/Return an Already-Constructed Default Object Via the Optional.orElse() Method
 
 ```java
 // AVOID
@@ -56,7 +55,7 @@ public String findUserStatus(long id) {
 }
 ```
 
-###### When No Value Is Present, Set/Return a Non-Existent Default Object Via the Optional.orElseGet() Method
+### When No Value Is Present, Set/Return a Non-Existent Default Object Via the Optional.orElseGet() Method
 
 ```java
 // AVOID
@@ -83,7 +82,7 @@ public String findUserStatus(long id) {
 }
 ```
 
-###### When No Value Is Present, Throw a NoSuchElementException Exception Via orElseThrow()
+### When No Value Is Present, Throw a NoSuchElementException Exception Via orElseThrow()
 
 ```java
 // AVOID
@@ -103,7 +102,7 @@ public String findUserStatus(long id) {
 }
 ```
 
-###### Consume an Optional if it Is Present. Do Nothing if it Is Not Present. This Is a Job For Optional.ifPresent().
+### Consume an Optional if it Is Present. Do Nothing if it Is Not Present. This Is a Job For Optional.ifPresent().
 
 ```java
 // AVOID
@@ -119,7 +118,7 @@ Optional<String> status ... ;
 status.ifPresent(System.out::println);  
 ```
 
-###### Consume an Optional if it's Present. If it's not present, then execute an empty-Based Action
+### Consume an Optional if it's Present. If it's not present, then execute an empty-Based Action
 
 ```java
 // AVOID
@@ -136,7 +135,7 @@ Optional<String> status = ... ;
 status.ifPresentOrElse(System.out::println, () -> System.out.println("Status not found"));
 ```
 
-###### When the Value Is Present, Set/Return That Optional. When No Value Is Present, Set/Return the Other Optional. This Is a Job For Optional.or(), Java 9.
+### When the Value Is Present, Set/Return That Optional. When No Value Is Present, Set/Return the Other Optional. This Is a Job For Optional.or(), Java 9.
 
 ```java
 // AVOID
@@ -172,7 +171,7 @@ public Optional<String> fetchStatus() {
 }
 ```
 
-###### Optional.orElse/ orElse Are a Perfect Replacement for isPresent()-get() Pair in Lambdas
+### Optional.orElse/ orElse Are a Perfect Replacement for isPresent()-get() Pair in Lambdas
 
 ```java
 // AVOID
@@ -209,7 +208,7 @@ return products.stream()
 
 ```
 
-###### Avoid Chaining Optional's Methods With the Single Purpose of Getting a Value
+### Avoid Chaining Optional's Methods With the Single Purpose of Getting a Value
 
 ```java
 // AVOID
@@ -229,7 +228,7 @@ public String fetchStatus() {
 }
 ```
 
-###### Do Not Declare Any Field of Type Optional
+### Do Not Declare Any Field of Type Optional
 
 ```java
 // AVOID
@@ -249,7 +248,7 @@ public class Customer {
 }
 ```
 
-###### Do Not Use Optional in Constructors Arguments
+### Do Not Use Optional in Constructors Arguments
 
 ```java
 // AVOID
@@ -287,7 +286,7 @@ public class Customer {
 }
 ```
 
-###### Do Not Use Optional in Setters Arguments
+### Do Not Use Optional in Setters Arguments
 
 ```java
 // AVOID
@@ -329,7 +328,7 @@ public class Customer implements Serializable {
 }
 ```
 
-###### Do Not Use Optional in Methods Arguments
+### Do Not Use Optional in Methods Arguments
 
 ```java
 // AVOID
@@ -414,7 +413,7 @@ public void renderCustomer(Cart cart, Renderer renderer, String name) {
 
 ```
 
-###### Do Not Use Optional to Return Empty Collections or Arrays
+### Do Not Use Optional to Return Empty Collections or Arrays
 
 ```java
 // AVOID
@@ -436,7 +435,7 @@ public List<String> fetchCartItems(long id) {
 }
 ```
 
-###### Avoid Using Optional in Collections
+### Avoid Using Optional in Collections
 
 ```java
 // AVOID
@@ -469,7 +468,7 @@ private static String get(Map<String, String> map, String key) {
 }
 ```
 
-###### Do Not Confuse Optional.of() and Optional.ofNullable()
+### Do Not Confuse Optional.of() and Optional.ofNullable()
 
 ```java
 // AVOID
@@ -489,7 +488,7 @@ public Optional<String> fetchItemName(long id) {
 }
 ```
 
-###### Avoid Optional <T> and Choose Non-Generic OptionalInt, OptionalLong, or OptionalDouble
+### Avoid Optional <T> and Choose Non-Generic OptionalInt, OptionalLong, or OptionalDouble
 
 ```java
 // AVOID
@@ -503,7 +502,7 @@ OptionalLong price = OptionalLong.of(50L);        // unwrap via getAsLong()
 OptionalDouble price = OptionalDouble.of(50.43d); // unwrap via getAsDouble()
 ```
 
-###### There Is No Need to Unwrap Optionals for Asserting Equality
+### There Is No Need to Unwrap Optionals for Asserting Equality
 
 ```java
 // AVOID
@@ -519,7 +518,7 @@ Optional<String> expectedItem = Optional.of("Shoes");
 assertEquals(expectedItem, actualItem);
 ```
 
-###### Transform Values Via Map() and flatMap()
+### Transform Values Via Map() and flatMap()
 
 ```java
 // AVOID
@@ -534,7 +533,7 @@ if (lowername.isPresent()) {
 }
 ```
 
-###### Reject Wrapped Values Based on a Predefined Rule Using filter()
+### Reject Wrapped Values Based on a Predefined Rule Using filter()
 
 ```java
 // PREFER
@@ -545,7 +544,7 @@ Optional<String> uppername = lowername.map(String::toUpperCase);
 
 ```
 
-###### Do We Need to Chain the Optional API With the Stream API?
+### Do We Need to Chain the Optional API With the Stream API?
 
 ```java
 // AVOID
@@ -569,7 +568,7 @@ public boolean validatePasswordLength(User userId) {
 }
 ```
 
-###### Avoid Using Identity-Sensitive Operations on Optionals
+### Avoid Using Identity-Sensitive Operations on Optionals
 
 ```java
 // AVOID
@@ -589,7 +588,7 @@ Optional<Product> op2 = Optional.of(product);
 if (op1.equals(op2)) { ...
 ```
 
-###### Return a boolean If The Optional Is Empty. Prefer Java 11, Optional.isEmpty()
+### Return a boolean If The Optional Is Empty. Prefer Java 11, Optional.isEmpty()
 
 ```java
 // AVOID (Java 11+)
