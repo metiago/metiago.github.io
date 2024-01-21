@@ -1,5 +1,5 @@
 +++
-title = 'JPA Quick References'
+title = 'JPA Quick Reference'
 date = 2016-02-15T19:18:41-03:00
 draft = false
 +++

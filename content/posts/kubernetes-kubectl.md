@@ -1,10 +1,8 @@
 +++
-title =  'K8S Kubectl Quick References'
+title =  'K8S Kubectl Quick Reference'
 date = 2018-04-16T19:18:41-03:00
 draft = false
 +++
-
-pretty useful commands for devs building apps in kubernetes.
 
 ```bash
 # get contexts
@@ -65,7 +63,7 @@ kubectl delete deployments --all
 kubectl exec --stdin --tty my-pod -- /bin/bash
 ```
 
-#### ConfigMap
+#### Config Map
 
 ```bash
 # create
@@ -82,6 +80,6 @@ kubectl create secret generic spring-security \
 --from-literal=spring.user.name=demo \
 --from-literal=spring.user.password=password
 
-# list yaml file
+# list yaml format
 kubectl get secret spring-security -o yaml
 ```
