@@ -7,7 +7,7 @@ draft = false
 ### New Features
 
 1. What about validating inputs ?
-1. What about expected outputs ?
+1. What about expected outputs ? Both success and errors ?
 1. What about configuration, integration with external services API, databases and so on ?
 1. What about authentication and authorization ?
 1. What about unit or integration tests ?
