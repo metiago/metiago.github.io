@@ -18,6 +18,6 @@ draft = false
 1. ?
 1. ?
 
-### Others
+### On Refinament
 
 1. Are there dependencies with other user stories or teams ?
