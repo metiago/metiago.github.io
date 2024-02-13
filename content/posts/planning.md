@@ -11,6 +11,7 @@ draft = false
 1. What about configuration, integration with external services API, databases and so on ?
 1. What about authentication and authorization ?
 1. What about unit or integration tests ?
+1. Is that a new API ? If so, what about pagination, sort, filtering ?
 
 ### Existing Features
 
