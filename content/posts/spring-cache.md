@@ -4,6 +4,65 @@ date: 2019-04-10T13:57:24-03:00
 draft: false
 ---
 
+#### Eh Cache
+
+```java
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
+
+@Configuration
+@EnableCaching
+public class CacheConfig {
+
+    @Bean
+    public CacheManager cacheManager() {
+        return new EhCacheCacheManager(ehCacheCacheManager().getObject());
+    }
+
+    @Bean
+    public EhCacheManagerFactoryBean ehCacheCacheManager() {
+        EhCacheManagerFactoryBean cmfb = new EhCacheManagerFactoryBean();
+        cmfb.setConfigLocation(new ClassPathResource("ehcache.xml"));
+        cmfb.setShared(true);
+        return cmfb;
+    }
+}
+```
+
+
+#### Redis
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+
+@Configuration
+public class RedisConfig {
+
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        LettuceConnectionFactory factory = new LettuceConnectionFactory();
+        
+        // Configure Redis server properties
+        factory.setHostName("localhost"); // Redis server host
+        factory.setPort(6379); // Redis server port
+        
+        // You can also set other properties like password, timeout, etc. if needed
+        
+        factory.afterPropertiesSet(); // Initialize the factory
+        
+        return factory;
+    }
+}
+```
+
+#### Examples 
+
 ```java
 @Cacheable(
 cacheNames="pricing",
