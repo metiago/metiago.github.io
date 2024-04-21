@@ -1,8 +1,8 @@
-+++
-title = 'Completable Futures'
-date = 2016-01-05T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Completable Futures'
+date: 2016-01-05T19:18:41-03:00
+draft: false
+---
 
 Using Java future API to fetch many endpoints at once.
 
@@ -10,6 +10,7 @@ Using Java future API to fetch many endpoints at once.
 public void fetchAllIssuesFromJira(List<FixVersion> fixes) throws CustomException {
 
     // This executor is suitable for applications that launch many short-lived tasks.
+    // This will open many threads as needed, so keep in mind that it If you have limited resources, this won't be ideal
     ExecutorService executor = Executors.newCachedThreadPool();
 
     List<CompletableFuture> futures = new ArrayList<>();

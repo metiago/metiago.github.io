@@ -1,8 +1,8 @@
-+++
-title =  'Bubble Sort'
-date = 2010-01-24T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Bubble Sort'
+date: 2010-01-24T19:18:41-03:00
+draft: false
+---
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. This algorithm has a time complexity of O(n2)
 

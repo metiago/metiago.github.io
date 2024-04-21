@@ -1,8 +1,8 @@
-+++
-title = 'VertX & Elasticsearch'
-date = 2017-04-25T19:18:41-03:00
-draft = false
-+++
+---
+title: 'VertX & Elasticsearch'
+date: 2017-04-25T19:18:41-03:00
+draft: false
+---
 
 Log aggreagator on top of
 <a href="https://vertx.io" target="_blank">Eclipse VertX</a>

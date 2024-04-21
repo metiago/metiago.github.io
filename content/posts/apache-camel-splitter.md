@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Splitter'
-date = 2018-03-23T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Splitter'
+date: 2018-03-23T19:18:41-03:00
+draft: false
+---
 
 Splitter basically split a message into small pieces so that they can be processed individually.
 

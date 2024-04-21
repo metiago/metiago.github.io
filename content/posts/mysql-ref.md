@@ -1,8 +1,8 @@
-+++
-title = ' MySQL Quick Reference'
-date = 2018-04-22T19:18:41-03:00
-draft = true
-+++
+---
+title: ' MySQL Quick Reference'
+date: 2018-04-22T19:18:41-03:00
+draft: true
+---
 
 #### AES Aalgorithm
 

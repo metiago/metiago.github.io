@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel FTP'
-date = 1500-02-20T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel FTP'
+date: 1500-02-20T19:18:41-03:00
+draft: false
+---
 
 Fetching Apache Zookeeper from an FTP server to a folder in our local machine.
 

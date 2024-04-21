@@ -1,8 +1,8 @@
-+++
-title = 'Collections, Streams & Lambdas'
-date = 2014-02-03T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Collections, Streams & Lambdas'
+date: 2014-02-03T19:18:41-03:00
+draft: false
+---
 
 ```java
 // find the first non-repeated value

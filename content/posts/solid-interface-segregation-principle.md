@@ -1,8 +1,8 @@
-+++
-title = 'Interface Segregation Principle'
-date = 2017-03-20T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Interface Segregation Principle'
+date: 2017-03-20T19:18:41-03:00
+draft: false
+---
 
 The principle defines that clients should not be forced to implement methods that won't be used by them.
 

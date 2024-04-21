@@ -1,8 +1,8 @@
-+++
-title = 'Planning Checklist'
-date = 2024-02-11T16:15:12-03:00
-draft = false
-+++
+---
+title: 'Planning Checklist'
+date: 2024-02-11T16:15:12-03:00
+draft: false
+---
 
 ### New Features
 

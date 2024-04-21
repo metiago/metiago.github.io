@@ -1,5 +1,5 @@
 baseURL = "https://example.com"
-title = "Website Name"
+title: "Website Name"
 theme = "etch"
 languageCode = "en-US"
 enableInlineShortcodes = true
@@ -16,14 +16,14 @@ pygmentsUseClasses = true
   [[menu.main]]
     identifier = "posts"
     name = "posts"
-    title = "posts"
+    title: "posts"
     url = "/"
     weight = 10
 
   [[menu.main]]
     identifier = "about"
     name = "about"
-    title = "about"
+    title: "about"
     url = "/about/"
     weight = 20
 

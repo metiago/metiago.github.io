@@ -1,8 +1,8 @@
-+++
-title =  'OS – Listing used ports'
-date = 2013-01-04T19:18:41-03:00
-draft = false
-+++
+---
+title:  'OS – Listing used ports'
+date: 2013-01-04T19:18:41-03:00
+draft: false
+---
 
 ###### Linux 
 

@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Throttler'
-date = 2018-05-02T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Throttler'
+date: 2018-05-02T19:18:41-03:00
+draft: false
+---
 
 Throttler limits the number of messages flowing through a route during a specified
 time period. For intance, If you have a downstream system that can only handle 10 requests per second, 

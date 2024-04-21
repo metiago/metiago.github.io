@@ -1,8 +1,8 @@
-+++
-title = 'VertX - JWT Auth & MongoDB'
-date = 2017-04-27T19:18:41-03:00
-draft = false
-+++
+---
+title: 'VertX - JWT Auth & MongoDB'
+date: 2017-04-27T19:18:41-03:00
+draft: false
+---
 
 <a href="https://vertx.io/docs/" target="_blank">Eclipse VertX</a> is a polyglot event-driven application framework that runs on the Java Virtual Machine.
 

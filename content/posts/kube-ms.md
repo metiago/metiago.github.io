@@ -1,8 +1,8 @@
-+++
-title = 'Kube Service Discovery (DNS)'
-date = 2019-03-21T20:40:54-03:00
-draft = false
-+++
+---
+title: 'Kube Service Discovery (DNS)'
+date: 2019-03-21T20:40:54-03:00
+draft: false
+---
 
 ```python
 from flask import Flask, jsonify

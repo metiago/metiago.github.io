@@ -1,8 +1,8 @@
-+++
-title = 'Open Closed Principle'
-date = 2017-03-18T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Open Closed Principle'
+date: 2017-03-18T19:18:41-03:00
+draft: false
+---
 
 This pattern says (classes or modules) should be open for extension, but closed for modification. 
 

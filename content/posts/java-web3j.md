@@ -1,8 +1,8 @@
-+++
-title =  'Blockchain - Web3j'
-date = 2018-04-09T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Blockchain - Web3j'
+date: 2018-04-09T19:18:41-03:00
+draft: false
+---
 
 Ethereum blockchain with Java & Web3j e.g.
 

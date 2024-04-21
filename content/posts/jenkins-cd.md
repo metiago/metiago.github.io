@@ -1,8 +1,8 @@
-+++
-title = 'Continuous Delivery of Java Applications with Docker'
-date = 2019-04-11T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Continuous Delivery of Java Applications with Docker'
+date: 2019-04-11T19:18:41-03:00
+draft: false
+---
 
 
 Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. Care is taken to ensure that functionality is added in small increments and that the software can be reliably released at any time.

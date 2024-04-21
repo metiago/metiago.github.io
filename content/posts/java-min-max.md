@@ -1,8 +1,8 @@
-+++
-title =  'Min & Max Array Value'
-date = 2010-05-17T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Min & Max Array Value'
+date: 2010-05-17T19:18:41-03:00
+draft: false
+---
 
 ```java
 public class Solution {

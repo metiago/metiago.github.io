@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Aggregator'
-date = 2018-02-23T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Aggregator'
+date: 2018-02-23T19:18:41-03:00
+draft: false
+---
 
 Aggregators allows you to combine a number of messages together into a single message.
 

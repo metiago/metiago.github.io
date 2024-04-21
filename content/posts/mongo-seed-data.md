@@ -1,8 +1,8 @@
-+++
-title =  'MongoDB Quick Reference'
-date = 2017-04-13T19:18:41-03:00
-draft = false
-+++
+---
+title:  'MongoDB Quick Reference'
+date: 2017-04-13T19:18:41-03:00
+draft: false
+---
 
 ### MongoDB Backup
 

@@ -1,8 +1,8 @@
-+++
-title = 'DateTime - Duplicates'
-date = 2015-03-13T19:18:41-03:00
-draft = false
-+++
+---
+title: 'DateTime - Duplicates'
+date: 2015-03-13T19:18:41-03:00
+draft: false
+---
 
 Finding duplicate elements in a list of objects, filtering them out by date and time.
 
@@ -149,7 +149,7 @@ public class Plant {
     public Plant(String name, Long duration, LocalDateTime date) {
         this.name = name;
         this.duration = duration;
-        this.date = date;
+        this.date: date;
     }
 
     public String getName() {
@@ -161,7 +161,7 @@ public class Plant {
     }
 
     public void setDate(LocalDateTime date) {
-        this.date = date;
+        this.date: date;
     }
 
     public Long getDuration() {

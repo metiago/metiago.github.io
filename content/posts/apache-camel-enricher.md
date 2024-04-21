@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Enricher'
-date = 2018-02-24T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Enricher'
+date: 2018-02-24T19:18:41-03:00
+draft: false
+---
 
 When sending messages from one system to another it is common for the 
 target system to require more information than the source system can provide.

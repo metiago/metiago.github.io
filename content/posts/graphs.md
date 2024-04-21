@@ -1,8 +1,8 @@
-+++
-title =  'Graph'
-date = 2014-05-26T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Graph'
+date: 2014-05-26T19:18:41-03:00
+draft: false
+---
 
 A Graph is a non-linear data structure consisting of vertices and edges.
 

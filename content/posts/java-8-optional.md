@@ -1,8 +1,8 @@
-+++
-title = 'Java Optional API'
-date = 2016-02-03T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Java Optional API'
+date: 2016-02-03T19:18:41-03:00
+draft: false
+---
 
 
 ### Never Assign Null to an Optional Variable

@@ -1,8 +1,8 @@
-+++
-title =  'Tree'
-date = 2010-02-02T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Tree'
+date: 2010-02-02T19:18:41-03:00
+draft: false
+---
 
 A tree data structure can be defined recursively as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the "children"), with the constraints that no reference is duplicated, and none points to the root.
 

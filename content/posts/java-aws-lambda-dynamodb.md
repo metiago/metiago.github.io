@@ -1,8 +1,8 @@
-+++
-title = 'Lambda & DynanoDB & Gateway'
-date = 2019-05-13T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Lambda & DynanoDB & Gateway'
+date: 2019-05-13T19:18:41-03:00
+draft: false
+---
 
 Deploying AWS Lambda, API Gateway and DynanoDB using AWS Serverless Application Model(SAM).
 

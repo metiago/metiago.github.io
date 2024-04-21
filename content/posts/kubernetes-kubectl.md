@@ -1,8 +1,8 @@
-+++
-title =  'K8S Kubectl Quick Reference'
-date = 2018-04-16T19:18:41-03:00
-draft = false
-+++
+---
+title:  'K8S Kubectl Quick Reference'
+date: 2018-04-16T19:18:41-03:00
+draft: false
+---
 
 ```bash
 # get contexts

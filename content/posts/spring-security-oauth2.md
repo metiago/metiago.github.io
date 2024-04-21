@@ -1,8 +1,8 @@
-+++
-title = 'Spring Security - OAuth2'
-date = 2020-04-14T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Spring Security - OAuth2'
+date: 2020-04-14T19:18:41-03:00
+draft: false
+---
 
 This guide walks you through the steps for creating Restful API with Spring using Oauth2 to manage authorization.
 

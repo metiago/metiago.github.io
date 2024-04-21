@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel MultiCast'
-date = 2018-04-01T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel MultiCast'
+date: 2018-04-01T19:18:41-03:00
+draft: false
+---
 
 It routes a message to a number of endpoints and process it differently.
 

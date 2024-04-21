@@ -1,8 +1,8 @@
-+++
-title = 'Single Responsibility Principle'
-date = 2017-03-17T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Single Responsibility Principle'
+date: 2017-03-17T19:18:41-03:00
+draft: false
+---
 
 The `Single Responsibility Principle` says that a object should handle only one thing well.  
 

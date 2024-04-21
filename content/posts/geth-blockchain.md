@@ -1,8 +1,8 @@
-+++
-title = ' Blockchain - Geth Ethereum'
-date = 2018-04-04T19:18:41-03:00
-draft = false
-+++
+---
+title: ' Blockchain - Geth Ethereum'
+date: 2018-04-04T19:18:41-03:00
+draft: false
+---
 
 **POC** using Geth to create a private blockchain network running asynchronous events on top of it.
 

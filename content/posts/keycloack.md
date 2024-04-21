@@ -1,8 +1,8 @@
-+++
-title = ' Spring Boot + Keycloak'
-date = 2019-05-04T19:18:41-03:00
-draft = false
-+++
+---
+title: ' Spring Boot + Keycloak'
+date: 2019-05-04T19:18:41-03:00
+draft: false
+---
 
 [Keycloak](https://www.keycloak.org/) is an open-source identity and access management (IAM) solution for modern applications and services. Keycloak provides both SAML and OpenID protocol solutions.
 
@@ -338,7 +338,7 @@ public class Task implements Serializable
     @Override
     public String toString()
     {
-        return "Task = { id = " + id + ", taskname = " + taskname + ", duedate = " + dueDate
+        return "Task = { id = " + id + ", taskname = " + taskname + ", duedate: " + dueDate
                 + ", status = " + status + "}";
     }
 
@@ -369,7 +369,7 @@ public class Task implements Serializable
 
     public void setDueDate (Date dueDate)
     {
-        this.dueDate = dueDate;
+        this.duedate: dueDate;
     }
 
     public String getStatus ()

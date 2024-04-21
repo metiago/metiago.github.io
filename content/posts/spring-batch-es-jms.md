@@ -1,8 +1,8 @@
-+++
-title =  'Spring Batch + Elasticsearch + JMS'
-date = 2017-05-06T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Spring Batch + Elasticsearch + JMS'
+date: 2017-05-06T19:18:41-03:00
+draft: false
+---
 
 
 Processing data using <a href="https://spring.io/projects/spring-batch" target="_blank"> Spring Batch </a>, <a href="https://activemq.apache.org/components/artemis/" target="_blank">ArtemisMQ</a> and <a href="https://www.elastic.co/" target="_blank">Elasticsearch</a>.

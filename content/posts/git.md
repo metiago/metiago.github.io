@@ -1,8 +1,8 @@
-+++
-title = ' Git Quick Reference'
-date = 2015-04-20T19:18:41-03:00
-draft = false
-+++
+---
+title: ' Git Quick Reference'
+date: 2015-04-20T19:18:41-03:00
+draft: false
+---
 
 ### Stash
 ```bash

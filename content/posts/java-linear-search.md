@@ -1,8 +1,8 @@
-+++
-title =  'Linear Searching'
-date = 2010-02-06T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Linear Searching'
+date: 2010-02-06T19:18:41-03:00
+draft: false
+---
 
 
 Linear search method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched. Linear search has a time complexity of O(n)

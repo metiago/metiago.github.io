@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel XML to JSON'
-date = 2018-03-26T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel XML to JSON'
+date: 2018-03-26T19:18:41-03:00
+draft: false
+---
 
 How to convert XML to JSON.
 

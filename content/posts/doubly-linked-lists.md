@@ -1,8 +1,8 @@
-+++
-title = ' Doubly Linked Lists'
-date = 2014-05-28T19:18:41-03:00
-draft = false
-+++
+---
+title: ' Doubly Linked Lists'
+date: 2014-05-28T19:18:41-03:00
+draft: false
+---
 
 Doubly linked list is a complex type of linked list in which a node contains a pointer to the previous as well as the next node in the sequence. Therefore, in a doubly linked list, a node consists of three parts: node data, pointer to the next node in sequence next pointer, pointer to the previous node previous pointer.
 

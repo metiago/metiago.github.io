@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Quartz'
-date = 2018-02-14T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Quartz'
+date: 2018-02-14T19:18:41-03:00
+draft: false
+---
 
 Quartz is a richly featured and open source job scheduling library.
 

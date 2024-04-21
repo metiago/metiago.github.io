@@ -1,8 +1,8 @@
-+++
-title = 'Merge Sort'
-date = 2010-01-25T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Merge Sort'
+date: 2010-01-25T19:18:41-03:00
+draft: false
+---
 
 Sample merge sort algorithm.
 

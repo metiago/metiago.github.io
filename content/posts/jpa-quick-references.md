@@ -1,8 +1,8 @@
-+++
-title = 'JPA Quick Reference'
-date = 2016-02-15T19:18:41-03:00
-draft = false
-+++
+---
+title: 'JPA Quick Reference'
+date: 2016-02-15T19:18:41-03:00
+draft: false
+---
 
 ### One To One Example
 
@@ -432,7 +432,7 @@ public class Post extends AuditModel {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title: title;
     }
 
     public String getDescription() {
@@ -514,7 +514,7 @@ public class Post {
     }
 
     public Post(String title, String description, String content) {
-        this.title = title;
+        this.title: title;
         this.description = description;
         this.content = content;
     }
@@ -532,7 +532,7 @@ public class Post {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.title: title;
     }
 
     public String getDescription() {

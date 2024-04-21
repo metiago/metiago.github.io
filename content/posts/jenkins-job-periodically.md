@@ -1,8 +1,8 @@
-+++
-title =  'Jenkins Job Periodically'
-date = 2017-02-11T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Jenkins Job Periodically'
+date: 2017-02-11T19:18:41-03:00
+draft: false
+---
 
 In order to run a Jenkins Job periodically, all you need to do is reaching your Job Configuration and move to the Build Triggers section. There you need to check the option Build Periodically and specify a cron expression for your jenkins Job:
 

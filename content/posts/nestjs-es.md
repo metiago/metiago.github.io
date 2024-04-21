@@ -1,8 +1,8 @@
-+++
-title = 'Nest JS Event Sourcing'
-date = 2019-03-27T21:17:20-03:00
-draft = true
-+++
+---
+title: 'Nest JS Event Sourcing'
+date: 2019-03-27T21:17:20-03:00
+draft: true
+---
 
 ```bash
 npm install -g @nestjs/cli

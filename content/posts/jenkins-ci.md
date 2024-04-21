@@ -1,8 +1,8 @@
-+++
-title =  'Continuous Integration with Jenkins, Java & SonarQube'
-date = 2019-04-10T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Continuous Integration with Jenkins, Java & SonarQube'
+date: 2019-04-10T19:18:41-03:00
+draft: false
+---
 
 
 Continuous Integration (CI) is a practice of merging all developers' work several times a day. It's important to note that this practice is better achieved

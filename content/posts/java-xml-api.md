@@ -1,8 +1,8 @@
-+++
-title =  'Java XML API'
-date = 2012-04-03T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Java XML API'
+date: 2012-04-03T19:18:41-03:00
+draft: false
+---
 
 Java XML API quick reference
 
@@ -235,7 +235,7 @@ public class XmlApiExample {
 
             NodeList nList = doc.getElementsByTagName("staff");
 
-            System.out.println("+++++++++++++++++++++++++++-");
+            System.out.println("----------------------------");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
 

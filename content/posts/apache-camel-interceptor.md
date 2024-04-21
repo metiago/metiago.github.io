@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Interceptors'
-date = 1500-02-13T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Interceptors'
+date: 1500-02-13T19:18:41-03:00
+draft: false
+---
 
 Interceptors are useful to execute some logic before the target method execution. 
 

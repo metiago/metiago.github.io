@@ -1,8 +1,8 @@
-+++
-title =  'Java Sockets'
-date = 2016-01-21T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Java Sockets'
+date: 2016-01-21T19:18:41-03:00
+draft: false
+---
 
 Tool to check server's health `host:port` through TCP/IP.
 

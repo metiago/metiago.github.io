@@ -1,8 +1,8 @@
-+++
-title = 'Spring Async'
-date = 2020-03-27T18:16:20-03:00
-draft = false
-+++
+---
+title: 'Spring Async'
+date: 2020-03-27T18:16:20-03:00
+draft: false
+---
 
 #### ThreadPoolTaskExecutor:
 

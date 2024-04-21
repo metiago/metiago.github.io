@@ -1,8 +1,8 @@
-+++
-title =  'JPA - Sequence Mapping'
-date = 2016-03-11T19:18:41-03:00
-draft = false
-+++
+---
+title:  'JPA - Sequence Mapping'
+date: 2016-03-11T19:18:41-03:00
+draft: false
+---
 
 How to map sequence ids for Oracle and Postgres database. 
 

@@ -1,8 +1,8 @@
-+++
-title =  'Sun JKS Utility'
-date = 2010-03-10T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Sun JKS Utility'
+date: 2010-03-10T19:18:41-03:00
+draft: false
+---
 
 Very useful utility provided by Sun to download and install public certificates from a given web server.
 

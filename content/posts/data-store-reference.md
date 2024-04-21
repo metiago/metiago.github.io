@@ -1,8 +1,8 @@
-+++
-title =  'Data Store References'
-date = 2016-02-19T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Data Store References'
+date: 2016-02-19T19:18:41-03:00
+draft: false
+---
 
 Weaknesses and strengths of different data stores and when to use each.
  

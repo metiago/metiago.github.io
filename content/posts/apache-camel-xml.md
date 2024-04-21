@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel XML'
-date = 2018-02-22T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel XML'
+date: 2018-02-22T19:18:41-03:00
+draft: false
+---
 
 How to integrate systems using Camel and XML.
 

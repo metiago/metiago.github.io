@@ -1,8 +1,8 @@
-+++
-title = ' Stacks'
-date = 2010-01-27T19:18:41-03:00
-draft = false
-+++
+---
+title: ' Stacks'
+date: 2010-01-27T19:18:41-03:00
+draft: false
+---
 
 Stack is a data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
 

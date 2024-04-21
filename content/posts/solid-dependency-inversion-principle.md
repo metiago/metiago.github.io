@@ -1,8 +1,8 @@
-+++
-title = 'Dependency Inversion Principle'
-date = 2017-03-21T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Dependency Inversion Principle'
+date: 2017-03-21T19:18:41-03:00
+draft: false
+---
 
 The principle defines two main points:
 

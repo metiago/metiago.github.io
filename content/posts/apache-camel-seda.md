@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Seda'
-date = 2018-03-24T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Seda'
+date: 2018-03-24T19:18:41-03:00
+draft: false
+---
 
 The staged event-driven architecture (SEDA) refers to an approach to software architecture that decomposes a complex, event-driven application into a set of stages connected by queues.
 

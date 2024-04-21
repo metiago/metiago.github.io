@@ -1,8 +1,8 @@
-+++
-title = 'Java Http Client'
-date = 2024-03-11T14:30:29-03:00
-draft = false
-+++
+---
+title: 'Java Http Client'
+date: 2024-03-11T14:30:29-03:00
+draft: false
+---
 
 #### Concurrent Requests
 

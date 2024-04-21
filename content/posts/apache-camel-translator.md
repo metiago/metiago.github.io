@@ -1,8 +1,8 @@
-+++
-title = 'Apache Camel Translator'
-date = 2018-02-27T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Apache Camel Translator'
+date: 2018-02-27T19:18:41-03:00
+draft: false
+---
 
 Translator is a pattern responsible to translate messages between different systems. 
 Therefore If one system uses a CSV file to exchage information and this application wants to communicate 

@@ -1,8 +1,8 @@
-+++
-title = 'Binary Search'
-date = 2010-02-01T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Binary Search'
+date: 2010-02-01T19:18:41-03:00
+draft: false
+---
 
 Binary search, is a search algorithm that finds the position of a target value within a sorted array. Binary search has a time complexity of O(log n) in Big O notation.
 

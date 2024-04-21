@@ -1,8 +1,8 @@
-+++
-title = 'VPC & Networking'
-date = 2023-03-25T11:27:58-03:00
-draft = false
-+++
+---
+title: 'VPC & Networking'
+date: 2023-03-25T11:27:58-03:00
+draft: false
+---
 
 If you creating an IPSEC connection between your corporate LAN and your VPC, use a CIDR that is different than that on your corporate LAN. This will prevent routing overlaps and create an identity distinction for reference.
 

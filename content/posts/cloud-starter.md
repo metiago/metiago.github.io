@@ -1,8 +1,8 @@
-+++
-title = 'Cloud Computing'
-date = 2023-04-25T18:01:58-03:00
-draft = false
-+++
+---
+title: 'Cloud Computing'
+date: 2023-04-25T18:01:58-03:00
+draft: false
+---
 
 In cloud environments, particularly when setting up a Virtual Private Cloud (VPC), certain configurations typically come first due to their foundational nature and their role in establishing the network infrastructure. Here's a general order of configuration that is often followed:
 

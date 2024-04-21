@@ -1,8 +1,8 @@
-+++
-title =  'Java Date & Datetime Samples'
-date = 2015-05-19T19:18:41-03:00
-draft = false
-+++
+---
+title:  'Java Date & Datetime Samples'
+date: 2015-05-19T19:18:41-03:00
+draft: false
+---
 
 ```java
 import java.text.SimpleDateFormat;

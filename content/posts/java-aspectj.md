@@ -1,8 +1,8 @@
-+++
-title =  'AspectJ'
-date = 2014-01-07T19:18:41-03:00
-draft = false
-+++
+---
+title:  'AspectJ'
+date: 2014-01-07T19:18:41-03:00
+draft: false
+---
 
 AspectJ is a Java library for AOP.
 

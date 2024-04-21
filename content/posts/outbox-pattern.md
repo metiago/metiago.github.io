@@ -1,8 +1,8 @@
-+++
-title = 'Outbox Pattern'
-date = 2019-02-19T17:27:03-03:00
-draft = false
-+++
+---
+title: 'Outbox Pattern'
+date: 2019-02-19T17:27:03-03:00
+draft: false
+---
 
 The "Outbox Pattern" is a design pattern commonly used in microservices architecture to ensure consistency and reliability when integrating multiple services asynchronously. In distributed systems, maintaining data consistency across different services can be challenging due to network failures, service outages, or other issues. The Outbox Pattern addresses this challenge by decoupling the act of modifying data from the act of notifying other services about those modifications.
 

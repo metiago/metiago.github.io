@@ -1,8 +1,8 @@
-+++
-title = 'Liskov Substitution Principle'
-date = 2017-03-19T19:18:41-03:00
-draft = false
-+++
+---
+title: 'Liskov Substitution Principle'
+date: 2017-03-19T19:18:41-03:00
+draft: false
+---
 
 This principle states that derived classes must be substitutable for the base class.
 
