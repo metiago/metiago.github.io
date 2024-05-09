@@ -7,7 +7,6 @@ draft: false
 #### Remove duplicates based on single attribute
 
 ```java
-resultSet.stream().map(this::toCentralizerEstablishmentDTO).collect(Collectors.toList());
 List<Object> resultSet.stream().map(this::toDTO)
 .collect(collectingAndThen(toCollection(() -> new TreeSet<>(comparing(Object::getFirstName))), ArrayList::new));
 }
