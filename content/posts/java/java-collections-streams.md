@@ -4,8 +4,19 @@ date: 2014-02-03T19:18:41-03:00
 draft: false
 ---
 
+#### Remove duplicates based on single attribute
+
 ```java
-// find the first non-repeated value
+resultSet.stream().map(this::toCentralizerEstablishmentDTO).collect(Collectors.toList());
+List<Object> resultSet.stream().map(this::toDTO)
+.collect(collectingAndThen(toCollection(() -> new TreeSet<>(comparing(Object::getFirstName))), ArrayList::new));
+}
+```
+
+#### Find the first non-repeated value
+
+```java
+
 public static void main(String[] args) {
 
     List<Integer> nums = List.of(1, 1, 2, 2, 3, 4, 4, 5, 5);
@@ -32,6 +43,8 @@ public static void main(String[] args) {
 } 
 ```
 
+#### Count duplicates
+
 ```java
 import java.util.*;
 import java.util.stream.Collectors;
@@ -50,7 +63,7 @@ public class StreamCountDuplicateElements {
 }
 ```
 
-`JavaStreamSamples.java`
+#### Samples
 
 ```java
 package com.tiago.javacore;
@@ -86,7 +99,7 @@ public class JavaStreamSamples {
         // FILTER GT THAN 18
         animals.stream().filter((animal) -> animal.getAge() > 18).forEach(animal -> System.out.println(animal.getScientificName()));
 
-        // SORTED
+        // SORT ASC
         List<Animal> s = animals.stream().sorted(Comparator.comparing(Animal::getAge)).collect(toList());
 
         // SORT ASC USING COMPARATOR
