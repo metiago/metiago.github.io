@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Mockito Unit Tests - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aws <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../aws/aws-ec2-mysql/" class="dropdown-item">MySQL 8 - AWS EC2</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-qldb-blockchain/" class="dropdown-item">AWS QLDB & Lambda</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-s3/" class="dropdown-item">Amazon Web Services</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brokers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../brokers/rabbit-mq-client/" class="dropdown-item">RabbitQM Client</a>
+</li>
+                                    
+<li>
+    <a href="../../brokers/zeromq/" class="dropdown-item">Zero MQ</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Camel <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../camel/apache-camel-aggregator/" class="dropdown-item">Apache Camel Aggregator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-enricher/" class="dropdown-item">Apache Camel Enricher</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-files/" class="dropdown-item">Apache camel files</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-filter/" class="dropdown-item">Apache camel filter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-ftp/" class="dropdown-item">Apache Camel FTP</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-interceptor/" class="dropdown-item">Apache Camel Interceptors</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-json-xml/" class="dropdown-item">Apache Camel JSON to XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-load-balance/" class="dropdown-item">Apache Camel Load Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-multicast/" class="dropdown-item">Apache Camel MultiCast</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-quartz/" class="dropdown-item">Apache Camel Quartz</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-seda/" class="dropdown-item">Apache Camel Seda</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-splitter/" class="dropdown-item">Apache Camel Splitter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-throttle/" class="dropdown-item">Apache Camel Throttler</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-translator/" class="dropdown-item">Apache Camel Translator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-wire-tap/" class="dropdown-item">Apache Camel Wire Tap</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml-json/" class="dropdown-item">Apache Camel XML to JSON</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml/" class="dropdown-item">Apache Camel XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/eip/" class="dropdown-item">EIP - Enterprise Integration Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cicd <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cicd/jenkins-cd/" class="dropdown-item">Continuous Delivery of Java Applications with Docker</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-ci/" class="dropdown-item">Continuous Integration with Jenkins, Java & SonarQube</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-job-periodically/" class="dropdown-item">Jenkins Job Periodically</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-rest-api/" class="dropdown-item">Jenkins REST API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cloud/cloud-starter/" class="dropdown-item">Cloud Computing</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/oci/" class="dropdown-item">OCI</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/vpc/" class="dropdown-item">VPC & Networking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../databases/data-store-reference/" class="dropdown-item">Data Store References</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mongo-seed-data/" class="dropdown-item">MongoDB Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mysql-ref/" class="dropdown-item"> MySQL Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../design/outbox-pattern/" class="dropdown-item">Outbox Pattern</a>
+</li>
+                                    
+<li>
+    <a href="../../design/planning/" class="dropdown-item">Planning Checklist</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-dependency-inversion-principle/" class="dropdown-item">Dependency Inversion Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-interface-segregation-principle/" class="dropdown-item">Interface Segregation Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-liskov-substitution-principle/" class="dropdown-item">Liskov Substitution Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-open-close-responsibility/" class="dropdown-item">Open Closed Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-single-responsibility/" class="dropdown-item">Single Responsibility Principle</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hibernate <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../hibernate/jpa-composite-primary-key/" class="dropdown-item">JPA - Composite Primary Key</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-quick-references/" class="dropdown-item">JPA Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-sequence-mapping/" class="dropdown-item">JPA - Sequence Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../java/balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/big-o/" class="dropdown-item">Big O Notation</a>
+</li>
+                                    
+<li>
+    <a href="../../java/binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/doubly-linked-lists/" class="dropdown-item"> Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/elapsed-time/" class="dropdown-item">Elapsed Time</a>
+</li>
+                                    
+<li>
+    <a href="../../java/graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-8-optional/" class="dropdown-item">Java Optional API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aspectj/" class="dropdown-item">AspectJ</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-dynamodb/" class="dropdown-item">Lambda & DynanoDB & Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-s3/" class="dropdown-item">Lambda & S3</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-binary-search/" class="dropdown-item">Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-bubble-sort/" class="dropdown-item">Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-collections-streams/" class="dropdown-item">Collections, Streams & Lambdas</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-date-datetime/" class="dropdown-item">Java Date & Datetime Samples</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-file-io/" class="dropdown-item"> NIO File API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-dates/" class="dropdown-item">Duplicate Dates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-datetime/" class="dropdown-item">DateTime - Duplicates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-future/" class="dropdown-item">Completable Futures</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-hashtable/" class="dropdown-item">Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-http-client/" class="dropdown-item">Java Http Client</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-insertion-sort/" class="dropdown-item">Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-install-cert/" class="dropdown-item">Sun JKS Utility</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-jconsole/" class="dropdown-item">Profiling Quarkus Application</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-keystore-example/" class="dropdown-item">Java JDK Key Tool</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search-minor-element/" class="dropdown-item">Linear Searching - Minor Element</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search/" class="dropdown-item">Linear Searching</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-merge-sort/" class="dropdown-item">Merge Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-min-max/" class="dropdown-item">Min & Max Array Value</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-queue/" class="dropdown-item">Queues</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-quick-sort/" class="dropdown-item">Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-regex/" class="dropdown-item">Regular Expression</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-selection-sort/" class="dropdown-item">Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-sockets-multithread/" class="dropdown-item">Java Sockets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-stack/" class="dropdown-item"> Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-tree/" class="dropdown-item">Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-web3j/" class="dropdown-item">Blockchain - Web3j</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-xml-api/" class="dropdown-item">Java XML API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/linked-lists/" class="dropdown-item">Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/maven/" class="dropdown-item">Maven</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">K8 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../k8/kube-ms/" class="dropdown-item">Kube Service Discovery (DNS)</a>
+</li>
+                                    
+<li>
+    <a href="../../k8/kubernetes-kubectl/" class="dropdown-item">K8S Kubectl Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../os/apache-ab/" class="dropdown-item">Apache AB</a>
+</li>
+                                    
+<li>
+    <a href="../../os/docker-references/" class="dropdown-item">Docker Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/geth-blockchain/" class="dropdown-item"> Blockchain - Geth Ethereum</a>
+</li>
+                                    
+<li>
+    <a href="../../os/git/" class="dropdown-item"> Git Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/os-check-used-port/" class="dropdown-item">OS – Listing used ports</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spring <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../keycloack/" class="dropdown-item"> Spring Boot + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../spring-actuator/" class="dropdown-item">Spring Boot Actuator</a>
+</li>
+                                    
+<li>
+    <a href="../spring-async/" class="dropdown-item">Spring Async</a>
+</li>
+                                    
+<li>
+    <a href="../spring-batch-es-jms/" class="dropdown-item">Spring Batch + Elasticsearch + JMS</a>
+</li>
+                                    
+<li>
+    <a href="../spring-batch-flat-files/" class="dropdown-item">Spring Batch Flat File</a>
+</li>
+                                    
+<li>
+    <a href="../spring-boot-kafka/" class="dropdown-item">Spring Boot - Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../spring-cache/" class="dropdown-item">Spring Cache</a>
+</li>
+                                    
+<li>
+    <a href="../spring-cloud-gateway-keycloak/" class="dropdown-item">Spring Cloud Gateway + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../spring-security-oauth2/" class="dropdown-item">Spring Security - OAuth2</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Mockito Unit Tests</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vertx <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../vertx/vertx-elasticsearch/" class="dropdown-item">VertX & Elasticsearch</a>
+</li>
+                                    
+<li>
+    <a href="../../vertx/vertx-jwt-auth/" class="dropdown-item">VertX - JWT Auth & MongoDB</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../spring-security-oauth2/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../vertx/vertx-elasticsearch/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Mockito is a popular mocking framework for Java that allows developers to create mock objects in automated unit tests. Mock objects simulate the behavior of real objects in controlled ways, enabling developers to isolate the code under test and verify its behavior in various scenarios.</p>
+<p>When using Mockito with Spring Boot, you can easily write unit tests for your Spring components (such as controllers, services, and repositories) by mocking dependencies and defining the expected behavior of those mocks.</p>
+<p>Here's a basic example of how you might use Mockito in a Spring Boot application:</p>
+<pre><code class="language-java">@Service
+public class EmbeddedProductConfigurationService {
+
+    private final MessageService messages;
+
+    private final EmbeddedProductConfigurationRepository embeddedProductConfigurationRepository;
+
+    private final ProductFacade productFacade;
+
+    private final DomainFacade domainFacade;
+
+    public EmbeddedProductConfigurationService(MessageService messages, EmbeddedProductConfigurationRepository embeddedProductConfigurationRepository, ProductFacade productFacade, DomainFacade domainFacade) {
+        this.messages = messages;
+        this.embeddedProductConfigurationRepository = embeddedProductConfigurationRepository;
+        this.productFacade = productFacade;
+        this.domainFacade = domainFacade;
+    }
+
+    public EmbeddedProductConfiguration createEmbeddedProductConfig(EmbeddedProductConfiguration reqBody) throws Exception{
+
+        validateRequestPayload(reqBody);
+
+        reqBody.setAuditInformation(new AuditInformation(Instant.now(), Instant.now()));
+        reqBody.setStatus(new EmbeddedProductConfigurationStatus(EmbeddedProductStatus.ACTIVATED));
+        BeanHelper.fillPrincipal(reqBody.getAuditInformation());
+
+        Optional&lt;Product&gt; product = productFacade.findProductById(reqBody.getProductId());
+
+        if (product.isPresent() &amp;&amp; canEmbed(product.get())) {
+            validateRuleKeys(reqBody);
+            validateRuleValues(reqBody);
+            validateExistingRules(reqBody);
+            return embeddedProductConfigurationRepository.save(reqBody);
+        }
+
+        throw new BusinessException(messages.getMessage(&quot;error.embedded.product.invalid&quot;));
+    }
+
+    private void validateRequestPayload(EmbeddedProductConfiguration reqBody) {
+
+        if (StringUtils.isBlank(reqBody.getProductId())) {
+            throw new BusinessException(messages.getMessage(&quot;error.embedded.product.config.product_id&quot;));
+        }
+
+        if (CollectionUtils.isEmpty(reqBody.getRules())) {
+            throw new BusinessException(messages.getMessage(&quot;error.embedded.product.config.rules&quot;));
+        }
+
+        if (reqBody.getRules().stream().anyMatch(CollectionUtils::isEmpty)) {
+            throw new BusinessException(messages.getMessage(&quot;error.embedded.product.config.rules.config&quot;));
+        }
+    }
+
+    private boolean canEmbed(Product product) {
+        if (product instanceof ProductServiceDomain) {
+            var serviceDomain = (ProductServiceDomain) product;
+            return product.getSituation().getStatus().equals(ProductStatus.ACTIVE) &amp;&amp; serviceDomain.getAllowsEmbedding();
+        }
+        return false;
+    }
+
+    private void validateExistingRules(EmbeddedProductConfiguration reqBody) {
+        Set&lt;String&gt; existingRules = embeddedProductConfigurationRepository.findByProductId(reqBody.getProductId(),
+                        EmbeddedProductStatus.ACTIVATED)
+                .stream()
+                .flatMap(List::stream)
+                .flatMap(e -&gt; e.getRules().stream())
+                .flatMap(rules -&gt; rules.values().stream())
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+
+        for(Map&lt;String, Set&lt;String&gt;&gt; rules: reqBody.getRules()) {
+            for (Map.Entry&lt;String, Set&lt;String&gt;&gt; rule : rules.entrySet()) {
+                for(String value: rule.getValue()) {
+                    if (!existingRules.isEmpty() &amp;&amp; existingRules.contains(value)) {
+                        throw new BusinessException(messages.getMessage(&quot;error.embedded.product.config.exists&quot;));
+                    }
+                }
+            }
+        }
+    }
+
+    private void validateRuleKeys(EmbeddedProductConfiguration reqBody) {
+        Optional&lt;List&lt;DomainData&gt;&gt; domains = domainFacade.getEmbeddedProductRules();
+        if (domains.isPresent()) {
+            var isKeysValid = reqBody.getRules().stream()
+                    .flatMap(map -&gt; map.keySet().stream())
+                    .allMatch(key -&gt; domains.get().stream().anyMatch(domainData -&gt; key.equals(domainData.getCode())));
+
+            if (!isKeysValid) {
+                throw new BusinessException(messages.getMessage(&quot;error.embedded.product.wrong.config.rules&quot;));
+            }
+        }
+    }
+
+    private void validateRuleValues(EmbeddedProductConfiguration reqBody) {
+
+        for(Map&lt;String, Set&lt;String&gt;&gt; rules: reqBody.getRules()) {
+            for(Map.Entry&lt;String, Set&lt;String&gt;&gt; rule : rules.entrySet()) {
+                var domains = domainFacade.findByType(rule.getKey()).orElse(List.of()).stream().map(DomainData::getCode).collect(Collectors.toList());
+                for(String value: rule.getValue()) {
+                    if (!domains.contains(value)) {
+                        throw new BusinessException(messages.getMessage(&quot;error.embedded.product.wrong.config.rules&quot;));
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">@ExtendWith(MockitoExtension.class)
+class EmbeddedProductConfigurationServiceTest {
+
+    @Mock
+    MessageService messages;
+
+    @Mock
+    EmbeddedProductConfigurationRepository embeddedProductConfigurationRepository;
+
+    @Mock
+    ProductFacade productFacade;
+
+    @Mock
+    DomainFacade domainFacade;
+
+    @InjectMocks
+    EmbeddedProductConfigurationService service;
+
+    @Test
+    void testValidConstructor() {
+        var service = new EmbeddedProductConfigurationService(messages, embeddedProductConfigurationRepository, productFacade, domainFacade);
+        Assertions.assertNotNull(messages);
+        Assertions.assertNotNull(embeddedProductConfigurationRepository);
+        Assertions.assertNotNull(productFacade);
+
+        Assertions.assertNotNull(service);
+    }
+
+    @Test
+    void testProductConfigEmptyRules() {
+        var body = new EmbeddedProductConfigurationRequest();
+        body.setProductId(&quot;&quot;);
+        body.setRules(Set.of());
+
+        assertThrows(BusinessException.class, () -&gt; service.createEmbeddedProductConfig(body));
+    }
+
+    @Test
+    void testProductConfigValidRules() throws Exception {
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+        dto.setAuditInformation(new AuditInformation(Instant.now(), Instant.now()));
+        dto.setSituation(new EmbeddedProductConfigurationStatus(EmbeddedProductStatus.ACTIVATED));
+        BeanHelper.fillPrincipal(dto.getAuditInformation());
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(anyString())).thenReturn(Optional.of(List.of(domainData)));
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(buildProduct()));
+
+        var entity = MapperHelper.convertDTOToEntity(dto, EmbeddedProductConfiguration.class);
+        lenient().when(embeddedProductConfigurationRepository.save(Mockito.any(EmbeddedProductConfiguration.class))).thenReturn(entity);
+
+        var resp = service.createEmbeddedProductConfig(dto);
+
+        Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    void testAllowEmbedInvalid() {
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(false);
+
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(productServiceDomain));
+
+        assertThrows(BusinessException.class, () -&gt; service.createEmbeddedProductConfig(dto));
+    }
+
+    @Test
+    void testAllowEmbedValid() throws Exception {
+
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(&quot;merchant_type&quot;)).thenReturn(Optional.of(List.of(domainData)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        var entity = MapperHelper.convertDTOToEntity(dto, EmbeddedProductConfiguration.class);
+        lenient().when(embeddedProductConfigurationRepository.save(Mockito.any(EmbeddedProductConfiguration.class))).thenReturn(entity);
+
+        var resp = service.createEmbeddedProductConfig(dto);
+
+        Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    void testRuleKeysValid() throws Exception {
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(&quot;merchant_type&quot;)).thenReturn(Optional.of(List.of(domainData)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        var entity = MapperHelper.convertDTOToEntity(dto, EmbeddedProductConfiguration.class);
+        lenient().when(embeddedProductConfigurationRepository.save(Mockito.any(EmbeddedProductConfiguration.class))).thenReturn(entity);
+
+        var resp = service.createEmbeddedProductConfig(dto);
+
+        Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    void testRuleKeysInvalid() {
+
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;example&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;merchant_type&quot;);
+        when(domainFacade.getEmbeddedProductRules()).thenReturn(Optional.of(List.of(domainData)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        assertThrows(BusinessException.class, () -&gt; service.createEmbeddedProductConfig(dto));
+    }
+
+    @Test
+    void testRuleValuesValid() throws Exception {
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;merchant_type&quot;);
+        when(domainFacade.getEmbeddedProductRules()).thenReturn(Optional.of(List.of(domainData)));
+
+        domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(&quot;merchant_type&quot;)).thenReturn(Optional.of(List.of(domainData)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        var entity = MapperHelper.convertDTOToEntity(dto, EmbeddedProductConfiguration.class);
+        lenient().when(embeddedProductConfigurationRepository.save(Mockito.any(EmbeddedProductConfiguration.class))).thenReturn(entity);
+
+        var resp = service.createEmbeddedProductConfig(dto);
+
+        Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    void testRuleValuesInvalid() {
+
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;example&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;merchant_type&quot;);
+
+        when(domainFacade.findByType(&quot;example&quot;)).thenReturn(Optional.of(List.of(domainData)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        assertThrows(BusinessException.class, () -&gt; service.createEmbeddedProductConfig(dto));
+    }
+
+    @Test
+    void testDifferentRuleValuesValid() throws Exception {
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        EmbeddedProductConfiguration config = new EmbeddedProductConfiguration();
+        config.setRules(Set.of(Map.of(&quot;order_type&quot;, Set.of(&quot;external&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(&quot;merchant_type&quot;)).thenReturn(Optional.of(List.of(domainData)));
+        when(embeddedProductConfigurationRepository.findByProductId(dto.getProductId(), EmbeddedProductStatus.ACTIVATED))
+                .thenReturn(Optional.of(List.of(config)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        var entity = MapperHelper.convertDTOToEntity(dto, EmbeddedProductConfiguration.class);
+        lenient().when(embeddedProductConfigurationRepository.save(Mockito.any(EmbeddedProductConfiguration.class))).thenReturn(entity);
+
+        var resp = service.createEmbeddedProductConfig(dto);
+
+        Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    void testExistingRulesSameProductInvalid() {
+
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        EmbeddedProductConfiguration config = new EmbeddedProductConfiguration();
+        config.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var domainData = new DomainData();
+        domainData.setCode(&quot;internal&quot;);
+        when(domainFacade.findByType(&quot;merchant_type&quot;)).thenReturn(Optional.of(List.of(domainData)));
+        when(embeddedProductConfigurationRepository.findByProductId(dto.getProductId(), EmbeddedProductStatus.ACTIVATED))
+                .thenReturn(Optional.of(List.of(config)));
+
+        var product = buildProduct();
+        var productServiceDomain = (ProductServiceDomain) product;
+        productServiceDomain.setAllowsEmbedding(true);
+        when(productFacade.findProductById(&quot;1s&quot;)).thenReturn(Optional.of(product));
+
+        assertThrows(BusinessException.class, () -&gt; service.createEmbeddedProductConfig(dto));
+    }
+
+    @Test
+    void testGetAllEmbeddedProductConfiguration() throws Exception {
+
+        var dto = new EmbeddedProductConfigurationRequest();
+        dto.setProductId(&quot;1s&quot;);
+        dto.setRules(Set.of(Map.of(&quot;merchant_type&quot;, Set.of(&quot;internal&quot;))));
+
+        var entity = new EmbeddedProductConfiguration();
+        BeanUtils.copyProperties(dto, entity);
+
+        var entityRules = List.of(entity);
+        var pageable = PageRequest.of(0, 1);
+        var entityPage = new PageImpl&lt;&gt;(entityRules, pageable, entityRules.size());
+        when(embeddedProductConfigurationRepository.findAllByStatus(EmbeddedProductStatus.ACTIVATED, pageable)).thenReturn(entityPage);
+
+        var resp = service.getAllEmbeddedProductConfiguration(pageable);
+
+        Assertions.assertNotNull(resp);
+        Assertions.assertEquals(entityRules.size(), resp.getSize());
+    }
+
+    public Product buildProduct() {
+        var product = new ProductServiceDomain();
+        product.setDescription(RandomHelper.generateUUID());
+        product.setName(&quot;My Product&quot;);
+        product.setPhoneSupportGetnetIncluded(Boolean.TRUE);
+        product.setAuditInformation(new AuditInformationBuilder().withChannelData(new ChannelDataBuilder().any().build()).withCreationDate(Instant.now().truncatedTo(ChronoUnit.MILLIS)).withUpdateDate(Instant.now().truncatedTo(ChronoUnit.MILLIS)).build());
+        product.setSituation(new ProductSituation(ProductStatus.ACTIVE));
+        product.setServiceType(ServiceType.SERVICE);
+        product.setProductConfiguration(new ProductConfiguration(KeywordType.IATA));
+        product.setPricingModel(new PricingTypeNoPrice());
+        product.setAllowsEmbedding(true);
+        return product;
+    }
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

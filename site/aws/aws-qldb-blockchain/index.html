@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>AWS QLDB & Lambda - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aws <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../aws-ec2-mysql/" class="dropdown-item">MySQL 8 - AWS EC2</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">AWS QLDB & Lambda</a>
+</li>
+                                    
+<li>
+    <a href="../aws-s3/" class="dropdown-item">Amazon Web Services</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brokers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../brokers/rabbit-mq-client/" class="dropdown-item">RabbitQM Client</a>
+</li>
+                                    
+<li>
+    <a href="../../brokers/zeromq/" class="dropdown-item">Zero MQ</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Camel <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../camel/apache-camel-aggregator/" class="dropdown-item">Apache Camel Aggregator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-enricher/" class="dropdown-item">Apache Camel Enricher</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-files/" class="dropdown-item">Apache camel files</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-filter/" class="dropdown-item">Apache camel filter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-ftp/" class="dropdown-item">Apache Camel FTP</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-interceptor/" class="dropdown-item">Apache Camel Interceptors</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-json-xml/" class="dropdown-item">Apache Camel JSON to XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-load-balance/" class="dropdown-item">Apache Camel Load Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-multicast/" class="dropdown-item">Apache Camel MultiCast</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-quartz/" class="dropdown-item">Apache Camel Quartz</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-seda/" class="dropdown-item">Apache Camel Seda</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-splitter/" class="dropdown-item">Apache Camel Splitter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-throttle/" class="dropdown-item">Apache Camel Throttler</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-translator/" class="dropdown-item">Apache Camel Translator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-wire-tap/" class="dropdown-item">Apache Camel Wire Tap</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml-json/" class="dropdown-item">Apache Camel XML to JSON</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml/" class="dropdown-item">Apache Camel XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/eip/" class="dropdown-item">EIP - Enterprise Integration Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cicd <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cicd/jenkins-cd/" class="dropdown-item">Continuous Delivery of Java Applications with Docker</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-ci/" class="dropdown-item">Continuous Integration with Jenkins, Java & SonarQube</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-job-periodically/" class="dropdown-item">Jenkins Job Periodically</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-rest-api/" class="dropdown-item">Jenkins REST API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cloud/cloud-starter/" class="dropdown-item">Cloud Computing</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/oci/" class="dropdown-item">OCI</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/vpc/" class="dropdown-item">VPC & Networking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../databases/data-store-reference/" class="dropdown-item">Data Store References</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mongo-seed-data/" class="dropdown-item">MongoDB Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mysql-ref/" class="dropdown-item"> MySQL Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../design/outbox-pattern/" class="dropdown-item">Outbox Pattern</a>
+</li>
+                                    
+<li>
+    <a href="../../design/planning/" class="dropdown-item">Planning Checklist</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-dependency-inversion-principle/" class="dropdown-item">Dependency Inversion Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-interface-segregation-principle/" class="dropdown-item">Interface Segregation Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-liskov-substitution-principle/" class="dropdown-item">Liskov Substitution Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-open-close-responsibility/" class="dropdown-item">Open Closed Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-single-responsibility/" class="dropdown-item">Single Responsibility Principle</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hibernate <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../hibernate/jpa-composite-primary-key/" class="dropdown-item">JPA - Composite Primary Key</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-quick-references/" class="dropdown-item">JPA Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-sequence-mapping/" class="dropdown-item">JPA - Sequence Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../java/balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/big-o/" class="dropdown-item">Big O Notation</a>
+</li>
+                                    
+<li>
+    <a href="../../java/binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/doubly-linked-lists/" class="dropdown-item"> Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/elapsed-time/" class="dropdown-item">Elapsed Time</a>
+</li>
+                                    
+<li>
+    <a href="../../java/graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-8-optional/" class="dropdown-item">Java Optional API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aspectj/" class="dropdown-item">AspectJ</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-dynamodb/" class="dropdown-item">Lambda & DynanoDB & Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-s3/" class="dropdown-item">Lambda & S3</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-binary-search/" class="dropdown-item">Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-bubble-sort/" class="dropdown-item">Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-collections-streams/" class="dropdown-item">Collections, Streams & Lambdas</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-date-datetime/" class="dropdown-item">Java Date & Datetime Samples</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-file-io/" class="dropdown-item"> NIO File API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-dates/" class="dropdown-item">Duplicate Dates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-datetime/" class="dropdown-item">DateTime - Duplicates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-future/" class="dropdown-item">Completable Futures</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-hashtable/" class="dropdown-item">Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-http-client/" class="dropdown-item">Java Http Client</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-insertion-sort/" class="dropdown-item">Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-install-cert/" class="dropdown-item">Sun JKS Utility</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-jconsole/" class="dropdown-item">Profiling Quarkus Application</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-keystore-example/" class="dropdown-item">Java JDK Key Tool</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search-minor-element/" class="dropdown-item">Linear Searching - Minor Element</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search/" class="dropdown-item">Linear Searching</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-merge-sort/" class="dropdown-item">Merge Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-min-max/" class="dropdown-item">Min & Max Array Value</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-queue/" class="dropdown-item">Queues</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-quick-sort/" class="dropdown-item">Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-regex/" class="dropdown-item">Regular Expression</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-selection-sort/" class="dropdown-item">Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-sockets-multithread/" class="dropdown-item">Java Sockets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-stack/" class="dropdown-item"> Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-tree/" class="dropdown-item">Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-web3j/" class="dropdown-item">Blockchain - Web3j</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-xml-api/" class="dropdown-item">Java XML API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/linked-lists/" class="dropdown-item">Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/maven/" class="dropdown-item">Maven</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">K8 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../k8/kube-ms/" class="dropdown-item">Kube Service Discovery (DNS)</a>
+</li>
+                                    
+<li>
+    <a href="../../k8/kubernetes-kubectl/" class="dropdown-item">K8S Kubectl Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../os/apache-ab/" class="dropdown-item">Apache AB</a>
+</li>
+                                    
+<li>
+    <a href="../../os/docker-references/" class="dropdown-item">Docker Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/geth-blockchain/" class="dropdown-item"> Blockchain - Geth Ethereum</a>
+</li>
+                                    
+<li>
+    <a href="../../os/git/" class="dropdown-item"> Git Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/os-check-used-port/" class="dropdown-item">OS – Listing used ports</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spring <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../spring/keycloack/" class="dropdown-item"> Spring Boot + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-actuator/" class="dropdown-item">Spring Boot Actuator</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-async/" class="dropdown-item">Spring Async</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-es-jms/" class="dropdown-item">Spring Batch + Elasticsearch + JMS</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-flat-files/" class="dropdown-item">Spring Batch Flat File</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-boot-kafka/" class="dropdown-item">Spring Boot - Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cache/" class="dropdown-item">Spring Cache</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cloud-gateway-keycloak/" class="dropdown-item">Spring Cloud Gateway + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-security-oauth2/" class="dropdown-item">Spring Security - OAuth2</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/unit-tests/" class="dropdown-item">Mockito Unit Tests</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vertx <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../vertx/vertx-elasticsearch/" class="dropdown-item">VertX & Elasticsearch</a>
+</li>
+                                    
+<li>
+    <a href="../../vertx/vertx-jwt-auth/" class="dropdown-item">VertX - JWT Auth & MongoDB</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../aws-ec2-mysql/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../aws-s3/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><code>FaaS</code> to perform actions AWS QLDB.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.ctw.consent&lt;/groupId&gt;
+    &lt;artifactId&gt;customer&lt;/artifactId&gt;
+    &lt;version&gt;0.1.0&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;parent&gt;
+        &lt;artifactId&gt;dcm-qldb&lt;/artifactId&gt;
+        &lt;groupId&gt;com.ctw.mom&lt;/groupId&gt;
+        &lt;version&gt;0.1.0&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;jersey.version&gt;2.28&lt;/jersey.version&gt;
+        &lt;slf4j.version&gt;1.7.21&lt;/slf4j.version&gt;
+        &lt;log4j2.version&gt;2.5&lt;/log4j2.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.amazonaws.serverless&lt;/groupId&gt;
+            &lt;artifactId&gt;aws-serverless-java-container-jersey&lt;/artifactId&gt;
+            &lt;version&gt;1.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.glassfish.jersey.media&lt;/groupId&gt;
+            &lt;artifactId&gt;jersey-media-json-jackson&lt;/artifactId&gt;
+            &lt;version&gt;${jersey.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.glassfish.jersey.inject&lt;/groupId&gt;
+            &lt;artifactId&gt;jersey-hk2&lt;/artifactId&gt;
+            &lt;version&gt;${jersey.version}&lt;/version&gt;
+            &lt;!-- excluding redundant javax.inject dependency --&gt;
+            &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;org.glassfish.hk2&lt;/groupId&gt;
+                    &lt;artifactId&gt;hk2-api&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.glassfish.hk2&lt;/groupId&gt;
+            &lt;artifactId&gt;hk2-api&lt;/artifactId&gt;
+            &lt;version&gt;2.5.0-b42&lt;/version&gt;
+            &lt;!-- excluding redundant javax.inject dependency --&gt;
+            &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;javax.inject&lt;/groupId&gt;
+                    &lt;artifactId&gt;javax.inject&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;software.amazon.qldb&lt;/groupId&gt;
+            &lt;artifactId&gt;amazon-qldb-driver-java&lt;/artifactId&gt;
+            &lt;version&gt;1.0.1&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.amazonaws&lt;/groupId&gt;
+            &lt;artifactId&gt;aws-java-sdk-sts&lt;/artifactId&gt;
+            &lt;version&gt;1.11.620&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.amazon.ion&lt;/groupId&gt;
+            &lt;artifactId&gt;ion-java&lt;/artifactId&gt;
+            &lt;version&gt;1.6.1&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.fasterxml.jackson.dataformat&lt;/groupId&gt;
+            &lt;artifactId&gt;jackson-dataformat-ion&lt;/artifactId&gt;
+            &lt;version&gt;2.10.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-slf4j-impl&lt;/artifactId&gt;
+            &lt;version&gt;2.5&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+            &lt;version&gt;${log4j2.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+            &lt;version&gt;${log4j2.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.3&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;createDependencyReducedPom&gt;false&lt;/createDependencyReducedPom&gt;
+                &lt;/configuration&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;phase&gt;package&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;shade&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p><code>log4j2.xml</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Configuration status=&quot;warn&quot; name=&quot;MyApp&quot; packages=&quot;&quot;&gt;
+    &lt;Appenders&gt;
+        &lt;!--        &lt;File name=&quot;MyFile&quot; fileName=&quot;app.log&quot;&gt;--&gt;
+        &lt;!--            &lt;PatternLayout&gt;--&gt;
+        &lt;!--                &lt;Pattern&gt;%d %p %c{1.} [%t] %m%n&lt;/Pattern&gt;--&gt;
+        &lt;!--            &lt;/PatternLayout&gt;--&gt;
+        &lt;!--        &lt;/File&gt;--&gt;
+        &lt;!--        &lt;Async name=&quot;Async&quot;&gt;--&gt;
+        &lt;!--            &lt;AppenderRef ref=&quot;MyFile&quot;/&gt;--&gt;
+        &lt;!--        &lt;/Async&gt;--&gt;
+        &lt;Console name=&quot;Console&quot; target=&quot;SYSTEM_OUT&quot;&gt;
+            &lt;PatternLayout pattern=&quot;%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n&quot;/&gt;
+        &lt;/Console&gt;
+    &lt;/Appenders&gt;
+    &lt;Loggers&gt;
+        &lt;Logger name=&quot;com.ctw&quot; level=&quot;info&quot;&gt;
+            &lt;AppenderRef ref=&quot;Console&quot;/&gt;
+        &lt;/Logger&gt;
+        &lt;Root level=&quot;error&quot;&gt;
+            &lt;AppenderRef ref=&quot;Console&quot;/&gt;
+        &lt;/Root&gt;
+    &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+</code></pre>
+<p><code>StreamLambdaHandler.java</code></p>
+<pre><code class="language-java">package com.ctw.consent;
+
+import com.amazonaws.serverless.proxy.jersey.JerseyLambdaContainerHandler;
+import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
+import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+
+public class StreamLambdaHandler implements RequestStreamHandler {
+
+    private static final String PACK_SCAN= &quot;com.ctw.consent&quot;;
+
+    private static final ResourceConfig jerseyApplication = new ResourceConfig()
+                                                                    .packages(PACK_SCAN)
+                                                                    .register(JacksonFeature.class);
+
+    private static final JerseyLambdaContainerHandler&lt;AwsProxyRequest, AwsProxyResponse&gt; handler
+            = JerseyLambdaContainerHandler.getAwsProxyHandler(jerseyApplication);
+
+    @Override
+    public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) throws IOException {
+        handler.proxyStream(inputStream, outputStream, context);
+
+        // just in case it wasn't closed by the mapper
+        outputStream.close();
+    }
+}
+</code></pre>
+<p><code>OperationHelper.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.util;
+
+import com.amazon.ion.IonStruct;
+import software.amazon.qldb.Result;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OperationHelper {
+
+    public static List&lt;IonStruct&gt; toIonStructs(Result result) {
+        final List&lt;IonStruct&gt; documentList = new ArrayList&lt;&gt;();
+        result.iterator().forEachRemaining(row -&gt; documentList.add((IonStruct) row));
+        return documentList;
+    }
+}
+</code></pre>
+<p><code>CustomerService.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.service;
+
+import com.amazon.ion.IonSystem;
+import com.amazon.ion.system.IonSystemBuilder;
+import com.ctw.consent.dao.Constants;
+import com.ctw.consent.dao.CustomerRepository;
+import com.ctw.consent.model.Customer;
+import com.ctw.consent.model.DocumentID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
+public class CustomerService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+
+    private static final IonSystem ion = IonSystemBuilder.standard().build();
+
+    private CustomerRepository customerRepository;
+
+    public CustomerService() {
+        this.customerRepository = new CustomerRepository();
+    }
+
+    public List&lt;Customer&gt; findAll() throws Exception {
+        return customerRepository.findAll();
+    }
+
+    public DocumentID add(Customer customer) throws Exception {
+
+        LOGGER.info(String.format(&quot;Inserting customer  %s&quot;, customer));
+
+        try {
+
+            String documentID = this.customerRepository.insert(Constants.MAPPER.writeValueAsIonValue(customer));
+            return Constants.MAPPER.readValue(documentID, DocumentID.class);
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+}
+
+</code></pre>
+<p><code>DocumentID.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.model;
+
+public class DocumentID {
+
+    private String documentId;
+
+    public DocumentID() {
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+}
+
+</code></pre>
+<p><code>Customer.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.model;
+
+
+import com.amazon.ion.IonBool;
+import com.amazon.ion.IonString;
+import com.amazon.ion.IonStruct;
+import com.amazon.ion.IonSystem;
+import com.amazon.ion.system.IonSystemBuilder;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        &quot;document_id&quot;,
+        &quot;consent&quot;,
+        &quot;vin&quot;,
+        &quot;brand&quot;
+})
+public class Customer {
+
+    private static final IonSystem system = IonSystemBuilder.standard().build();
+    @JsonProperty(&quot;vin&quot;)
+    public String vin;
+    @JsonProperty(&quot;consent&quot;)
+    public Boolean consent;
+    @JsonProperty(&quot;brand&quot;)
+    public String brand;
+    @JsonProperty(&quot;document_id&quot;)
+    private String documentID;
+
+    public Customer(String documentID, String vin, Boolean consent, String brand) {
+        this.documentID = documentID;
+        this.vin = vin;
+        this.consent = consent;
+        this.brand = brand;
+    }
+
+    public Customer() {
+    }
+
+    public static Customer decode(IonStruct struct) {
+        return new Customer(((IonString) struct.get(&quot;id&quot;)).stringValue(), ((IonString) struct.get(&quot;vin&quot;)).stringValue(), ((IonBool) struct.get(&quot;consent&quot;)).booleanValue(), ((IonString) struct.get(&quot;brand&quot;)).stringValue());
+    }
+
+    public String getDocumentID() {
+        return documentID;
+    }
+
+    public void setDocumentID(String documentID) {
+        this.documentID = documentID;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public Boolean getConsent() {
+        return consent;
+    }
+
+    public void setConsent(Boolean consent) {
+        this.consent = consent;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Customer{&quot; +
+                &quot;vin='&quot; + vin + '\'' +
+                &quot;, consent=&quot; + consent +
+                &quot;, brand='&quot; + brand + '\'' +
+                &quot;, documentID='&quot; + documentID + '\'' +
+                '}';
+    }
+}
+
+</code></pre>
+<p><code>CustomerRepository.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.dao;
+
+import com.amazon.ion.IonString;
+import com.amazon.ion.IonStruct;
+import com.amazon.ion.IonValue;
+import com.ctw.consent.model.Customer;
+import com.ctw.consent.util.OperationHelper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import software.amazon.qldb.PooledQldbDriver;
+import software.amazon.qldb.Result;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+public class CustomerRepository {
+
+    private final Logger LOGGER = LogManager.getLogger(CustomerRepository.class);
+
+    public String insert(IonValue data) throws Exception {
+
+        try (PooledQldbDriver session = ConnectToLedger.createQldbSession()) {
+
+            LOGGER.info(String.format(&quot;Appending new document to %s&quot;, Constants.TABLE_CONSENTS));
+
+            final String query = String.format(&quot;INSERT INTO %s ?&quot;, Constants.TABLE_CONSENTS);
+
+            final List&lt;IonValue&gt; parameters = Collections.singletonList(data);
+            Result result = session.getSession().execute(query, parameters);
+            if (result.isEmpty()) {
+                throw new Exception(&quot;No documents updated when at least one document expected.&quot;);
+            }
+
+            List&lt;IonStruct&gt; cursor = OperationHelper.toIonStructs(result);
+            Optional&lt;com.amazon.ion.IonStruct&gt; resultDocumentID = cursor.stream().findFirst();
+
+            if (resultDocumentID.isPresent()) {
+                return resultDocumentID.get().toPrettyString();
+            } else {
+                throw new Exception(&quot;No document id was find to return, check log files.&quot;);
+            }
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    public String update(Customer Customer, String documentID) throws Exception {
+
+        LOGGER.info(String.format(&quot;Updating new document to %s by document id %s&quot;, Constants.TABLE_CONSENTS, documentID));
+
+        try (PooledQldbDriver session = ConnectToLedger.createQldbSession()) {
+
+            final StringBuilder SQL = new StringBuilder();
+            SQL.append(&quot;UPDATE &quot; + Constants.TABLE_CONSENTS + &quot; AS t BY pid SET t.vin = ?,&quot;);
+            SQL.append(&quot;t.vin = ?,&quot;);
+            SQL.append(&quot;t.consent = ?,&quot;);
+            SQL.append(&quot;t.brand = ?,&quot;);
+            SQL.append(&quot;WHERE pid = ?&quot;);
+
+            final List&lt;IonValue&gt; parameters = new ArrayList&lt;&gt;();
+            parameters.add(Constants.MAPPER.writeValueAsIonValue(Customer.getVin()));
+            parameters.add(Constants.MAPPER.writeValueAsIonValue(Customer.getConsent()));
+            parameters.add(Constants.MAPPER.writeValueAsIonValue(Customer.getBrand()));
+            parameters.add(Constants.MAPPER.writeValueAsIonValue(documentID));
+
+            Result result = session.getSession().execute(SQL.toString(), parameters);
+
+            if (result.isEmpty()) {
+                throw new Exception(&quot;No documents updated when at least one document expected.&quot;);
+            }
+
+            List&lt;IonStruct&gt; cursor = OperationHelper.toIonStructs(result);
+            Optional&lt;IonStruct&gt; resultDocumentID = cursor.stream().findFirst();
+
+            if (resultDocumentID.isPresent()) {
+                return resultDocumentID.get().toPrettyString();
+            } else {
+                throw new Exception(&quot;No document id was find to return, check log files.&quot;);
+            }
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    public List&lt;Customer&gt; findAll() throws Exception {
+
+        try (PooledQldbDriver session = ConnectToLedger.createQldbSession()) {
+
+            final String query = String.format(&quot;SELECT id, c.* FROM %s AS c BY id&quot;, Constants.TABLE_CONSENTS);
+
+            Result result = session.getSession().execute(query);
+            List&lt;IonStruct&gt; cursor = OperationHelper.toIonStructs(result);
+            List&lt;Customer&gt; data = new ArrayList&lt;&gt;();
+            for(IonStruct c : cursor) {
+                Customer customer = Customer.decode(c);
+                data.add(new Customer(customer.getDocumentID(), customer.getVin(), customer.getConsent(), customer.getBrand()));
+            }
+
+            return data;
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    public Customer findById(String documentID) throws Exception {
+
+        try (PooledQldbDriver session = ConnectToLedger.createQldbSession()) {
+
+            final String query = String.format(&quot;SELECT * FROM %s AS c BY id WHERE id = ?&quot;, Constants.TABLE_CONSENTS);
+            final List&lt;IonValue&gt; parameters = Collections.singletonList(Constants.MAPPER.writeValueAsIonValue(documentID));
+            Result result = session.getSession().execute(query, parameters);
+            if (result.isEmpty()) {
+                throw new Exception(String.format(&quot;No car history found for DOC ID %s.&quot;, documentID));
+            }
+            List&lt;IonStruct&gt; cursor = OperationHelper.toIonStructs(result);
+            return Customer.decode(cursor.get(0));
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    public Customer findByVIN(String vin) throws Exception {
+
+        try (PooledQldbDriver session = ConnectToLedger.createQldbSession()) {
+
+            final String query = String.format(&quot;SELECT pid, c.* from %s AS c BY pid WHERE c.vin = ?&quot;, Constants.TABLE_CONSENTS);
+            final List&lt;IonValue&gt; parameters = Collections.singletonList(Constants.MAPPER.writeValueAsIonValue(vin));
+            Result result = session.getSession().execute(query, parameters);
+            if (result.isEmpty()) {
+                throw new Exception(String.format(&quot;No car history found for VIN %s.&quot;, vin));
+            }
+            List&lt;IonStruct&gt; cursor = OperationHelper.toIonStructs(result);
+            return Customer.decode(cursor.get(0));
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            throw e;
+        }
+    }
+}
+
+</code></pre>
+<p><code>Constants.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.dao;
+
+import com.fasterxml.jackson.dataformat.ion.IonObjectMapper;
+
+public class Constants {
+
+    public static final String LEDGER_NAME = &quot;di-ledger&quot;;
+
+    public static final String REGION = &quot;us-east-1&quot;;
+
+    public static final int RETRY_LIMIT = 4;
+
+    public static final IonObjectMapper MAPPER = new IonObjectMapper();
+
+    public static final String TABLE_CONSENTS = &quot;Consents&quot;;
+
+    public static final String ROLE = &quot;arn:aws:iam::720205669273:role/ccc-administration/OwnFull&quot;;
+
+    public static final String ACCESS_KEY = &quot;&quot;;
+
+    public static final String PRIVATE_KEY = &quot;&quot;;
+}
+</code></pre>
+<p><code>ConnectToLedger.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.dao;
+
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.BasicSessionCredentials;
+import com.amazonaws.services.qldbsession.AmazonQLDBSessionClientBuilder;
+import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
+import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
+import com.amazonaws.services.securitytoken.model.AssumeRoleRequest;
+import com.amazonaws.services.securitytoken.model.AssumeRoleResult;
+import software.amazon.qldb.PooledQldbDriver;
+
+
+public final class ConnectToLedger {
+
+    public static AWSCredentialsProvider credentialsProvider;
+
+    public static PooledQldbDriver createQldbSession() {
+
+        AmazonQLDBSessionClientBuilder builder = AmazonQLDBSessionClientBuilder.standard().withRegion(Constants.REGION);
+
+        return PooledQldbDriver.builder()
+                .withLedger(Constants.LEDGER_NAME)
+                .withRetryLimit(Constants.RETRY_LIMIT)
+                .withSessionClientBuilder(builder)
+                .build();
+    }
+
+    // CONNECT TO A LEDGER USING ASSUME ROLE API
+    public PooledQldbDriver createQldbSessionAssumeRole() {
+
+        BasicAWSCredentials basic = new BasicAWSCredentials(Constants.ACCESS_KEY, Constants.PRIVATE_KEY);
+
+        AWSSecurityTokenServiceClientBuilder stsBuilder = AWSSecurityTokenServiceClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(basic))
+                .withRegion(Constants.REGION);
+
+        AWSSecurityTokenService sts = stsBuilder.build();
+
+        AssumeRoleRequest assumeRequest = new AssumeRoleRequest().withRoleArn(Constants.ROLE).withRoleSessionName(&quot;trs&quot;);
+
+        AssumeRoleResult assumeResult = sts.assumeRole(assumeRequest);
+
+        BasicSessionCredentials cred = new BasicSessionCredentials(assumeResult.getCredentials().getAccessKeyId(),
+                assumeResult.getCredentials().getSecretAccessKey(),
+                assumeResult.getCredentials().getSessionToken());
+
+        AmazonQLDBSessionClientBuilder builder = AmazonQLDBSessionClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(cred))
+                .withRegion(Constants.REGION);
+
+        return PooledQldbDriver.builder()
+                .withLedger(Constants.LEDGER_NAME)
+                .withRetryLimit(Constants.RETRY_LIMIT)
+                .withSessionClientBuilder(builder)
+                .build();
+    }
+}
+</code></pre>
+<p><code>CustomerResource.java</code></p>
+<pre><code class="language-java">package com.ctw.consent.api;
+
+
+import com.ctw.consent.model.Customer;
+import com.ctw.consent.service.CustomerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+@Path(&quot;/customers&quot;)
+public class CustomerResource {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerResource.class);
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findAll() {
+
+        try {
+
+            LOGGER.info(&quot;Getting all consents&quot;);
+            CustomerService customerService = new CustomerService();
+            return Response.status(200).entity(customerService.findAll()).build();
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return Response.status(500).entity(e.getMessage()).build();
+        }
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response insert(Customer form) {
+
+        try {
+
+            if (validateUserConsent(form)) {
+
+                LOGGER.info(&quot;Adding user consent {}&quot;, form);
+                CustomerService customerService = new CustomerService();
+                customerService.add(form);
+
+            } else {
+                return Response.status(400).build();
+            }
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return Response.status(500).entity(e.getMessage()).build();
+        }
+
+        return Response.status(200).build();
+    }
+
+    private Boolean validateUserConsent(Customer form) {
+        return form.getVin() != null &amp;&amp; !&quot;&quot;.equals(form.getVin());
+    }
+}
+</code></pre>
+<p><code>sam.yaml</code> This file is used to create a serverless application that you can package and deploy in the AWS Cloud. You can get details on <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html">https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html</a></p>
+<pre><code class="language-yaml">AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Serverless Jersey API - Customer Endpoint
+Resources:
+  CustomerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.ctw.consent.StreamLambdaHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/customer-0.1.0.jar
+      MemorySize: 512
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonQLDBFullAccess
+      Timeout: 15
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  CustomerApi:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Stage/customers'
+    Export:
+      Name: CarDataCustomerApi
+</code></pre>
+<p>After set up a standard Java project with the source code, you have to get your AWS roles and private keys and then
+replace them in <code>Constants.java</code> class.</p>
+<h3 id="deploying">Deploying</h3>
+<p>Run the script <code>deploy.sh</code>, once it's finished, you can access you AWS web console, navigate to the gateway api service and test it.</p>
+<p><code>deploy.sh</code></p>
+<pre><code class="language-bash">#!/bin/bash
+
+stack='DI-STACK'
+bucket='java-prototype-di'
+
+echo 'Building project'
+
+mvn -T 2C clean install -DskipTests=true
+
+#echo 'Delete previous stack'
+#aws cloudformation delete-stack --stack-name $stack
+
+sleep 5
+
+echo 'Uploading artifact to S3 bucket' $bucket
+aws cloudformation package --template-file sam.yaml --output-template-file output-sam.yaml --s3-bucket $bucket
+
+sleep 5
+
+echo 'Deploying function as a service'
+aws cloudformation deploy --template-file output-sam.yaml --stack-name $stack --capabilities CAPABILITY_IAM
+
+sleep 10
+
+aws cloudformation describe-stacks --stack-name $stack
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

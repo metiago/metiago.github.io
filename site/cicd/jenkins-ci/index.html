@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Continuous Integration with Jenkins, Java & SonarQube - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aws <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../aws/aws-ec2-mysql/" class="dropdown-item">MySQL 8 - AWS EC2</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-qldb-blockchain/" class="dropdown-item">AWS QLDB & Lambda</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-s3/" class="dropdown-item">Amazon Web Services</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brokers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../brokers/rabbit-mq-client/" class="dropdown-item">RabbitQM Client</a>
+</li>
+                                    
+<li>
+    <a href="../../brokers/zeromq/" class="dropdown-item">Zero MQ</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Camel <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../camel/apache-camel-aggregator/" class="dropdown-item">Apache Camel Aggregator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-enricher/" class="dropdown-item">Apache Camel Enricher</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-files/" class="dropdown-item">Apache camel files</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-filter/" class="dropdown-item">Apache camel filter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-ftp/" class="dropdown-item">Apache Camel FTP</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-interceptor/" class="dropdown-item">Apache Camel Interceptors</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-json-xml/" class="dropdown-item">Apache Camel JSON to XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-load-balance/" class="dropdown-item">Apache Camel Load Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-multicast/" class="dropdown-item">Apache Camel MultiCast</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-quartz/" class="dropdown-item">Apache Camel Quartz</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-seda/" class="dropdown-item">Apache Camel Seda</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-splitter/" class="dropdown-item">Apache Camel Splitter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-throttle/" class="dropdown-item">Apache Camel Throttler</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-translator/" class="dropdown-item">Apache Camel Translator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-wire-tap/" class="dropdown-item">Apache Camel Wire Tap</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml-json/" class="dropdown-item">Apache Camel XML to JSON</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml/" class="dropdown-item">Apache Camel XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/eip/" class="dropdown-item">EIP - Enterprise Integration Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cicd <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../jenkins-cd/" class="dropdown-item">Continuous Delivery of Java Applications with Docker</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Continuous Integration with Jenkins, Java & SonarQube</a>
+</li>
+                                    
+<li>
+    <a href="../jenkins-job-periodically/" class="dropdown-item">Jenkins Job Periodically</a>
+</li>
+                                    
+<li>
+    <a href="../jenkins-rest-api/" class="dropdown-item">Jenkins REST API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cloud/cloud-starter/" class="dropdown-item">Cloud Computing</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/oci/" class="dropdown-item">OCI</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/vpc/" class="dropdown-item">VPC & Networking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../databases/data-store-reference/" class="dropdown-item">Data Store References</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mongo-seed-data/" class="dropdown-item">MongoDB Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mysql-ref/" class="dropdown-item"> MySQL Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../design/outbox-pattern/" class="dropdown-item">Outbox Pattern</a>
+</li>
+                                    
+<li>
+    <a href="../../design/planning/" class="dropdown-item">Planning Checklist</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-dependency-inversion-principle/" class="dropdown-item">Dependency Inversion Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-interface-segregation-principle/" class="dropdown-item">Interface Segregation Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-liskov-substitution-principle/" class="dropdown-item">Liskov Substitution Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-open-close-responsibility/" class="dropdown-item">Open Closed Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-single-responsibility/" class="dropdown-item">Single Responsibility Principle</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hibernate <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../hibernate/jpa-composite-primary-key/" class="dropdown-item">JPA - Composite Primary Key</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-quick-references/" class="dropdown-item">JPA Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-sequence-mapping/" class="dropdown-item">JPA - Sequence Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../java/balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/big-o/" class="dropdown-item">Big O Notation</a>
+</li>
+                                    
+<li>
+    <a href="../../java/binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/doubly-linked-lists/" class="dropdown-item"> Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/elapsed-time/" class="dropdown-item">Elapsed Time</a>
+</li>
+                                    
+<li>
+    <a href="../../java/graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-8-optional/" class="dropdown-item">Java Optional API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aspectj/" class="dropdown-item">AspectJ</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-dynamodb/" class="dropdown-item">Lambda & DynanoDB & Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-s3/" class="dropdown-item">Lambda & S3</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-binary-search/" class="dropdown-item">Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-bubble-sort/" class="dropdown-item">Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-collections-streams/" class="dropdown-item">Collections, Streams & Lambdas</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-date-datetime/" class="dropdown-item">Java Date & Datetime Samples</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-file-io/" class="dropdown-item"> NIO File API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-dates/" class="dropdown-item">Duplicate Dates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-datetime/" class="dropdown-item">DateTime - Duplicates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-future/" class="dropdown-item">Completable Futures</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-hashtable/" class="dropdown-item">Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-http-client/" class="dropdown-item">Java Http Client</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-insertion-sort/" class="dropdown-item">Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-install-cert/" class="dropdown-item">Sun JKS Utility</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-jconsole/" class="dropdown-item">Profiling Quarkus Application</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-keystore-example/" class="dropdown-item">Java JDK Key Tool</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search-minor-element/" class="dropdown-item">Linear Searching - Minor Element</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search/" class="dropdown-item">Linear Searching</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-merge-sort/" class="dropdown-item">Merge Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-min-max/" class="dropdown-item">Min & Max Array Value</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-queue/" class="dropdown-item">Queues</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-quick-sort/" class="dropdown-item">Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-regex/" class="dropdown-item">Regular Expression</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-selection-sort/" class="dropdown-item">Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-sockets-multithread/" class="dropdown-item">Java Sockets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-stack/" class="dropdown-item"> Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-tree/" class="dropdown-item">Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-web3j/" class="dropdown-item">Blockchain - Web3j</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-xml-api/" class="dropdown-item">Java XML API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/linked-lists/" class="dropdown-item">Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/maven/" class="dropdown-item">Maven</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">K8 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../k8/kube-ms/" class="dropdown-item">Kube Service Discovery (DNS)</a>
+</li>
+                                    
+<li>
+    <a href="../../k8/kubernetes-kubectl/" class="dropdown-item">K8S Kubectl Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../os/apache-ab/" class="dropdown-item">Apache AB</a>
+</li>
+                                    
+<li>
+    <a href="../../os/docker-references/" class="dropdown-item">Docker Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/geth-blockchain/" class="dropdown-item"> Blockchain - Geth Ethereum</a>
+</li>
+                                    
+<li>
+    <a href="../../os/git/" class="dropdown-item"> Git Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/os-check-used-port/" class="dropdown-item">OS – Listing used ports</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spring <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../spring/keycloack/" class="dropdown-item"> Spring Boot + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-actuator/" class="dropdown-item">Spring Boot Actuator</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-async/" class="dropdown-item">Spring Async</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-es-jms/" class="dropdown-item">Spring Batch + Elasticsearch + JMS</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-flat-files/" class="dropdown-item">Spring Batch Flat File</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-boot-kafka/" class="dropdown-item">Spring Boot - Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cache/" class="dropdown-item">Spring Cache</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cloud-gateway-keycloak/" class="dropdown-item">Spring Cloud Gateway + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-security-oauth2/" class="dropdown-item">Spring Security - OAuth2</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/unit-tests/" class="dropdown-item">Mockito Unit Tests</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vertx <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../vertx/vertx-elasticsearch/" class="dropdown-item">VertX & Elasticsearch</a>
+</li>
+                                    
+<li>
+    <a href="../../vertx/vertx-jwt-auth/" class="dropdown-item">VertX - JWT Auth & MongoDB</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../jenkins-cd/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../jenkins-job-periodically/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Continuous Integration (CI) is a practice of merging all developers' work several times a day. It's important to note that this practice is better achieved
+when following workflows different from pull request ones, open multiple pull requests can slowdown development process and it also creates the famous "merging hell".</p>
+<p>Set up a continuous integration using <code>Jenkins</code> and <code>Github</code> is pretty easy. In this example, we'll be triggering a Jenkins job as soon as we push new changes
+to the repository. To obtain all benefits of CI, it's highly recommended that the project implements <code>Unit Tests</code> and/or <code>Integration Tests</code> (TDD) so that
+every time we push new changes, the CI server will compile, analysis code quality and execute the tests.</p>
+<h3 id="source-code">Source Code</h3>
+<p>The source code for this tutorial can be found at <a href="https://github.com/metiago/starter-ci">https://github.com/metiago/starter-ci</a>. It's a Vert.x API that contains some unit tests, integration tests to represent a real scenario when developing applications that will be integrated on CI. Note that the <code>pom.xml</code> contain important configuration to handle unit tests and integration tests in different folders.</p>
+<h3 id="jenkis-server">Jenkis Server</h3>
+<p>Before spin up our Jenkins server we have to create some SSH keys, these keys we'll be used in Jenkins to pull our repository code.</p>
+<p>Open a terminal and create a folder called <code>jenkins-server</code>. In this folder, generate the SSH keys by typing:</p>
+<pre><code class="language-bash">ssh-keygen -t rsa -b 4096 -C &quot;myemail@mycompany.com&quot;
+</code></pre>
+<p>In the same folder, create a file called <code>Vagrantfile</code> with the content below:</p>
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# $script = &lt;&lt;-SCRIPT
+#   echo 'My Custom Script...'
+# SCRIPT
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  # config.vm.box_version = &quot;20170922.0.0&quot;
+  # config.vm.provision &quot;shell&quot;, inline: $script
+  # config.vm.provision :shell, :inline =&gt; &quot;/home/vagrant/gogs/gogs web &amp;&quot;, :run =&gt; 'always', privileged: false
+  config.vm.provision &quot;file&quot;, source: &quot;id_rsa&quot;, destination: &quot;.ssh/id_rsa&quot;
+  config.vm.provision &quot;file&quot;, source: &quot;id_rsa.pub&quot;, destination: &quot;.ssh/id_rsa.pub&quot;
+
+  config.trigger.after :up do |trigger|
+    trigger.name = &quot;Starting Gogs&quot;
+    # trigger.run_remote = {inline: &quot;export PATH:$PATH:/home/vagrant/gogs&quot;}
+    trigger.run_remote = {inline: &quot;/home/vagrant/gogs/gogs web&quot;}
+  end
+
+  config.vm.network &quot;forwarded_port&quot;, guest: 8080, host: 8085
+  config.vm.network &quot;forwarded_port&quot;, guest: 3000, host: 3000
+  # config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+
+  # config.vm.network &quot;public_network&quot;, ip: &quot;192.168.33.17&quot;
+  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.50.4&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+
+    # Install kubectl
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/kubectl
+    kubectl version -o json
+
+    # Create Python Env
+    apt-get install -y python3-venv
+    sudo apt-get install -y python3-pip
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # Install OpenJDK Java JDK and Maven
+    add-apt-repository ppa:openjdk-r/ppa
+    apt-get -y update
+    apt-get install -y openjdk-8-jdk
+    apt-get install -y maven
+
+    # Install Docker
+    apt-get install -y docker.io
+
+    # Install Docker Compose
+    curl -s -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+
+    # Install Jenkins
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    apt-add-repository &quot;deb http://pkg.jenkins-ci.org/debian binary/&quot;
+    apt-get -y update
+    apt install -y jenkins
+    # Echo the Jenkins security key that is required upon initialisation
+    printf &quot;\n\nJENKINS KEY\n*********************************&quot;
+    # Add the Jenkins user to the Docker group
+    usermod -aG docker jenkins
+    # Wait until the initialAdminPassword file is generated via Jenkins startup
+    while [ ! -f /var/lib/jenkins/secrets/initialAdminPassword ]
+    do
+        sleep 2
+    done
+    cat /var/lib/jenkins/secrets/initialAdminPassword
+    printf &quot;*********************************&quot;
+    usermod -aG docker $USER
+    newgrp docker
+    # restart the Jenkins service so that the usermod command above takes effect
+    service jenkins restart
+
+    chmod -R 777 /home/vagrant/gogs
+    chown -R vagrant /home/vagrant/gogs
+
+  SHELL
+end
+</code></pre>
+<p>Once we have this file, we can start our Jenkins server by typing:</p>
+<pre><code class="language-bash">vagrant up
+</code></pre>
+<p>At this point, we're able to access Jenkins at <code>http://localhost:8085/</code>. </p>
+<p>After its auto installation plugins, we have to install <code>Git Integration</code>, this plugin enables smooth integration with Git projects.</p>
+<p>{{&lt; figure src="/img/ci/git_plugin.png" width="auto" &gt;}}</p>
+<p>Then, you should create a Jenkins creadentials to access Github via SSH, in this page copy your <code>private key</code> and past it in the key area.</p>
+<p>{{&lt; figure src="/img/ci/git_ssh.png" width="auto" &gt;}}</p>
+<p>After that, we should create create a public key in Github, to do that, copy the public key value and past it in your Github SSH configuration.</p>
+<p>{{&lt; figure src="/img/ci/git_public_key.png" width="auto" &gt;}}</p>
+<p>In order to be able to trigger Jenkins' jobs, we should generate a Jenkins token. </p>
+<p>{{&lt; figure src="/img/ci/jenkins_token.png" width="auto" &gt;}}</p>
+<p>Copy this token, access the repository settings and configure it with the following parameters, add the token clicking on Change Secret link.</p>
+<p>{{&lt; figure src="/img/ci/git_webhook.png" width="auto" &gt;}}</p>
+<p>Next step, create a job and set the SCM.</p>
+<p>{{&lt; figure src="/img/ci/job_git.png" width="auto" &gt;}}</p>
+<p>and then the Build Triggers
+{{&lt; figure src="/img/ci/job_trigger.png" width="auto" &gt;}}</p>
+<p>finally, we're going to configure our build section adding the script that will spin up a redis database for integration tests and also the
+maven goal which compiles the source code, execute unit tests and integration tests and lastly report code quality on SonarQube.</p>
+<pre><code class="language-shell">docker-compose up -d
+
+starting=true
+until $starting
+do
+    sleep 2
+    if curl -s http://localhost:8001/health | &quot;OK&quot;; then
+        starting = false
+    fi
+done
+</code></pre>
+<p>{{&lt; figure src="/img/ci/job_build.png" width="auto" &gt;}}</p>
+<p>Before testing our integration, first we have to run our <code>SoneQube</code> server.</p>
+<h3 id="sonarqube">SonarQube</h3>
+<p><code>SonarQube</code> is a tool which makes inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities. </p>
+<p>Create a folder called <code>sonar-qube</code> and then put into it a file called <code>Vagrantfile</code> with the content below.</p>
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# $script = &lt;&lt;-SCRIPT
+#   echo 'My Custom Script...'
+# SCRIPT
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  # config.vm.box_version = &quot;20170922.0.0&quot;
+  # config.vm.provision &quot;shell&quot;, inline: $script
+
+  config.trigger.after :up do |trigger|
+    trigger.name = &quot;Starting SonarQube&quot;
+    trigger.run_remote = {inline: &quot;./sonarqube-6.1/bin/linux-x86-64/sonar.sh start&quot;}
+  end
+
+  config.vm.network &quot;forwarded_port&quot;, guest: 9000, host: 9000
+
+  # config.vm.network &quot;public_network&quot;, ip: &quot;192.168.33.18&quot;
+  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.50.5&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |v|
+    v.memory = 4096
+  end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+
+    apt-get update
+    sudo apt-get install -y unzip
+
+    # Install OpenJDK Java JDK and Maven    
+    # Install OpenJDK Java JDK and Maven
+    add-apt-repository ppa:openjdk-r/ppa
+    apt-get -y update
+    apt-get install -y openjdk-8-jdk
+    apt-get install -y maven
+
+    # Install Sonar
+    wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.1.zip
+    unzip sonarqube-6.1.zip
+
+    chmod -R 777 sonarqube-6.1/
+    chown -R vagrant sonarqube-6.1/
+
+  SHELL
+end
+</code></pre>
+<p>Run the server by typing the command below.</p>
+<pre><code class="language-bash">vagrant up
+</code></pre>
+<p>At this point, we're able to test our continues integration by making some changes in the code and pushing it. You'll see that once Github receive the push
+Jenkins starts the job automatically.</p>
+<p>{{&lt; figure src="/img/ci/job_started.png" width="auto" &gt;}}</p>
+<p>After the build, we're able to see the code quality analysis on SonarQube.</p>
+<p>{{&lt; figure src="/img/ci/sonar_report.png" width="auto" &gt;}}</p>
+<p>That's how we can configure a simple CI server using Jenkins. Jenkins is powerful and flexible tool to handle CI and CD and it has many
+configuration that you can explore to go from simple to complex pipelines to automate the software development processes.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

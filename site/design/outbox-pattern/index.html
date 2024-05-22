@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Outbox Pattern - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aws <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../aws/aws-ec2-mysql/" class="dropdown-item">MySQL 8 - AWS EC2</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-qldb-blockchain/" class="dropdown-item">AWS QLDB & Lambda</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-s3/" class="dropdown-item">Amazon Web Services</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brokers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../brokers/rabbit-mq-client/" class="dropdown-item">RabbitQM Client</a>
+</li>
+                                    
+<li>
+    <a href="../../brokers/zeromq/" class="dropdown-item">Zero MQ</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Camel <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../camel/apache-camel-aggregator/" class="dropdown-item">Apache Camel Aggregator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-enricher/" class="dropdown-item">Apache Camel Enricher</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-files/" class="dropdown-item">Apache camel files</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-filter/" class="dropdown-item">Apache camel filter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-ftp/" class="dropdown-item">Apache Camel FTP</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-interceptor/" class="dropdown-item">Apache Camel Interceptors</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-json-xml/" class="dropdown-item">Apache Camel JSON to XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-load-balance/" class="dropdown-item">Apache Camel Load Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-multicast/" class="dropdown-item">Apache Camel MultiCast</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-quartz/" class="dropdown-item">Apache Camel Quartz</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-seda/" class="dropdown-item">Apache Camel Seda</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-splitter/" class="dropdown-item">Apache Camel Splitter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-throttle/" class="dropdown-item">Apache Camel Throttler</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-translator/" class="dropdown-item">Apache Camel Translator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-wire-tap/" class="dropdown-item">Apache Camel Wire Tap</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml-json/" class="dropdown-item">Apache Camel XML to JSON</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml/" class="dropdown-item">Apache Camel XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/eip/" class="dropdown-item">EIP - Enterprise Integration Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cicd <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cicd/jenkins-cd/" class="dropdown-item">Continuous Delivery of Java Applications with Docker</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-ci/" class="dropdown-item">Continuous Integration with Jenkins, Java & SonarQube</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-job-periodically/" class="dropdown-item">Jenkins Job Periodically</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-rest-api/" class="dropdown-item">Jenkins REST API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cloud/cloud-starter/" class="dropdown-item">Cloud Computing</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/oci/" class="dropdown-item">OCI</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/vpc/" class="dropdown-item">VPC & Networking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../databases/data-store-reference/" class="dropdown-item">Data Store References</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mongo-seed-data/" class="dropdown-item">MongoDB Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mysql-ref/" class="dropdown-item"> MySQL Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Outbox Pattern</a>
+</li>
+                                    
+<li>
+    <a href="../planning/" class="dropdown-item">Planning Checklist</a>
+</li>
+                                    
+<li>
+    <a href="../solid-dependency-inversion-principle/" class="dropdown-item">Dependency Inversion Principle</a>
+</li>
+                                    
+<li>
+    <a href="../solid-interface-segregation-principle/" class="dropdown-item">Interface Segregation Principle</a>
+</li>
+                                    
+<li>
+    <a href="../solid-liskov-substitution-principle/" class="dropdown-item">Liskov Substitution Principle</a>
+</li>
+                                    
+<li>
+    <a href="../solid-open-close-responsibility/" class="dropdown-item">Open Closed Principle</a>
+</li>
+                                    
+<li>
+    <a href="../solid-single-responsibility/" class="dropdown-item">Single Responsibility Principle</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hibernate <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../hibernate/jpa-composite-primary-key/" class="dropdown-item">JPA - Composite Primary Key</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-quick-references/" class="dropdown-item">JPA Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-sequence-mapping/" class="dropdown-item">JPA - Sequence Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../java/balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/big-o/" class="dropdown-item">Big O Notation</a>
+</li>
+                                    
+<li>
+    <a href="../../java/binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/doubly-linked-lists/" class="dropdown-item"> Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/elapsed-time/" class="dropdown-item">Elapsed Time</a>
+</li>
+                                    
+<li>
+    <a href="../../java/graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-8-optional/" class="dropdown-item">Java Optional API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aspectj/" class="dropdown-item">AspectJ</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-dynamodb/" class="dropdown-item">Lambda & DynanoDB & Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-aws-lambda-s3/" class="dropdown-item">Lambda & S3</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-binary-search/" class="dropdown-item">Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-bubble-sort/" class="dropdown-item">Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-collections-streams/" class="dropdown-item">Collections, Streams & Lambdas</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-date-datetime/" class="dropdown-item">Java Date & Datetime Samples</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-file-io/" class="dropdown-item"> NIO File API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-dates/" class="dropdown-item">Duplicate Dates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-find-duplicate-datetime/" class="dropdown-item">DateTime - Duplicates</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-future/" class="dropdown-item">Completable Futures</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-hashtable/" class="dropdown-item">Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-http-client/" class="dropdown-item">Java Http Client</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-insertion-sort/" class="dropdown-item">Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-install-cert/" class="dropdown-item">Sun JKS Utility</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-jconsole/" class="dropdown-item">Profiling Quarkus Application</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-keystore-example/" class="dropdown-item">Java JDK Key Tool</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search-minor-element/" class="dropdown-item">Linear Searching - Minor Element</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-linear-search/" class="dropdown-item">Linear Searching</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-merge-sort/" class="dropdown-item">Merge Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-min-max/" class="dropdown-item">Min & Max Array Value</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-queue/" class="dropdown-item">Queues</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-quick-sort/" class="dropdown-item">Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-regex/" class="dropdown-item">Regular Expression</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-selection-sort/" class="dropdown-item">Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-sockets-multithread/" class="dropdown-item">Java Sockets</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-stack/" class="dropdown-item"> Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-tree/" class="dropdown-item">Tree</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-web3j/" class="dropdown-item">Blockchain - Web3j</a>
+</li>
+                                    
+<li>
+    <a href="../../java/java-xml-api/" class="dropdown-item">Java XML API</a>
+</li>
+                                    
+<li>
+    <a href="../../java/linked-lists/" class="dropdown-item">Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../../java/maven/" class="dropdown-item">Maven</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">K8 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../k8/kube-ms/" class="dropdown-item">Kube Service Discovery (DNS)</a>
+</li>
+                                    
+<li>
+    <a href="../../k8/kubernetes-kubectl/" class="dropdown-item">K8S Kubectl Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../os/apache-ab/" class="dropdown-item">Apache AB</a>
+</li>
+                                    
+<li>
+    <a href="../../os/docker-references/" class="dropdown-item">Docker Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/geth-blockchain/" class="dropdown-item"> Blockchain - Geth Ethereum</a>
+</li>
+                                    
+<li>
+    <a href="../../os/git/" class="dropdown-item"> Git Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/os-check-used-port/" class="dropdown-item">OS – Listing used ports</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spring <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../spring/keycloack/" class="dropdown-item"> Spring Boot + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-actuator/" class="dropdown-item">Spring Boot Actuator</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-async/" class="dropdown-item">Spring Async</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-es-jms/" class="dropdown-item">Spring Batch + Elasticsearch + JMS</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-flat-files/" class="dropdown-item">Spring Batch Flat File</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-boot-kafka/" class="dropdown-item">Spring Boot - Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cache/" class="dropdown-item">Spring Cache</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cloud-gateway-keycloak/" class="dropdown-item">Spring Cloud Gateway + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-security-oauth2/" class="dropdown-item">Spring Security - OAuth2</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/unit-tests/" class="dropdown-item">Mockito Unit Tests</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vertx <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../vertx/vertx-elasticsearch/" class="dropdown-item">VertX & Elasticsearch</a>
+</li>
+                                    
+<li>
+    <a href="../../vertx/vertx-jwt-auth/" class="dropdown-item">VertX - JWT Auth & MongoDB</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../databases/mysql-ref/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../planning/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>The "Outbox Pattern" is a design pattern commonly used in microservices architecture to ensure consistency and reliability when integrating multiple services asynchronously. In distributed systems, maintaining data consistency across different services can be challenging due to network failures, service outages, or other issues. The Outbox Pattern addresses this challenge by decoupling the act of modifying data from the act of notifying other services about those modifications.</p>
+<h4 id="outbox-processor">Outbox Processor</h4>
+<p>Here's a breakdown of the responsibilities and characteristics of an outbox processor:</p>
+<p>Reading Events from the Outbox Table: The outbox processor periodically queries the outbox table within the microservice's database to retrieve events that need to be published to the message broker. These events typically represent changes or updates made to the microservice's data that other services should be notified about.</p>
+<p>Event Publication to the Message Broker: Once the outbox processor retrieves events from the outbox table, it is responsible for publishing these events to the appropriate topic or channel on the message broker. This involves serializing the event data into a suitable format (e.g., JSON or Avro) and sending it over the network to the broker for distribution to subscribers.</p>
+<p>Retry Mechanisms: The outbox processor implements retry mechanisms to handle transient errors or network failures that may occur during event publication. If the initial attempt to publish an event fails, the processor retries the operation after a certain delay, with exponentially increasing intervals between retries to avoid overwhelming the broker or the network.</p>
+<p>Idempotent Event Processing: To ensure idempotency and prevent duplicate event publication, the outbox processor must track the state of events it has processed. This involves recording metadata about each event, such as a unique identifier or a timestamp, and using this information to detect and handle duplicate events during retries or system restarts.</p>
+<p>Monitoring and Alerting: The outbox processor is typically instrumented with monitoring and alerting capabilities to track its performance, detect errors or failures, and notify administrators of any issues that arise. Monitoring tools can provide insights into event processing latency, error rates, and overall system health.</p>
+<p>Scalability and Resilience: The outbox processor should be designed to scale horizontally and handle varying loads of event processing. It should also be resilient to failures, with mechanisms in place to recover from crashes or restarts without losing track of pending events or compromising data consistency.</p>
+<p>Overall, the outbox processor is a critical component in the implementation of the outbox pattern, enabling reliable and asynchronous communication between microservices in a distributed system.</p>
+<h4 id="outbox-processor-workflow">Outbox Processor Workflow</h4>
+<p>The outbox processor can update the outbox table's metadata to track processed events and ensure idempotency. Here's how this process typically works:</p>
+<p>Processing Events: The outbox processor reads events from the outbox table and prepares them for publication to the message broker.</p>
+<p>Checking Idempotency: Before publishing an event to the broker, the outbox processor checks whether the event has already been processed. It does this by comparing the event's unique identifier (which may be stored in the event itself or in metadata) with the list of previously processed events.</p>
+<p>Updating Metadata: If the event has not been processed before, the outbox processor publishes it to the message broker and updates the outbox table's metadata to mark the event as processed. This typically involves adding the event's unique identifier to a list of processed events or updating a timestamp indicating when the event was last processed.</p>
+<p>Handling Retries: If an event fails to be published to the message broker due to a transient error, the outbox processor may retry the operation. During retries, it should avoid updating the outbox table's metadata until the event has been successfully published, ensuring that the event is not marked as processed prematurely.</p>
+<p>Maintaining Data Consistency: By updating the outbox table's metadata to track processed events, the outbox processor helps maintain data consistency and prevent duplicate event publication. This metadata serves as a record of which events have already been processed, allowing the processor to detect and skip duplicate events during subsequent processing cycles.</p>
+<p>It's important for the outbox processor to handle concurrent access to the outbox table's metadata safely, especially in distributed systems with multiple instances of the processor running in parallel. Techniques such as optimistic concurrency control or distributed locking may be used to ensure consistency and prevent race conditions when updating the metadata.</p>
+<pre><code class="language-java">  +-----------------------+
+  |      Microservice     |
+  +-----------+-----------+
+              |
+              | (Single Transaction)
+              v
+  +-----------------------+
+  |  Local &amp; Outbox Table |
+  +-----------+-----------+
+              |
+              |
+              v              
+  +-----------------------+
+  |    Outbox Processor   |
+  +-----------+-----------+
+              |
+              v
+  +-----------------------+
+  |      Message Broker   |
+  +-----------+-----------+
+              |
+              v
+  +-----------------------+
+  |   Subscriber Services |
+  +-----------------------+
+
+</code></pre>
+<h4 id="outbox-table">Outbox Table</h4>
+<pre><code class="language-sql">CREATE TABLE outbox (
+    id SERIAL PRIMARY KEY,
+    event_id UUID NOT NULL,
+    event_type VARCHAR(255) NOT NULL,
+    payload JSONB NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    processed_at TIMESTAMP WITH TIME ZONE,
+    status VARCHAR(20) DEFAULT 'pending',
+    retry_attempts INT DEFAULT 0,
+    last_retry TIMESTAMP WITH TIME ZONE,
+    version INT DEFAULT 1
+);
+
+CREATE INDEX idx_event_id ON outbox (event_id);
+CREATE INDEX idx_status ON outbox (status);
+CREATE INDEX idx_created_at ON outbox (created_at);
+</code></pre>
+<p>Saving the event in an outbox table within the microservice serves a crucial purpose in the overall architecture, particularly in ensuring reliability and consistency in event-driven communication between microservices.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

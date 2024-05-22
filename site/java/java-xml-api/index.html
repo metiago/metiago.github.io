@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Java XML API - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Aws <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../aws/aws-ec2-mysql/" class="dropdown-item">MySQL 8 - AWS EC2</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-qldb-blockchain/" class="dropdown-item">AWS QLDB & Lambda</a>
+</li>
+                                    
+<li>
+    <a href="../../aws/aws-s3/" class="dropdown-item">Amazon Web Services</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brokers <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../brokers/rabbit-mq-client/" class="dropdown-item">RabbitQM Client</a>
+</li>
+                                    
+<li>
+    <a href="../../brokers/zeromq/" class="dropdown-item">Zero MQ</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Camel <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../camel/apache-camel-aggregator/" class="dropdown-item">Apache Camel Aggregator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-enricher/" class="dropdown-item">Apache Camel Enricher</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-files/" class="dropdown-item">Apache camel files</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-filter/" class="dropdown-item">Apache camel filter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-ftp/" class="dropdown-item">Apache Camel FTP</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-interceptor/" class="dropdown-item">Apache Camel Interceptors</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-json-xml/" class="dropdown-item">Apache Camel JSON to XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-load-balance/" class="dropdown-item">Apache Camel Load Balance</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-multicast/" class="dropdown-item">Apache Camel MultiCast</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-quartz/" class="dropdown-item">Apache Camel Quartz</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-seda/" class="dropdown-item">Apache Camel Seda</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-splitter/" class="dropdown-item">Apache Camel Splitter</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-throttle/" class="dropdown-item">Apache Camel Throttler</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-translator/" class="dropdown-item">Apache Camel Translator</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-wire-tap/" class="dropdown-item">Apache Camel Wire Tap</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml-json/" class="dropdown-item">Apache Camel XML to JSON</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/apache-camel-xml/" class="dropdown-item">Apache Camel XML</a>
+</li>
+                                    
+<li>
+    <a href="../../camel/eip/" class="dropdown-item">EIP - Enterprise Integration Patterns</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cicd <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cicd/jenkins-cd/" class="dropdown-item">Continuous Delivery of Java Applications with Docker</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-ci/" class="dropdown-item">Continuous Integration with Jenkins, Java & SonarQube</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-job-periodically/" class="dropdown-item">Jenkins Job Periodically</a>
+</li>
+                                    
+<li>
+    <a href="../../cicd/jenkins-rest-api/" class="dropdown-item">Jenkins REST API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cloud <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../cloud/cloud-starter/" class="dropdown-item">Cloud Computing</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/oci/" class="dropdown-item">OCI</a>
+</li>
+                                    
+<li>
+    <a href="../../cloud/vpc/" class="dropdown-item">VPC & Networking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Databases <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../databases/data-store-reference/" class="dropdown-item">Data Store References</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mongo-seed-data/" class="dropdown-item">MongoDB Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../databases/mysql-ref/" class="dropdown-item"> MySQL Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../design/outbox-pattern/" class="dropdown-item">Outbox Pattern</a>
+</li>
+                                    
+<li>
+    <a href="../../design/planning/" class="dropdown-item">Planning Checklist</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-dependency-inversion-principle/" class="dropdown-item">Dependency Inversion Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-interface-segregation-principle/" class="dropdown-item">Interface Segregation Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-liskov-substitution-principle/" class="dropdown-item">Liskov Substitution Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-open-close-responsibility/" class="dropdown-item">Open Closed Principle</a>
+</li>
+                                    
+<li>
+    <a href="../../design/solid-single-responsibility/" class="dropdown-item">Single Responsibility Principle</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hibernate <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../hibernate/jpa-composite-primary-key/" class="dropdown-item">JPA - Composite Primary Key</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-quick-references/" class="dropdown-item">JPA Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../hibernate/jpa-sequence-mapping/" class="dropdown-item">JPA - Sequence Mapping</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Java <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../balanced-brackets/" class="dropdown-item">Balanced Brackets</a>
+</li>
+                                    
+<li>
+    <a href="../big-o/" class="dropdown-item">Big O Notation</a>
+</li>
+                                    
+<li>
+    <a href="../binary-search-tree/" class="dropdown-item">Binary Search Tree</a>
+</li>
+                                    
+<li>
+    <a href="../doubly-linked-lists/" class="dropdown-item"> Doubly Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../elapsed-time/" class="dropdown-item">Elapsed Time</a>
+</li>
+                                    
+<li>
+    <a href="../graphs/" class="dropdown-item">Graph</a>
+</li>
+                                    
+<li>
+    <a href="../java-8-optional/" class="dropdown-item">Java Optional API</a>
+</li>
+                                    
+<li>
+    <a href="../java-aspectj/" class="dropdown-item">AspectJ</a>
+</li>
+                                    
+<li>
+    <a href="../java-aws-lambda-dynamodb/" class="dropdown-item">Lambda & DynanoDB & Gateway</a>
+</li>
+                                    
+<li>
+    <a href="../java-aws-lambda-s3/" class="dropdown-item">Lambda & S3</a>
+</li>
+                                    
+<li>
+    <a href="../java-binary-search/" class="dropdown-item">Binary Search</a>
+</li>
+                                    
+<li>
+    <a href="../java-bubble-sort/" class="dropdown-item">Bubble Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-collections-streams/" class="dropdown-item">Collections, Streams & Lambdas</a>
+</li>
+                                    
+<li>
+    <a href="../java-date-datetime/" class="dropdown-item">Java Date & Datetime Samples</a>
+</li>
+                                    
+<li>
+    <a href="../java-file-io/" class="dropdown-item"> NIO File API</a>
+</li>
+                                    
+<li>
+    <a href="../java-find-duplicate-dates/" class="dropdown-item">Duplicate Dates</a>
+</li>
+                                    
+<li>
+    <a href="../java-find-duplicate-datetime/" class="dropdown-item">DateTime - Duplicates</a>
+</li>
+                                    
+<li>
+    <a href="../java-future/" class="dropdown-item">Completable Futures</a>
+</li>
+                                    
+<li>
+    <a href="../java-hashtable/" class="dropdown-item">Hash Tables</a>
+</li>
+                                    
+<li>
+    <a href="../java-http-client/" class="dropdown-item">Java Http Client</a>
+</li>
+                                    
+<li>
+    <a href="../java-insertion-sort/" class="dropdown-item">Insertion Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-install-cert/" class="dropdown-item">Sun JKS Utility</a>
+</li>
+                                    
+<li>
+    <a href="../java-jconsole/" class="dropdown-item">Profiling Quarkus Application</a>
+</li>
+                                    
+<li>
+    <a href="../java-keystore-example/" class="dropdown-item">Java JDK Key Tool</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search-minor-element/" class="dropdown-item">Linear Searching - Minor Element</a>
+</li>
+                                    
+<li>
+    <a href="../java-linear-search/" class="dropdown-item">Linear Searching</a>
+</li>
+                                    
+<li>
+    <a href="../java-merge-sort/" class="dropdown-item">Merge Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-min-max/" class="dropdown-item">Min & Max Array Value</a>
+</li>
+                                    
+<li>
+    <a href="../java-queue/" class="dropdown-item">Queues</a>
+</li>
+                                    
+<li>
+    <a href="../java-quick-sort/" class="dropdown-item">Quick Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-regex/" class="dropdown-item">Regular Expression</a>
+</li>
+                                    
+<li>
+    <a href="../java-selection-sort/" class="dropdown-item">Selection Sort</a>
+</li>
+                                    
+<li>
+    <a href="../java-sockets-multithread/" class="dropdown-item">Java Sockets</a>
+</li>
+                                    
+<li>
+    <a href="../java-stack/" class="dropdown-item"> Stacks</a>
+</li>
+                                    
+<li>
+    <a href="../java-tree/" class="dropdown-item">Tree</a>
+</li>
+                                    
+<li>
+    <a href="../java-web3j/" class="dropdown-item">Blockchain - Web3j</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Java XML API</a>
+</li>
+                                    
+<li>
+    <a href="../linked-lists/" class="dropdown-item">Linked Lists</a>
+</li>
+                                    
+<li>
+    <a href="../maven/" class="dropdown-item">Maven</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">K8 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../k8/kube-ms/" class="dropdown-item">Kube Service Discovery (DNS)</a>
+</li>
+                                    
+<li>
+    <a href="../../k8/kubernetes-kubectl/" class="dropdown-item">K8S Kubectl Quick Reference</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Os <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../os/apache-ab/" class="dropdown-item">Apache AB</a>
+</li>
+                                    
+<li>
+    <a href="../../os/docker-references/" class="dropdown-item">Docker Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/geth-blockchain/" class="dropdown-item"> Blockchain - Geth Ethereum</a>
+</li>
+                                    
+<li>
+    <a href="../../os/git/" class="dropdown-item"> Git Quick Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../os/os-check-used-port/" class="dropdown-item">OS – Listing used ports</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Spring <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../spring/keycloack/" class="dropdown-item"> Spring Boot + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-actuator/" class="dropdown-item">Spring Boot Actuator</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-async/" class="dropdown-item">Spring Async</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-es-jms/" class="dropdown-item">Spring Batch + Elasticsearch + JMS</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-batch-flat-files/" class="dropdown-item">Spring Batch Flat File</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-boot-kafka/" class="dropdown-item">Spring Boot - Kafka</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cache/" class="dropdown-item">Spring Cache</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-cloud-gateway-keycloak/" class="dropdown-item">Spring Cloud Gateway + Keycloak</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/spring-security-oauth2/" class="dropdown-item">Spring Security - OAuth2</a>
+</li>
+                                    
+<li>
+    <a href="../../spring/unit-tests/" class="dropdown-item">Mockito Unit Tests</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vertx <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../vertx/vertx-elasticsearch/" class="dropdown-item">VertX & Elasticsearch</a>
+</li>
+                                    
+<li>
+    <a href="../../vertx/vertx-jwt-auth/" class="dropdown-item">VertX - JWT Auth & MongoDB</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../java-web3j/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../linked-lists/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Java XML API quick reference</p>
+<pre><code class="language-java">package com.tiago.xml;
+
+import org.w3c.dom.*;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import javax.xml.namespace.QName;
+import javax.xml.parsers.*;
+import javax.xml.stream.*;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
+import javax.xml.xpath.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class XmlApiExample {
+
+    private final static String XML_FILE_CLIENT = &quot;client.xml&quot;;
+    private final static String XML_FILE_EMPLOYEE = &quot;employee.xml&quot;;
+
+    public static void main(String args[]) {
+
+        // runSaxApi();
+        // domXMLparser();
+        // domXMLReader();
+        // parseXML();
+        // staxCreateXML();
+        xpathReader();
+    }
+
+    private static void xpathReader() {
+
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder;
+        Document doc = null;
+        try {
+            builder = factory.newDocumentBuilder();
+            doc = builder.parse(XML_FILE_EMPLOYEE);
+
+            // Create XPathFactory object
+            XPathFactory xpathFactory = XPathFactory.newInstance();
+
+            // Create XPath object
+            XPath xpath = xpathFactory.newXPath();
+
+            String name = getEmployeeNameById(doc, xpath, 4);
+            System.out.println(&quot;Employee Name with ID 4: &quot; + name);
+
+            List&lt;String&gt; names = getEmployeeNameWithAge(doc, xpath, 30);
+            System.out.println(&quot;Employees with 'age&gt;30' are:&quot; + Arrays.toString(names.toArray()));
+
+            List&lt;String&gt; femaleEmps = getFemaleEmployeesName(doc, xpath);
+            System.out.println(&quot;Female Employees names are:&quot; + Arrays.toString(femaleEmps.toArray()));
+
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static List&lt;String&gt; getFemaleEmployeesName(Document doc, XPath xpath) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        try {
+            //create XPathExpression object
+            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[gender='Female']/name/text()&quot;);
+            // EVALUATE EXPRESSION RESULT ON XML DOCUMENT
+            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+            for (int i = 0; i &lt; nodes.getLength(); i++)
+                list.add(nodes.item(i).getNodeValue());
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    private static List&lt;String&gt; getEmployeeNameWithAge(Document doc, XPath xpath, int age) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        try {
+            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[age&gt;&quot; + age + &quot;]/name/text()&quot;);
+            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+            for (int i = 0; i &lt; nodes.getLength(); i++)
+                list.add(nodes.item(i).getNodeValue());
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
+    private static String getEmployeeNameById(Document doc, XPath xpath, int id) {
+        String name = null;
+        try {
+            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[@id='&quot; + id + &quot;']/name/text()&quot;);
+            name = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+
+        return name;
+    }
+
+    private static void staxCreateXML() {
+
+        try {
+            StringWriter stringWriter = new StringWriter();
+
+            XMLOutputFactory xMLOutputFactory = XMLOutputFactory.newInstance();
+            XMLStreamWriter xMLStreamWriter = xMLOutputFactory.createXMLStreamWriter(stringWriter);
+
+            xMLStreamWriter.writeStartDocument();
+            xMLStreamWriter.writeStartElement(&quot;cars&quot;);
+
+            xMLStreamWriter.writeStartElement(&quot;supercars&quot;);
+            xMLStreamWriter.writeAttribute(&quot;company&quot;, &quot;Ferrari&quot;);
+
+            xMLStreamWriter.writeStartElement(&quot;carname&quot;);
+            xMLStreamWriter.writeAttribute(&quot;type&quot;, &quot;formula one&quot;);
+            xMLStreamWriter.writeCharacters(&quot;Ferrari 101&quot;);
+            xMLStreamWriter.writeEndElement();
+
+            xMLStreamWriter.writeStartElement(&quot;carname&quot;);
+            xMLStreamWriter.writeAttribute(&quot;type&quot;, &quot;sports&quot;);
+            xMLStreamWriter.writeCharacters(&quot;Ferrari 202&quot;);
+            xMLStreamWriter.writeEndElement();
+
+            xMLStreamWriter.writeEndElement();
+            xMLStreamWriter.writeEndDocument();
+
+            xMLStreamWriter.flush();
+            xMLStreamWriter.close();
+
+            String xmlString = stringWriter.getBuffer().toString();
+
+            stringWriter.close();
+
+            System.out.println(xmlString);
+
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void parseXML() {
+
+        List&lt;Employee&gt; empList = new ArrayList&lt;&gt;();
+
+        Employee emp = null;
+
+        try {
+
+            XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
+
+            XMLEventReader xmlEventReader = xmlInputFactory.createXMLEventReader(new FileInputStream(XML_FILE_EMPLOYEE));
+
+            while (xmlEventReader.hasNext()) {
+
+                XMLEvent xmlEvent = xmlEventReader.nextEvent();
+
+                if (xmlEvent.isStartElement()) {
+
+                    StartElement startElement = xmlEvent.asStartElement();
+
+                    if (startElement.getName().getLocalPart().equals(&quot;Employee&quot;)) {
+
+                        emp = new Employee();
+                        // GET THE 'ID' ATTRIBUTE FROM EMPLOYEE ELEMENT
+                        Attribute idAttr = startElement.getAttributeByName(new QName(&quot;id&quot;));
+                        if (idAttr != null) {
+                            emp.setId(Integer.parseInt(idAttr.getValue()));
+                        }
+                    }
+
+                    //SET THE OTHER VARIBLES FROM XML ELEMENTS
+                    else if (startElement.getName().getLocalPart().equals(&quot;age&quot;)) {
+                        xmlEvent = xmlEventReader.nextEvent();
+                        emp.setAge(Integer.parseInt(xmlEvent.asCharacters().getData()));
+                    } else if (startElement.getName().getLocalPart().equals(&quot;name&quot;)) {
+                        xmlEvent = xmlEventReader.nextEvent();
+                        emp.setName(xmlEvent.asCharacters().getData());
+                    } else if (startElement.getName().getLocalPart().equals(&quot;gender&quot;)) {
+                        xmlEvent = xmlEventReader.nextEvent();
+                        emp.setGender(xmlEvent.asCharacters().getData());
+                    } else if (startElement.getName().getLocalPart().equals(&quot;role&quot;)) {
+                        xmlEvent = xmlEventReader.nextEvent();
+                        emp.setRole(xmlEvent.asCharacters().getData());
+                    }
+                }
+                //if Employee end element is reached, add employee object to list
+                if (xmlEvent.isEndElement()) {
+                    EndElement endElement = xmlEvent.asEndElement();
+                    if (endElement.getName().getLocalPart().equals(&quot;Employee&quot;)) {
+                        empList.add(emp);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(empList.size());
+    }
+
+    // DOM PARSER PARSES THE ENTIRE XML DOCUMENT AND LOADS IT INTO MEMORY; THEN MODELS IT IN A &quot;TREE&quot; STRUCTURE FOR EASY TRAVERSAL OR MANIPULATION.
+    private static void domXMLparser() {
+
+        try {
+
+            File fXmlFile = new File(XML_FILE_CLIENT);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
+
+            doc.getDocumentElement().normalize();
+
+            System.out.println(&quot;Root element :&quot; + doc.getDocumentElement().getNodeName());
+
+            NodeList nList = doc.getElementsByTagName(&quot;staff&quot;);
+
+            System.out.println(&quot;----------------------------&quot;);
+
+            for (int temp = 0; temp &lt; nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                System.out.println(&quot;\nCurrent Element :&quot; + nNode.getNodeName());
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+
+                    System.out.println(&quot;Staff id : &quot; + eElement.getAttribute(&quot;id&quot;));
+                    System.out.println(&quot;First Name : &quot; + eElement.getElementsByTagName(&quot;firstname&quot;).item(0).getTextContent());
+                    System.out.println(&quot;Last Name : &quot; + eElement.getElementsByTagName(&quot;lastname&quot;).item(0).getTextContent());
+                    System.out.println(&quot;Nick Name : &quot; + eElement.getElementsByTagName(&quot;nickname&quot;).item(0).getTextContent());
+                    System.out.println(&quot;Salary : &quot; + eElement.getElementsByTagName(&quot;salary&quot;).item(0).getTextContent());
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void domXMLReader() {
+
+        try {
+
+            File file = new File(XML_FILE_CLIENT);
+
+            DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
+                    .newDocumentBuilder();
+
+            Document doc = dBuilder.parse(file);
+
+            System.out.println(&quot;Root element :&quot; + doc.getDocumentElement().getNodeName());
+
+            if (doc.hasChildNodes()) {
+
+                printNote(doc.getChildNodes());
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private static void printNote(NodeList nodeList) {
+
+        for (int count = 0; count &lt; nodeList.getLength(); count++) {
+
+            Node tempNode = nodeList.item(count);
+
+            // make sure it's element node.
+            if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                // get node name and value
+                System.out.println(&quot;\nNode Name =&quot; + tempNode.getNodeName() + &quot; [OPEN]&quot;);
+                System.out.println(&quot;Node Value =&quot; + tempNode.getTextContent());
+
+                if (tempNode.hasAttributes()) {
+
+                    // get attributes names and values
+                    NamedNodeMap nodeMap = tempNode.getAttributes();
+
+                    for (int i = 0; i &lt; nodeMap.getLength(); i++) {
+
+                        Node node = nodeMap.item(i);
+                        System.out.println(&quot;attr name : &quot; + node.getNodeName());
+                        System.out.println(&quot;attr value : &quot; + node.getNodeValue());
+
+                    }
+
+                }
+
+                if (tempNode.hasChildNodes()) {
+
+                    // loop again if has child nodes
+                    printNote(tempNode.getChildNodes());
+
+                }
+
+                System.out.println(&quot;Node Name =&quot; + tempNode.getNodeName() + &quot; [CLOSE]&quot;);
+
+            }
+
+        }
+
+    }
+
+    // SAX PARSER IS FASTER AND USES LESS MEMORY THAN DOM PARSER.
+    private static void runSaxApi() {
+
+        try {
+
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+
+            DefaultHandler handler = new DefaultHandler() {
+
+                boolean bfname = false;
+                boolean blname = false;
+                boolean bnname = false;
+                boolean bsalary = false;
+
+                public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+
+                    System.out.println(&quot;Start Element :&quot; + qName);
+
+                    if (qName.equalsIgnoreCase(&quot;FIRSTNAME&quot;)) {
+                        bfname = true;
+                    }
+
+                    if (qName.equalsIgnoreCase(&quot;LASTNAME&quot;)) {
+                        blname = true;
+                    }
+
+                    if (qName.equalsIgnoreCase(&quot;NICKNAME&quot;)) {
+                        bnname = true;
+                    }
+
+                    if (qName.equalsIgnoreCase(&quot;SALARY&quot;)) {
+                        bsalary = true;
+                    }
+
+                }
+
+                public void endElement(String uri, String localName, String qName) throws SAXException {
+
+                    System.out.println(&quot;End Element :&quot; + qName);
+
+                }
+
+                public void characters(char ch[], int start, int length) throws SAXException {
+
+                    if (bfname) {
+                        System.out.println(&quot;First Name : &quot; + new String(ch, start, length));
+                        bfname = false;
+                    }
+
+                    if (blname) {
+                        System.out.println(&quot;Last Name : &quot; + new String(ch, start, length));
+                        blname = false;
+                    }
+
+                    if (bnname) {
+                        System.out.println(&quot;Nick Name : &quot; + new String(ch, start, length));
+                        bnname = false;
+                    }
+
+                    if (bsalary) {
+                        System.out.println(&quot;Salary : &quot; + new String(ch, start, length));
+                        bsalary = false;
+                    }
+
+                }
+
+            };
+
+            saxParser.parse(XML_FILE_CLIENT, handler);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">package com.tiago.xml;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.tiago.random.RandomData;
+
+public class CreateXMLFile {
+
+    public static void main(String[] args) {
+
+        try {
+
+            Animals animals = new Animals();
+
+            List&lt;Animal&gt; animalsList = new ArrayList&lt;&gt;();
+
+            for (int i = 0; i &lt; 100000; i++) {
+
+                int id = RandomData.getIds();
+                int age = RandomData.getAge();
+                String scientificName = String.valueOf(RandomData.animalsNames().get(new Random().nextInt(RandomData.animalsNames().size())));
+                String status = String.valueOf(RandomData.status().get(new Random().nextInt(RandomData.status().size())));
+                String veterinarian = String.valueOf(RandomData.veterinarians().get(new Random().nextInt(RandomData.veterinarians().size())));
+                Date created = new Date(RandomData.getRandomTimeBetweenTwoDates());
+
+                animalsList.add(new Animal(id, scientificName, status, veterinarian, created, age));
+            }
+
+            animals.setAnimals(animalsList);
+
+            File file = new File(&quot;/home/tiago/Desktop/animals.xml&quot;);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Animals.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // OUTPUT PRETTY PRINTED
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            jaxbMarshaller.marshal(animals, file);
+            jaxbMarshaller.marshal(animals, System.out);
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">
+package com.tiago.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Animals implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+
+    @XmlElement(name = &quot;animal&quot;)
+    private List&lt;Animal&gt; animals;
+
+    public List&lt;Animal&gt; getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List&lt;Animal&gt; animals) {
+        this.animals = animals;
+    }
+}
+
+package com.tiago.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Animal implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @XmlElement
+    private int id;
+    @XmlElement
+    private String scientificName;
+    @XmlElement
+    private String status;
+    @XmlElement
+    private String veterinarian;
+    @XmlElement
+    private Date created;
+    @XmlElement
+    private int age;
+
+    public Animal() {
+    }
+
+    public Animal(int id, String scientificName, String status, String veterinarian, Date created, int age) {
+        this.id = id;
+        this.scientificName = scientificName;
+        this.status = status;
+        this.veterinarian = veterinarian;
+        this.created = created;
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getVeterinarian() {
+        return veterinarian;
+    }
+
+    public void setVeterinarian(String veterinarian) {
+        this.veterinarian = veterinarian;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+package com.tiago.model;
+
+
+public class Employee {
+    private int id;
+    private String name;
+    private String gender;
+    private int age;
+    private String role;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Employee:: ID=&quot; + this.id + &quot; Name=&quot; + this.name + &quot; Age=&quot; + this.age + &quot; Gender=&quot; + this.gender +
+                &quot; Role=&quot; + this.role;
+    }
+
+}
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
