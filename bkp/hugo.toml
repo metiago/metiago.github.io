@@ -1,5 +1,0 @@
-baseURL = 'https://metiago.github.io/'
-languageCode = 'en-us'
-title = 'Just Experiments'
-theme = 'hugo-book'
-
