@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Continuous Integration with Jenkins, Java & SonarQube - Just Experiments</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Source Code", url: "#_top", children: [
+          ]},
+          {title: "Jenkis Server", url: "#jenkis-server", children: [
+          ]},
+          {title: "SonarQube", url: "#sonarqube", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-link">
+        Jenkins Job Periodically
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jenkins-cd/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jenkins-cd/" class="btn btn-xs btn-link">
+        Continuous Delivery of Java Applications with Docker
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Continuous Integration (CI) is a practice of merging all developers' work several times a day. It's important to note that this practice is better achieved
+when following workflows different from pull request ones, open multiple pull requests can slowdown development process and it also creates the famous "merging hell".</p>
+<p>Set up a continuous integration using <code>Jenkins</code> and <code>Github</code> is pretty easy. In this example, we'll be triggering a Jenkins job as soon as we push new changes
+to the repository. To obtain all benefits of CI, it's highly recommended that the project implements <code>Unit Tests</code> and/or <code>Integration Tests</code> (TDD) so that
+every time we push new changes, the CI server will compile, analysis code quality and execute the tests.</p>
+<h3 id="source-code">Source Code</h3>
+<p>The source code for this tutorial can be found at <a href="https://github.com/metiago/starter-ci">https://github.com/metiago/starter-ci</a>. It's a Vert.x API that contains some unit tests, integration tests to represent a real scenario when developing applications that will be integrated on CI. Note that the <code>pom.xml</code> contain important configuration to handle unit tests and integration tests in different folders.</p>
+<h3 id="jenkis-server">Jenkis Server</h3>
+<p>Before spin up our Jenkins server we have to create some SSH keys, these keys we'll be used in Jenkins to pull our repository code.</p>
+<p>Open a terminal and create a folder called <code>jenkins-server</code>. In this folder, generate the SSH keys by typing:</p>
+<pre><code class="language-bash">ssh-keygen -t rsa -b 4096 -C &quot;myemail@mycompany.com&quot;
+</code></pre>
+<p>In the same folder, create a file called <code>Vagrantfile</code> with the content below:</p>
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# $script = &lt;&lt;-SCRIPT
+#   echo 'My Custom Script...'
+# SCRIPT
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  # config.vm.box_version = &quot;20170922.0.0&quot;
+  # config.vm.provision &quot;shell&quot;, inline: $script
+  # config.vm.provision :shell, :inline =&gt; &quot;/home/vagrant/gogs/gogs web &amp;&quot;, :run =&gt; 'always', privileged: false
+  config.vm.provision &quot;file&quot;, source: &quot;id_rsa&quot;, destination: &quot;.ssh/id_rsa&quot;
+  config.vm.provision &quot;file&quot;, source: &quot;id_rsa.pub&quot;, destination: &quot;.ssh/id_rsa.pub&quot;
+
+  config.trigger.after :up do |trigger|
+    trigger.name = &quot;Starting Gogs&quot;
+    # trigger.run_remote = {inline: &quot;export PATH:$PATH:/home/vagrant/gogs&quot;}
+    trigger.run_remote = {inline: &quot;/home/vagrant/gogs/gogs web&quot;}
+  end
+
+  config.vm.network &quot;forwarded_port&quot;, guest: 8080, host: 8085
+  config.vm.network &quot;forwarded_port&quot;, guest: 3000, host: 3000
+  # config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+
+  # config.vm.network &quot;public_network&quot;, ip: &quot;192.168.33.17&quot;
+  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.50.4&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+
+    # Install kubectl
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/kubectl
+    kubectl version -o json
+
+    # Create Python Env
+    apt-get install -y python3-venv
+    sudo apt-get install -y python3-pip
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # Install OpenJDK Java JDK and Maven
+    add-apt-repository ppa:openjdk-r/ppa
+    apt-get -y update
+    apt-get install -y openjdk-8-jdk
+    apt-get install -y maven
+
+    # Install Docker
+    apt-get install -y docker.io
+
+    # Install Docker Compose
+    curl -s -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+
+    # Install Jenkins
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    apt-add-repository &quot;deb http://pkg.jenkins-ci.org/debian binary/&quot;
+    apt-get -y update
+    apt install -y jenkins
+    # Echo the Jenkins security key that is required upon initialisation
+    printf &quot;\n\nJENKINS KEY\n*********************************&quot;
+    # Add the Jenkins user to the Docker group
+    usermod -aG docker jenkins
+    # Wait until the initialAdminPassword file is generated via Jenkins startup
+    while [ ! -f /var/lib/jenkins/secrets/initialAdminPassword ]
+    do
+        sleep 2
+    done
+    cat /var/lib/jenkins/secrets/initialAdminPassword
+    printf &quot;*********************************&quot;
+    usermod -aG docker $USER
+    newgrp docker
+    # restart the Jenkins service so that the usermod command above takes effect
+    service jenkins restart
+
+    chmod -R 777 /home/vagrant/gogs
+    chown -R vagrant /home/vagrant/gogs
+
+  SHELL
+end
+</code></pre>
+<p>Once we have this file, we can start our Jenkins server by typing:</p>
+<pre><code class="language-bash">vagrant up
+</code></pre>
+<p>At this point, we're able to access Jenkins at <code>http://localhost:8085/</code>. </p>
+<p>After its auto installation plugins, we have to install <code>Git Integration</code>, this plugin enables smooth integration with Git projects.</p>
+<p>{{&lt; figure src="/img/ci/git_plugin.png" width="auto" &gt;}}</p>
+<p>Then, you should create a Jenkins creadentials to access Github via SSH, in this page copy your <code>private key</code> and past it in the key area.</p>
+<p>{{&lt; figure src="/img/ci/git_ssh.png" width="auto" &gt;}}</p>
+<p>After that, we should create create a public key in Github, to do that, copy the public key value and past it in your Github SSH configuration.</p>
+<p>{{&lt; figure src="/img/ci/git_public_key.png" width="auto" &gt;}}</p>
+<p>In order to be able to trigger Jenkins' jobs, we should generate a Jenkins token. </p>
+<p>{{&lt; figure src="/img/ci/jenkins_token.png" width="auto" &gt;}}</p>
+<p>Copy this token, access the repository settings and configure it with the following parameters, add the token clicking on Change Secret link.</p>
+<p>{{&lt; figure src="/img/ci/git_webhook.png" width="auto" &gt;}}</p>
+<p>Next step, create a job and set the SCM.</p>
+<p>{{&lt; figure src="/img/ci/job_git.png" width="auto" &gt;}}</p>
+<p>and then the Build Triggers
+{{&lt; figure src="/img/ci/job_trigger.png" width="auto" &gt;}}</p>
+<p>finally, we're going to configure our build section adding the script that will spin up a redis database for integration tests and also the
+maven goal which compiles the source code, execute unit tests and integration tests and lastly report code quality on SonarQube.</p>
+<pre><code class="language-shell">docker-compose up -d
+
+starting=true
+until $starting
+do
+    sleep 2
+    if curl -s http://localhost:8001/health | &quot;OK&quot;; then
+        starting = false
+    fi
+done
+</code></pre>
+<p>{{&lt; figure src="/img/ci/job_build.png" width="auto" &gt;}}</p>
+<p>Before testing our integration, first we have to run our <code>SoneQube</code> server.</p>
+<h3 id="sonarqube">SonarQube</h3>
+<p><code>SonarQube</code> is a tool which makes inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities. </p>
+<p>Create a folder called <code>sonar-qube</code> and then put into it a file called <code>Vagrantfile</code> with the content below.</p>
+<pre><code class="language-ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# $script = &lt;&lt;-SCRIPT
+#   echo 'My Custom Script...'
+# SCRIPT
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  # config.vm.box_version = &quot;20170922.0.0&quot;
+  # config.vm.provision &quot;shell&quot;, inline: $script
+
+  config.trigger.after :up do |trigger|
+    trigger.name = &quot;Starting SonarQube&quot;
+    trigger.run_remote = {inline: &quot;./sonarqube-6.1/bin/linux-x86-64/sonar.sh start&quot;}
+  end
+
+  config.vm.network &quot;forwarded_port&quot;, guest: 9000, host: 9000
+
+  # config.vm.network &quot;public_network&quot;, ip: &quot;192.168.33.18&quot;
+  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.50.5&quot;
+
+  config.vm.provider &quot;virtualbox&quot; do |v|
+    v.memory = 4096
+  end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
+
+    apt-get update
+    sudo apt-get install -y unzip
+
+    # Install OpenJDK Java JDK and Maven    
+    # Install OpenJDK Java JDK and Maven
+    add-apt-repository ppa:openjdk-r/ppa
+    apt-get -y update
+    apt-get install -y openjdk-8-jdk
+    apt-get install -y maven
+
+    # Install Sonar
+    wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.1.zip
+    unzip sonarqube-6.1.zip
+
+    chmod -R 777 sonarqube-6.1/
+    chown -R vagrant sonarqube-6.1/
+
+  SHELL
+end
+</code></pre>
+<p>Run the server by typing the command below.</p>
+<pre><code class="language-bash">vagrant up
+</code></pre>
+<p>At this point, we're able to test our continues integration by making some changes in the code and pushing it. You'll see that once Github receive the push
+Jenkins starts the job automatically.</p>
+<p>{{&lt; figure src="/img/ci/job_started.png" width="auto" &gt;}}</p>
+<p>After the build, we're able to see the code quality analysis on SonarQube.</p>
+<p>{{&lt; figure src="/img/ci/sonar_report.png" width="auto" &gt;}}</p>
+<p>That's how we can configure a simple CI server using Jenkins. Jenkins is powerful and flexible tool to handle CI and CD and it has many
+configuration that you can explore to go from simple to complex pipelines to automate the software development processes.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-link">
+        Jenkins Job Periodically
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jenkins-cd/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jenkins-cd/" class="btn btn-xs btn-link">
+        Continuous Delivery of Java Applications with Docker
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

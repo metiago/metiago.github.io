@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Spring Boot - Kafka - Just Experiments</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Testing", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../spring-cache/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../spring-cache/" class="btn btn-xs btn-link">
+        Spring Cache
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../spring-batch-flat-files/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../spring-batch-flat-files/" class="btn btn-xs btn-link">
+        Spring Batch Flat File
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>This is a guide to demonstrate how to set up three <code>Spring Boot</code> applications that communicate with <code>Kafka</code> message broker.</p>
+<p>In this example we have one producer that send messages to Kafka and two consumers that read messages from different partitions.</p>
+<p>Let's get start with the producer.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;producer&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;producer&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.projectreactor&lt;/groupId&gt;
+            &lt;artifactId&gt;reactor-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+
+&lt;/project&gt;
+</code></pre>
+<p><code>application.properties</code></p>
+<pre><code class="language-java">server.port=5000
+spring.kafka.producer.client-id=producer-1
+spring.kafka.producer.retries=3
+spring.kafka.producer.acks=1
+spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+</code></pre>
+<p><code>KafkaSender.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Component;
+
+import java.util.UUID;
+
+@Component
+public class KafkaSender {
+
+    @Autowired
+    private KafkaTemplate&lt;String, String&gt; kafkaTemplate;
+
+    public void send(String topic, String partition, String payload) {
+        kafkaTemplate.send(topic, Integer.parseInt(partition), UUID.randomUUID().toString(), payload);
+    }
+}
+</code></pre>
+<p><code>KafkaWebApi.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class KafkaWebApi {
+
+
+    @Autowired
+    KafkaSender kafkaSender;
+
+    @PostMapping(&quot;/kafka/{partition}/{topicName}&quot;)
+    public String sendToTopic(@PathVariable String topicName,
+                              @PathVariable String partition,
+                              @RequestBody String message) {
+        kafkaSender.send(topicName, partition, message);
+        return &quot;Message sent&quot;;
+    }
+}
+</code></pre>
+<p><code>ProducerApp.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProducerApp {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProducerApp.class, args);
+    }
+
+}
+</code></pre>
+<p>That's it! Now let's set up our first consumer.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;consumer-one&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;consumer-one&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.projectreactor&lt;/groupId&gt;
+            &lt;artifactId&gt;reactor-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+
+&lt;/project&gt;
+</code></pre>
+<p><code>application.properties</code></p>
+<pre><code class="language-java">server.port=3000
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=souza
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
+spring.kafka.consumer.properties.spring.json.trusted.packages=*
+</code></pre>
+<p><code>KafkaReceiver.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.annotation.TopicPartition;
+import org.springframework.stereotype.Component;
+
+@Component
+public class KafkaReceiver {
+
+    @KafkaListener(topicPartitions = @TopicPartition(topic = &quot;souza&quot;, partitions = { &quot;1&quot; }))
+    public void receiveTopic1(ConsumerRecord&lt;?, ?&gt; consumerRecord) {
+        System.out.println(&quot;SERVICE 1 RECEIVE: &quot; + consumerRecord.value());
+    }
+}
+</code></pre>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class KafkaApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(KafkaApplication.class, args);
+    }
+
+}
+</code></pre>
+<p>Finally, our second consumer.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;consumer-two&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;name&gt;consumer-two&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.projectreactor&lt;/groupId&gt;
+            &lt;artifactId&gt;reactor-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p><code>application.properties</code></p>
+<pre><code class="language-java">server.port=4000
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=souza
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
+spring.kafka.consumer.properties.spring.json.trusted.packages=*
+</code></pre>
+<p><code>KafkaReceiver.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.annotation.TopicPartition;
+import org.springframework.stereotype.Component;
+
+@Component
+public class KafkaReceiver {
+
+    @KafkaListener(topicPartitions = @TopicPartition(topic = &quot;souza&quot;, partitions = { &quot;0&quot; }))
+    public void receiveTopic(ConsumerRecord&lt;?, ?&gt; consumerRecord) {
+        System.out.println(&quot;SERVICE 2 RECEIVE: &quot; + consumerRecord.value());
+    }
+}
+
+</code></pre>
+<p><code>KafkaApplication.java</code></p>
+<pre><code class="language-java">package com.tiago.kafka;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class KafkaApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(KafkaApplication.class, args);
+    }
+
+}
+
+</code></pre>
+<h3 id="testing">Testing</h3>
+<p>Here we go! Let's apply some tests... First we have to set up a Kafka Server for development - <a href="https://metiago.github.io/2019/06/22/kafka-single-node.html?query=kafka">Example Here</a></p>
+<pre><code class="language-bash"># Create a topic
+bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --create --topic souza --partitions 10 --replication-factor 1
+
+# Build project
+mvn clean install
+
+# Start Consumer 1
+java -jar consumer-one/target/consumer-one-0.0.1-SNAPSHOT.jar
+
+# Start Consumer 2
+java -jar consumer-two/target/consumer-two-0.0.1-SNAPSHOT.jar
+
+# Start Producer
+# java -jar producer/target/producer-0.0.1-SNAPSHOT.jar
+
+# Call API - http://localhost:5000/kafka/&lt;partition&gt;/&lt;topic&gt;
+curl -d '{&quot;Hello 2&quot;}' -H 'Content-Type: application/json' http://localhost:5000/kafka/0/souza
+
+# Call API - http://localhost:5000/kafka/&lt;partition&gt;/&lt;topic&gt;
+curl -d '{&quot;Hello 1&quot;}' -H 'Content-Type: application/json' http://localhost:5000/kafka/1/souza
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../spring-cache/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../spring-cache/" class="btn btn-xs btn-link">
+        Spring Cache
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../spring-batch-flat-files/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../spring-batch-flat-files/" class="btn btn-xs btn-link">
+        Spring Batch Flat File
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

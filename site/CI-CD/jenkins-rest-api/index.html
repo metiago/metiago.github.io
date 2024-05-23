@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Jenkins REST API - Just Experiments</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Eclipse-Vert.x/vertx-elasticsearch/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Eclipse-Vert.x/vertx-elasticsearch/" class="btn btn-xs btn-link">
+        VertX & Elasticsearch
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jenkins-job-periodically/" class="btn btn-xs btn-link">
+        Jenkins Job Periodically
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>This is an example of, how we can use the REST API to manage Jenkins Jobs remotely.</p>
+<p>Many objects of Jenkins provide the remote access API. They are available at <code>/…/api/</code> where <code>"…"</code> portion is the object for which you’d like to access.</p>
+<p>The simplest way to access Jenkins REST API is to gather the User Token which is available by selecting your User and clicking on Configure.</p>
+<p>If you are running Jenkins on localhost:8080 with user ‘jenkins’ the link to access your User’s configuration is:</p>
+<pre><code class="language-bash">http://localhost:8080/user/jenkins/configure
+</code></pre>
+<p>From there, browse to the API Token Section and click on the Show API Token button:</p>
+<p>{{&lt; figure src="/img/jenkins/api-token/api-token.png" width="auto" &gt;}}</p>
+<p>Now you will use the token as parameter for your authentication. Some examples:</p>
+<p>If your user is ‘jenkins’ and the token is ‘f1499cc9852c899d327a1f644e61a64d’ here is how you can start the job ‘job1’ using Jenkins REST Api:</p>
+<pre><code class="language-bash">curl -X POST http://localhost:8080/job/job1/build --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</code></pre>
+<p>You can also schedule the job start-up with some delay:</p>
+<pre><code class="language-bash">curl -X POST http://localhost:8080/job/job1/build?delay=10sec  --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</code></pre>
+<p>What if you need to build a job with Parameters?</p>
+<pre><code class="language-bash">curl -X POST http://localhost:8080/job/job1/build  \
+  -jenkins:f1499cc9852c899d327a1f644e61a64d \
+  --data-urlencode json='{&quot;parameter&quot;: [{&quot;name&quot;:&quot;id&quot;, &quot;value&quot;:&quot;100&quot;}, {&quot;name&quot;:&quot;loglevel&quot;, &quot;value&quot;:&quot;high&quot;}]}'
+  ```
+
+If you want to delete the job ‘job1’ then you can do it using the doDelete method:
+
+```bash
+curl -X POST http://localhost:8080/job/job1/doDelete --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</code></pre>
+<p>If you want a list of all jobs (with a nicely formatted JSON), then you can invoke the /api/json API with a simple GET request:</p>
+<pre><code class="language-bash">curl -X GET http://localhost:8080/api/json?pretty=true --user jenkins:f1499cc9852c899d327a1f644e61a64d
+</code></pre>
+<p>If you want to know more about it, Jenkins has a link to their REST API in the bottom right of each page. This link appears on every page of Jenkins and points you to an API output for the exact page you are browsing. That should provide some understanding into how to build the API URls.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Eclipse-Vert.x/vertx-elasticsearch/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Eclipse-Vert.x/vertx-elasticsearch/" class="btn btn-xs btn-link">
+        VertX & Elasticsearch
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../jenkins-job-periodically/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../jenkins-job-periodically/" class="btn btn-xs btn-link">
+        Jenkins Job Periodically
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

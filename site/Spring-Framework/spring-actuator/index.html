@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Spring Boot Actuator - Just Experiments</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Health Checking", url: "#_top", children: [
+          ]},
+          {title: "Building the app", url: "#building-the-app", children: [
+          ]},
+          {title: "HTTP Samples", url: "#http-samples", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../spring-async/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../spring-async/" class="btn btn-xs btn-link">
+        Spring Async
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../keycloack/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../keycloack/" class="btn btn-xs btn-link">
+         Spring Boot + Keycloak
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>Spring Boot Actuator provide several features for monitoring and managing applications. </p>
+<p>It's very useful on pos-production phase when we have to manage and monitor applications, especially when working on a SOA ecosystem.</p>
+<h3 id="health-checking">Health Checking</h3>
+<p>Spring Actuator allow us to inspect our application where we can extract valuable information at runtime during the time it's running on production. It enables to fetch information like:</p>
+<ol>
+<li>Make sure we have enough disk space to run your code.</li>
+<li>Check if other services your application needs to access are accessible.</li>
+<li>In case of new deployments, check that all the conditions for the requirement you implemented are in accordance.</li>
+<li>Check if it is possible to access the database.</li>
+</ol>
+<h3 id="building-the-app">Building the app</h3>
+<p>This is raw Spring Boot application that expose all <code>Actuator</code> endpoints.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 
+    https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.4.11&lt;/version&gt;
+        &lt;relativePath/&gt;
+    &lt;/parent&gt;
+    &lt;groupId&gt;io.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;demo&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;demo&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+    &lt;properties&gt;
+        &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p><code>application.properties</code></p>
+<pre><code class="language-properties"># EXPOSE ALL ENDPOINTS
+management.endpoints.web.exposure.include=*
+
+# EXPOSE HEALTH DETAILS - when-authorized, always, never
+management.endpoint.health.show-details=always
+
+# EXPOSE SPECIFIC
+# management.endpoints.web.exposure.include=beans, loggers
+
+# EXPOSE ALL EXCEPT ONE
+# management.endpoints.web.exposure.exclude=threaddump
+
+# ENABLE SHUTDOWN
+management.endpoint.shutdown.enabled=true
+</code></pre>
+<p><code>DemoApplication.java</code></p>
+<pre><code class="language-java">package io.tiago.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+}
+</code></pre>
+<p><code>FileHealth.java</code></p>
+<p>We can use Spring Beans to create custom Health Indicator. This is an example that checks If a file exists on the disk.</p>
+<pre><code class="language-java">package io.tiago.demo;
+
+import java.io.File;
+
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.stereotype.Component;
+
+@Component
+public class FileHealth implements HealthIndicator {
+
+    @Override
+    public Health health() {
+
+        File file = new File(System.getProperty(&quot;user.home&quot;) + &quot;/config.properties&quot;);
+
+        if (file.exists()) {
+            return Health.up().build();
+        }
+
+        return Health.down().withDetail(&quot;reason&quot;, &quot;File [&quot; + file.getAbsolutePath() + &quot;] not found.&quot;).build();
+    }
+
+}
+</code></pre>
+<h3 id="http-samples">HTTP Samples</h3>
+<pre><code class="language-bash"># The list with all endpoints can be found when calling
+curl http://localhost:8080/actuator
+</code></pre>
+<pre><code class="language-bash"># Shutdown our application can be done by calling:
+curl -X POST http://localhost:8080/actuator/shutdown
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../spring-async/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../spring-async/" class="btn btn-xs btn-link">
+        Spring Async
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../keycloack/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../keycloack/" class="btn btn-xs btn-link">
+         Spring Boot + Keycloak
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
