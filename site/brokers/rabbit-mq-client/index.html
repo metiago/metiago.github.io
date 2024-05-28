@@ -120,7 +120,7 @@ import java.util.Map;
 
 public class Publisher {
 
-    public static final String QUEUE_NAME = &quot;x-order-submitted&quot;;
+    public static final String QUEUE_NAME = &quot;x-my-queue-name&quot;;
 
     public static void main(String[] args) throws Exception {
         Publisher publisher = new Publisher();
@@ -129,44 +129,45 @@ public class Publisher {
 
     private void send() throws Exception {
 
-        String[] hosts = new String[]{&quot;DOMAIN231&quot;};
+        String[] devHots = new String[]{&quot;SERVER_1&quot;}; 
+        String[] stgHots = new String[]{&quot;SERVER_2&quot;};
 
-        for (String host : hosts) {
+        for (String h : stgHots) {
 
-            InetAddress inetAddress = java.net.InetAddress.getByName(host);
+            InetAddress inetAddress = java.net.InetAddress.getByName(h);
             String address = inetAddress.getHostAddress();
-            System.out.println(address);
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost(address);
             factory.setVirtualHost(&quot;/&quot;);
-            factory.setUsername(&quot;user&quot;);
-            factory.setPassword(&quot;pass&quot;);
+            factory.setUsername(&quot;&quot;);
+            factory.setPassword(&quot;&quot;);
 
             try (Connection connection = factory.newConnection();
-                 Channel channel = connection.createChannel()) {
+                Channel channel = connection.createChannel()) {
+                channel.exchangeDeclare(QUEUE_NAME, &quot;fanout&quot;, true, false, null);
 
                 String message = getPayload();
-                channel.basicPublish(QUEUE_NAME, &quot;&quot;, new AMQP.BasicProperties.Builder()
-                        .headers(getAuthorization())
-                        .build(), message.getBytes(&quot;UTF-8&quot;));
+                var props = new AMQP.BasicProperties.Builder().headers(getAuthorization()).build(), message.getBytes(&quot;UTF-8&quot;);
+                channel.basicPublish(QUEUE_NAME, &quot;&quot;, props);
 
-                System.out.println(&quot; [x] Sent &quot;);
+                System.out.println(&quot;[x] Sent&quot;);
             }
         }
     }
 
     private String getPayload() throws Exception {
-        var file = System.getProperty(&quot;user.dir&quot;) + &quot;\\payloads\\orders\\payload.json&quot;;
+        var file = System.getProperty(&quot;user.dir&quot;) + &quot;\\payloads\\orders.json&quot;;
         var json = FileUtils.readFileToString(new File(file), StandardCharsets.UTF_8);
         return json.replace(&quot;\n&quot;, &quot;&quot;).replace(&quot;\r&quot;, &quot;&quot;);
     }
 
     private Map&lt;String, Object&gt; getAuthorization() {
         Map&lt;String, Object&gt; headers = new HashMap&lt;&gt;();
-        headers.put(&quot;Authorization&quot;, &quot;xyz&quot;);
+        headers.put(&quot;Authorization&quot;, &quot;abc&quot;);
         return headers;
     }
 }
+
 </code></pre>
 
   <br>

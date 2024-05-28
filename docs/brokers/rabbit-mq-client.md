@@ -49,7 +49,7 @@ import java.util.Map;
 
 public class Publisher {
 
-    public static final String QUEUE_NAME = "x-order-submitted";
+    public static final String QUEUE_NAME = "x-my-queue-name";
 
     public static void main(String[] args) throws Exception {
         Publisher publisher = new Publisher();
@@ -57,43 +57,44 @@ public class Publisher {
     }
 
     private void send() throws Exception {
+        
+        String[] devHots = new String[]{"SERVER_1"}; 
+        String[] stgHots = new String[]{"SERVER_2"};
 
-        String[] hosts = new String[]{"DOMAIN231"};
+        for (String h : stgHots) {
 
-        for (String host : hosts) {
-
-            InetAddress inetAddress = java.net.InetAddress.getByName(host);
+            InetAddress inetAddress = java.net.InetAddress.getByName(h);
             String address = inetAddress.getHostAddress();
-            System.out.println(address);
             ConnectionFactory factory = new ConnectionFactory();
             factory.setHost(address);
             factory.setVirtualHost("/");
-            factory.setUsername("user");
-            factory.setPassword("pass");
+            factory.setUsername("");
+            factory.setPassword("");
 
             try (Connection connection = factory.newConnection();
-                 Channel channel = connection.createChannel()) {
-
+                Channel channel = connection.createChannel()) {
+                channel.exchangeDeclare(QUEUE_NAME, "fanout", true, false, null);
+                
                 String message = getPayload();
-                channel.basicPublish(QUEUE_NAME, "", new AMQP.BasicProperties.Builder()
-                        .headers(getAuthorization())
-                        .build(), message.getBytes("UTF-8"));
+                var props = new AMQP.BasicProperties.Builder().headers(getAuthorization()).build(), message.getBytes("UTF-8");
+                channel.basicPublish(QUEUE_NAME, "", props);
 
-                System.out.println(" [x] Sent ");
+                System.out.println("[x] Sent");
             }
         }
     }
 
     private String getPayload() throws Exception {
-        var file = System.getProperty("user.dir") + "\\payloads\\orders\\payload.json";
+        var file = System.getProperty("user.dir") + "\\payloads\\orders.json";
         var json = FileUtils.readFileToString(new File(file), StandardCharsets.UTF_8);
         return json.replace("\n", "").replace("\r", "");
     }
 
     private Map<String, Object> getAuthorization() {
         Map<String, Object> headers = new HashMap<>();
-        headers.put("Authorization", "xyz");
+        headers.put("Authorization", "abc");
         return headers;
     }
 }
+
 ```
