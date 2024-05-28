@@ -1,5 +1,5 @@
 ---
-title: ' Spring Boot + Keycloak'
+title: 'Spring Boot + Keycloak'
 date: 2019-05-04T19:18:41-03:00
 draft: false
 ---

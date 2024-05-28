@@ -32,6 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "", url: "#_top", children: [
+          ]},
         ];
 
     </script>
@@ -78,7 +80,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    
+    <h3 id="_1"></h3>
+<p>Find the different char in a string</p>
+<pre><code class="language-java">public char findTheDifference(String s, String t) {
+        char c = 0;
+        for(char cs : s.toCharArray()) {
+            c ^= cs;
+
+        }
+        for(char ct : t.toCharArray()) {
+            c ^= ct;
+        }
+        return c;
+    }
+</code></pre>
 
   <br>
     
