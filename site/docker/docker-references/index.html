@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Apache AB - Just Experiments</title>
+    <title>Docker Quick Reference - Just Experiments</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,10 +32,6 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Execute 100 requests with 10 concurrent clients and save the results in a result.txt file", url: "#_top", children: [
-          ]},
-          {title: "Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file", url: "#execute-10-post-request-with-10-concurrent-clients-and-save-the-results-in-a-login_resultstxt-file", children: [
-          ]},
         ];
 
     </script>
@@ -61,20 +57,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../docker-references/" class="btn btn-xs btn-default pull-right">
+      <a href="../../git/git/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../docker-references/" class="btn btn-xs btn-link">
-        Docker Quick Reference
+      <a href="../../git/git/" class="btn btn-xs btn-link">
+         Git Quick Reference
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-default pull-left">
+      <a href="../../design/solid-single-responsibility/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-link">
-        K8S Kubectl Quick Reference
+        Previous</a><a href="../../design/solid-single-responsibility/" class="btn btn-xs btn-link">
+        Single Responsibility Principle
       </a>
     </div>
     
@@ -82,17 +78,58 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>The ab command is a command line load testing and benchmarking tool for web servers that allows you to simulate high traffic to a website.</p>
-<h4 id="execute-100-requests-with-10-concurrent-clients-and-save-the-results-in-a-resulttxt-file">Execute 100 requests with 10 concurrent clients and save the results in a result.txt file</h4>
-<pre><code class="language-bash">ab -n 100 -c 10 https://example.com/ &gt; result.txt
-</code></pre>
-<h4 id="execute-10-post-request-with-10-concurrent-clients-and-save-the-results-in-a-login_resultstxt-file">Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file</h4>
-<pre><code class="language-bash">ab -p login.txt -T application/json -c 10 -n 10 https://myapi/auth/login &gt; login_results.txt
-</code></pre>
-<blockquote>
-<p>Note: <code>login.txt</code> is a simple txt file which contains a json structure e.g </p>
-</blockquote>
-<pre><code class="language-bash">{&quot;username&quot;:&quot;admin&quot;, &quot;password&quot;:&quot;123&quot;} 
+    <pre><code class="language-bash">
+# Show log after 30 sec.
+docker logs --since 30s -f &lt;container_name_or_id&gt;
+
+# Show last 20 lines of the log file
+docker logs --tail 20 -f &lt;image_id&gt;
+
+# Build a new image, it should be executed in the same folder which contains your custom Dockerfile
+docker build --rm --no-cache -t gitlab-vm .
+
+# Running a container in background
+docker run -p 8080:3000 -d nginx
+
+# Enter in a running container
+docker exec -it &lt;container_id&gt; /bin/bash
+
+# Stop all containers
+docker stop $(docker ps -aq)
+
+# Remove all containers with status = exited
+docker rm $(docker ps -q -f status=exited)
+
+# Clean up dangling images
+docker rmi $(docker images -f &quot;dangling=true&quot; -q)
+
+# Remove all containers no longer running
+docker rm $(docker ps -a -q)
+
+# Remove all images + Remove unused data
+sudo docker rmi -f $(docker images)
+docker system prune -a
+
+# Commit a custom image
+docker commit &lt;container_id&gt; &lt;your_custom_image_name&gt;
+
+# Tag a container image
+docker tag &lt;image_id&gt; &lt;repository_name&gt;
+
+# Push an image to Docker Hub
+docker push &lt;repository_name&gt; ex. myusername/jenkins
+
+# List running containers
+docker ps
+
+# Check container information
+docker inspect &lt;container_id&gt;
+
+# Link containers
+docker run --name gogs --link mysql:mysql -p 8080:3000 -d gogs
+
+# Test listening port inside container
+cat &lt; /dev/tcp/127.0.0.1/22
 </code></pre>
 
   <br>
@@ -106,20 +143,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../docker-references/" class="btn btn-xs btn-default pull-right">
+      <a href="../../git/git/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../docker-references/" class="btn btn-xs btn-link">
-        Docker Quick Reference
+      <a href="../../git/git/" class="btn btn-xs btn-link">
+         Git Quick Reference
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-default pull-left">
+      <a href="../../design/solid-single-responsibility/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-link">
-        K8S Kubectl Quick Reference
+        Previous</a><a href="../../design/solid-single-responsibility/" class="btn btn-xs btn-link">
+        Single Responsibility Principle
       </a>
     </div>
     

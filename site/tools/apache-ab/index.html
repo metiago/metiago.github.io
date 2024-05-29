@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>OS – Listing used ports - Just Experiments</title>
+    <title>Apache AB - Just Experiments</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,7 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Linux", url: "#_top", children: [
+          {title: "Execute 100 requests with 10 concurrent clients and save the results in a result.txt file", url: "#_top", children: [
+          ]},
+          {title: "Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file", url: "#execute-10-post-request-with-10-concurrent-clients-and-save-the-results-in-a-login_resultstxt-file", children: [
           ]},
         ];
 
@@ -59,10 +61,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../git/" class="btn btn-xs btn-default pull-left">
+      <a href="../../linux/os-check-used-port/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../git/" class="btn btn-xs btn-link">
-         Git Quick Reference
+        Previous</a><a href="../../linux/os-check-used-port/" class="btn btn-xs btn-link">
+        OS – Listing used ports
       </a>
     </div>
     
@@ -70,15 +72,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h4 id="linux">Linux</h4>
-<pre><code class="language-bash"># Checking
-lsof -i :8080
-
-# If the command above returns multiple result, filter it
-lsof -i :8080 | grep LISTEN
-
-# Find out application details
-ps -ef | grep &lt;PID&gt;
+    <p>The ab command is a command line load testing and benchmarking tool for web servers that allows you to simulate high traffic to a website.</p>
+<h4 id="execute-100-requests-with-10-concurrent-clients-and-save-the-results-in-a-resulttxt-file">Execute 100 requests with 10 concurrent clients and save the results in a result.txt file</h4>
+<pre><code class="language-bash">ab -n 100 -c 10 https://example.com/ &gt; result.txt
+</code></pre>
+<h4 id="execute-10-post-request-with-10-concurrent-clients-and-save-the-results-in-a-login_resultstxt-file">Execute 10 post request with 10 concurrent clients and save the results in a login_results.txt file</h4>
+<pre><code class="language-bash">ab -p login.txt -T application/json -c 10 -n 10 https://myapi/auth/login &gt; login_results.txt
+</code></pre>
+<blockquote>
+<p>Note: <code>login.txt</code> is a simple txt file which contains a json structure e.g </p>
+</blockquote>
+<pre><code class="language-bash">{&quot;username&quot;:&quot;admin&quot;, &quot;password&quot;:&quot;123&quot;} 
 </code></pre>
 
   <br>
@@ -92,10 +96,10 @@ ps -ef | grep &lt;PID&gt;
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../git/" class="btn btn-xs btn-default pull-left">
+      <a href="../../linux/os-check-used-port/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../git/" class="btn btn-xs btn-link">
-         Git Quick Reference
+        Previous</a><a href="../../linux/os-check-used-port/" class="btn btn-xs btn-link">
+        OS – Listing used ports
       </a>
     </div>
     

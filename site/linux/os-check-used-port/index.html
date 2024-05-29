@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Docker Quick Reference - Just Experiments</title>
+    <title>OS – Listing used ports - Just Experiments</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -57,20 +57,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../geth-blockchain/" class="btn btn-xs btn-default pull-right">
+      <a href="../../tools/apache-ab/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../geth-blockchain/" class="btn btn-xs btn-link">
-         Blockchain - Geth Ethereum
+      <a href="../../tools/apache-ab/" class="btn btn-xs btn-link">
+        Apache AB
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../apache-ab/" class="btn btn-xs btn-default pull-left">
+      <a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../apache-ab/" class="btn btn-xs btn-link">
-        Apache AB
+        Previous</a><a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-link">
+        K8S Kubectl Quick Reference
       </a>
     </div>
     
@@ -78,58 +78,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <pre><code class="language-bash">
-# Show log after 30 sec.
-docker logs --since 30s -f &lt;container_name_or_id&gt;
+    <pre><code class="language-bash"># Checking
+lsof -i :8080
 
-# Show last 20 lines of the log file
-docker logs --tail 20 -f &lt;image_id&gt;
+# If the command above returns multiple result, filter it
+lsof -i :8080 | grep LISTEN
 
-# Build a new image, it should be executed in the same folder which contains your custom Dockerfile
-docker build --rm --no-cache -t gitlab-vm .
-
-# Running a container in background
-docker run -p 8080:3000 -d nginx
-
-# Enter in a running container
-docker exec -it &lt;container_id&gt; /bin/bash
-
-# Stop all containers
-docker stop $(docker ps -aq)
-
-# Remove all containers with status = exited
-docker rm $(docker ps -q -f status=exited)
-
-# Clean up dangling images
-docker rmi $(docker images -f &quot;dangling=true&quot; -q)
-
-# Remove all containers no longer running
-docker rm $(docker ps -a -q)
-
-# Remove all images + Remove unused data
-sudo docker rmi -f $(docker images)
-docker system prune -a
-
-# Commit a custom image
-docker commit &lt;container_id&gt; &lt;your_custom_image_name&gt;
-
-# Tag a container image
-docker tag &lt;image_id&gt; &lt;repository_name&gt;
-
-# Push an image to Docker Hub
-docker push &lt;repository_name&gt; ex. myusername/jenkins
-
-# List running containers
-docker ps
-
-# Check container information
-docker inspect &lt;container_id&gt;
-
-# Link containers
-docker run --name gogs --link mysql:mysql -p 8080:3000 -d gogs
-
-# Test listening port inside container
-cat &lt; /dev/tcp/127.0.0.1/22
+# Find out application details
+ps -ef | grep &lt;PID&gt;
 </code></pre>
 
   <br>
@@ -143,20 +99,20 @@ cat &lt; /dev/tcp/127.0.0.1/22
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../geth-blockchain/" class="btn btn-xs btn-default pull-right">
+      <a href="../../tools/apache-ab/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../geth-blockchain/" class="btn btn-xs btn-link">
-         Blockchain - Geth Ethereum
+      <a href="../../tools/apache-ab/" class="btn btn-xs btn-link">
+        Apache AB
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../apache-ab/" class="btn btn-xs btn-default pull-left">
+      <a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../apache-ab/" class="btn btn-xs btn-link">
-        Apache AB
+        Previous</a><a href="../../kubernetes/kubernetes-kubectl/" class="btn btn-xs btn-link">
+        K8S Kubectl Quick Reference
       </a>
     </div>
     
