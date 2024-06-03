@@ -32,21 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "O(1)", url: "#_top", children: [
-          ]},
-          {title: "O(log n)", url: "#olog-n", children: [
-          ]},
-          {title: "O(n)", url: "#on", children: [
-          ]},
-          {title: "O(n log n)", url: "#on-log-n", children: [
-          ]},
-          {title: "O(n2)", url: "#on2", children: [
-          ]},
-          {title: "O(2n)", url: "#o2n", children: [
-          ]},
-          {title: "O(n!)", url: "#on_1", children: [
-          ]},
-          {title: "Big-O Graph", url: "#big-o-graph", children: [
+          {title: "BIG O", url: "#_top", children: [
+              {title: "Types of Big O Measurement", url: "#types-of-big-o-measurement" },
+              {title: "Big-O Graph", url: "#big-o-graph" },
           ]},
         ];
 
@@ -94,52 +82,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>Big-O measures how well an operation will "scale" when you increase the amount of input data it operates on. Big-O can be used to describe how fast an algorithm will run, or it can describe other behaviour such as how much memory an algorithm will use.</p>
-<h3 id="o1">O(1)</h3>
-<p>Means that no matter how large the input is, the time taken doesn’t change. Its operations run in constant time. Some examples of O(1) operations are:
-* Determining if a number is even or odd.
-* sing a constant-size lookup table or hash table.</p>
-<p>The following function will take the same time to execute, no matter how big array is:</p>
-<pre><code class="language-python">def is_first_element_null(array)
-  if array[0] == nil
-    return true
-  else
-    return false
-  end
-end
+    <h2 id="big-o">BIG O</h2>
+<p>It is a way to measure time complexity and space complexity of algorithms.</p>
+<ol>
+<li>Time complexity is measured based on how many steps an algorithm executes to finish its work.</li>
+<li>Space complexity is measured based on how many space in memory a data algorithm occupies.</li>
+</ol>
+<h4 id="types-of-big-o-measurement">Types of Big O Measurement</h4>
+<ol>
+<li>Omega</li>
+<li>Theta</li>
+<li>Omacron aka O as in Big O</li>
+</ol>
+<pre><code class="language-bash">[1,2,3,4,5,6,7]
 </code></pre>
-<h3 id="olog-n">O(log n)</h3>
-<p>The operation will take longer as the input size increases, but once the input gets fairly large it won’t change enough to worry about. If you double n, you have to spend an extra amount of time t to complete the task. If n doubles again, t won’t double, but will increase by a constant amount.</p>
-<p>Example of an O(log n) operation is finding an item in a sorted list with a balanced search tree or a binary search</p>
-<h3 id="on">O(n)</h3>
-<p>O(n) means that for every element, you are doing a constant number of operations, such as comparing each element to a known value.
-O(n) operations run in linear time - the larger the input, the longer it takes, in an even tradeoff. Every time you double n, the operation will take twice as long.</p>
-<p>An example of an O(n) operation is finding an item in an unsorted list</p>
-<pre><code class="language-python">def contains_value(array, value)
-  for entry in array
-    return true if entry == value
-  end
-  return false
-end
-</code></pre>
-<h3 id="on-log-n">O(n log n)</h3>
-<p>O(n log n) means that you’re performing an O(log n) operation for each item in your input. Most (efficient) sort algorithms are an example of this.
-O(n log n) operations run in loglinear time - increasing the input size hurts, but may still be manageable. Every time you double n, you spend twice as much time plus a little more.</p>
-<p>Examples of O(n log n) operations are quicksort (in the average and best case), heapsort and merge sort.</p>
-<h3 id="on2">O(n2)</h3>
-<p>O(n2) means that for every element, you do something with every other element, such as comparing them.
-O(n2) operations run in quadratic time - the operation is only really practical up to a certain input size. Every time n doubles, the operation takes four times as long.
-Examples of O(n2) operations are quicksort (in the worst case) and bubble sort.</p>
-<h3 id="o2n">O(2n)</h3>
-<p>O(2n) means that the time taken will double with each additional element in the input data set.
-O(2n) operations run in exponential time - the operation is impractical for any reasonably large input size n.
-An example of an O(2n) operation is the travelling salesman problem (using dynamic programming).</p>
-<h3 id="on_1">O(n!)</h3>
-<p>O(n!) involves doing something for all possible permutations of the n elements.
-O(n!) operations run in factorial time - the operation is impractical for any reasonably large input size n.
-An example of an O(n!) operation is the travelling salesman problem using brute force, where every combination of paths will be examined.</p>
+<p>e.g. to check the time complexty for an array of 7 elements, we would use a <code>for loop</code> so 
+in this case, If looking for number 1, this is our best case (Omega), number 7 would be the worst (O) case and average case would be number 4 (theta). </p>
 <h3 id="big-o-graph">Big-O Graph</h3>
-<p>{{&lt; figure src="/img/time_complexity.png" width="auto" &gt;}}</p>
+<p><img src="/images/time_complexity.png" width="auto"></p>
 
   <br>
     

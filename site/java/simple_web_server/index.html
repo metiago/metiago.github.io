@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Maven - Just Experiments</title>
+    <title>Simple Web Server - Just Experiments</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -57,20 +57,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../simple_web_server/" class="btn btn-xs btn-default pull-right">
+      <a href="../../kubernetes/kube-ms/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../simple_web_server/" class="btn btn-xs btn-link">
-        Simple Web Server
+      <a href="../../kubernetes/kube-ms/" class="btn btn-xs btn-link">
+        Kube Service Discovery (DNS)
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../linked-lists/" class="btn btn-xs btn-default pull-left">
+      <a href="../maven/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../linked-lists/" class="btn btn-xs btn-link">
-        Linked Lists
+        Previous</a><a href="../maven/" class="btn btn-xs btn-link">
+        Maven
       </a>
     </div>
     
@@ -78,7 +78,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <pre><code class="language-bash">mvn test -Dtest=DeliveryOrderTrackingServiceTest#fulfillmentExternalTestOk test
+    <pre><code class="language-java">import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import com.sun.net.httpserver.SimpleFileServer;
+import com.sun.net.httpserver.SimpleFileServer.OutputLevel;
+
+public class InMemoryFileServer {
+    private static final InetSocketAddress LOOPBACK_ADDR = new InetSocketAddress(InetAddress.getLoopbackAddress(), 8080);
+    public static final String JSON_FILE_NAME = &quot;orders.json&quot;;
+    public static final String DIR_PATH = System.getProperty(&quot;user.dir&quot;);
+
+    public static void main( String[] args ) throws Exception {
+        Path root = createDirectoryHierarchy();
+        var server = SimpleFileServer.createFileServer(LOOPBACK_ADDR,  root, OutputLevel.VERBOSE);
+        server.start();
+        System.out.printf(&quot;http://%s:%d%n&quot;, server.getAddress().getHostString(), server.getAddress().getPort());
+    }
+
+    private static Path createDirectoryHierarchy() throws IOException {        
+        Path dir = Files.createDirectories(Path.of(DIR_PATH));             
+        return dir;
+    }
+}
 </code></pre>
 
   <br>
@@ -92,20 +117,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../simple_web_server/" class="btn btn-xs btn-default pull-right">
+      <a href="../../kubernetes/kube-ms/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../simple_web_server/" class="btn btn-xs btn-link">
-        Simple Web Server
+      <a href="../../kubernetes/kube-ms/" class="btn btn-xs btn-link">
+        Kube Service Discovery (DNS)
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../linked-lists/" class="btn btn-xs btn-default pull-left">
+      <a href="../maven/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../linked-lists/" class="btn btn-xs btn-link">
-        Linked Lists
+        Previous</a><a href="../maven/" class="btn btn-xs btn-link">
+        Maven
       </a>
     </div>
     
