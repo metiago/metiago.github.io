@@ -82,7 +82,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <p>Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. Care is taken to ensure that functionality is added in small increments and that the software can be reliably released at any time.</p>
 <p>This post demonstrate how set up a continuous delivery pipeline using <code>Jenkins</code>, <code>SonarQube</code> and <code>Kubernetes</code> deploying a dockerized Java application into <code>AWS EKS</code>.</p>
-<p>First of all, we have to set up our <a href="{{site.github.url}}/posts/jenkins-ci" target="_blank">Continuous Integration</a> server.</p>
+<p>First of all, we have to set up our <a href="{{site.github.url/posts/jenkins-ci" target="_blank">Continuous Integration</a> server.</p>
 <p>After that, we should follow these steps in order to configure aws cli and kubectl to interact with our EKS cluster.</p>
 <pre><code class="language-bash"># Login into vagrant machine
 vagrant ssh
@@ -203,12 +203,12 @@ pipeline {
     }
 }
 </code></pre>
-<p>{{&lt; figure src="/img/ci/jenkins_pipeline.png" width="auto" &gt;}}</p>
+<p><img src="/images/ci/jenkins_pipeline.png" width="auto" ></p>
 <p>If the build succeed, we can get your load balancer endpoint by <code>kubectl describe service</code> and then making a request to the application health check endpoint.</p>
-<p>{{&lt; figure src="/img/ci/eks_request.png" width="auto" &gt;}}</p>
+<p><img src="/images/ci/eks_request.png" width="auto" ></p>
 <h3 id="workflow">Workflow</h3>
 <p>This diagram below give us a macro overview about the pipeline.</p>
-<p>{{&lt; figure src="/img/ci/diagram.png" width="auto" &gt;}}</p>
+<p><img src="/images/ci/diagram.png" width="auto" ></p>
 <p>That's an example of how to set up Jenkins pipeline to deploy a Java application in the Kubernetes. Remember that, there's a difference between continues delivery and continue deployment processes. Basically, continuous delivery is the practice of ensuring that software is always ready to be deployed to any environment (STAGE, QA, ETC), usually it requires manual intervention (one click button) to release the last artifact. On the other hand, 
 continuous deployment is the next step of continuous delivery, every change that passes the automated tests is deployed to production automatically.</p>
 

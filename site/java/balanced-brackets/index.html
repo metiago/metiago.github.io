@@ -87,7 +87,7 @@ public class Brackets {
     public static void main(String[] argh) {
 
         List&lt;String&gt; values = List.of(&quot;((()))&quot;,
-                                      &quot;[]{}(){()}((())){{{}}}{()()}{{}{}}&quot;, 
+                                      &quot;[]{}(){()}((())){{{}{()()}{{}{&quot;, 
                                       &quot;[[]][][]&quot;, &quot;{}&quot;);
 
         for (String s : values) {
@@ -98,7 +98,7 @@ public class Brackets {
 
     public static boolean check(String input) {
         Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
-        if (input.startsWith(&quot;}}&quot;) || input.startsWith(&quot;]]&quot;) 
+        if (input.startsWith(&quot;&quot;) || input.startsWith(&quot;]]&quot;) 
                                    || input.startsWith(&quot;))&quot;) 
                                    || input.length() % 2 != 0) {
             return false;

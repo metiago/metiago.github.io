@@ -705,5 +705,5 @@ public class App implements CommandLineRunner {
 }
 
 ```
-{{< figure src="/img/spring-batch/spring-batch-artemis.png" width="auto" >}}
+<img src="/images/spring-batch/spring-batch-artemis.png" width="auto" >
 

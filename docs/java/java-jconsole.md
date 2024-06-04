@@ -13,6 +13,6 @@ mvn compile quarkus:dev -Dcom.sun.management.jmxremote \
 -Dcom.sun.management.jmxremote.local.only=false -Djava.rmi.server.hostname=localhost
 ```
 
-{{< figure src="/img/jconsole/conn.png" width="auto" >}}
+<img src="/images/jconsole/conn.png" width="auto" >
 
-{{< figure src="/img/jconsole/chart.png" width="auto" >}}
+<img src="/images/jconsole/chart.png" width="auto" >

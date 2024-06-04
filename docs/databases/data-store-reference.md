@@ -136,6 +136,6 @@ Elastisearch is used more as an intermediary or supplementary store than a prima
 
 ### CAP Theorem
 
-{{< figure src="/img/database-triangle.png" width="auto" >}}
+<img src="/img/database-triangle.png" width="auto" >
 
 

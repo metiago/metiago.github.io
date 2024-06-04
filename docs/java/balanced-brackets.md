@@ -16,7 +16,7 @@ public class Brackets {
     public static void main(String[] argh) {
 
         List<String> values = List.of("((()))",
-                                      "[]{}(){()}((())){{{}}}{()()}{{}{}}", 
+                                      "[]{}(){()}((())){{{}{()()}{{}{", 
                                       "[[]][][]", "{}");
 
         for (String s : values) {
@@ -27,7 +27,7 @@ public class Brackets {
 
     public static boolean check(String input) {
         Stack<Character> stack = new Stack<>();
-        if (input.startsWith("}}") || input.startsWith("]]") 
+        if (input.startsWith("") || input.startsWith("]]") 
                                    || input.startsWith("))") 
                                    || input.length() % 2 != 0) {
             return false;

@@ -22,25 +22,25 @@ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.i
 
 Add a new user and set its password.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/add-user.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/add-user.png" width="auto" >
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/add-user-password.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/add-user-password.png" width="auto" >
 
 Create a realm.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/add-realm.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/add-realm.png" width="auto" >
 
 Create a client scope.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/client-scope.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/client-scope.png" width="auto" >
 
 Create two clients with the same configuration, one called `has-game-scope` and other called `no-game-scope`.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/add-client.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/add-client.png" width="auto" >
 
 Assign the scope `GAME` for the client called `has-game-scope`.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/assign-scope.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/assign-scope.png" width="auto" >
 
 That's it! We have our Keycloak ready to authenticate users.
 
@@ -372,5 +372,5 @@ public class GameApplication {
 Accessing `http://localhost:9090`, Spring Boot prompts a login page asking for the scopes you want to use 
 and based on what you choose, you be able to access the protected endpoint.
 
-{{< figure src="/img/spring-cloud/gateway-keycloack/diagram.png" width="auto" >}}
+<img src="/images/spring-cloud/gateway-keycloack/diagram.png" width="auto" >
 

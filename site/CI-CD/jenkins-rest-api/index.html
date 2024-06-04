@@ -85,7 +85,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <pre><code class="language-bash">http://localhost:8080/user/jenkins/configure
 </code></pre>
 <p>From there, browse to the API Token Section and click on the Show API Token button:</p>
-<p>{{&lt; figure src="/img/jenkins/api-token/api-token.png" width="auto" &gt;}}</p>
+<p>{{&lt; figure src="/img/jenkins/api-token/api-token.png" width="auto" &gt;</p>
 <p>Now you will use the token as parameter for your authentication. Some examples:</p>
 <p>If your user is ‘jenkins’ and the token is ‘f1499cc9852c899d327a1f644e61a64d’ here is how you can start the job ‘job1’ using Jenkins REST Api:</p>
 <pre><code class="language-bash">curl -X POST http://localhost:8080/job/job1/build --user jenkins:f1499cc9852c899d327a1f644e61a64d

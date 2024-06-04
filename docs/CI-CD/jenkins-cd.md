@@ -9,7 +9,7 @@ Continuous delivery (CD) is fundamentally a set of practices and disciplines in 
 
 This post demonstrate how set up a continuous delivery pipeline using `Jenkins`, `SonarQube` and `Kubernetes` deploying a dockerized Java application into `AWS EKS`.
 
-First of all, we have to set up our <a href="{{site.github.url}}/posts/jenkins-ci" target="_blank">Continuous Integration</a> server.
+First of all, we have to set up our <a href="{{site.github.url/posts/jenkins-ci" target="_blank">Continuous Integration</a> server.
 
 After that, we should follow these steps in order to configure aws cli and kubectl to interact with our EKS cluster.
 
@@ -138,17 +138,17 @@ pipeline {
 }
 ```
 
-{{< figure src="/img/ci/jenkins_pipeline.png" width="auto" >}}
+<img src="/images/ci/jenkins_pipeline.png" width="auto" >
 
 If the build succeed, we can get your load balancer endpoint by `kubectl describe service` and then making a request to the application health check endpoint.
 
-{{< figure src="/img/ci/eks_request.png" width="auto" >}}
+<img src="/images/ci/eks_request.png" width="auto" >
 
 ### Workflow
 
 This diagram below give us a macro overview about the pipeline.
 
-{{< figure src="/img/ci/diagram.png" width="auto" >}}
+<img src="/images/ci/diagram.png" width="auto" >
 
 That's an example of how to set up Jenkins pipeline to deploy a Java application in the Kubernetes. Remember that, there's a difference between continues delivery and continue deployment processes. Basically, continuous delivery is the practice of ensuring that software is always ready to be deployed to any environment (STAGE, QA, ETC), usually it requires manual intervention (one click button) to release the last artifact. On the other hand, 
 continuous deployment is the next step of continuous delivery, every change that passes the automated tests is deployed to production automatically.

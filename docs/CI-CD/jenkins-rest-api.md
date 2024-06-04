@@ -18,7 +18,7 @@ http://localhost:8080/user/jenkins/configure
 
 From there, browse to the API Token Section and click on the Show API Token button:
 
-{{< figure src="/img/jenkins/api-token/api-token.png" width="auto" >}}
+{{< figure src="/img/jenkins/api-token/api-token.png" width="auto" >
 
 Now you will use the token as parameter for your authentication. Some examples:
 
