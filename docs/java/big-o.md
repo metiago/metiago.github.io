@@ -30,6 +30,6 @@ in this case, If looking for number 1, this is our best case (Omega), number 7 w
 
 ### Big-O Graph
 
- <img src="/images/time_complexity.png" width="auto">
+ <img src="/images/site/time_complexity.png" width="auto">
 
 
