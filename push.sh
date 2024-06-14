@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf site
+
 mkdocs build
 
 git add .
