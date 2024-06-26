@@ -7,6 +7,7 @@ draft: false
 Spring Boot 2 integration tests sample.
 
 ```java
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -74,3 +75,4 @@ class AdapterPaymentPluginControllerITest {
         assertSame(HttpStatus.NOT_FOUND, res.getStatusCode());
     }
 }
+```
