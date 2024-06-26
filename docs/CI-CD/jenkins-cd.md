@@ -7,9 +7,9 @@ draft: false
 
 Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. Care is taken to ensure that functionality is added in small increments and that the software can be reliably released at any time.
 
-This post demonstrate how set up a continuous delivery pipeline using `Jenkins`, `SonarQube` and `Kubernetes` deploying a dockerized Java application into `AWS EKS`.
+This guide is about how set up a continuous delivery pipeline using `Jenkins`, `SonarQube` and `Kubernetes` deploying a docker Java app into `AWS EKS`.
 
-First of all, we have to set up our <a href="{{site.github.url/posts/jenkins-ci" target="_blank">Continuous Integration</a> server.
+First of all, it's required to setp up <a href="{{site.github.url/posts/jenkins-ci}}" target="_blank"> this </a> CI server.
 
 After that, we should follow these steps in order to configure aws cli and kubectl to interact with our EKS cluster.
 
