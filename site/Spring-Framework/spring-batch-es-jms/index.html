@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Spring Batch + Elasticsearch + JMS - Just Experiments</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Spring Batch + Elasticsearch + JMS";
+        var mkdocs_page_input_path = "Spring-Framework\\spring-batch-es-jms.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Just Experiments
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CI CD</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-cd/">Continuous Delivery of Java Applications with Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-ci/">Continuous Integration with Jenkins, Java & SonarQube</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-job-periodically/">Jenkins Job Periodically</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-rest-api/">Jenkins REST API</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Eclipse Vert.x</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Eclipse-Vert.x/vertx-elasticsearch/">VertX & Elasticsearch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Eclipse-Vert.x/vertx-jwt-auth/">VertX - JWT Auth & MongoDB</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spring Framework</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integration-tests/">Spring Boot Integration Tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../keycloack/">Spring Boot + Keycloak</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-actuator/">Spring Boot Actuator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-async/">Spring Async</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Spring Batch + Elasticsearch + JMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-batch-flat-files/">Spring Batch Flat File</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-boot-kafka/">Spring Boot - Kafka</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-cache/">Spring Cache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-cloud-gateway-keycloak/">Spring Cloud Gateway + Keycloak</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spring-security-oauth2/">Spring Security - OAuth2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../unit-tests/">Mockito Unit Tests</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aws</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-ec2-mysql/">MySQL 8 - AWS EC2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-qldb-blockchain/">AWS QLDB & Lambda</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-s3/">Amazon Web Services</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Brokers</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../brokers/rabbit-mq-client/">RabbitQM Client</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../brokers/zeromq/">Zero MQ</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Camel</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-aggregator/">Apache Camel Aggregator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-enricher/">Apache Camel Enricher</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-files/">Apache Camel Flat Files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-filter/">Apache Camel Filter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-ftp/">Apache Camel FTP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-interceptor/">Apache Camel Interceptors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-json-xml/">Apache Camel JSON to XML</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-load-balance/">Apache Camel Load Balance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-multicast/">Apache Camel MultiCast</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-quartz/">Apache Camel Quartz</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-seda/">Apache Camel Seda</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-splitter/">Apache Camel Splitter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-throttle/">Apache Camel Throttler</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-translator/">Apache Camel Translator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-wire-tap/">Apache Camel Wire Tap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-xml-json/">Apache Camel XML to JSON</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/apache-camel-xml/">Apache Camel XML</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../camel/eip/">EIP - Enterprise Integration Patterns</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/cloud-starter/">Cloud Computing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/oci/">OCI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/vpc/">VPC & Networking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Databases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/data-store-reference/">Data Store References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/mongo-seed-data/">MongoDB Quick Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/mysql-ref/"> MySQL Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/outbox-pattern/">Outbox Pattern</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/planning/">Planning Checklist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-dependency-inversion-principle/">Dependency Inversion Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-interface-segregation-principle/">Interface Segregation Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-liskov-substitution-principle/">Liskov Substitution Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-open-close-responsibility/">Open Closed Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-single-responsibility/">Single Responsibility Principle</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/docker-references/">Docker Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Git</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../git/git/"> Git Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hibernate</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hibernate/jpa-composite-primary-key/">JPA - Composite Primary Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hibernate/jpa-quick-references/">JPA Quick Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hibernate/jpa-sequence-mapping/">JPA - Sequence Mapping</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Java</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/balanced-brackets/">Balanced Brackets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/big-o/">Big O Notation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/binary-search-tree/">Binary Search Tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/doubly-linked-lists/"> Doubly Linked Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/elapsed-time/">Elapsed Time</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/graphs/">Graph</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-8-optional/">Java Optional API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aspectj/">AspectJ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-s3/">Lambda & S3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-binary-search/">Binary Search</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-bubble-sort/">Bubble Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-collections-streams/">Collections, Streams & Lambdas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-date-datetime/">Java Date & Datetime Samples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-file-io/"> NIO File API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-find-duplicate-dates/">Duplicate Dates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-find-duplicate-datetime/">DateTime - Duplicates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-future/">Completable Futures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-hashtable/">Hash Tables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-http-client/">Java Http Client</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-insertion-sort/">Insertion Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-install-cert/">Sun JKS Utility</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-jconsole/">Profiling Quarkus Application</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-keystore-example/">Java JDK Key Tool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-linear-search-minor-element/">Linear Searching - Minor Element</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-linear-search/">Linear Searching</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-merge-sort/">Merge Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-min-max/">Min & Max Array Value</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-queue/">Queues</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-quick-sort/">Quick Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-regex/">Regular Expression</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-selection-sort/">Selection Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-sockets-multithread/">Java Sockets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-stack/"> Stacks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-tree/">Tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-web3j/">Blockchain - Web3j</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-xml-api/">Java XML API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/linked-lists/">Linked Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/maven/">Maven</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/simple_web_server/">Simple Web Server</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Kubernetes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kubernetes/kube-ms/">Kube Service Discovery (DNS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kubernetes/kubernetes-kubectl/">K8S Kubectl Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../linux/os-check-used-port/">OS – Listing used ports</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/apache-ab/">Apache AB</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Just Experiments</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Spring Framework</li>
+      <li class="breadcrumb-item active">Spring Batch + Elasticsearch + JMS</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Processing data using <a href="https://spring.io/projects/spring-batch" target="_blank"> Spring Batch </a>, <a href="https://activemq.apache.org/components/artemis/" target="_blank">ArtemisMQ</a> and <a href="https://www.elastic.co/" target="_blank">Elasticsearch</a>.</p>
+<p><code>animal.sql</code></p>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS ANIMAL  (
+    id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    scientificName VARCHAR(50),
+    status VARCHAR(50),
+    veterinarian VARCHAR(50),
+    created DATE
+);
+</code></pre>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;org.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-batch&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.batch&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-batch-core&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-activemq&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.zaxxer&lt;/groupId&gt;
+            &lt;artifactId&gt;HikariCP&lt;/artifactId&gt;
+            &lt;version&gt;3.4.5&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-oxm&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!--        JAVA 11+ REQ. --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
+            &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
+            &lt;version&gt;2.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
+            &lt;artifactId&gt;jaxb-core&lt;/artifactId&gt;
+            &lt;version&gt;2.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
+            &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
+            &lt;version&gt;2.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+&lt;/project&gt;
+</code></pre>
+<p><code>application.properties</code></p>
+<pre><code class="language-java">log4j.logger.org.springframework.jdbc=debug
+log4j.logger.org.springframework.batch=debug
+# MAIN DB
+spring.datasource.jdbcUrl=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=12345678
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+# SECONDARY DB
+spring.second-db.jdbcUrl=jdbc:mysql://192.168.1.7:3306/test
+spring.second-db.username=api
+spring.second-db.password=12345678
+spring.second-db.driverClassName=com.mysql.cj.jdbc.Driver
+spring.batch.initialize-schema=always
+spring.datasource.initialization-mode=always
+spring.main.allow-bean-definition-overriding=true
+spring.batch.job.enabled=false
+# ELASTIC SEARCH
+elasticsearch.clustername=elasticsearch
+elasticsearch.host=localhost
+elasticsearch.port=9300
+</code></pre>
+<p><code>DatasourceConfig.java</code></p>
+<pre><code class="language-java">package com.tiago.config;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import javax.sql.DataSource;
+
+@Configuration
+public class DatasourceConfig {
+
+    @Bean(name = &quot;db1&quot;)
+    @ConfigurationProperties(prefix = &quot;spring.datasource&quot;)
+    @Primary
+    public DataSource dataSource1() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = &quot;jdbcTemplate1&quot;)
+    public JdbcTemplate jdbcTemplate1(@Qualifier(&quot;db1&quot;) DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
+
+    @Bean(name = &quot;db2&quot;)
+    @ConfigurationProperties(prefix = &quot;spring.second-db&quot;)
+    public DataSource dataSource2() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = &quot;jdbcTemplate2&quot;)
+    public JdbcTemplate jdbcTemplate2(@Qualifier(&quot;db2&quot;) DataSource ds) {
+        return new JdbcTemplate(ds);
+    }
+}
+</code></pre>
+<p><code>ElasticsearchConfig.java</code></p>
+<pre><code class="language-java">package com.tiago.config;
+
+import org.elasticsearch.client.Client;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.TransportAddress;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+
+import java.net.InetAddress;
+
+@Configuration
+@EnableElasticsearchRepositories(basePackages = &quot;com.tiago.repository&quot;)
+public class ElasticsearchConfig {
+
+    @Value(&quot;${elasticsearch.host}&quot;)
+    private String esHost;
+
+    @Value(&quot;${elasticsearch.port}&quot;)
+    private int esPort;
+
+    @Value(&quot;${elasticsearch.clustername}&quot;)
+    private String esClusterName;
+
+    @Bean
+    public Client client() throws Exception {
+        Settings settings = Settings.builder()
+                .put(&quot;cluster.name&quot;, esClusterName)
+                .build();
+
+        TransportClient client = new PreBuiltTransportClient(settings);
+        client.addTransportAddress(new TransportAddress(InetAddress.getByName(esHost), esPort));
+        return client;
+    }
+
+    @Bean
+    public ElasticsearchOperations elasticsearchTemplate() throws Exception {
+        return new ElasticsearchTemplate(client());
+    }
+}
+</code></pre>
+<p><code>JmsConfig.java</code></p>
+<pre><code class="language-java">package com.tiago.config;
+
+import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
+import org.springframework.jms.config.JmsListenerContainerFactory;
+
+import javax.jms.ConnectionFactory;
+
+@EnableJms
+public class JmsConfig {
+
+    @Bean
+    public JmsListenerContainerFactory&lt;?&gt; myFactory(ConnectionFactory connectionFactory,
+                                                    DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        return factory;
+    }
+}
+</code></pre>
+<p>This class represents our table <code>animal</code> created previously.</p>
+<p><code>Animal.java</code></p>
+<pre><code class="language-java">package com.tiago.model;
+
+import java.io.Serializable;
+import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+public class Animal implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private int id;
+
+    private String scientificName;
+
+    private String status;
+
+    private String veterinarian;
+
+    private Date created;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getVeterinarian() {
+        return veterinarian;
+    }
+
+    public void setVeterinarian(String veterinarian) {
+        this.veterinarian = veterinarian;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+}
+</code></pre>
+<p><code>Animal.java</code></p>
+<pre><code class="language-java">package com.tiago.model.es;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+import java.util.Date;
+
+@Document(indexName = &quot;animal-idx&quot;, type = &quot;animals&quot;)
+public class Animal {
+
+    @Id
+    private String id;
+
+    private String scientificName;
+
+    private String status;
+
+    private String veterinarian;
+
+    private Date created;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getVeterinarian() {
+        return veterinarian;
+    }
+
+    public void setVeterinarian(String veterinarian) {
+        this.veterinarian = veterinarian;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+}
+</code></pre>
+<p><code>AnimalRepository.java</code></p>
+<pre><code class="language-java">package com.tiago.repository;
+
+import com.tiago.model.es.Animal;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+public interface AnimalRepository extends ElasticsearchRepository&lt;Animal, String&gt; {
+}
+</code></pre>
+<p><code>EsItemReader.java</code></p>
+<pre><code class="language-java">package com.tiago.beans.es;
+
+
+import com.tiago.model.Animal;
+import com.tiago.util.AnimalRowMapper;
+import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.database.JdbcCursorItemReader;
+import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+import java.util.logging.Logger;
+
+@Component
+@StepScope
+public class EsItemReader implements ItemReader&lt;JdbcCursorItemReader&lt;Animal&gt;&gt; {
+
+    private static final Logger LOGGER = Logger.getLogger(EsItemReader.class.getSimpleName());
+
+    @Value(&quot;#{jobParameters['tableName']}&quot;)
+    private String tableName;
+
+    @Autowired
+    @Qualifier(&quot;jdbcTemplate1&quot;)
+    private JdbcTemplate jdbcTemplate;
+
+    public JdbcCursorItemReader&lt;Animal&gt; read() throws Exception {
+
+
+        LOGGER.info(&quot;** READING DATABASE ENTRIES! **&quot;);
+
+        final String SQL = &quot;SELECT * FROM &quot; + this.tableName + &quot; ORDER BY id DESC LIMIT 1&quot;;
+
+        return new JdbcCursorItemReaderBuilder&lt;Animal&gt;()
+                .sql(SQL)
+                .dataSource(this.jdbcTemplate.getDataSource())
+                .rowMapper(new AnimalRowMapper())
+                .name(&quot;replication-cursor&quot;)
+                .build();
+    }
+}
+
+</code></pre>
+<p><code>EsItemWriter.java</code></p>
+<pre><code class="language-java">package com.tiago.beans.replication;
+
+
+import com.tiago.model.Animal;
+import com.tiago.repository.AnimalRepository;
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+@Component
+public class EsItemWriter implements ItemWriter&lt;Animal&gt; {
+
+    private static final Logger LOGGER = Logger.getLogger(EsItemWriter.class.getSimpleName());
+
+    @Autowired
+    private AnimalRepository animalRepository;
+
+    @Override
+    public void write(List&lt;? extends Animal&gt; items) throws Exception {
+
+        LOGGER.info(&quot;** WRITING DATABASE ENTRIES INTO ES! **&quot;);
+
+        for (Animal item : items) {
+            Optional&lt;com.tiago.model.es.Animal&gt; animal = animalRepository.findById(String.valueOf(item.getId()));
+            if (animal.isPresent()) {
+                animal.get().setId(String.valueOf(item.getId()));
+                animal.get().setStatus(item.getStatus());
+                animal.get().setScientificName(item.getScientificName());
+                animal.get().setVeterinarian(item.getVeterinarian());
+                animal.get().setCreated(item.getCreated());
+                animalRepository.save(animal.get());
+            } else {
+                com.tiago.model.es.Animal a = new com.tiago.model.es.Animal();
+                a.setId(String.valueOf(item.getId()));
+                a.setStatus(item.getStatus());
+                a.setScientificName(item.getScientificName());
+                a.setVeterinarian(item.getVeterinarian());
+                a.setCreated(item.getCreated());
+                animalRepository.save(a);
+            }
+        }
+    }
+}
+</code></pre>
+<p><code>EsItemProcessor.java</code></p>
+<pre><code class="language-java">package com.tiago.beans.replication;
+
+import com.tiago.model.Animal;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.stereotype.Component;
+
+import java.util.logging.Logger;
+
+@Component
+public class EsItemProcessor implements ItemProcessor&lt;Animal, Animal&gt; {
+
+    private static final Logger LOGGER = Logger.getLogger(EsItemProcessor.class.getSimpleName());
+
+    @Override
+    public Animal process(Animal animal) throws Exception {
+
+        LOGGER.info(&quot;** PROCESSING DB ENTRIES! **&quot;);
+
+        if (animal.getStatus().equalsIgnoreCase(&quot;bad&quot;)) {
+            animal.setStatus(&quot;changed from bad to good&quot;);
+        }
+
+        return animal;
+    }
+}
+</code></pre>
+<p><code>JobCompletionNotificationListener.java</code></p>
+<pre><code class="language-java">package com.tiago.listener;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.BatchStatus;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.listener.JobExecutionListenerSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class JobCompletionNotificationListener extends JobExecutionListenerSupport {
+
+    private static final Logger LOG = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
+
+    @Autowired
+    @Qualifier(&quot;jdbcTemplate2&quot;)
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public void afterJob(JobExecution jobExecution) {
+
+        if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
+
+            LOG.info(&quot;JOB FINISHED&quot;);
+        }
+    }
+}
+</code></pre>
+<p><code>ElasticSearchJob.java</code></p>
+<pre><code class="language-java">package com.tiago.jobs;
+
+import com.tiago.beans.es.EsItemProcessor;
+import com.tiago.beans.es.EsItemReader;
+import com.tiago.beans.es.EsItemWriter;
+import com.tiago.listener.JobCompletionNotificationListener;
+import com.tiago.model.Animal;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ElasticSearchJob {
+
+    @Autowired
+    private JobBuilderFactory jobBuilders;
+
+    @Autowired
+    private StepBuilderFactory stepBuilders;
+
+    @Autowired
+    private EsItemReader readerEs;
+
+    @Autowired
+    private EsItemWriter writerEs;
+
+    @Bean
+    public EsItemProcessor processorReplica() {
+        return new EsItemProcessor();
+    }
+
+    @Bean
+    public Job esJob(JobCompletionNotificationListener listener) throws Exception {
+        return jobBuilders.get(&quot;es&quot;).listener(listener)
+                .incrementer(new RunIdIncrementer())
+                .flow(step1())
+                .end().build();
+    }
+
+    @Bean
+    public Step step1() throws Exception {
+
+        return stepBuilders.get(&quot;step1&quot;).&lt;Animal, Animal&gt;chunk(1).reader(readerEs.read())
+                .faultTolerant()
+                .skipLimit(1)
+                .skip(NullPointerException.class)
+                .processor(processorReplica())
+                .faultTolerant()
+                .skipLimit(1)
+                .skip(NullPointerException.class)
+                .writer(writerEs)
+                .faultTolerant()
+                .skipLimit(1)
+                .skip(NullPointerException.class)
+                .build();
+    }
+}
+
+</code></pre>
+<p><code>MessageDrivenBean.java</code></p>
+<pre><code class="language-java">package com.tiago.mdb;
+
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MessageDrivenBean {
+
+    @Autowired
+    private JobLauncher jobLauncher;
+
+    @Autowired
+    private Job job;
+
+    @JmsListener(destination = &quot;batch-job&quot;, containerFactory = &quot;myFactory&quot;)
+    public void receiveMessage(String message) throws Exception {
+        System.out.println(message);
+        JobParameters jobParameters = new JobParametersBuilder().addLong(&quot;time&quot;, System.currentTimeMillis())
+                .addString(&quot;tableName&quot;, message).toJobParameters();
+        JobExecution execution = jobLauncher.run(job, jobParameters);
+        System.out.println(&quot;Exit Status : &quot; + execution.getStatus());
+    }
+}
+</code></pre>
+<p><code>App.java</code></p>
+<pre><code class="language-java">package com.tiago;
+
+import com.tiago.config.DatasourceConfig;
+import com.tiago.config.JmsConfig;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.jms.core.JmsTemplate;
+
+@SpringBootApplication
+@EnableBatchProcessing
+@Import({DatasourceConfig.class, JmsConfig.class})
+@ComponentScan({&quot;com.tiago.*&quot;})
+public class App implements CommandLineRunner {
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        String tableName = &quot;animal&quot;;
+        jmsTemplate.convertAndSend(&quot;batch-job&quot;, tableName);
+    }
+}
+
+</code></pre>
+<p><img src="/site/images/spring-batch/spring-batch-artemis.png" width="auto" ></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../spring-async/" class="btn btn-neutral float-left" title="Spring Async"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../spring-batch-flat-files/" class="btn btn-neutral float-right" title="Spring Batch Flat File">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../spring-async/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../spring-batch-flat-files/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
