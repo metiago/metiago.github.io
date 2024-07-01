@@ -1,5 +1,5 @@
 ---
-title: 'Continuous Delivery of Java Applications with Docker'
+title: 'Continuous Delivery'
 date: 2019-04-11T19:18:41-03:00
 draft: false
 ---

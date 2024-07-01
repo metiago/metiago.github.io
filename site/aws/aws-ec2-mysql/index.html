@@ -43,17 +43,6 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">CI CD</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-cd/">Continuous Delivery of Java Applications with Docker</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-ci/">Continuous Integration with Jenkins, Java & SonarQube</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-job-periodically/">Jenkins Job Periodically</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-rest-api/">Jenkins REST API</a>
-                  </li>
-              </ul>
               <p class="caption"><span class="caption-text">Eclipse Vert.x</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../Eclipse-Vert.x/vertx-elasticsearch/">VertX & Elasticsearch</a>
@@ -90,11 +79,7 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">MySQL 8 - AWS EC2</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#before-create-a-ec2-instance-we-need-to-create-a-publicprivate-key-and-then-import-it-on-the-aws-network-security-dashboard">Before create a EC2 instance, we need to create a public/private key and then import it on the AWS Network &amp; Security dashboard.</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#2-security-group">2. Security Group</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#security-group-allows-you-to-define-rules-for-the-vpc-so-that-we-can-deny-or-allow-incoming-or-outcoming-network-traffic-on-the-new-server-it-can-be-created-on-aws-console-or-using-the-command-line">Security group allows you to define rules for the VPC so that we can deny or allow incoming or outcoming network traffic on the new server. It can be created on AWS console or using the command line.</a>
     </li>
     </ul>
                   </li>
@@ -182,6 +167,17 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../design/solid-open-close-responsibility/">Open Closed Principle</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../design/solid-single-responsibility/">Single Responsibility Principle</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Devops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-cd/">Continuous Delivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-ci/">Jenkins, Java & SonarQube</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-job-periodically/">Jenkins Job Periodically</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-rest-api/">Jenkins REST API</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Docker</span></p>
@@ -327,9 +323,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>MySQL EC2</p>
-<h3 id="1-key-pairs">1. Key Pairs</h3>
-<h4 id="before-create-a-ec2-instance-we-need-to-create-a-publicprivate-key-and-then-import-it-on-the-aws-network-security-dashboard">Before create a EC2 instance, we need to create a public/private key and then import it on the AWS Network &amp; Security dashboard.</h4>
+                <h3 id="1-key-pairs">1. Key Pairs</h3>
+<p>Creating public/private key  AWS Network &amp; Security dashboard.</p>
 <pre><code class="language-ssh"># create private and public keys
 ssh-keygen -m PEM
 
@@ -337,23 +332,21 @@ ssh-keygen -m PEM
 aws ec2 import-key-pair --key-name &quot;my-key&quot; --public-key-material fileb://~/.ssh/my-key.pub
 </code></pre>
 <h4 id="2-security-group">2. Security Group</h4>
-<h4 id="security-group-allows-you-to-define-rules-for-the-vpc-so-that-we-can-deny-or-allow-incoming-or-outcoming-network-traffic-on-the-new-server-it-can-be-created-on-aws-console-or-using-the-command-line">Security group allows you to define rules for the VPC so that we can deny or allow incoming or outcoming network traffic on the new server. It can be created on AWS console or using the command line.</h4>
+<p>Security group define rules for the VPC allowing incoming or outcoming network traffic into the new server.</p>
 <pre><code class="language-ssh">aws ec2 create-security-group --group-name my-sg --description &quot;My security group&quot; --vpc-id vpc-1a2b3c4d
 </code></pre>
 <h3 id="3-create-ec2-instance">3. Create EC2 Instance</h3>
-<h4 id="this-can-be-created-directly-on-the-web-console-or-via-cli-remember-to-select-the-security-group-created-previouslly-as-well-as-the-keypair-when-requested-for">This can be created directly on the web console or via CLI. Remember to select the security group created previouslly as well as the keypair when requested for.</h4>
+<p>Remember to select the security group created previouslly as well as the keypair when requested for.</p>
 <pre><code class="language-ssh"># List all OS images
 aws ec2 describe-images   --output table   --query 'Images[*].[VirtualizationType,Name,ImageId]'   --owners 309956199498   --filters     Name=root-device-type,Values=ebs     Name=image-type,Values=machine     Name=is-public,Values=true     Name=hypervisor,Values=xen     Name=architecture,Values=x86_64
 
 # create an instance based at one AWS image ids
 aws ec2 run-instances --image-id ami-29bdc246 --security-group-ids sg-1aae5272 --count 1 --instance-type t2.micro --key-name my-key --query 'Instances[0].InstanceId'
 </code></pre>
-<h3 id="4-ssh-into-the-server">4. SSH Into The Server</h3>
-<h4 id="once-the-instance-is-up-and-running-you-can-log-into-it">Once the instance is up and running you can log into it.</h4>
+<h3 id="4-ssh-into-the-server">4. SSH Into the server</h3>
 <pre><code class="language-ssh">ssh -i my-private-key ubuntu@ec2-18-218-55-229.us-east-2.compute.amazonaws.com
 </code></pre>
-<h3 id="5-set-up-mysql-8">5. Set up MySQL 8</h3>
-<h4 id="after-successfully-logged-in-we-can-now-install-our-database-server">After successfully logged in, we can now install our database server.</h4>
+<h3 id="5-set-up-mysql">5. Set up MySQL</h3>
 <pre><code class="language-ssh">sudo apt update -y
 
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb

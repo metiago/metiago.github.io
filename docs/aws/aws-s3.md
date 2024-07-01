@@ -4,7 +4,7 @@ date: 1500-04-18T19:18:41-03:00
 draft: true
 ---
 
-Amazon web services quick reference
+AWS quick references
 
 ### Config AWS CLI
 

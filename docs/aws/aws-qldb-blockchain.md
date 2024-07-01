@@ -4,7 +4,7 @@ date: 2018-04-05T19:18:41-03:00
 draft: false
 ---
 
-`FaaS` to perform actions AWS QLDB.
+Java `FaaS` sample to perform actions in AWS QLDB.
 
 `pom.xml`
 

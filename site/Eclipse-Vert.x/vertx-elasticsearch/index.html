@@ -43,17 +43,6 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">CI CD</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-cd/">Continuous Delivery of Java Applications with Docker</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-ci/">Continuous Integration with Jenkins, Java & SonarQube</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-job-periodically/">Jenkins Job Periodically</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../CI-CD/jenkins-rest-api/">Jenkins REST API</a>
-                  </li>
-              </ul>
               <p class="caption"><span class="caption-text">Eclipse Vert.x</span></p>
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">VertX & Elasticsearch</a>
@@ -176,6 +165,17 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../design/solid-open-close-responsibility/">Open Closed Principle</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../design/solid-single-responsibility/">Single Responsibility Principle</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Devops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-cd/">Continuous Delivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-ci/">Jenkins, Java & SonarQube</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-job-periodically/">Jenkins Job Periodically</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-rest-api/">Jenkins REST API</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Docker</span></p>
@@ -321,13 +321,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Log aggreagator on top of
-<a href="https://vertx.io" target="_blank">Eclipse VertX</a>
-<a href="https://www.elastic.co/" target="_blank">Elasticsearch</a></p>
+                <p>RESTful web services to save events into
+<a href="https://vertx.io" target="_blank">Eclipse VertX</a> and <a href="https://opensearch.org/" target="_blank">OpenSearch.</a></p>
 <h3 id="1-running-elasticsearch">1. Running Elasticsearch</h3>
-<pre><code class="language-bash">docker run -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; docker.elastic.co/elasticsearch/elasticsearch:7.11.1
+<pre><code class="language-bash">docker run -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; \
+docker.elastic.co/elasticsearch/elasticsearch:7.11.1
 </code></pre>
-<h3 id="2-vertx-endpoint">2. VertX Endpoint</h3>
+<h3 id="2-web-service">2. Web Service</h3>
 <pre><code class="language-java">import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
@@ -393,7 +393,9 @@ public class MainVerticle extends AbstractVerticle {
     }
   }
 
-  private void indexDocument(final RestHighLevelClient client, final String payload) throws IOException {
+  private void indexDocument(final RestHighLevelClient client, final String payload) 
+    throws IOException {
+
     try {
       IndexRequest request = new IndexRequest(INDEX);
       request.id(UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;));
@@ -478,7 +480,8 @@ public class TestMainVerticle {
 </code></pre>
 <h3 id="3-testing">3. Testing</h3>
 <pre><code class="language-bash"># Indexing some document via Vertx
-curl --header &quot;Content-Type: application/json&quot; --request POST --data '{&quot;author&quot;:&quot;Tiago&quot;, &quot;message&quot;:&quot;Adding on terminal&quot;}' http://localhost:8888/api/logs
+curl --header &quot;Content-Type: application/json&quot; --request POST \
+--data '{&quot;author&quot;:&quot;Tiago&quot;, &quot;message&quot;:&quot;Adding on terminal&quot;}' http://localhost:8888/api/logs
 
 # get document by id from Elasticsearch
 curl --request GET http://localhost:9200/chatroom/_doc/fb91a8f5d00e452ebbe49152ae4c1f25
@@ -490,13 +493,14 @@ curl --request GET http://localhost:9200/chatroom/_search
 curl --request GET 'http://localhost:9200/chatroom/_search?q=author:tiago'
 
 # Elasticsearch query DSL
-curl --header &quot;Content-Type: application/json&quot; --request GET --data '{&quot;query&quot;: {&quot;match&quot;: {&quot;author&quot;: &quot;tiago&quot;}}}' http://localhost:9200/chatroom/_search
+curl --header &quot;Content-Type: application/json&quot; --request GET \
+--data '{&quot;query&quot;: {&quot;match&quot;: {&quot;author&quot;: &quot;tiago&quot;}}}' http://localhost:9200/chatroom/_search
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../CI-CD/jenkins-rest-api/" class="btn btn-neutral float-left" title="Jenkins REST API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../vertx-jwt-auth/" class="btn btn-neutral float-right" title="VertX - JWT Auth & MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -520,7 +524,7 @@ curl --header &quot;Content-Type: application/json&quot; --request GET --data '{
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../CI-CD/jenkins-rest-api/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../vertx-jwt-auth/" style="color: #fcfcfc">Next &raquo;</a></span>

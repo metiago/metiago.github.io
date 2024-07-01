@@ -4,12 +4,7 @@ date: 2017-04-27T19:18:41-03:00
 draft: false
 ---
 
-<a href="https://vertx.io/docs/" target="_blank">Eclipse VertX</a> is a polyglot event-driven application framework that runs on the Java Virtual Machine.
-
-
-### Example
-
-Let's start creating an RSA certificate. Below there're some examples of how to generate one using Java keytool.
+Let's start creating an RSA certificate using Java keytool.
 
 These choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
 
@@ -29,7 +24,7 @@ keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret 
 keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret -keyalg EC -keysize 256 -alias ES512 -keypass secret -sigalg SHA512withECDSA -dname "CN=,OU=,O=,L=,ST=,C=" -validity 360l
 ```
 
-After generate our private certificate we need to spin up a Mongo database instance to keep our data.
+Once with the private certificate, spin up a Mongo database instance to keep our data.
 
 ```yaml
 version: '3.5'
@@ -48,7 +43,7 @@ services:
       - mongo
 ```
 
-In our Java project we'll have this `Constants` class to keep our constants.
+`Constants` class to keep our constants.
 
 ```java
 package com.tiago.auth;
@@ -67,7 +62,7 @@ public class Constants {
 }
 ```
 
-One message POJO represeting our API response messages.
+POJO represeting our API response messages.
 
 ```java
 package com.tiago.auth;
@@ -110,7 +105,7 @@ public class Message implements Serializable {
 }
 ```
 
-Here the class representing our users.
+POJO representing apps user
 
 ```java
 package com.tiago.auth;
@@ -162,7 +157,7 @@ public class User implements Serializable {
 }
 ```
 
-And finally our authorization server implementation example.
+Authorization server implementation.
 
 ```java
 package com.tiago.auth;
@@ -213,15 +208,19 @@ public class AuthServer extends AbstractVerticle {
     public void start() {
 
         // Set up Mongo DB client - It can be loaded from an externa file or env vars
-        JsonObject config = new JsonObject().put("db_name", "demo").put("port", 27017).put("host", "0.0.0.0");
+        JsonObject config = new JsonObject()
+        .put("db_name", "demo")
+        .put("port", 27017)
+        .put("host", "0.0.0.0");
+
         this.db = MongoClient.createShared(vertx, config);
 
-        // Create our router
+        // create our router
         Router router = Router.router(vertx);
-        // Enable request body handler
+        // enable request body handler
         router.route().handler(BodyHandler.create());
 
-        // Define CORS config
+        // set CORS
         Set<String> allowedHeaders = new HashSet<>();
         allowedHeaders.add("Access-Control-Allow-Origin");
         allowedHeaders.add("Content-Type");
@@ -232,11 +231,15 @@ public class AuthServer extends AbstractVerticle {
         allowedMethods.add(HttpMethod.POST);
         allowedMethods.add(HttpMethod.DELETE);
         allowedMethods.add(HttpMethod.OPTIONS);
-        router.route().handler(CorsHandler.create("*").allowedHeaders(allowedHeaders).allowedMethods(allowedMethods));
+        router.route().handler(CorsHandler.create("*")
+        .allowedHeaders(allowedHeaders)
+        .allowedMethods(allowedMethods));
 
-        // Set up our JWT object to generate tokens based on our private keystore
+        // set up JWT object to generate tokens based on our private keystore
         JWTAuthOptions jAuthOptions = new JWTAuthOptions();
-        jAuthOptions.setKeyStore(new KeyStoreOptions().setPath("keystore.jceks").setPassword("secret"));
+        jAuthOptions.setKeyStore(new KeyStoreOptions().setPath("keystore.jceks")
+        .setPassword("secret"));
+        
         jwt = JWTAuth.create(vertx, jAuthOptions);
 
         // All routes /api will be protected
@@ -248,7 +251,6 @@ public class AuthServer extends AbstractVerticle {
         router.post("/auth/login").handler(this::auth);
         router.post("/create-user").handler(this::createUser);        
 
-        // Created our server to listen to
         HttpServer server = vertx.createHttpServer();
         String varPort = System.getenv("PORT");
         int port = varPort == null ? 8002 : Integer.parseInt(varPort);
@@ -260,8 +262,10 @@ public class AuthServer extends AbstractVerticle {
 
         try {
 
-            // Simple validation of the request payload
-            if (!Optional.ofNullable(routingContext.getBodyAsString()).isPresent() || routingContext.getBodyAsString().equals("")) {
+            // simple validation of the request payload
+            if (!Optional.ofNullable(routingContext.getBodyAsString()).isPresent() 
+                || routingContext.getBodyAsString().equals("")) {
+                
                 routingContext.response().setStatusCode(400).end();
             }
 
@@ -288,7 +292,9 @@ public class AuthServer extends AbstractVerticle {
 
                         JsonObject sub = new JsonObject();
                         sub.put("sub", row.getString("User"));
-                        JsonObject token = new JsonObject().put("token", jwt.generateToken(sub, new JWTOptions().setExpiresInSeconds(120)));
+                        JsonObject token = new JsonObject().put("token", jwt.generateToken(sub, 
+                        new JWTOptions().setExpiresInSeconds(120)));
+                        
                         routingContext.response().putHeader("Content-Type", "application/json");
                         routingContext.response().end(Json.encodePrettily(token));
                     }

@@ -4,11 +4,9 @@ date: 1500-04-02T19:18:41-03:00
 draft: true
 ---
 
-MySQL EC2
-
 ### 1. Key Pairs
 
-####  Before create a EC2 instance, we need to create a public/private key and then import it on the AWS Network & Security dashboard.
+Creating public/private key  AWS Network & Security dashboard.
 
 
 ```ssh
@@ -21,7 +19,7 @@ aws ec2 import-key-pair --key-name "my-key" --public-key-material fileb://~/.ssh
 
 ####  2. Security Group
 
-####  Security group allows you to define rules for the VPC so that we can deny or allow incoming or outcoming network traffic on the new server. It can be created on AWS console or using the command line.
+Security group define rules for the VPC allowing incoming or outcoming network traffic into the new server.
 
 ```ssh
 aws ec2 create-security-group --group-name my-sg --description "My security group" --vpc-id vpc-1a2b3c4d
@@ -29,7 +27,7 @@ aws ec2 create-security-group --group-name my-sg --description "My security grou
 
 ### 3. Create EC2 Instance
 
-####  This can be created directly on the web console or via CLI. Remember to select the security group created previouslly as well as the keypair when requested for.
+Remember to select the security group created previouslly as well as the keypair when requested for.
 
 ```ssh
 # List all OS images
@@ -39,17 +37,13 @@ aws ec2 describe-images   --output table   --query 'Images[*].[VirtualizationTyp
 aws ec2 run-instances --image-id ami-29bdc246 --security-group-ids sg-1aae5272 --count 1 --instance-type t2.micro --key-name my-key --query 'Instances[0].InstanceId'
 ```
 
-### 4. SSH Into The Server
-
-#### Once the instance is up and running you can log into it.
+### 4. SSH Into the server
 
 ```ssh
 ssh -i my-private-key ubuntu@ec2-18-218-55-229.us-east-2.compute.amazonaws.com
 ```
 
-### 5. Set up MySQL 8
-
-#### After successfully logged in, we can now install our database server.
+### 5. Set up MySQL
 
 ```ssh
 sudo apt update -y

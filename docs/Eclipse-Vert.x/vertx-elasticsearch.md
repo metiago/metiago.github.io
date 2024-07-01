@@ -4,17 +4,17 @@ date: 2017-04-25T19:18:41-03:00
 draft: false
 ---
 
-Log aggreagator on top of
-<a href="https://vertx.io" target="_blank">Eclipse VertX</a>
-<a href="https://www.elastic.co/" target="_blank">Elasticsearch</a>
+RESTful web services to save events into
+<a href="https://vertx.io" target="_blank">Eclipse VertX</a> and <a href="https://opensearch.org/" target="_blank">OpenSearch.</a>
 
 ### 1. Running Elasticsearch
 
 ```bash
-docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.11.1
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" \
+docker.elastic.co/elasticsearch/elasticsearch:7.11.1
 ```
 
-### 2. VertX Endpoint
+### 2. Web Service
 
 
 ```java
@@ -83,7 +83,9 @@ public class MainVerticle extends AbstractVerticle {
     }
   }
 
-  private void indexDocument(final RestHighLevelClient client, final String payload) throws IOException {
+  private void indexDocument(final RestHighLevelClient client, final String payload) 
+    throws IOException {
+  
     try {
       IndexRequest request = new IndexRequest(INDEX);
       request.id(UUID.randomUUID().toString().replace("-", ""));
@@ -173,7 +175,8 @@ public class TestMainVerticle {
 
 ```bash
 # Indexing some document via Vertx
-curl --header "Content-Type: application/json" --request POST --data '{"author":"Tiago", "message":"Adding on terminal"}' http://localhost:8888/api/logs
+curl --header "Content-Type: application/json" --request POST \
+--data '{"author":"Tiago", "message":"Adding on terminal"}' http://localhost:8888/api/logs
 
 # get document by id from Elasticsearch
 curl --request GET http://localhost:9200/chatroom/_doc/fb91a8f5d00e452ebbe49152ae4c1f25
@@ -185,5 +188,6 @@ curl --request GET http://localhost:9200/chatroom/_search
 curl --request GET 'http://localhost:9200/chatroom/_search?q=author:tiago'
 
 # Elasticsearch query DSL
-curl --header "Content-Type: application/json" --request GET --data '{"query": {"match": {"author": "tiago"}}}' http://localhost:9200/chatroom/_search
+curl --header "Content-Type: application/json" --request GET \
+--data '{"query": {"match": {"author": "tiago"}}}' http://localhost:9200/chatroom/_search
 ```
