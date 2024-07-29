@@ -378,20 +378,18 @@ unless = &quot;#result == null or #result.size() == 0 or #result.![badPricing] o
 )
 </code></pre>
 <p>Let's break down the provided unless condition:</p>
-<ol>
-<li>
-<h1 id="result-null-or-resultsize-0-this-part-ensures-that-caching-doesnt-occur-if-the-result-is-either-null-or-an-empty-collection">result == null or #result.size() == 0: This part ensures that caching doesn't occur if the result is either null or an empty collection.</h1>
-</li>
-<li>
-<h1 id="resultbadpricing-this-part-checks-if-the-badpricing-property-of-the-result-object-is-not-empty-if-its-not-empty-caching-wont-occur">result.![badPricing]: This part checks if the "badPricing" property of the result object is not empty. If it's not empty, caching won't occur.</h1>
-</li>
-<li>
-<h1 id="result0offeringtypename-external-this-part-checks-if-the-name-of-the-offeringtype-property-of-the-first-element-in-the-result-object-is-external-if-it-is-caching-wont-occur">result[0].offeringType.name() == 'EXTERNAL': This part checks if the name of the offeringType property of the first element in the result object is 'EXTERNAL'. If it is, caching won't occur.</h1>
-</li>
-<li>
-<h1 id="queryparamscontainsvalueauttar_distribuidor-this-part-checks-if-the-queryparams-contain-the-value-auttar_distribuidor-if-they-do-caching-wont-occur">queryParams.containsValue('auttar_distribuidor'): This part checks if the queryParams contain the value 'auttar_distribuidor'. If they do, caching won't occur.</h1>
-</li>
-</ol>
+<pre><code class="language-bash"># This part ensures that caching doesn't occur if the result is either null or an empty collection.
+1. #result == null or #result.size() == 0: 
+
+# This part checks if the &quot;badPricing&quot; property of the result object is not empty. If it's not empty, caching won't occur.
+2. #result.![badPricing]
+
+# This part checks if the name of the offeringType property of the first element in the result object is 'EXTERNAL'. If it is, caching won't occur.
+3. #result[0].offeringType.name() == 'EXTERNAL' 
+
+# This part checks if the queryParams contain the value 'quak'. If they do, caching won't occur.
+4. #queryParams.containsValue('quak') 
+</code></pre>
               
             </div>
           </div><footer>

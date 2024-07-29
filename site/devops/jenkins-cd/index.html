@@ -321,10 +321,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. Care is taken to ensure that functionality is added in small increments and that the software can be reliably released at any time.</p>
-<p>This guide is about how set up a continuous delivery pipeline using <code>Jenkins</code>, <code>SonarQube</code> and <code>Kubernetes</code> deploying a docker Java app into <code>AWS EKS</code>.</p>
-<p>First of all, it's required to setp up <a href="{{site.github.url/posts/jenkins-ci}}" target="_blank"> this </a> CI server.</p>
-<p>After that, we should follow these steps in order to configure aws cli and kubectl to interact with our EKS cluster.</p>
+                <p>Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. </p>
+<p>This guide is about how set up a continuous delivery pipeline using <code>Jenkins</code>, <code>SonarQube</code> and <code>Kubernetes</code> deploying a docker Java app into <code>EKS</code>.</p>
+<p>First of all, we have to setp up <a href="/devops/jenkins-ci/" target="_blank"> this </a> CI server.</p>
+<p>After that, we should follow these steps below in order to configure the aws cli and kubectl to interact with EKS cluster.</p>
 <pre><code class="language-bash"># Login into vagrant machine
 vagrant ssh
 
@@ -344,11 +344,11 @@ aws eks --region &lt;region-code&gt; update-kubeconfig --name &lt;cluster_name&g
 sudo chmod 777 /home/vagrant/.kube/
 sudo chown -R jenkins /home/vagrant/.kube/
 </code></pre>
-<p>Once it's done, create a Jenkins pipeline and in the <code>pipeline area</code> add the script below. </p>
-<p>The procedure of this script is analyzing the code on SonarQube, run unit and integration tests, create and push a docker image to Dockerhub registry and in the end, deploy to <code>Kubernetes cluster</code>.</p>
+<p>Once it's done, create a Jenkins pipeline in the <code>pipeline area</code> adding the script below. </p>
+<p>This script is analyzing the code in SonarQube, run unit and integration tests, build and push a docker image to Dockerhub and finally, deploy to <code>Kubernetes cluster</code>.</p>
 <p>Two points that requires attention.</p>
 <ol>
-<li>I'm setting some environment variables in the pipeline script itself ony for a matter of simplicity, but that should configured using Jenkins' plugin.</li>
+<li>I'm setting some environment variables in the pipeline script itself only for simplicity, but that should configured using Jenkins' plugin.</li>
 <li>The method <code>buildImage()</code> tag our image with the hash of the last git commit. These brings us many benefits since every built artifact has a machine-assigned unique number, therefore, every artifact is potentially shippable, so there is no need for a dedicated release workflow anymore and the delivery pipeline is 
 traceable we don't need git tag is not necessary anymore.</li>
 </ol>
@@ -444,12 +444,12 @@ pipeline {
     }
 }
 </code></pre>
-<p><img src="/site/images/ci/jenkins_pipeline.png" width="auto" ></p>
+<p><img src="/site/images/ci/jenkins_pipeline.png" width="auto"></p>
 <p>If the build succeed, we can get your load balancer endpoint by <code>kubectl describe service</code> and then making a request to the application health check endpoint.</p>
-<p><img src="/site/images/ci/eks_request.png" width="auto" ></p>
+<p><img src="/site/images/ci/eks_request.png" width="auto"></p>
 <h3 id="workflow">Workflow</h3>
 <p>This diagram below give us a macro overview about the pipeline.</p>
-<p><img src="/site/images/ci/diagram.png" width="auto" ></p>
+<p><img src="/site/images/ci/diagram.png" width="auto"></p>
 <p>That's an example of how to set up Jenkins pipeline to deploy a Java application in the Kubernetes. Remember that, there's a difference between continues delivery and continue deployment processes. Basically, continuous delivery is the practice of ensuring that software is always ready to be deployed to any environment (STAGE, QA, ETC), usually it requires manual intervention (one click button) to release the last artifact. On the other hand, 
 continuous deployment is the next step of continuous delivery, every change that passes the automated tests is deployed to production automatically.</p>
               

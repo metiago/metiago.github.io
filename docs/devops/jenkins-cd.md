@@ -4,14 +4,13 @@ date: 2019-04-11T19:18:41-03:00
 draft: false
 ---
 
+Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. 
 
-Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. Care is taken to ensure that functionality is added in small increments and that the software can be reliably released at any time.
+This guide is about how set up a continuous delivery pipeline using `Jenkins`, `SonarQube` and `Kubernetes` deploying a docker Java app into `EKS`.
 
-This guide is about how set up a continuous delivery pipeline using `Jenkins`, `SonarQube` and `Kubernetes` deploying a docker Java app into `AWS EKS`.
+First of all, we have to setp up <a href="/devops/jenkins-ci/" target="_blank"> this </a> CI server.
 
-First of all, it's required to setp up <a href="{{site.github.url/posts/jenkins-ci}}" target="_blank"> this </a> CI server.
-
-After that, we should follow these steps in order to configure aws cli and kubectl to interact with our EKS cluster.
+After that, we should follow these steps below in order to configure the aws cli and kubectl to interact with EKS cluster.
 
 ```bash
 # Login into vagrant machine
@@ -34,13 +33,13 @@ sudo chmod 777 /home/vagrant/.kube/
 sudo chown -R jenkins /home/vagrant/.kube/
 ```
 
-Once it's done, create a Jenkins pipeline and in the `pipeline area` add the script below. 
+Once it's done, create a Jenkins pipeline in the `pipeline area` adding the script below. 
 
-The procedure of this script is analyzing the code on SonarQube, run unit and integration tests, create and push a docker image to Dockerhub registry and in the end, deploy to `Kubernetes cluster`.
+This script is analyzing the code in SonarQube, run unit and integration tests, build and push a docker image to Dockerhub and finally, deploy to `Kubernetes cluster`.
 
 Two points that requires attention.
 
-1. I'm setting some environment variables in the pipeline script itself ony for a matter of simplicity, but that should configured using Jenkins' plugin.
+1. I'm setting some environment variables in the pipeline script itself only for simplicity, but that should configured using Jenkins' plugin.
 1. The method `buildImage()` tag our image with the hash of the last git commit. These brings us many benefits since every built artifact has a machine-assigned unique number, therefore, every artifact is potentially shippable, so there is no need for a dedicated release workflow anymore and the delivery pipeline is 
 traceable we don't need git tag is not necessary anymore.
 
@@ -138,17 +137,17 @@ pipeline {
 }
 ```
 
-<img src="/site/images/ci/jenkins_pipeline.png" width="auto" >
+<img src="/site/images/ci/jenkins_pipeline.png" width="auto">
 
 If the build succeed, we can get your load balancer endpoint by `kubectl describe service` and then making a request to the application health check endpoint.
 
-<img src="/site/images/ci/eks_request.png" width="auto" >
+<img src="/site/images/ci/eks_request.png" width="auto">
 
 ### Workflow
 
 This diagram below give us a macro overview about the pipeline.
 
-<img src="/site/images/ci/diagram.png" width="auto" >
+<img src="/site/images/ci/diagram.png" width="auto">
 
 That's an example of how to set up Jenkins pipeline to deploy a Java application in the Kubernetes. Remember that, there's a difference between continues delivery and continue deployment processes. Basically, continuous delivery is the practice of ensuring that software is always ready to be deployed to any environment (STAGE, QA, ETC), usually it requires manual intervention (one click button) to release the last artifact. On the other hand, 
 continuous deployment is the next step of continuous delivery, every change that passes the automated tests is deployed to production automatically.
