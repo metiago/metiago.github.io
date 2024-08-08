@@ -48,6 +48,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../vertx-elasticsearch/">VertX & Elasticsearch</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">VertX - JWT Auth & MongoDB</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Spring Framework</span></p>
@@ -82,6 +84,10 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-qldb-blockchain/">AWS QLDB & Lambda</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-s3/">Amazon Web Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Brokers</span></p>
@@ -213,10 +219,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-aspectj/">AspectJ</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-s3/">Lambda & S3</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-binary-search/">Binary Search</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-bubble-sort/">Bubble Sort</a>
@@ -319,10 +321,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Let's start creating an RSA certificate using Java keytool.</p>
-<p>These choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.</p>
-<p>RS256 (RSA Signature with SHA-256) is an asymmetric algorithm, and it uses a public/private key pair: the identity provider has a private (secret) key used to generate the signature, and the consumer of the JWT gets a public key to validate the signature. Since the public key, as opposed to the private key, doesn't need to be kept secured, most identity providers make it easily available for consumers to obtain and use (usually through a metadata URL).</p>
-<p>HS256 (HMAC with SHA-256), on the other hand, involves a combination of a hashing function and one (secret) key that is shared between the two parties used to generate the hash that will serve as the signature. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised.</p>
+                <p>This project is a RESTful API built with Eclipse Vert.x that implements JWT authentication for secure access control. The backend uses MongoDB to store user data and other relevant information. Users can register, log in, and receive a JWT token, which is required to access protected endpoints. The Vert.x framework handles the JWT authentication, ensuring that only authorized users can perform certain actions, while MongoDB provides a scalable and flexible database solution. The project emphasizes high performance, scalability, and security.</p>
+<h3 id="cryptographic-keys">Cryptographic keys</h3>
+<p>These choices determine how the identity provider signs the JWT. Signing is a process that creates a "signature" (part of the JWT) so the recipient can verify that the token hasn’t been altered.</p>
+<p>RS256 (RSA Signature with SHA-256) is an asymmetric algorithm that uses a public/private key pair. The identity provider uses a private key to sign the JWT, and the recipient uses a public key to verify it. The public key is usually easily accessible through a metadata URL.</p>
+<p>HS256 (HMAC with SHA-256) is a symmetric algorithm that uses a shared secret key for both signing and verifying the JWT. Since the same key is used for both, it's important to keep the key secure to prevent it from being compromised.</p>
 <pre><code class="language-bash">keytool -genseckey -keystore keystore.jceks -storetype jceks -storepass secret -keyalg HMacSHA256 -keysize 2048 -alias HS256 -keypass secret
 keytool -genseckey -keystore keystore.jceks -storetype jceks -storepass secret -keyalg HMacSHA384 -keysize 2048 -alias HS384 -keypass secret
 keytool -genseckey -keystore keystore.jceks -storetype jceks -storepass secret -keyalg HMacSHA512 -keysize 2048 -alias HS512 -keypass secret
@@ -333,7 +336,7 @@ keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret 
 keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret -keyalg EC -keysize 256 -alias ES384 -keypass secret -sigalg SHA384withECDSA -dname &quot;CN=,OU=,O=,L=,ST=,C=&quot; -validity 360
 keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret -keyalg EC -keysize 256 -alias ES512 -keypass secret -sigalg SHA512withECDSA -dname &quot;CN=,OU=,O=,L=,ST=,C=&quot; -validity 360l
 </code></pre>
-<p>Once with the private certificate, spin up a Mongo database instance to keep our data.</p>
+<h3 id="mongodb-set-up">MongoDB Set up</h3>
 <pre><code class="language-yaml">version: '3.5'
 services:
   mongo:
@@ -349,7 +352,7 @@ services:
     depends_on:
       - mongo
 </code></pre>
-<p><code>Constants</code> class to keep our constants.</p>
+<h3 id="code-sample">Code Sample</h3>
 <pre><code class="language-java">package com.tiago.auth;
 
 public class Constants {
@@ -365,7 +368,6 @@ public class Constants {
     public static final String USERS_COL = &quot;users&quot;;
 }
 </code></pre>
-<p>POJO represeting our API response messages.</p>
 <pre><code class="language-java">package com.tiago.auth;
 
 import java.io.Serializable;
@@ -405,7 +407,6 @@ public class Message implements Serializable {
     }
 }
 </code></pre>
-<p>POJO representing apps user</p>
 <pre><code class="language-java">package com.tiago.auth;
 
 import java.io.Serializable;
@@ -454,7 +455,6 @@ public class User implements Serializable {
     }
 }
 </code></pre>
-<p>Authorization server implementation.</p>
 <pre><code class="language-java">package com.tiago.auth;
 
 import com.google.common.net.HttpHeaders;
@@ -663,7 +663,7 @@ public class AuthServer extends AbstractVerticle {
     }
 }
 </code></pre>
-<p>Note that the request header <code>Authorization: Bearer &lt;token&gt;</code> should be provided when calling the endpoint.</p>
+<p>PS: <code>Authorization: Bearer &lt;token&gt;</code> should be provided when calling the endpoint.</p>
               
             </div>
           </div><footer>

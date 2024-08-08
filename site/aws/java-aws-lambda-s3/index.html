@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Lambda & DynanoDB & Gateway - Just Experiments</title>
+    <title>Lambda & S3 - Just Experiments</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Lambda \u0026 DynanoDB \u0026 Gateway";
-        var mkdocs_page_input_path = "java\\java-aws-lambda-dynamodb.md";
+        var mkdocs_page_name = "Lambda \u0026 S3";
+        var mkdocs_page_input_path = "aws\\java-aws-lambda-s3.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -76,12 +76,16 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Aws</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-ec2-mysql/">MySQL 8 - AWS EC2</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../aws-ec2-mysql/">MySQL 8 - AWS EC2</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-qldb-blockchain/">AWS QLDB & Lambda</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../aws-qldb-blockchain/">AWS QLDB & Lambda</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-s3/">Amazon Web Services</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../aws-s3/">Amazon Web Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Lambda & S3</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Brokers</span></p>
@@ -196,86 +200,82 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Java</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../balanced-brackets/">Balanced Brackets</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/balanced-brackets/">Balanced Brackets</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../big-o/">Big O Notation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/big-o/">Big O Notation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../binary-search-tree/">Binary Search Tree</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/binary-search-tree/">Binary Search Tree</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../doubly-linked-lists/"> Doubly Linked Lists</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/doubly-linked-lists/"> Doubly Linked Lists</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../elapsed-time/">Elapsed Time</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/elapsed-time/">Elapsed Time</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../graphs/">Graph</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/graphs/">Graph</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-8-optional/">Java Optional API</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-8-optional/">Java Optional API</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-aspectj/">AspectJ</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aspectj/">AspectJ</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Lambda & DynanoDB & Gateway</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-binary-search/">Binary Search</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-aws-lambda-s3/">Lambda & S3</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-bubble-sort/">Bubble Sort</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-binary-search/">Binary Search</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-collections-streams/">Collections, Streams & Lambdas</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-bubble-sort/">Bubble Sort</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-date-datetime/">Java Date & Datetime Samples</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-collections-streams/">Collections, Streams & Lambdas</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-file-io/"> NIO File API</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-date-datetime/">Java Date & Datetime Samples</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-find-duplicate-dates/">Duplicate Dates</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-file-io/"> NIO File API</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-find-duplicate-datetime/">DateTime - Duplicates</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-find-duplicate-dates/">Duplicate Dates</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-future/">Completable Futures</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-find-duplicate-datetime/">DateTime - Duplicates</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-hashtable/">Hash Tables</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-future/">Completable Futures</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-http-client/">Java Http Client</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-hashtable/">Hash Tables</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-insertion-sort/">Insertion Sort</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-http-client/">Java Http Client</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-install-cert/">Sun JKS Utility</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-insertion-sort/">Insertion Sort</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-jconsole/">Profiling Quarkus Application</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-install-cert/">Sun JKS Utility</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-keystore-example/">Java JDK Key Tool</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-jconsole/">Profiling Quarkus Application</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-linear-search-minor-element/">Linear Searching - Minor Element</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-keystore-example/">Java JDK Key Tool</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-linear-search/">Linear Searching</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-linear-search-minor-element/">Linear Searching - Minor Element</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-merge-sort/">Merge Sort</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-linear-search/">Linear Searching</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-min-max/">Min & Max Array Value</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-merge-sort/">Merge Sort</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-queue/">Queues</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-min-max/">Min & Max Array Value</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-quick-sort/">Quick Sort</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-queue/">Queues</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-regex/">Regular Expression</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-quick-sort/">Quick Sort</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-selection-sort/">Selection Sort</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-regex/">Regular Expression</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-sockets-multithread/">Java Sockets</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-selection-sort/">Selection Sort</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-stack/"> Stacks</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-sockets-multithread/">Java Sockets</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-tree/">Tree</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-stack/"> Stacks</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-web3j/">Blockchain - Web3j</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-tree/">Tree</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-xml-api/">Java XML API</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-web3j/">Blockchain - Web3j</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/linked-lists/">Linked Lists</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../java-xml-api/">Java XML API</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/maven/">Maven</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../linked-lists/">Linked Lists</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../maven/">Maven</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../simple_web_server/">Simple Web Server</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../java/simple_web_server/">Simple Web Server</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Kubernetes</span></p>
@@ -309,8 +309,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Java</li>
-      <li class="breadcrumb-item active">Lambda & DynanoDB & Gateway</li>
+          <li class="breadcrumb-item">Aws</li>
+      <li class="breadcrumb-item active">Lambda & S3</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -319,72 +319,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Deploying AWS Lambda, API Gateway and DynanoDB using AWS Serverless Application Model(SAM).</p>
-<p><code>template.yaml</code></p>
-<pre><code class="language-yaml">AWSTemplateFormatVersion: 2010-09-09
-Transform: AWS::Serverless-2016-10-31
-Description: CoolantLambdaJava
-
-Globals:
-  Function:
-    Runtime: java8
-    MemorySize: 512
-    Timeout: 5
-    Environment:
-      Variables:
-        COOLANT_TABLE: !Ref CoolantTemperatureSensor
-  Api:
-    OpenApiVersion: '3.0.1'
-
-Resources:
-
-  CoolantTemperatureSensor:
-    Type: AWS::Serverless::SimpleTable
-    Properties:
-      PrimaryKey:
-        Name: uid
-        Type: String
-
-  CoolantEventLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: target/lambda.jar
-      Handler: io.tiago.coolant.CoolantEventLambda::handler
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName:
-              !Ref CoolantTemperatureSensor
-      Environment:
-        Variables:
-          ACCESS_KEY: 123A
-          SECRET_KEY: X234
-      Events:
-        MyApi:
-          Type: Api
-          Properties:
-            Path: /events
-            Method: post
-
-  CoolantQueryLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: target/lambda.jar
-      Handler: io.tiago.coolant.CoolantQueryLambda::handler
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName:
-              !Ref CoolantTemperatureSensor
-      Environment:
-        Variables:
-          ACCESS_KEY: 123A
-          SECRET_KEY: X234
-      Events:
-        MyApi:
-          Type: Api
-          Properties:
-            Path: /events
-            Method: get
-</code></pre>
+                <p>Deploying AWS Lambda using Java and AWS Serverless Application Model(SAM).</p>
 <p>pom.xml</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
@@ -394,7 +329,7 @@ Resources:
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
   &lt;groupId&gt;io.tiago&lt;/groupId&gt;
-  &lt;artifactId&gt;coolant&lt;/artifactId&gt;
+  &lt;artifactId&gt;HelloWorldLambdaJava&lt;/artifactId&gt;
   &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
 
   &lt;properties&gt;
@@ -408,16 +343,6 @@ Resources:
         &lt;groupId&gt;com.amazonaws&lt;/groupId&gt;
         &lt;artifactId&gt;aws-java-sdk-s3&lt;/artifactId&gt;
         &lt;version&gt;1.11.873&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;com.amazonaws&lt;/groupId&gt;
-      &lt;artifactId&gt;aws-java-sdk-dynamodb&lt;/artifactId&gt;
-      &lt;version&gt;1.11.873&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;com.amazonaws&lt;/groupId&gt;
-      &lt;artifactId&gt;aws-lambda-java-events&lt;/artifactId&gt;
-      &lt;version&gt;2.2.6&lt;/version&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 
@@ -443,173 +368,77 @@ Resources:
 
 &lt;/project&gt;
 </code></pre>
-<p><code>ApiGatewayRequest.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
+<p><code>template.yaml</code></p>
+<pre><code class="language-yaml">AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: HelloWorldLambdaJava
 
-import java.util.HashMap;
+Resources:
 
-import java.util.Map;
-
-public class ApiGatewayRequest {
-    public String body;
-    public Map&lt;String, String&gt; queryStringParameters = new HashMap&lt;&gt;();
-}
+  HelloWorldLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java8
+      MemorySize: 512
+      Handler: buckets.ListBuckets::handler
+      CodeUri: target/lambda.jar
+      Timeout: 60
+      Environment:
+        Variables:
+          ACCESS_KEY: key
+          SECRET_KEY: secret
 </code></pre>
-<p><code>ApiGatewayResponse.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
-
-public class ApiGatewayResponse {
-
-    public final int statusCode;
-
-    public final String body;
-
-    public ApiGatewayResponse(int statusCode, String body) {
-        this.statusCode = statusCode;
-        this.body = body;
-    }
-}
+<p><code>samconfig.toml</code></p>
+<pre><code class="language-toml">version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = &quot;starter&quot;
+s3_bucket = &quot;starter-zip&quot;
+s3_prefix = &quot;starter&quot;
+region = &quot;us-west-2&quot;
+confirm_changeset = true
+capabilities = &quot;CAPABILITY_IAM&quot;
+image_repositories = []
 </code></pre>
-<p><code>CoolantEventLambda.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
+<p><code>ListBuckets.java</code></p>
+<pre><code class="language-java">package buckets;
 
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
-import com.amazonaws.services.dynamodbv2.model.ReturnConsumedCapacity;
-import com.amazonaws.services.dynamodbv2.model.ReturnValue;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-public class CoolantEventLambda {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
-    private final String tableName = System.getenv(&quot;COOLANT_TABLE&quot;);
-
-    public ApiGatewayResponse handler(ApiGatewayRequest request) throws IOException {
-
-        final CoolantTemperatureSensor coolantTemperatureSensor = objectMapper.readValue(request.body, CoolantTemperatureSensor.class);
-
-        PutItemRequest putItemRequest = new PutItemRequest();
-        putItemRequest.setTableName(tableName);
-        putItemRequest.setReturnConsumedCapacity(ReturnConsumedCapacity.TOTAL);
-        putItemRequest.setReturnValues(ReturnValue.ALL_OLD);
-
-        Map&lt;String, AttributeValue&gt; map = new HashMap&lt;&gt;();
-        map.put(&quot;uid&quot;, new AttributeValue(UUID.randomUUID().toString()));
-        map.put(&quot;timestamp&quot;, (new AttributeValue()).withN(String.valueOf(System.currentTimeMillis())));
-        map.put(&quot;temperature&quot;, (new AttributeValue(coolantTemperatureSensor.getTemperature())));
-        putItemRequest.setItem(map);
-
-        DynamoDB.getConn().putItem(putItemRequest);
-
-        return new ApiGatewayResponse(200, &quot;OK&quot;);
-    }
-}
-</code></pre>
-<p><code>CoolantQueryLambda.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
-
-import com.amazonaws.services.dynamodbv2.model.ScanRequest;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
-public class CoolantQueryLambda {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
-    private final String tableName = System.getenv(&quot;LOCATIONS_TABLE&quot;);
-
-    private static final String DEFAULT_LIMIT = &quot;50&quot;;
-
-    public ApiGatewayResponse handler(ApiGatewayRequest request) throws IOException {
-
-        final String limitParam = request.queryStringParameters == null ? DEFAULT_LIMIT : request.queryStringParameters.getOrDefault(&quot;limit&quot;, DEFAULT_LIMIT);
-
-        final int limit = Integer.parseInt(limitParam);
-
-        final ScanRequest scanRequest = new ScanRequest().withTableName(tableName).withLimit(limit);
-
-        final ScanResult scanResult = DynamoDB.getConn().scan(scanRequest);
-
-        final List&lt;CoolantTemperatureSensor&gt; events = scanResult.getItems().stream().map(item -&gt; new CoolantTemperatureSensor(
-                item.get(&quot;uid&quot;).getS(),
-                Long.valueOf(item.get(&quot;timestamp&quot;).getN()),
-                item.get(&quot;temperature&quot;).getS()
-        )).collect(Collectors.toList());
-
-        final String json = objectMapper.writeValueAsString(events);
-
-        return new ApiGatewayResponse(200, json);
-    }
-}
-</code></pre>
-<p><code>CoolantTemperatureSensor.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
-
-public class CoolantTemperatureSensor {
-
-    private String uid;
-
-    private Long timestamp;
-
-    private String temperature;
-
-    public CoolantTemperatureSensor() {
-    }
-
-    public CoolantTemperatureSensor(String uid, Long timestamp, String temperature) {
-        this.uid = uid;
-        this.timestamp = timestamp;
-        this.temperature = temperature;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public String getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(String temperature) {
-        this.temperature = temperature;
-    }
-}
-</code></pre>
-<p><code>DynamoDB.java</code></p>
-<pre><code class="language-java">package io.tiago.coolant;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.Bucket;
 
-public class DynamoDB {
+public class ListBuckets {
 
-    public static AmazonDynamoDB getConn() {
+    public List&lt;String&gt; handler() {
 
-        BasicAWSCredentials credentials = new BasicAWSCredentials(System.getenv(&quot;ACCESS_KEY&quot;),
-                                                                  System.getenv(&quot;SECRET_KEY&quot;));
+        try {
 
-        return AmazonDynamoDBClientBuilder.standard()
-                                          .withRegion(Regions.US_WEST_2)
-                                          .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                                          .build();
+            List&lt;String&gt; resp = new ArrayList&lt;&gt;();
+
+            BasicAWSCredentials awsCreds = new BasicAWSCredentials(System.getenv(&quot;ACCESS_KEY&quot;), System.getenv(&quot;SECRET_KEY&quot;));
+            final AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+                                                     .withRegion(Regions.US_WEST_2)
+                                                     .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+                                                     .build();
+
+            List&lt;Bucket&gt; buckets = s3.listBuckets();            
+            for (Bucket b : buckets) {
+                resp.add(&quot;-&gt; &quot; + b.getName());
+            }
+
+            return resp;
+
+        } catch (Exception e) {
+           e.printStackTrace();
+           throw e;
+        }
     }
 }
 </code></pre>
@@ -617,8 +446,8 @@ public class DynamoDB {
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../java-aspectj/" class="btn btn-neutral float-left" title="AspectJ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../java-aws-lambda-s3/" class="btn btn-neutral float-right" title="Lambda & S3">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../java-aws-lambda-dynamodb/" class="btn btn-neutral float-left" title="Lambda & DynanoDB & Gateway"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../brokers/rabbit-mq-client/" class="btn btn-neutral float-right" title="RabbitQM Client">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -641,10 +470,10 @@ public class DynamoDB {
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../java-aspectj/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../java-aws-lambda-dynamodb/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../java-aws-lambda-s3/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../brokers/rabbit-mq-client/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

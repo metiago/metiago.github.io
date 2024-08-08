@@ -4,13 +4,15 @@ date: 2017-04-27T19:18:41-03:00
 draft: false
 ---
 
-Let's start creating an RSA certificate using Java keytool.
+This project is a RESTful API built with Eclipse Vert.x that implements JWT authentication for secure access control. The backend uses MongoDB to store user data and other relevant information. Users can register, log in, and receive a JWT token, which is required to access protected endpoints. The Vert.x framework handles the JWT authentication, ensuring that only authorized users can perform certain actions, while MongoDB provides a scalable and flexible database solution. The project emphasizes high performance, scalability, and security.
 
-These choices refer to what algorithm the identity provider uses to sign the JWT. Signing is a cryptographic operation that generates a "signature" (part of the JWT) that the recipient of the token can validate to ensure that the token has not been tampered with.
+### Cryptographic keys
 
-RS256 (RSA Signature with SHA-256) is an asymmetric algorithm, and it uses a public/private key pair: the identity provider has a private (secret) key used to generate the signature, and the consumer of the JWT gets a public key to validate the signature. Since the public key, as opposed to the private key, doesn't need to be kept secured, most identity providers make it easily available for consumers to obtain and use (usually through a metadata URL).
+These choices determine how the identity provider signs the JWT. Signing is a process that creates a "signature" (part of the JWT) so the recipient can verify that the token hasn’t been altered.
 
-HS256 (HMAC with SHA-256), on the other hand, involves a combination of a hashing function and one (secret) key that is shared between the two parties used to generate the hash that will serve as the signature. Since the same key is used both to generate the signature and to validate it, care must be taken to ensure that the key is not compromised.
+RS256 (RSA Signature with SHA-256) is an asymmetric algorithm that uses a public/private key pair. The identity provider uses a private key to sign the JWT, and the recipient uses a public key to verify it. The public key is usually easily accessible through a metadata URL.
+
+HS256 (HMAC with SHA-256) is a symmetric algorithm that uses a shared secret key for both signing and verifying the JWT. Since the same key is used for both, it's important to keep the key secure to prevent it from being compromised.
 
 ```bash
 keytool -genseckey -keystore keystore.jceks -storetype jceks -storepass secret -keyalg HMacSHA256 -keysize 2048 -alias HS256 -keypass secret
@@ -24,7 +26,7 @@ keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret 
 keytool -genkeypair -keystore keystore.jceks -storetype jceks -storepass secret -keyalg EC -keysize 256 -alias ES512 -keypass secret -sigalg SHA512withECDSA -dname "CN=,OU=,O=,L=,ST=,C=" -validity 360l
 ```
 
-Once with the private certificate, spin up a Mongo database instance to keep our data.
+### MongoDB Set up
 
 ```yaml
 version: '3.5'
@@ -43,7 +45,7 @@ services:
       - mongo
 ```
 
-`Constants` class to keep our constants.
+### Code Sample
 
 ```java
 package com.tiago.auth;
@@ -62,7 +64,8 @@ public class Constants {
 }
 ```
 
-POJO represeting our API response messages.
+
+
 
 ```java
 package com.tiago.auth;
@@ -105,7 +108,6 @@ public class Message implements Serializable {
 }
 ```
 
-POJO representing apps user
 
 ```java
 package com.tiago.auth;
@@ -157,7 +159,7 @@ public class User implements Serializable {
 }
 ```
 
-Authorization server implementation.
+
 
 ```java
 package com.tiago.auth;
@@ -369,4 +371,4 @@ public class AuthServer extends AbstractVerticle {
 }
 ```
 
-Note that the request header `Authorization: Bearer <token>` should be provided when calling the endpoint.
+PS: `Authorization: Bearer <token>` should be provided when calling the endpoint.

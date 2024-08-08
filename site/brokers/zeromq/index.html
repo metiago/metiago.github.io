@@ -83,6 +83,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-s3/">Amazon Web Services</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Brokers</span></p>
               <ul class="current">
@@ -215,10 +219,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-aspectj/">AspectJ</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../java/java-aws-lambda-s3/">Lambda & S3</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-binary-search/">Binary Search</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../java/java-bubble-sort/">Bubble Sort</a>
@@ -321,9 +321,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Zeromq is a message library that allow developers to design "brokerless" application. </p>
-<p>The official website can be found at https://zeromq.org/.</p>
-<p>These samples was built with Jero MQ which is a  Java implementation of libzmq https://github.com/zeromq/jeromq.</p>
+                <p>ZeroMQ (also known as ØMQ) is a high-performance asynchronous messaging library aimed at use in distributed or concurrent applications. It provides a messaging framework that abstracts away the complexities of socket programming, making it easier to create scalable and fault-tolerant applications.</p>
+<h3 id="key-features-of-zeromq">Key Features of ZeroMQ:</h3>
+<ul>
+<li>
+<p><strong>Socket Abstraction</strong>: Unlike traditional TCP sockets, ZeroMQ provides more advanced socket types like <code>REQ/REP</code>, <code>PUB/SUB</code>, <code>PUSH/PULL</code>, <code>PAIR</code>, etc., which implement various messaging patterns.</p>
+</li>
+<li>
+<p><strong>Asynchronous I/O</strong>: ZeroMQ supports non-blocking I/O operations, allowing applications to perform other tasks while waiting for messages, which enhances performance in concurrent environments.</p>
+</li>
+<li>
+<p><strong>Multiple Transports</strong>: ZeroMQ supports multiple underlying transports, including TCP, IPC (inter-process communication), in-process (for threads within the same process), and multicast (over UDP).</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: It is designed to scale from small applications to large-scale distributed systems. It can efficiently handle many connections, large volumes of messages, and different network topologies.</p>
+</li>
+<li>
+<p><strong>Flexible Messaging Patterns</strong>: ZeroMQ allows you to implement various messaging patterns, such as publish/subscribe, request/reply, and pipeline (task distribution), which can be combined to build complex communication patterns.</p>
+</li>
+<li>
+<p><strong>Language Bindings</strong>: It has bindings for many programming languages, including C, C++, Python, Go, Java, and more, making it a versatile choice for cross-language communication.</p>
+</li>
+</ul>
+<h3 id="use-cases">Use Cases:</h3>
+<ul>
+<li>
+<p><strong>Distributed Systems</strong>: ZeroMQ is commonly used in distributed systems where components need to communicate across different machines.</p>
+</li>
+<li>
+<p><strong>Real-Time Applications</strong>: It's well-suited for real-time systems that require low-latency messaging.</p>
+</li>
+<li>
+<p><strong>Service-Oriented Architectures</strong>: ZeroMQ can be used to build microservices or other service-oriented architectures that need robust communication mechanisms.</p>
+</li>
+<li>
+<p><strong>Financial Systems</strong>: Due to its performance and reliability, it is often used in financial applications that require rapid message passing.</p>
+</li>
+</ul>
+<p>Overall, ZeroMQ simplifies the process of creating distributed applications by providing an easy-to-use and powerful messaging layer.</p>
 <p><code>pom.xml</code></p>
 <pre><code class="language-xml">&lt;project  xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
 xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
