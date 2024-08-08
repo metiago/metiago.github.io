@@ -319,9 +319,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Testing a single class via command line</p>
-<pre><code class="language-bash">mvn test -Dtest=DeliveryOrderTrackingServiceTest#fulfillmentExternalTestOk test
+                <p>This script is a shell script designed to run tests for a Java project using Maven.</p>
+<pre><code class="language-bash">#!/bin/sh
+
+clear
+
+export JAVA_HOME=&quot;C:\\Users\\&lt;username&gt;\\.jdks\\corretto-17.0.11&quot;
+
+export PATH=$PATH:&quot;C:\\Users\\&lt;username&gt;\\.jdks\\corretto-17.0.11\\bin&quot;
+
+mvn test -Dtest=CacheControllerTest#getAllCaches -Dspring.profiles.active=test test
+
 </code></pre>
+<ol>
+<li>
+<p><strong><code>#!/bin/sh</code></strong>: This is called a shebang. It specifies that the script should be run using the <code>/bin/sh</code> shell.</p>
+</li>
+<li>
+<p><strong><code>clear</code></strong>: This command clears the terminal screen. It's often used to make the output of the script easier to read by removing any previous text.</p>
+</li>
+<li>
+<p><strong><code>export JAVA_HOME="C:\\Users\\&lt;username&gt;\\.jdks\\corretto-17.0.11"</code></strong>: This sets the <code>JAVA_HOME</code> environment variable to the path where the JDK (Java Development Kit) is installed. <code>&lt;username&gt;</code> should be replaced with the actual username of the person running the script. This variable helps tools like Maven locate the Java installation.</p>
+</li>
+<li>
+<p><strong><code>export PATH=$PATH:"C:\\Users\\&lt;username&gt;\\.jdks\\corretto-17.0.11\\bin"</code></strong>: This adds the <code>bin</code> directory of the JDK to the <code>PATH</code> environment variable. This allows the system to find and execute Java commands like <code>java</code> and <code>javac</code> from the command line.</p>
+</li>
+<li>
+<p><strong><code>mvn test -Dtest=CacheControllerTest#getAllCaches -Dspring.profiles.active=test test</code></strong>: This runs Maven (<code>mvn</code>) with the following parameters:</p>
+</li>
+<li><code>test</code>: This is the Maven goal to run tests.</li>
+<li><code>-Dtest=CacheControllerTest#getAllCaches</code>: This specifies that only the <code>getAllCaches</code> method of the <code>CacheControllerTest</code> class should be run.</li>
+<li><code>-Dspring.profiles.active=test</code>: This sets the active Spring profile to <code>test</code>, which can be used to configure different settings or behaviors for testing.</li>
+<li><code>test</code>: This is another instance of the <code>test</code> goal, ensuring that tests are executed.</li>
+</ol>
+<p>In summary, this script sets up the Java environment and runs a specific test method using Maven with a designated Spring profile. Make sure to replace <code>&lt;username&gt;</code> with the appropriate username for your system.</p>
               
             </div>
           </div><footer>
