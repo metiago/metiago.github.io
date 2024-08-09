@@ -259,17 +259,17 @@ web3j generate solidity -b DIContract.bin -a DIContract.abi -o /Users/tiago/work
 
 ### GUI - Screenshots
 
-<img src="/site/images/daap/eth-graphana.png" width="auto" >
+<img src="/images/daap/eth-graphana.png" width="auto" >
 
-<img src="/site/images/daap/new-account.png" width="auto" >
+<img src="/images/daap/new-account.png" width="auto" >
 
-<img src="/site/images/daap/login.png" width="auto" >
+<img src="/images/daap/login.png" width="auto" >
 
-<img src="/site/images/daap/accounts.png" width="auto" >
+<img src="/images/daap/accounts.png" width="auto" >
 
-<img src="/site/images/daap/accounts-mileages.png" width="auto" >
+<img src="/images/daap/accounts-mileages.png" width="auto" >
 
-<img src="/site/images/daap/transaction-logs.png" width="auto" >
+<img src="/images/daap/transaction-logs.png" width="auto" >
 
-<img src="/site/images/daap/wallet.png" width="auto" >
+<img src="/images/daap/wallet.png" width="auto" >
 

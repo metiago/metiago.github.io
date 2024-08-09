@@ -1,9 +1,8 @@
 ---
-title:  'Jenkins, Java & SonarQube'
+title: 'Jenkins, Java & SonarQube'
 date: 2019-04-10T19:18:41-03:00
 draft: false
 ---
-
 
 Continuous Integration (CI) is a practice of merging all developers' work several times a day. It's important to note that this practice is better achieved
 when following workflows different from pull request ones, open multiple pull requests can slowdown development process and it also creates the famous "merging hell".
@@ -14,7 +13,8 @@ every time we push new changes, the CI server will compile, analysis code qualit
  
 ### Source Code
 
-The source code for this tutorial can be found at [https://github.com/metiago/starter-ci](https://github.com/metiago/starter-ci). It's a Vert.x API that contains some unit tests, integration tests to represent a real scenario when developing applications that will be integrated on CI. Note that the `pom.xml` contain important configuration to handle unit tests and integration tests in different folders.
+The source code for this tutorial can be found at 
+<a target="_blank" href="https://github.com/metiago/starter-ci">https://github.com/metiago/starter-ci</a>. It's a Vert.x API that contains some unit tests, integration tests to represent a real scenario when developing applications that will be integrated on CI. Note that the `pom.xml` contain important configuration to handle unit tests and integration tests in different folders.
 
 ### Jenkis Server
 
@@ -140,31 +140,32 @@ At this point, we're able to access Jenkins at `http://localhost:8085/`.
 
 After its auto installation plugins, we have to install `Git Integration`, this plugin enables smooth integration with Git projects.
 
-<img src="/site/images/ci/git_plugin.png" width="auto">
+<img src="/images/ci/git_plugin.png" width="auto">
 
 Then, you should create a Jenkins creadentials to access Github via SSH, in this page copy your `private key` and past it in the key area.
 
-<img src="/site/images/ci/git_ssh.png" width="auto">
+<img src="/images/ci/git_ssh.png" width="auto">
 
 After that, we should create create a public key in Github, to do that, copy the public key value and past it in your Github SSH configuration.
 
-<img src="/site/images/ci/git_public_key.png" width="auto">
+<img src="/images/ci/git_public_key.png" width="auto">
 
 In order to be able to trigger Jenkins' jobs, we should generate a Jenkins token. 
 
-<img src="/site/images/ci/jenkins_token.png" width="auto">
+<img src="/images/ci/jenkins_token.png" width="auto">
 
 Copy this token, access the repository settings and configure it with the following parameters, add the token clicking on Change Secret link.
 
-<img src="/site/images/ci/git_webhook.png" width="auto">
+
+<img src="/images/ci/git_webhook.png" width="auto"/>
 
 Next step, create a job and set the SCM.
 
-<img src="/site/images/ci/job_git.png" width="auto">
+<img src="/images/ci/job_git.png" width="auto">
 
 and then the Build Triggers
 
-<img src="/site/images/ci/job_trigger.png" width="auto">
+<img src="/images/ci/job_trigger.png" width="auto">
 
 finally, we're going to configure our build section adding the script that will spin up a redis database for integration tests and also the
 maven goal which compiles the source code, execute unit tests and integration tests and lastly report code quality on SonarQube.
@@ -182,7 +183,7 @@ do
 done
 ```
 
-<img src="/site/images/ci/job_build.png" width="auto">
+<img src="/images/ci/job_build.png" width="auto">
 
 Before testing our integration, first we have to run our `SoneQube` server.
 
@@ -264,11 +265,11 @@ vagrant up
 At this point, we're able to test our continues integration by making some changes in the code and pushing it. You'll see that once Github receive the push
 Jenkins starts the job automatically.
 
-<img src="/site/images/ci/job_started.png" width="auto">
+<img src="/images/ci/job_started.png" width="auto">
 
 After the build, we're able to see the code quality analysis on SonarQube.
 
-<img src="/site/images/ci/sonar_report.png" width="auto">
+<img src="/images/ci/sonar_report.png" width="auto">
 
 That's how we can configure a simple CI server using Jenkins. Jenkins is powerful and flexible tool to handle CI and CD and it has many
 configuration that you can explore to go from simple to complex pipelines to automate the software development processes.

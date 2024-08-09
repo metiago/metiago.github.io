@@ -21,22 +21,22 @@ From the extracted folder, run the below command to start up KeyClock.
 Once we access the admin console, we should:
 
 - Create a new realm called `SpringBootKeycloakApp`
-<img src="/site/images/keycloack/add_realm.png" width="auto" >
+<img src="/images/keycloack/add_realm.png" width="auto" >
 
 - Create a new client application setting the `redirect_uris` to `http://localhost:8080/sso/login`
-<img src="/site/images/keycloack/add_app.png" width="auto" >
+<img src="/images/keycloack/add_app.png" width="auto" >
 
 - Create a new user 
-<img src="/site/images/keycloack/add_user.png" width="auto" >
+<img src="/images/keycloack/add_user.png" width="auto" >
 
 - Set a password for this user on the credentials tab
-<img src="/site/images/keycloack/add_user_password.png" width="auto" >
+<img src="/images/keycloack/add_user_password.png" width="auto" >
 
 - Create a new role called `user` e.g
-<img src="/site/images/keycloack/add_role.png" width="auto" >
+<img src="/images/keycloack/add_role.png" width="auto" >
 
 - Assign this role for the user
-<img src="/site/images/keycloack/assign_role.png" width="auto" >
+<img src="/images/keycloack/assign_role.png" width="auto" >
 
 ### Application Code
 

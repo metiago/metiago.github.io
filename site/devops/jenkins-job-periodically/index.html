@@ -88,6 +88,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Blockchain</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blockchain/geth-blockchain/"> Blockchain - Geth Ethereum</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Brokers</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../brokers/rabbit-mq-client/">RabbitQM Client</a>
@@ -137,6 +142,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../jenkins-ci/">Jenkins, Java & SonarQube</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Jenkins Job Periodically</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../jenkins-rest-api/">Jenkins REST API</a>
                   </li>
@@ -320,15 +327,29 @@
             <div class="section" itemprop="articleBody">
               
                 <p>In order to run a Jenkins Job periodically, all you need to do is reaching your Job Configuration and move to the Build Triggers section. There you need to check the option Build Periodically and specify a cron expression for your jenkins Job:</p>
-<p><img src="/site/images/jenkins/jobs-periodically/jobs-periodically.png" width="auto" ></p>
+<p><img src="/images/jenkins/jobs-periodically/jobs-periodically.png" width="auto" ></p>
 <p>In the above example, we have used the cron expression “<em>/1 * * * </em>” which means to run the Jenkins job every minute.</p>
 <p>The format used in the Schedule field is as follows:</p>
-<p>MINUTE (0-59), HOUR (0-23), DAY (1-31), MONTH (1-12), DAY OF THE WEEK (0-6)</p>
-<p>Examples:</p>
-<p>Start build daily at 08:30 in the morning, Monday – Friday: 30 08 * * 1-5</p>
-<p>Weekday daily build twice a day, at lunchtime 12:00 and midnight 00:00, Sunday to Thursday: 00 0,12 * * 0-4</p>
-<p>Start build at midnight: @midnight or start build at midnight, every Saturday: 59 23 * * 6</p>
-<p>Every first of every month between 2:00 a.m. – 02:30 a.m. : H(0,30) 02 01 * *</p>
+<p><strong>MINUTE (0-59), HOUR (0-23), DAY (1-31), MONTH (1-12), DAY OF THE WEEK (0-6)</strong></p>
+<h4 id="examples">Examples:</h4>
+<ul>
+<li>Start build daily at 08:30 in the morning Monday – Friday: 30<ul>
+<li>08 * * 1-5</li>
+</ul>
+</li>
+<li>Weekday daily build twice a day, at lunchtime 12:00 and midnight 00:00, Sunday to Thursday<ul>
+<li>00 0,12 * * 0-4</li>
+</ul>
+</li>
+<li>Start build at midnight: @midnight or start build at midnight, every Saturday<ul>
+<li>59 23 * * 6</li>
+</ul>
+</li>
+<li>Every first of every month between 2:00 a.m. – 02:30 a.m<ul>
+<li>H(0,30) 02 01 * *</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

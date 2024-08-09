@@ -88,6 +88,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Blockchain</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blockchain/geth-blockchain/"> Blockchain - Geth Ethereum</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Brokers</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../brokers/rabbit-mq-client/">RabbitQM Client</a>
@@ -444,12 +449,12 @@ pipeline {
     }
 }
 </code></pre>
-<p><img src="/site/images/ci/jenkins_pipeline.png" width="auto"></p>
+<p><img src="/images/ci/jenkins_pipeline.png" width="auto"></p>
 <p>If the build succeed, we can get your load balancer endpoint by <code>kubectl describe service</code> and then making a request to the application health check endpoint.</p>
-<p><img src="/site/images/ci/eks_request.png" width="auto"></p>
+<p><img src="/images/ci/eks_request.png" width="auto"></p>
 <h3 id="workflow">Workflow</h3>
 <p>This diagram below give us a macro overview about the pipeline.</p>
-<p><img src="/site/images/ci/diagram.png" width="auto"></p>
+<p><img src="/images/ci/diagram.png" width="auto"></p>
 <p>That's an example of how to set up Jenkins pipeline to deploy a Java application in the Kubernetes. Remember that, there's a difference between continues delivery and continue deployment processes. Basically, continuous delivery is the practice of ensuring that software is always ready to be deployed to any environment (STAGE, QA, ETC), usually it requires manual intervention (one click button) to release the last artifact. On the other hand, 
 continuous deployment is the next step of continuous delivery, every change that passes the automated tests is deployed to production automatically.</p>
               
