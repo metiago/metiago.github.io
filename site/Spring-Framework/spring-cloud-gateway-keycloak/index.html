@@ -331,16 +331,16 @@ our edge service and all our micro sercives behind it.</p>
 <pre><code class="language-bash">docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:15.0.2
 </code></pre>
 <p>Add a new user and set its password.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/add-user.png" width="auto" ></p>
-<p><img src="/images/spring-cloud/gateway-keycloack/add-user-password.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/add-user.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/add-user-password.png" width="auto" ></p>
 <p>Create a realm.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/add-realm.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/add-realm.png" width="auto" ></p>
 <p>Create a client scope.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/client-scope.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/client-scope.png" width="auto" ></p>
 <p>Create two clients with the same configuration, one called <code>has-game-scope</code> and other called <code>no-game-scope</code>.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/add-client.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/add-client.png" width="auto" ></p>
 <p>Assign the scope <code>GAME</code> for the client called <code>has-game-scope</code>.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/assign-scope.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/assign-scope.png" width="auto" ></p>
 <p>That's it! We have our Keycloak ready to authenticate users.</p>
 <h3 id="code-example-gateway">Code Example - Gateway</h3>
 <p><code>pom.xml</code></p>
@@ -639,7 +639,7 @@ public class GameApplication {
 <h3 id="workflow">Workflow</h3>
 <p>Accessing <code>http://localhost:9090</code>, Spring Boot prompts a login page asking for the scopes you want to use 
 and based on what you choose, you be able to access the protected endpoint.</p>
-<p><img src="/images/spring-cloud/gateway-keycloack/diagram.png" width="auto" ></p>
+<p><img src="/site/images/spring-cloud/gateway-keycloack/diagram.png" width="auto" ></p>
               
             </div>
           </div><footer>

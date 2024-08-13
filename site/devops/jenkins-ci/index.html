@@ -440,19 +440,19 @@ end
 </code></pre>
 <p>At this point, we're able to access Jenkins at <code>http://localhost:8085/</code>. </p>
 <p>After its auto installation plugins, we have to install <code>Git Integration</code>, this plugin enables smooth integration with Git projects.</p>
-<p><img src="/images/ci/git_plugin.png" width="auto"></p>
+<p><img src="/site/images/ci/git_plugin.png" width="auto"></p>
 <p>Then, you should create a Jenkins creadentials to access Github via SSH, in this page copy your <code>private key</code> and past it in the key area.</p>
-<p><img src="/images/ci/git_ssh.png" width="auto"></p>
+<p><img src="/site/images/ci/git_ssh.png" width="auto"></p>
 <p>After that, we should create create a public key in Github, to do that, copy the public key value and past it in your Github SSH configuration.</p>
-<p><img src="/images/ci/git_public_key.png" width="auto"></p>
+<p><img src="/site/images/ci/git_public_key.png" width="auto"></p>
 <p>In order to be able to trigger Jenkins' jobs, we should generate a Jenkins token. </p>
-<p><img src="/images/ci/jenkins_token.png" width="auto"></p>
+<p><img src="/site/images/ci/jenkins_token.png" width="auto"></p>
 <p>Copy this token, access the repository settings and configure it with the following parameters, add the token clicking on Change Secret link.</p>
-<p><img src="/images/ci/git_webhook.png" width="auto"/></p>
+<p><img src="/site/images/ci/git_webhook.png" width="auto"/></p>
 <p>Next step, create a job and set the SCM.</p>
-<p><img src="/images/ci/job_git.png" width="auto"></p>
+<p><img src="/site/images/ci/job_git.png" width="auto"></p>
 <p>and then the Build Triggers</p>
-<p><img src="/images/ci/job_trigger.png" width="auto"></p>
+<p><img src="/site/images/ci/job_trigger.png" width="auto"></p>
 <p>finally, we're going to configure our build section adding the script that will spin up a redis database for integration tests and also the
 maven goal which compiles the source code, execute unit tests and integration tests and lastly report code quality on SonarQube.</p>
 <pre><code class="language-shell">docker-compose up -d
@@ -466,7 +466,7 @@ do
     fi
 done
 </code></pre>
-<p><img src="/images/ci/job_build.png" width="auto"></p>
+<p><img src="/site/images/ci/job_build.png" width="auto"></p>
 <p>Before testing our integration, first we have to run our <code>SoneQube</code> server.</p>
 <h3 id="sonarqube">SonarQube</h3>
 <p><code>SonarQube</code> is a tool which makes inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities. </p>
@@ -537,9 +537,9 @@ end
 </code></pre>
 <p>At this point, we're able to test our continues integration by making some changes in the code and pushing it. You'll see that once Github receive the push
 Jenkins starts the job automatically.</p>
-<p><img src="/images/ci/job_started.png" width="auto"></p>
+<p><img src="/site/images/ci/job_started.png" width="auto"></p>
 <p>After the build, we're able to see the code quality analysis on SonarQube.</p>
-<p><img src="/images/ci/sonar_report.png" width="auto"></p>
+<p><img src="/site/images/ci/sonar_report.png" width="auto"></p>
 <p>That's how we can configure a simple CI server using Jenkins. Jenkins is powerful and flexible tool to handle CI and CD and it has many
 configuration that you can explore to go from simple to complex pipelines to automate the software development processes.</p>
               
