@@ -1,5 +1,5 @@
 ---
-title: 'RabbitQM Client'
+title: 'RabbitMQ Client'
 date: 2019-04-20T14:27:47-03:00
 draft: false
 ---

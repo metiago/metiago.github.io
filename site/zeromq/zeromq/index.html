@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>RabbitQM Client - Just Experiments</title>
+    <title>Zero MQ - Just Experiments</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "RabbitQM Client";
-        var mkdocs_page_input_path = "brokers\\rabbit-mq-client.md";
+        var mkdocs_page_name = "Zero MQ";
+        var mkdocs_page_input_path = "zeromq\\zeromq.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -86,13 +86,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Brokers</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">RabbitQM Client</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../zeromq/">Zero MQ</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Cloud</span></p>
@@ -284,6 +277,11 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../java/simple_web_server/">Simple Web Server</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Kafka</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kafka/">Kafka API</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Kubernetes</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../kubernetes/kube-ms/">Kube Service Discovery (DNS)</a>
@@ -296,9 +294,23 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../linux/os-check-used-port/">OS – Listing used ports</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Rabbitmq</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rabbitmq/rabbit-mq-api/">RabbitMQ API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rabbitmq/rabbit-mq-client/">RabbitMQ Client</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../tools/apache-ab/">Apache AB</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Zeromq</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Zero MQ</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
       </div>
@@ -315,8 +327,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Brokers</li>
-      <li class="breadcrumb-item active">RabbitQM Client</li>
+          <li class="breadcrumb-item">Zeromq</li>
+      <li class="breadcrumb-item active">Zero MQ</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -325,103 +337,205 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+                <p>ZeroMQ (also known as ØMQ) is a high-performance asynchronous messaging library aimed at use in distributed or concurrent applications. It provides a messaging framework that abstracts away the complexities of socket programming, making it easier to create scalable and fault-tolerant applications.</p>
+<h3 id="key-features-of-zeromq">Key Features of ZeroMQ:</h3>
+<ul>
+<li>
+<p><strong>Socket Abstraction</strong>: Unlike traditional TCP sockets, ZeroMQ provides more advanced socket types like <code>REQ/REP</code>, <code>PUB/SUB</code>, <code>PUSH/PULL</code>, <code>PAIR</code>, etc., which implement various messaging patterns.</p>
+</li>
+<li>
+<p><strong>Asynchronous I/O</strong>: ZeroMQ supports non-blocking I/O operations, allowing applications to perform other tasks while waiting for messages, which enhances performance in concurrent environments.</p>
+</li>
+<li>
+<p><strong>Multiple Transports</strong>: ZeroMQ supports multiple underlying transports, including TCP, IPC (inter-process communication), in-process (for threads within the same process), and multicast (over UDP).</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: It is designed to scale from small applications to large-scale distributed systems. It can efficiently handle many connections, large volumes of messages, and different network topologies.</p>
+</li>
+<li>
+<p><strong>Flexible Messaging Patterns</strong>: ZeroMQ allows you to implement various messaging patterns, such as publish/subscribe, request/reply, and pipeline (task distribution), which can be combined to build complex communication patterns.</p>
+</li>
+<li>
+<p><strong>Language Bindings</strong>: It has bindings for many programming languages, including C, C++, Python, Go, Java, and more, making it a versatile choice for cross-language communication.</p>
+</li>
+</ul>
+<h3 id="use-cases">Use Cases:</h3>
+<ul>
+<li>
+<p><strong>Distributed Systems</strong>: ZeroMQ is commonly used in distributed systems where components need to communicate across different machines.</p>
+</li>
+<li>
+<p><strong>Real-Time Applications</strong>: It's well-suited for real-time systems that require low-latency messaging.</p>
+</li>
+<li>
+<p><strong>Service-Oriented Architectures</strong>: ZeroMQ can be used to build microservices or other service-oriented architectures that need robust communication mechanisms.</p>
+</li>
+<li>
+<p><strong>Financial Systems</strong>: Due to its performance and reliability, it is often used in financial applications that require rapid message passing.</p>
+</li>
+</ul>
+<p>Overall, ZeroMQ simplifies the process of creating distributed applications by providing an easy-to-use and powerful messaging layer.</p>
+<p><code>pom.xml</code></p>
+<pre><code class="language-xml">&lt;project  xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-    &lt;groupId&gt;org.example&lt;/groupId&gt;
-    &lt;artifactId&gt;rabbity&lt;/artifactId&gt;
+    &lt;groupId&gt;io.tiago&lt;/groupId&gt;
+    &lt;artifactId&gt;lollo&lt;/artifactId&gt;
     &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;9&lt;/source&gt;
+                    &lt;target&gt;9&lt;/target&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
     &lt;properties&gt;
         &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-        &lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;
-        &lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
+        &lt;junit.version&gt;5.6.0&lt;/junit.version&gt;
     &lt;/properties&gt;
     &lt;dependencies&gt;
         &lt;dependency&gt;
-            &lt;groupId&gt;com.rabbitmq&lt;/groupId&gt;
-            &lt;artifactId&gt;amqp-client&lt;/artifactId&gt;
-            &lt;version&gt;5.20.0&lt;/version&gt;
+            &lt;groupId&gt;org.zeromq&lt;/groupId&gt;
+            &lt;artifactId&gt;jeromq&lt;/artifactId&gt;
+            &lt;version&gt;0.5.3&lt;/version&gt;
         &lt;/dependency&gt;
         &lt;dependency&gt;
-            &lt;groupId&gt;commons-io&lt;/groupId&gt;
-            &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
-            &lt;version&gt;2.6&lt;/version&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+            &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
+            &lt;version&gt;${junit.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
 &lt;/project&gt;
 </code></pre>
-<pre><code class="language-java">package org.example.queues;
+<h4 id="request-reply-pattern">Request Reply Pattern</h4>
+<p>It works like P2P communication allowing client to acknowledge message delivery. </p>
+<pre><code class="language-java">import org.zeromq.SocketType;
+import org.zeromq.ZContext;
+import org.zeromq.ZMQ;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import org.apache.commons.io.FileUtils;
+public class ServerRequestReply {
 
-import java.io.File;
-import java.net.InetAddress;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
+    public static void main(String[] args) {
 
-public class Publisher {
-
-    public static final String QUEUE_NAME = &quot;x-my-queue-name&quot;;
-
-    public static void main(String[] args) throws Exception {
-        Publisher publisher = new Publisher();
-        publisher.send();
-    }
-
-    private void send() throws Exception {
-
-        String[] devHots = new String[]{&quot;SERVER_1&quot;}; 
-        String[] stgHots = new String[]{&quot;SERVER_2&quot;};
-
-        for (String h : stgHots) {
-
-            InetAddress inetAddress = java.net.InetAddress.getByName(h);
-            String address = inetAddress.getHostAddress();
-            ConnectionFactory factory = new ConnectionFactory();
-            factory.setHost(address);
-            factory.setVirtualHost(&quot;/&quot;);
-            factory.setUsername(&quot;&quot;);
-            factory.setPassword(&quot;&quot;);
-
-            try (Connection connection = factory.newConnection();
-                Channel channel = connection.createChannel()) {
-                channel.exchangeDeclare(QUEUE_NAME, &quot;fanout&quot;, true, false, null);
-
-                String message = getPayload();
-                var props = new AMQP.BasicProperties.Builder().headers(getAuthorization()).build(), message.getBytes(&quot;UTF-8&quot;);
-                channel.basicPublish(QUEUE_NAME, &quot;&quot;, props);
-
-                System.out.println(&quot;[x] Sent&quot;);
+        try (ZContext context = new ZContext()) {
+            ZMQ.Socket socket = context.createSocket(SocketType.REP);
+            socket.bind(&quot;tcp://*:5555&quot;);
+            while (!Thread.currentThread().isInterrupted()) {
+                byte[] reply = socket.recv(0); // block until a message is received
+                System.out.println(&quot;Received: [&quot; + new String(reply, ZMQ.CHARSET) + &quot;]&quot;);
+                String response = &quot;Hello, world!&quot;;
+                socket.send(response.getBytes(ZMQ.CHARSET), 0);
             }
         }
     }
+}
+</code></pre>
+<pre><code class="language-java">import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
 
-    private String getPayload() throws Exception {
-        var file = System.getProperty(&quot;user.dir&quot;) + &quot;\\payloads\\orders.json&quot;;
-        var json = FileUtils.readFileToString(new File(file), StandardCharsets.UTF_8);
-        return json.replace(&quot;\n&quot;, &quot;&quot;).replace(&quot;\r&quot;, &quot;&quot;);
-    }
+public class ClientRequestReply {
 
-    private Map&lt;String, Object&gt; getAuthorization() {
-        Map&lt;String, Object&gt; headers = new HashMap&lt;&gt;();
-        headers.put(&quot;Authorization&quot;, &quot;abc&quot;);
-        return headers;
+    public static void main(String args[]) throws InterruptedException {
+        try (ZMQ.Context context = ZMQ.context(1)) {
+            ZMQ.Socket requester = context.socket(SocketType.REQ);
+            requester.connect(&quot;tcp://localhost:5555&quot;);
+            requester.send(&quot;Hello&quot;.getBytes(), 0);
+            byte[] reply = requester.recv(0);
+            String replyValue = new String(reply);
+            System.out.println(&quot;Acknowledged...&quot;);
+            requester.close();
+            context.term();
+        }
     }
 }
-
 </code></pre>
+<h4 id="pub-sub-pattern">Pub Sub Pattern</h4>
+<p>The publish-subscribe pattern is used for one-to-many distribution of data from a single publisher to multiple subscriber.</p>
+<pre><code class="language-java">package io.tiago.zero;
+
+import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
+
+public class ServerPubSubOne {
+
+    public static void main(String[] args) throws InterruptedException {
+        try (ZMQ.Context ctx = ZMQ.context(1)) {
+            try (ZMQ.Socket sub = ctx.socket(SocketType.SUB)) {
+                sub.connect(&quot;tcp://*:12345&quot;);
+                sub.subscribe(&quot;B&quot;.getBytes());
+                while (!Thread.currentThread().isInterrupted()) {
+                    System.out.println(&quot;SUB: &quot; + sub.recvStr());
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">package io.tiago.zero;
+
+import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
+
+public class ServerPubSubTwo {
+
+    public static void main(String[] args) throws InterruptedException {
+        try (ZMQ.Context ctx = ZMQ.context(1)) {
+            try (ZMQ.Socket sub = ctx.socket(SocketType.SUB)) {
+                sub.connect(&quot;tcp://*:12345&quot;);
+                sub.subscribe(&quot;A&quot;.getBytes());
+                while (!Thread.currentThread().isInterrupted()) {
+                    System.out.println(&quot;SUB: &quot; + sub.recvStr());
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">package io.tiago.zero;
+
+import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
+
+import java.util.Random;
+
+public class ClientPubSub {
+
+    public static void main(String[] args) throws InterruptedException {
+        try (ZMQ.Context ctx = ZMQ.context(1)) {
+            try (ZMQ.Socket pub = ctx.socket(SocketType.PUB)) {
+                pub.bind(&quot;tcp://*:12345&quot;);
+                Random rand = new Random(System.currentTimeMillis());
+                while (!Thread.currentThread().isInterrupted()) {
+                    String msg = String.format(&quot;%c-%05d&quot;, 'A' + rand.nextInt(10), rand.nextInt(100000));
+                    System.out.println(&quot;Sending: &quot; + msg);
+                    pub.send(msg);
+                    Thread.sleep(500);
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="reference">Reference</h3>
+<p>https://zeromq.org/socket-api/</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../aws/java-aws-lambda-s3/" class="btn btn-neutral float-left" title="Lambda & S3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../zeromq/" class="btn btn-neutral float-right" title="Zero MQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../tools/apache-ab/" class="btn btn-neutral float-left" title="Apache AB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -444,10 +558,8 @@ public class Publisher {
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../aws/java-aws-lambda-s3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../tools/apache-ab/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../zeromq/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
