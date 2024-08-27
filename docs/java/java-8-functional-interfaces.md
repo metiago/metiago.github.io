@@ -32,7 +32,9 @@ public class BiPredicateExample {
     public static void main(String[] args) {
         BiPredicate<String, Integer> validAnimal = (name, age) -> name.length() > 0 && age > 0;
         var items = Map.of("moon", 1, "sun", -1000, "march", 2);
-        items.entrySet().stream().filter(m -> validAnimal.test(m.getKey(), m.getValue())).forEach(System.out::println);
+        items.entrySet().stream()
+        .filter(m -> validAnimal.test(m.getKey(), m.getValue()))
+        .forEach(System.out::println);
     }
 }
 ```
@@ -120,7 +122,9 @@ public class FunctionExample {
         };
 
         var data = List.of("dogs", "cats", "birds", "sharks", "elephants");
-        data.stream().map(isValid::apply).forEach(System.out::println);
+        data.stream()
+            .map(isValid::apply)
+            .forEach(System.out::println);
     }
 }
 ```
@@ -147,7 +151,9 @@ public class BiFunctionExample {
         };
 
         var data = Map.of("dogs", -3, "cats", 6, "birds", -10, "sharks", 2, "elephants", -9);
-        data.entrySet().stream().map(m -> isValid.apply(m.getKey(), m.getValue())).forEach(System.out::println);
+        data.entrySet().stream()
+                       .map(m -> isValid.apply(m.getKey(), m.getValue()))
+                       .forEach(System.out::println);
     }
 }
 ```
@@ -176,7 +182,6 @@ UnaryOperator accepts a single argument and return a single argument, but both t
 ```java
 import java.util.function.UnaryOperator;
 
-UnaryOperator accepts a single argument and return a single argument, but both the input and output argument should be of same or similar type.
 public class UnaryOperatorExample {
 
     public static void main(String[] args)

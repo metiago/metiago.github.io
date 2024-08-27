@@ -368,7 +368,9 @@ public class BiPredicateExample {
     public static void main(String[] args) {
         BiPredicate&lt;String, Integer&gt; validAnimal = (name, age) -&gt; name.length() &gt; 0 &amp;&amp; age &gt; 0;
         var items = Map.of(&quot;moon&quot;, 1, &quot;sun&quot;, -1000, &quot;march&quot;, 2);
-        items.entrySet().stream().filter(m -&gt; validAnimal.test(m.getKey(), m.getValue())).forEach(System.out::println);
+        items.entrySet().stream()
+        .filter(m -&gt; validAnimal.test(m.getKey(), m.getValue()))
+        .forEach(System.out::println);
     }
 }
 </code></pre>
@@ -445,7 +447,9 @@ public class FunctionExample {
         };
 
         var data = List.of(&quot;dogs&quot;, &quot;cats&quot;, &quot;birds&quot;, &quot;sharks&quot;, &quot;elephants&quot;);
-        data.stream().map(isValid::apply).forEach(System.out::println);
+        data.stream()
+            .map(isValid::apply)
+            .forEach(System.out::println);
     }
 }
 </code></pre>
@@ -468,7 +472,9 @@ public class BiFunctionExample {
         };
 
         var data = Map.of(&quot;dogs&quot;, -3, &quot;cats&quot;, 6, &quot;birds&quot;, -10, &quot;sharks&quot;, 2, &quot;elephants&quot;, -9);
-        data.entrySet().stream().map(m -&gt; isValid.apply(m.getKey(), m.getValue())).forEach(System.out::println);
+        data.entrySet().stream()
+                       .map(m -&gt; isValid.apply(m.getKey(), m.getValue()))
+                       .forEach(System.out::println);
     }
 }
 </code></pre>
@@ -489,7 +495,6 @@ public class SupplierExample {
 <p>UnaryOperator accepts a single argument and return a single argument, but both the input and output argument should be of same or similar type.</p>
 <pre><code class="language-java">import java.util.function.UnaryOperator;
 
-UnaryOperator accepts a single argument and return a single argument, but both the input and output argument should be of same or similar type.
 public class UnaryOperatorExample {
 
     public static void main(String[] args)
