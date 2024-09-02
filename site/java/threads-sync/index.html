@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Java Threads - Sync - Just Experiments</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Java Threads - Sync";
+        var mkdocs_page_input_path = "java\\threads-sync.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Just Experiments
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Eclipse Vert.x</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Eclipse-Vert.x/vertx-elasticsearch/">VertX & Elasticsearch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Eclipse-Vert.x/vertx-jwt-auth/">VertX - JWT Auth & MongoDB</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Spring Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/integration-tests/">Spring Boot Integration Tests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/keycloack/">Spring Boot + Keycloak</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-actuator/">Spring Boot Actuator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-async/">Spring Async</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-batch-es-jms/">Spring Batch + Elasticsearch + JMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-batch-flat-files/">Spring Batch Flat File</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-boot-kafka/">Spring Boot - Kafka</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-cache/">Spring Cache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-cloud-gateway-keycloak/">Spring Cloud Gateway + Keycloak</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/spring-security-oauth2/">Spring Security - OAuth2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Spring-Framework/unit-tests/">Mockito Unit Tests</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aws</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-ec2-mysql/">MySQL 8 - AWS EC2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-qldb-blockchain/">AWS QLDB & Lambda</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/aws-s3/">Amazon Web Services</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-dynamodb/">Lambda & DynanoDB & Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../aws/java-aws-lambda-s3/">Lambda & S3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/cloud-starter/">Cloud Computing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/oci/">OCI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cloud/vpc/">VPC & Networking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Databases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/data-store-reference/">Data Store References</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/mongo-seed-data/">MongoDB Quick Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../databases/mysql-ref/"> MySQL Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/outbox-pattern/">Outbox Pattern</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/planning/">Planning Checklist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-dependency-inversion-principle/">Dependency Inversion Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-interface-segregation-principle/">Interface Segregation Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-liskov-substitution-principle/">Liskov Substitution Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-open-close-responsibility/">Open Closed Principle</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/solid-single-responsibility/">Single Responsibility Principle</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Devops</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-cd/">Continuous Delivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-ci/">Jenkins, Java & SonarQube</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-job-periodically/">Jenkins Job Periodically</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../devops/jenkins-rest-api/">Jenkins REST API</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/docker-references/">Docker Quick Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/kafka/">Kafka</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/mysql/">MySQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/postgre/">PostgreSQL</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../docker/rabbitmq/">Rabbit & Mongo & Redis</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Eip</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-aggregator/">Apache Camel Aggregator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-enricher/">Apache Camel Enricher</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-files/">Apache Camel Flat Files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-filter/">Apache Camel Filter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-ftp/">Apache Camel FTP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-interceptor/">Apache Camel Interceptors</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-json-xml/">Apache Camel JSON to XML</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-load-balance/">Apache Camel Load Balance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-multicast/">Apache Camel MultiCast</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-quartz/">Apache Camel Quartz</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-seda/">Apache Camel Seda</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-splitter/">Apache Camel Splitter</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-throttle/">Apache Camel Throttler</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-translator/">Apache Camel Translator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-wire-tap/">Apache Camel Wire Tap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-xml-json/">Apache Camel XML to JSON</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/apache-camel-xml/">Apache Camel XML</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../eip/eip/">EIP - Enterprise Integration Patterns</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Git</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../git/git/"> Git Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Java</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../balanced-brackets/">Balanced Brackets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../big-o/">Big O Notation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../binary-search-tree/">Binary Search Tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../doubly-linked-lists/"> Doubly Linked Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elapsed-time/">Elapsed Time</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../graphs/">Graph</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-8-functional-interfaces/">Java Functional Interfaces</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-8-optional/">Java Optional API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-aspectj/">AspectJ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-binary-search/">Binary Search</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-bubble-sort/">Bubble Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-collections-streams/">Collections, Streams & Lambdas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-date-datetime/">Java Date & Datetime Samples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-file-io/"> NIO File API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-find-duplicate-dates/">Duplicate Dates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-find-duplicate-datetime/">DateTime - Duplicates</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-future/">Completable Futures</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-hashtable/">Hash Tables</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-http-client/">Java Http Client</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-insertion-sort/">Insertion Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-install-cert/">Sun JKS Utility</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-keystore-example/">Java JDK Key Tool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-linear-search-minor-element/">Linear Searching - Minor Element</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-linear-search/">Linear Searching</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-merge-sort/">Merge Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-min-max/">Min & Max Array Value</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-queue/">Queues</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-quick-sort/">Quick Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-regex/">Regular Expression</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-selection-sort/">Selection Sort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-sockets-multithread/">Java Sockets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-stack/"> Stacks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-tree/">Tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-xml-api/">Java XML API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linked-lists/">Linked Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../simple_web_server/">Simple Web Server</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-atomic/">Java Threads - Atomic</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-data-race/">Data Race and Race Condition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-deadlock/">Java Threads - DeadLocks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-inter-com/">Inter Thread Communication</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-locks/">ReentrantLock & ReentrantReadWriteLock</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Java Threads - Sync</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads-throughput/">Throughput</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../threads/">Java Threads</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Jpa</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../jpa/jpa-composite-primary-key/">JPA - Composite Primary Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../jpa/jpa-quick-references/">JPA Quick Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../jpa/jpa-sequence-mapping/">JPA - Sequence Mapping</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Jvm</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../jvm/java-jconsole/">Profiling Quarkus Application</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Kafka</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kafka/">Kafka API</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Kubernetes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kubernetes/kube-ms/">Kube Service Discovery (DNS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kubernetes/kubernetes-kubectl/">K8S Kubectl Quick Reference</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../linux/os-check-used-port/">OS – Listing used ports</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Maven</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../maven/maven/">Maven</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Rabbitmq</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rabbitmq/rabbit-mq-api/">RabbitMQ API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rabbitmq/rabbit-mq-client/">RabbitMQ Client</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/apache-ab/">Apache AB</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Zeromq</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../zeromq/zeromq/">Zero MQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Just Experiments</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Java</li>
+      <li class="breadcrumb-item active">Java Threads - Sync</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>In the provided Java code, the <code>synchronized</code> keyword is used on the <code>increment</code> and <code>decrement</code> methods of the <code>InventoryCounter</code> class. This ensures that these methods can only be accessed by one thread at a time, which is crucial in a multi-threaded environment where multiple threads may attempt to modify the same shared resource (in this case, the <code>items</code> variable).</p>
+<h3 id="key-points">Key Points:</h3>
+<ol>
+<li>
+<p><strong>Thread Safety</strong>: By marking the <code>increment</code> and <code>decrement</code> methods as <code>synchronized</code>, the code prevents race conditions. This means that if one thread is executing <code>increment</code>, another thread cannot execute <code>decrement</code> (or vice versa) until the first thread has finished its execution of the synchronized method.</p>
+</li>
+<li>
+<p><strong>Mutual Exclusion</strong>: The <code>synchronized</code> keyword provides mutual exclusion, ensuring that only one thread can modify the <code>items</code> variable at any given time. This is essential for maintaining the integrity of the shared resource.</p>
+</li>
+<li>
+<p><strong>Performance Consideration</strong>: While synchronization helps in avoiding inconsistencies, it can also lead to performance bottlenecks if many threads are trying to access the synchronized methods simultaneously. This is because threads may be forced to wait for their turn to access the synchronized methods.</p>
+</li>
+<li>
+<p><strong>Usage in Threads</strong>: In the <code>main</code> method, two threads (<code>IncrementingThread</code> and <code>DecrementingThread</code>) are created and started. Each thread performs a loop of 10,000 increments or decrements on the <code>InventoryCounter</code>, demonstrating how synchronization manages concurrent access to the <code>items</code> variable.</p>
+</li>
+</ol>
+<p>Overall, the use of <code>synchronized</code> in this code is a fundamental approach to ensure that the inventory count remains accurate despite concurrent modifications from multiple threads.</p>
+<pre><code class="language-java">
+public class Main {
+
+    public static void main(String[] args) throws InterruptedException {
+        InventoryCounter inventoryCounter = new InventoryCounter();
+        IncrementingThread incrementingThread = new IncrementingThread(inventoryCounter);
+        DecrementingThread decrementingThread = new DecrementingThread(inventoryCounter);
+
+        incrementingThread.start();
+        decrementingThread.start();
+
+        incrementingThread.join();
+        decrementingThread.join();
+
+        System.out.println(&quot;We currently have &quot; + inventoryCounter.getItems() + &quot; items&quot;);
+    }
+
+    public static class DecrementingThread extends Thread {
+
+        private final InventoryCounter inventoryCounter;
+
+        public DecrementingThread(InventoryCounter inventoryCounter) {
+            this.inventoryCounter = inventoryCounter;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i &lt; 10000; i++) {
+                inventoryCounter.decrement();
+            }
+        }
+    }
+
+    public static class IncrementingThread extends Thread {
+
+        private final InventoryCounter inventoryCounter;
+
+        public IncrementingThread(InventoryCounter inventoryCounter) {
+            this.inventoryCounter = inventoryCounter;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i &lt; 10000; i++) {
+                inventoryCounter.increment();
+            }
+        }
+    }
+
+    private static class InventoryCounter {
+        private int items = 0;
+
+        public synchronized void increment() {
+            items++;
+        }
+
+        public synchronized void decrement() {
+            items--;
+        }
+
+        public int getItems() {
+            return items;
+        }
+    }
+}
+</code></pre>
+<p>In this version of the Java code, synchronization is achieved using a custom lock object (<code>myLock</code>) instead of the <code>synchronized</code> keyword directly on the methods. This approach provides more flexibility and control over synchronization.</p>
+<h3 id="key-points_1">Key Points:</h3>
+<ol>
+<li>
+<p><strong>Custom Lock Object</strong>: The <code>myLock</code> object is used as a monitor for synchronization. The <code>synchronized</code> block within the <code>increment</code> and <code>decrement</code> methods ensures that only one thread can execute the code inside the block at a time, effectively controlling access to the <code>items</code> variable.</p>
+</li>
+<li>
+<p><strong>Thread Safety</strong>: Similar to the previous example, this implementation ensures thread safety by preventing race conditions. When one thread is executing the <code>increment</code> or <code>decrement</code> method, other threads attempting to enter the synchronized block will be blocked until the first thread exits the block.</p>
+</li>
+<li>
+<p><strong>Granular Control</strong>: Using a custom lock object allows for more granular control over synchronization. For instance, you could synchronize on different objects for different parts of your code if needed, which can help in reducing contention and improving performance in more complex scenarios.</p>
+</li>
+<li>
+<p><strong>Performance Consideration</strong>: While this approach can be more flexible, it still carries the same potential performance implications as using the <code>synchronized</code> keyword. If many threads are trying to access the synchronized blocks simultaneously, they will still be forced to wait, which can lead to bottlenecks.</p>
+</li>
+<li>
+<p><strong>Usage in Threads</strong>: The <code>main</code> method creates and starts two threads (<code>IncrementingThread</code> and <code>DecrementingThread</code>), each performing a loop of 10,000 increments or decrements on the <code>InventoryCounter</code>. The synchronization ensures that the final count of <code>items</code> is accurate despite concurrent modifications.</p>
+</li>
+</ol>
+<p>Overall, this implementation demonstrates an alternative way to achieve thread safety in Java using synchronized blocks with a custom lock object, providing flexibility while maintaining the integrity of shared resources.</p>
+<pre><code class="language-java">public class Main {
+
+    private final Object myLock = new Object();
+
+    public static void main(String[] args) throws InterruptedException {
+        new Main().run();
+    }
+
+    public void run() throws InterruptedException {
+        InventoryCounter inventoryCounter = new InventoryCounter();
+        IncrementingThread incrementingThread = new IncrementingThread(inventoryCounter);
+        DecrementingThread decrementingThread = new DecrementingThread(inventoryCounter);
+
+        incrementingThread.start();
+        decrementingThread.start();
+
+        incrementingThread.join();
+        decrementingThread.join();
+
+        System.out.println(&quot;We currently have &quot; + inventoryCounter.getItems() + &quot; items&quot;);
+    }
+
+    public class DecrementingThread extends Thread {
+
+        private final InventoryCounter inventoryCounter;
+
+        public DecrementingThread(InventoryCounter inventoryCounter) {
+            this.inventoryCounter = inventoryCounter;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i &lt; 10000; i++) {
+                inventoryCounter.decrement();
+            }
+        }
+    }
+
+    public class IncrementingThread extends Thread {
+
+        private final InventoryCounter inventoryCounter;
+
+        public IncrementingThread(InventoryCounter inventoryCounter) {
+            this.inventoryCounter = inventoryCounter;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i &lt; 10000; i++) {
+                inventoryCounter.increment();
+            }
+        }
+    }
+
+    private class InventoryCounter {
+        private int items = 0;
+
+        public void increment() {
+            synchronized (myLock) {
+                items++;
+            }
+        }
+
+        public void decrement() {
+            synchronized (myLock) {
+                items--;
+            }
+        }
+
+        public int getItems() {
+            return items;
+        }
+    }
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../threads-locks/" class="btn btn-neutral float-left" title="ReentrantLock & ReentrantReadWriteLock"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../threads-throughput/" class="btn btn-neutral float-right" title="Throughput">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../threads-locks/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../threads-throughput/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
