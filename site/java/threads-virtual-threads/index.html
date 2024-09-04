@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Java XML API - Just Experiments</title>
+    <title>Java Virtual Threads - Just Experiments</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Java XML API";
-        var mkdocs_page_input_path = "java\\java-xml-api.md";
+        var mkdocs_page_name = "Java Virtual Threads";
+        var mkdocs_page_input_path = "java\\threads-virtual-threads.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -259,7 +259,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../java-tree/">Tree</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Java XML API</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-xml-api/">Java XML API</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../linked-lists/">Linked Lists</a>
                   </li>
@@ -281,7 +281,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../threads-throughput/">Throughput</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../threads-virtual-threads/">Java Virtual Threads</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Java Virtual Threads</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../threads/">Java Threads</a>
                   </li>
@@ -354,7 +356,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Java</li>
-      <li class="breadcrumb-item active">Java XML API</li>
+      <li class="breadcrumb-item active">Java Virtual Threads</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -363,645 +365,169 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Java XML API quick reference</p>
-<pre><code class="language-java">package com.tiago.xml;
-
-import org.w3c.dom.*;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
-import javax.xml.namespace.QName;
-import javax.xml.parsers.*;
-import javax.xml.stream.*;
-import javax.xml.stream.events.Attribute;
-import javax.xml.stream.events.EndElement;
-import javax.xml.stream.events.StartElement;
-import javax.xml.stream.events.XMLEvent;
-import javax.xml.xpath.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
+                <p>Java Virtual Threads are a feature introduced in Project Loom, which aims to simplify concurrent
+programming in Java by providing a lightweight implementation of threads. Unlike traditional Java
+threads, which are mapped to operating system threads, virtual threads are managed by the Java
+Virtual Machine (JVM) and are much lighter in terms of resource consumption.</p>
+<h3 id="key-features-of-java-virtual-threads">Key Features of Java Virtual Threads:</h3>
+<ol>
+<li>
+<p><strong>Lightweight</strong>: Virtual threads are much lighter than traditional threads, allowing you to
+   create thousands or even millions of them without significant overhead.</p>
+</li>
+<li>
+<p><strong>Simplified Concurrency</strong>: They enable a more straightforward programming model for concurrent
+   applications. You can write code that looks synchronous but runs asynchronously, making it easier
+   to understand and maintain.</p>
+</li>
+<li>
+<p><strong>Blocking Operations</strong>: Virtual threads can block without consuming a platform thread. This
+   means that when a virtual thread is waiting for I/O or other blocking operations, it does not tie
+   up a system thread, allowing for better resource utilization.</p>
+</li>
+<li>
+<p><strong>Structured Concurrency</strong>: Project Loom introduces the concept of structured concurrency, which
+   helps manage the lifecycle of threads and ensures that they are properly cleaned up when they are
+   no longer needed.</p>
+</li>
+<li>
+<p><strong>Integration with Existing APIs</strong>: Virtual threads are designed to work seamlessly with existing
+   Java APIs, including those that use traditional threads, making it easier to adopt them in
+   existing applications.</p>
+</li>
+</ol>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-java">import java.util.ArrayList;
 import java.util.List;
 
-public class XmlApiExample {
+public class Main {
 
-    private final static String XML_FILE_CLIENT = &quot;client.xml&quot;;
-    private final static String XML_FILE_EMPLOYEE = &quot;employee.xml&quot;;
+  private static final int NUMBER_OF_VIRTUAL_THREADS = 1_000;
 
-    public static void main(String args[]) {
+  public static void main(String[] args) throws InterruptedException {
 
-        // runSaxApi();
-        // domXMLparser();
-        // domXMLReader();
-        // parseXML();
-        // staxCreateXML();
-        xpathReader();
+    Runnable runnable = () -&gt; System.out.println(&quot;Inside thread: &quot; + Thread.currentThread());
+
+    List&lt;Thread&gt; virtualThreads = new ArrayList&lt;&gt;();
+
+    for (int i = 0; i &lt; NUMBER_OF_VIRTUAL_THREADS; i++) {
+      Thread virtualThread = Thread.ofVirtual().unstarted(runnable);
+      virtualThreads.add(virtualThread);
     }
 
-    private static void xpathReader() {
+    long start = System.nanoTime();
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder;
-        Document doc = null;
-        try {
-            builder = factory.newDocumentBuilder();
-            doc = builder.parse(XML_FILE_EMPLOYEE);
-
-            // Create XPathFactory object
-            XPathFactory xpathFactory = XPathFactory.newInstance();
-
-            // Create XPath object
-            XPath xpath = xpathFactory.newXPath();
-
-            String name = getEmployeeNameById(doc, xpath, 4);
-            System.out.println(&quot;Employee Name with ID 4: &quot; + name);
-
-            List&lt;String&gt; names = getEmployeeNameWithAge(doc, xpath, 30);
-            System.out.println(&quot;Employees with 'age&gt;30' are:&quot; + Arrays.toString(names.toArray()));
-
-            List&lt;String&gt; femaleEmps = getFemaleEmployeesName(doc, xpath);
-            System.out.println(&quot;Female Employees names are:&quot; + Arrays.toString(femaleEmps.toArray()));
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-        }
+    for (Thread virtualThread : virtualThreads) {
+      virtualThread.start();
     }
 
-    private static List&lt;String&gt; getFemaleEmployeesName(Document doc, XPath xpath) {
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        try {
-            //create XPathExpression object
-            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[gender='Female']/name/text()&quot;);
-            // EVALUATE EXPRESSION RESULT ON XML DOCUMENT
-            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-            for (int i = 0; i &lt; nodes.getLength(); i++)
-                list.add(nodes.item(i).getNodeValue());
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return list;
+    for (Thread virtualThread : virtualThreads) {
+      virtualThread.join();
     }
 
-    private static List&lt;String&gt; getEmployeeNameWithAge(Document doc, XPath xpath, int age) {
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        try {
-            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[age&gt;&quot; + age + &quot;]/name/text()&quot;);
-            NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-            for (int i = 0; i &lt; nodes.getLength(); i++)
-                list.add(nodes.item(i).getNodeValue());
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-
-    private static String getEmployeeNameById(Document doc, XPath xpath, int id) {
-        String name = null;
-        try {
-            XPathExpression expr = xpath.compile(&quot;/Employees/Employee[@id='&quot; + id + &quot;']/name/text()&quot;);
-            name = (String) expr.evaluate(doc, XPathConstants.STRING);
-        } catch (XPathExpressionException e) {
-            e.printStackTrace();
-        }
-
-        return name;
-    }
-
-    private static void staxCreateXML() {
-
-        try {
-            StringWriter stringWriter = new StringWriter();
-
-            XMLOutputFactory xMLOutputFactory = XMLOutputFactory.newInstance();
-            XMLStreamWriter xMLStreamWriter = xMLOutputFactory.createXMLStreamWriter(stringWriter);
-
-            xMLStreamWriter.writeStartDocument();
-            xMLStreamWriter.writeStartElement(&quot;cars&quot;);
-
-            xMLStreamWriter.writeStartElement(&quot;supercars&quot;);
-            xMLStreamWriter.writeAttribute(&quot;company&quot;, &quot;Ferrari&quot;);
-
-            xMLStreamWriter.writeStartElement(&quot;carname&quot;);
-            xMLStreamWriter.writeAttribute(&quot;type&quot;, &quot;formula one&quot;);
-            xMLStreamWriter.writeCharacters(&quot;Ferrari 101&quot;);
-            xMLStreamWriter.writeEndElement();
-
-            xMLStreamWriter.writeStartElement(&quot;carname&quot;);
-            xMLStreamWriter.writeAttribute(&quot;type&quot;, &quot;sports&quot;);
-            xMLStreamWriter.writeCharacters(&quot;Ferrari 202&quot;);
-            xMLStreamWriter.writeEndElement();
-
-            xMLStreamWriter.writeEndElement();
-            xMLStreamWriter.writeEndDocument();
-
-            xMLStreamWriter.flush();
-            xMLStreamWriter.close();
-
-            String xmlString = stringWriter.getBuffer().toString();
-
-            stringWriter.close();
-
-            System.out.println(xmlString);
-
-        } catch (XMLStreamException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void parseXML() {
-
-        List&lt;Employee&gt; empList = new ArrayList&lt;&gt;();
-
-        Employee emp = null;
-
-        try {
-
-            XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
-
-            XMLEventReader xmlEventReader = xmlInputFactory.createXMLEventReader(new FileInputStream(XML_FILE_EMPLOYEE));
-
-            while (xmlEventReader.hasNext()) {
-
-                XMLEvent xmlEvent = xmlEventReader.nextEvent();
-
-                if (xmlEvent.isStartElement()) {
-
-                    StartElement startElement = xmlEvent.asStartElement();
-
-                    if (startElement.getName().getLocalPart().equals(&quot;Employee&quot;)) {
-
-                        emp = new Employee();
-                        // GET THE 'ID' ATTRIBUTE FROM EMPLOYEE ELEMENT
-                        Attribute idAttr = startElement.getAttributeByName(new QName(&quot;id&quot;));
-                        if (idAttr != null) {
-                            emp.setId(Integer.parseInt(idAttr.getValue()));
-                        }
-                    }
-
-                    //SET THE OTHER VARIBLES FROM XML ELEMENTS
-                    else if (startElement.getName().getLocalPart().equals(&quot;age&quot;)) {
-                        xmlEvent = xmlEventReader.nextEvent();
-                        emp.setAge(Integer.parseInt(xmlEvent.asCharacters().getData()));
-                    } else if (startElement.getName().getLocalPart().equals(&quot;name&quot;)) {
-                        xmlEvent = xmlEventReader.nextEvent();
-                        emp.setName(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals(&quot;gender&quot;)) {
-                        xmlEvent = xmlEventReader.nextEvent();
-                        emp.setGender(xmlEvent.asCharacters().getData());
-                    } else if (startElement.getName().getLocalPart().equals(&quot;role&quot;)) {
-                        xmlEvent = xmlEventReader.nextEvent();
-                        emp.setRole(xmlEvent.asCharacters().getData());
-                    }
-                }
-                //if Employee end element is reached, add employee object to list
-                if (xmlEvent.isEndElement()) {
-                    EndElement endElement = xmlEvent.asEndElement();
-                    if (endElement.getName().getLocalPart().equals(&quot;Employee&quot;)) {
-                        empList.add(emp);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(empList.size());
-    }
-
-    // DOM PARSER PARSES THE ENTIRE XML DOCUMENT AND LOADS IT INTO MEMORY; THEN MODELS IT IN A &quot;TREE&quot; STRUCTURE FOR EASY TRAVERSAL OR MANIPULATION.
-    private static void domXMLparser() {
-
-        try {
-
-            File fXmlFile = new File(XML_FILE_CLIENT);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
-
-            doc.getDocumentElement().normalize();
-
-            System.out.println(&quot;Root element :&quot; + doc.getDocumentElement().getNodeName());
-
-            NodeList nList = doc.getElementsByTagName(&quot;staff&quot;);
-
-            System.out.println(&quot;----------------------------&quot;);
-
-            for (int temp = 0; temp &lt; nList.getLength(); temp++) {
-
-                Node nNode = nList.item(temp);
-
-                System.out.println(&quot;\nCurrent Element :&quot; + nNode.getNodeName());
-
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
-                    Element eElement = (Element) nNode;
-
-                    System.out.println(&quot;Staff id : &quot; + eElement.getAttribute(&quot;id&quot;));
-                    System.out.println(&quot;First Name : &quot; + eElement.getElementsByTagName(&quot;firstname&quot;).item(0).getTextContent());
-                    System.out.println(&quot;Last Name : &quot; + eElement.getElementsByTagName(&quot;lastname&quot;).item(0).getTextContent());
-                    System.out.println(&quot;Nick Name : &quot; + eElement.getElementsByTagName(&quot;nickname&quot;).item(0).getTextContent());
-                    System.out.println(&quot;Salary : &quot; + eElement.getElementsByTagName(&quot;salary&quot;).item(0).getTextContent());
-
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void domXMLReader() {
-
-        try {
-
-            File file = new File(XML_FILE_CLIENT);
-
-            DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
-                    .newDocumentBuilder();
-
-            Document doc = dBuilder.parse(file);
-
-            System.out.println(&quot;Root element :&quot; + doc.getDocumentElement().getNodeName());
-
-            if (doc.hasChildNodes()) {
-
-                printNote(doc.getChildNodes());
-
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-    }
-
-    private static void printNote(NodeList nodeList) {
-
-        for (int count = 0; count &lt; nodeList.getLength(); count++) {
-
-            Node tempNode = nodeList.item(count);
-
-            // make sure it's element node.
-            if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
-
-                // get node name and value
-                System.out.println(&quot;\nNode Name =&quot; + tempNode.getNodeName() + &quot; [OPEN]&quot;);
-                System.out.println(&quot;Node Value =&quot; + tempNode.getTextContent());
-
-                if (tempNode.hasAttributes()) {
-
-                    // get attributes names and values
-                    NamedNodeMap nodeMap = tempNode.getAttributes();
-
-                    for (int i = 0; i &lt; nodeMap.getLength(); i++) {
-
-                        Node node = nodeMap.item(i);
-                        System.out.println(&quot;attr name : &quot; + node.getNodeName());
-                        System.out.println(&quot;attr value : &quot; + node.getNodeValue());
-
-                    }
-
-                }
-
-                if (tempNode.hasChildNodes()) {
-
-                    // loop again if has child nodes
-                    printNote(tempNode.getChildNodes());
-
-                }
-
-                System.out.println(&quot;Node Name =&quot; + tempNode.getNodeName() + &quot; [CLOSE]&quot;);
-
-            }
-
-        }
-
-    }
-
-    // SAX PARSER IS FASTER AND USES LESS MEMORY THAN DOM PARSER.
-    private static void runSaxApi() {
-
-        try {
-
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser saxParser = factory.newSAXParser();
-
-            DefaultHandler handler = new DefaultHandler() {
-
-                boolean bfname = false;
-                boolean blname = false;
-                boolean bnname = false;
-                boolean bsalary = false;
-
-                public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-
-                    System.out.println(&quot;Start Element :&quot; + qName);
-
-                    if (qName.equalsIgnoreCase(&quot;FIRSTNAME&quot;)) {
-                        bfname = true;
-                    }
-
-                    if (qName.equalsIgnoreCase(&quot;LASTNAME&quot;)) {
-                        blname = true;
-                    }
-
-                    if (qName.equalsIgnoreCase(&quot;NICKNAME&quot;)) {
-                        bnname = true;
-                    }
-
-                    if (qName.equalsIgnoreCase(&quot;SALARY&quot;)) {
-                        bsalary = true;
-                    }
-
-                }
-
-                public void endElement(String uri, String localName, String qName) throws SAXException {
-
-                    System.out.println(&quot;End Element :&quot; + qName);
-
-                }
-
-                public void characters(char ch[], int start, int length) throws SAXException {
-
-                    if (bfname) {
-                        System.out.println(&quot;First Name : &quot; + new String(ch, start, length));
-                        bfname = false;
-                    }
-
-                    if (blname) {
-                        System.out.println(&quot;Last Name : &quot; + new String(ch, start, length));
-                        blname = false;
-                    }
-
-                    if (bnname) {
-                        System.out.println(&quot;Nick Name : &quot; + new String(ch, start, length));
-                        bnname = false;
-                    }
-
-                    if (bsalary) {
-                        System.out.println(&quot;Salary : &quot; + new String(ch, start, length));
-                        bsalary = false;
-                    }
-
-                }
-
-            };
-
-            saxParser.parse(XML_FILE_CLIENT, handler);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    long end = System.nanoTime();
+    long elapsedTime = end - start;
+    double seconds = elapsedTime / 1_000_000_000.0;
+    System.out.println(&quot;Time at: &quot; + seconds);
+  }
 }
-
-</code></pre>
-<pre><code class="language-java">package com.tiago.xml;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-
-import com.tiago.random.RandomData;
-
-public class CreateXMLFile {
-
-    public static void main(String[] args) {
-
-        try {
-
-            Animals animals = new Animals();
-
-            List&lt;Animal&gt; animalsList = new ArrayList&lt;&gt;();
-
-            for (int i = 0; i &lt; 100000; i++) {
-
-                int id = RandomData.getIds();
-                int age = RandomData.getAge();
-                String scientificName = String.valueOf(RandomData.animalsNames().get(new Random().nextInt(RandomData.animalsNames().size())));
-                String status = String.valueOf(RandomData.status().get(new Random().nextInt(RandomData.status().size())));
-                String veterinarian = String.valueOf(RandomData.veterinarians().get(new Random().nextInt(RandomData.veterinarians().size())));
-                Date created = new Date(RandomData.getRandomTimeBetweenTwoDates());
-
-                animalsList.add(new Animal(id, scientificName, status, veterinarian, created, age));
-            }
-
-            animals.setAnimals(animalsList);
-
-            File file = new File(&quot;/home/tiago/Desktop/animals.xml&quot;);
-            JAXBContext jaxbContext = JAXBContext.newInstance(Animals.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-            // OUTPUT PRETTY PRINTED
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-            jaxbMarshaller.marshal(animals, file);
-            jaxbMarshaller.marshal(animals, System.out);
-
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-    }
-}
-
 </code></pre>
 <pre><code class="language-java">
-package com.tiago.model;
-
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+public class Main {
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Animals implements Serializable{
+  private static final int NUMBER_OF_VIRTUAL_THREADS = 1_000;
 
-    private static final long serialVersionUID = 1L;
+  public static void main(String[] args) throws InterruptedException {
+    List&lt;Thread&gt; virtualThreads = new ArrayList&lt;&gt;();
 
-    @XmlElement(name = &quot;animal&quot;)
-    private List&lt;Animal&gt; animals;
-
-    public List&lt;Animal&gt; getAnimals() {
-        return animals;
+    for (int i = 0; i &lt; NUMBER_OF_VIRTUAL_THREADS; i++) {
+      Thread virtualThread = Thread.ofVirtual().unstarted(new BlockingTask());
+      virtualThreads.add(virtualThread);
     }
 
-    public void setAnimals(List&lt;Animal&gt; animals) {
-        this.animals = animals;
-    }
-}
+    long start = System.nanoTime();
 
-package com.tiago.model;
-
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Animal implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @XmlElement
-    private int id;
-    @XmlElement
-    private String scientificName;
-    @XmlElement
-    private String status;
-    @XmlElement
-    private String veterinarian;
-    @XmlElement
-    private Date created;
-    @XmlElement
-    private int age;
-
-    public Animal() {
+    for (Thread virtualThread : virtualThreads) {
+      virtualThread.start();
     }
 
-    public Animal(int id, String scientificName, String status, String veterinarian, Date created, int age) {
-        this.id = id;
-        this.scientificName = scientificName;
-        this.status = status;
-        this.veterinarian = veterinarian;
-        this.created = created;
-        this.age = age;
+    for (Thread virtualThread : virtualThreads) {
+      virtualThread.join();
     }
 
-    public int getId() {
-        return id;
-    }
+    long end = System.nanoTime();
+    long elapsedTime = end - start;
+    double seconds = elapsedTime / 1_000_000_000.0;
+    System.out.println(&quot;Time at: &quot; + seconds);
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getScientificName() {
-        return scientificName;
-    }
-
-    public void setScientificName(String scientificName) {
-        this.scientificName = scientificName;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getVeterinarian() {
-        return veterinarian;
-    }
-
-    public void setVeterinarian(String veterinarian) {
-        this.veterinarian = veterinarian;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-}
-
-package com.tiago.model;
-
-
-public class Employee {
-    private int id;
-    private String name;
-    private String gender;
-    private int age;
-    private String role;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+  private static class BlockingTask implements Runnable {
 
     @Override
-    public String toString() {
-        return &quot;Employee:: ID=&quot; + this.id + &quot; Name=&quot; + this.name + &quot; Age=&quot; + this.age + &quot; Gender=&quot; + this.gender +
-                &quot; Role=&quot; + this.role;
+    public void run() {
+      System.out.println(&quot;Inside thread: &quot; + Thread.currentThread() + &quot; before blocking call&quot;);
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+      System.out.println(&quot;Inside thread: &quot; + Thread.currentThread() + &quot; after blocking call&quot;);
     }
-
+  }
 }
+</code></pre>
+<pre><code class="language-java">import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+
+public class Main {
+
+  private static final int NUMBER_OF_TASKS = 10_000;
+
+  public static void main(String[] args) {
+    System.out.printf(&quot;Running %d tasks\n&quot;, NUMBER_OF_TASKS);
+
+    long start = System.currentTimeMillis();
+    performTasks();
+    System.out.printf(&quot;Tasks took %dms to complete\n&quot;, System.currentTimeMillis() - start);
+  }
+
+  private static void performTasks() {
+    try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
+
+      for (int i = 0; i &lt; NUMBER_OF_TASKS; i++) {
+        executorService.submit(new Runnable() {
+          @Override
+          public void run() {
+            for (int j = 0; j &lt; 100; j++) {
+              blockingIoOperation();
+            }
+          }
+        });
+      }
+    }
+  }
+
+  // Simulates a long blocking IO
+  private static void blockingIoOperation() {
+    System.out.println(&quot;Executing a blocking task from thread: &quot; + Thread.currentThread());
+    try {
+      Thread.sleep(10);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../java-tree/" class="btn btn-neutral float-left" title="Tree"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../linked-lists/" class="btn btn-neutral float-right" title="Linked Lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../threads-throughput/" class="btn btn-neutral float-left" title="Throughput"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../threads/" class="btn btn-neutral float-right" title="Java Threads">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -1024,10 +550,10 @@ public class Employee {
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../java-tree/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../threads-throughput/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../linked-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../threads/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
