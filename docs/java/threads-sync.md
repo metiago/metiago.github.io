@@ -1,5 +1,5 @@
 ---
-title: 'Java Threads - Sync'
+title: 'Java Threads - Synchronized'
 date: 2023-04-08T19:18:41-03:00
 draft: false
 ---
