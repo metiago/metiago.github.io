@@ -13,7 +13,7 @@ Mockito is a popular mocking framework for Java that allows developers to create
 - **Stubs**: Stubs are simpler than mocks and are primarily used to provide predefined responses to method calls during tests. They do not track interactions or verify how they were used; their main purpose is to supply data needed for the test to run.
 
 
-### Testing Void Method
+### Testing Void Methods
 
 ```java 
 
