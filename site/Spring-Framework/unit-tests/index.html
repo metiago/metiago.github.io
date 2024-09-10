@@ -73,6 +73,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../spring-security-oauth2/">Spring Security - OAuth2</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Mockito Unit Tests</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Aws</span></p>
@@ -363,9 +365,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Mockito is a popular mocking framework for Java that allows developers to create mock objects in automated unit tests. Mock objects simulate the behavior of real objects in controlled ways, enabling developers to isolate the code under test and verify its behavior in various scenarios.</p>
-<p>When using Mockito with Spring Boot, you can easily write unit tests for your Spring components (such as controllers, services, and repositories) by mocking dependencies and defining the expected behavior of those mocks.</p>
-<p>Here's a basic example of how you might use Mockito in a Spring Boot application:</p>
+                <p>Mockito is a popular mocking framework for Java that allows developers to create mock objects in automated unit tests.</p>
+<h3 id="basic-concepts">Basic Concepts</h3>
+<ul>
+<li>
+<p><strong>Mocks</strong>: Mocks are objects that simulate the behavior of real objects in a controlled way. They are used to verify interactions between the code under test and its dependencies. Mocks can be configured to return specific values when certain methods are called, and they can also record how they were interacted with, allowing you to assert that certain methods were called with specific arguments.</p>
+</li>
+<li>
+<p><strong>Stubs</strong>: Stubs are simpler than mocks and are primarily used to provide predefined responses to method calls during tests. They do not track interactions or verify how they were used; their main purpose is to supply data needed for the test to run.</p>
+</li>
+</ul>
+<h3 id="testing-void-method">Testing Void Method</h3>
+<pre><code class="language-java">
+@Mock
+MyService myService;
+
+var trackingBuyer = Tracking.builder()
+    .identifier(tracking.getIdentifier())
+    .deliveryInfo(tracking.getDeliveryInfo())
+    .auditInformation(tracking.getAuditInformation())
+    .buyer(Buyer.builder().buyerId(&quot;1313&quot;)
+            .legalDocumentNumber(&quot;legalDocumentNumber&quot;)
+            .fiscalType(PersonType.NATURAL_PERSON).build())
+    .paymentInfo(tracking.getPaymentInfo())
+    .orderDate(Instant.now())
+    .flowType(tracking.getFlowType())
+    .items(tracking.getItems())
+    .build();
+
+    doNothing().when(myService).receivePrePaidCardDelivery(tracking);
+
+    myService.receivePrePaidCardDelivery(trackingBuyer);
+
+    verify(myService).receivePrePaidCardDelivery(trackingBuyer);
+</code></pre>
+<h3 id="general-example">General Example</h3>
 <pre><code class="language-java">@Service
 public class EmbeddedProductConfigurationService {
 

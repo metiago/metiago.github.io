@@ -4,11 +4,43 @@ date: 2022-04-27T15:14:28-03:00
 draft: false
 ---
 
-Mockito is a popular mocking framework for Java that allows developers to create mock objects in automated unit tests. Mock objects simulate the behavior of real objects in controlled ways, enabling developers to isolate the code under test and verify its behavior in various scenarios.
+Mockito is a popular mocking framework for Java that allows developers to create mock objects in automated unit tests.
 
-When using Mockito with Spring Boot, you can easily write unit tests for your Spring components (such as controllers, services, and repositories) by mocking dependencies and defining the expected behavior of those mocks.
+### Basic Concepts
 
-Here's a basic example of how you might use Mockito in a Spring Boot application:
+- **Mocks**: Mocks are objects that simulate the behavior of real objects in a controlled way. They are used to verify interactions between the code under test and its dependencies. Mocks can be configured to return specific values when certain methods are called, and they can also record how they were interacted with, allowing you to assert that certain methods were called with specific arguments.
+
+- **Stubs**: Stubs are simpler than mocks and are primarily used to provide predefined responses to method calls during tests. They do not track interactions or verify how they were used; their main purpose is to supply data needed for the test to run.
+
+
+### Testing Void Method
+
+```java 
+
+@Mock
+MyService myService;
+
+var trackingBuyer = Tracking.builder()
+    .identifier(tracking.getIdentifier())
+    .deliveryInfo(tracking.getDeliveryInfo())
+    .auditInformation(tracking.getAuditInformation())
+    .buyer(Buyer.builder().buyerId("1313")
+            .legalDocumentNumber("legalDocumentNumber")
+            .fiscalType(PersonType.NATURAL_PERSON).build())
+    .paymentInfo(tracking.getPaymentInfo())
+    .orderDate(Instant.now())
+    .flowType(tracking.getFlowType())
+    .items(tracking.getItems())
+    .build();
+
+    doNothing().when(myService).receivePrePaidCardDelivery(tracking);
+
+    myService.receivePrePaidCardDelivery(trackingBuyer);
+
+    verify(myService).receivePrePaidCardDelivery(trackingBuyer);
+```
+
+### General Example
 
 ```java
 @Service
