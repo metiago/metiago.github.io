@@ -40,7 +40,7 @@ var trackingBuyer = Tracking.builder()
     verify(myService).receivePrePaidCardDelivery(trackingBuyer);
 ```
 
-### General Example
+### General Examples
 
 ```java
 @Service
