@@ -1,7 +1,6 @@
 ---
 title:  'Spring Boot Errors'
 date: 2019-06-08T19:18:41-03:00
-draft: true
 ---
 
 This code snippet might address the "No thread-bound request found" issue that can arise when using `RequestContextHolder.currentRequestAttributes()` in asynchronous contexts. By capturing the current request attributes before launching asynchronous tasks, it ensures that these attributes are restored in the new thread via `RequestContextHolder.setRequestAttributes(requestAttributes)`. This allows you to access request-specific data, such as headers, in threads that would otherwise not have a bound request context, enabling seamless handling of request-related operations even in a multi-threaded environment.
