@@ -1,0 +1,148 @@
+$primary: #4CAF50;
+
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body[data-bs-theme="dark"] {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.prose {
+  max-width: 100%;
+  color: var(--foreground);
+}
+
+:root {
+  --code-bg-dark: #2e2e2e;
+  --code-color-dark: #9090f3;
+}
+
+pre {
+  background-color: var(--code-bg-dark);
+  color: var(--code-color-dark);
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+}
+
+
+code {
+  background-color: var(--code-bg-dark);
+  color: var(--code-color-dark);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-top: 2px solid #e1e1e1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+pre:hover {
+  border-color: #bbb;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #34495e;
+  border-left: 4px solid #9b59b6;
+  padding-left: 10px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #16a085;
+  border-left: 4px solid #1abc9c;
+  padding-left: 10px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #e67e22;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+p {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: #878686;
+}
+
+ul,
+ol {
+  margin: 1rem 0 1rem 1.5rem;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card-img, .card-img-top, .card-img-bottom {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.expandable-pre pre {
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  resize: vertical;
+}
