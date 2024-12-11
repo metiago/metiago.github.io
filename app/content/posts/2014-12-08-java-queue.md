@@ -2,7 +2,7 @@
 title:  'Queues'
 date: "2014-07-03"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.pexels.com/photos/716661/pexels-photo-716661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 
 A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).

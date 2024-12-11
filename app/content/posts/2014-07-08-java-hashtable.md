@@ -2,7 +2,7 @@
 title: 'Hash Tables'
 date: "2014-07-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.unsplash.com/photo-1582835333661-6fc0a2295585?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
 Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. One example we can provide that represents a hash table

@@ -2,7 +2,7 @@
 title: 'Binary Search'
 date: "2014-05-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://plus.unsplash.com/premium_photo-1674677788210-ea8be01cd424?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
 Binary search, is a search algorithm that finds the position of a target value within a sorted array. Binary search has a time complexity of O(log n) in Big O notation.

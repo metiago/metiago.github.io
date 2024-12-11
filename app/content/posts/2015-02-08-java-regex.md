@@ -2,7 +2,7 @@
 title: 'Regular Expression'
 date: "2015-02-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://cdn.pixabay.com/photo/2020/08/12/09/42/dog-5482171_1280.jpg"
 ---
 
 Remove special characters.

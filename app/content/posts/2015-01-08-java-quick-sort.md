@@ -2,7 +2,7 @@
 title: 'Quick Sort'
 date: "2015-01-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.pexels.com/photos/5594336/pexels-photo-5594336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 
 QuickSort is a divide and conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. This algorithm has a time complexy of O(nlog2(n)) on average and O(n2) for worst case.

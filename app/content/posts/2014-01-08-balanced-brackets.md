@@ -2,7 +2,7 @@
 title: 'Balanced Brackets'
 date: "2014-01-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.unsplash.com/photo-1565204412258-08dfea5c871c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
 Balanced Brackets is a cool challenge that exemplify how to use Stack data structure.

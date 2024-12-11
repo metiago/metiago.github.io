@@ -2,7 +2,7 @@
 title: 'Doubly Linked Lists'
 date: "2014-04-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://cdn.pixabay.com/photo/2020/06/12/14/06/books-list-5290461_1280.jpg"
 ---
 
 Doubly linked list is a complex type of linked list in which a node contains a pointer to the previous as well as the next node in the sequence. Therefore, in a doubly linked list, a node consists of three parts: node data, pointer to the next node in sequence next pointer, pointer to the previous node previous pointer.

@@ -2,7 +2,7 @@
 title: 'Min & Max Array Value'
 date: "2014-11-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.pexels.com/photos/3482441/pexels-photo-3482441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 
 ```java

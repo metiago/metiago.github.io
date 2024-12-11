@@ -2,7 +2,7 @@
 title:  'Bubble Sort'
 date: "2014-06-08"
 draft: false
-image: "https://placehold.co/600x400"
+image: "https://images.unsplash.com/photo-1554566490-b43da2d4c8fe?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ---
 
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. This algorithm has a time complexity of O(n2)

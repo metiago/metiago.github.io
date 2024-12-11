@@ -11,7 +11,7 @@ export default async function Home() {
           {posts.map((post) => (
             <Col xs={12} sm={6} md={4} key={post.slug} className='mt-3'>
               <div className='card'>
-                <Image src={post?.image} className="card-img-top" />
+                {/* <Image src={post?.image} className="card-img-top" /> */}
                 <div className="card-body">
                   <Link href={`/posts/${post.slug}`} className="text-decoration-none">
                     <h5 className="card-title">{post.title}</h5>
