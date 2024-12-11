@@ -5,7 +5,7 @@ export default function Ebook() {
         <article className="w-75 max-w-sm mx-auto px-4 py-5 text-left">
           <header className="mb-4 text-center">
             <h1 className="display-4">Ebooks</h1>
-            <p className="lead">Sharing some essential programming knowledge through my ebook collection! PT-BR</p>
+            <p className="lead">Compartilhando alguns conhecimentos de programação pelos meus e-books!</p>
           </header>
           <div className="row">
             <div className="col-md-4 mb-4">
