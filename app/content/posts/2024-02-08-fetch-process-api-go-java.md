@@ -1,5 +1,5 @@
 ---
-title: 'Fetch and Process API Data Go and Java'
+title: 'Fetch and Process Data with Go and Java'
 date: "2024-02-08"
 draft: false
 image: "https://placehold.co/600x400"
