@@ -1,3 +1,5 @@
+import { Image } from "react-bootstrap";
+
 export default function About() {
   return (
     <div className="bg-background text-foreground">
@@ -7,7 +9,7 @@ export default function About() {
             <h1>About Me</h1>
           </header>
           <div className="text-center mb-4">
-            <img 
+            <Image 
               src="images/metiago.png"
               alt="A photo of Tiago"
               className="img-fluid"

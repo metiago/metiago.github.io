@@ -10,8 +10,8 @@ export default async function Home() {
       <Col xs={12} md={12}>
         <Row>
           <Search/>
-          {posts.map((post) => (
-            <div>
+          {posts.map((post, i) => (
+            <div key={i}>
               <Link href={`/posts/${post.slug}`} className="text-decoration-none">
                 <h5 className="card-title">{post.title}</h5>
               </Link>
