@@ -1,13 +1,15 @@
-import { Col, Row, Image } from 'react-bootstrap';
-import { getAllPosts } from './services/posts';
 import Link from 'next/link';
+import { Col, Row } from 'react-bootstrap';
+import { getAllPosts } from './services/posts.js';
+import Search from './components/Search';
 
 export default async function Home() {
   const posts = (await getAllPosts()).filter(p => !p?.draft);
   return (
-    <Row>
+    <Row>      
       <Col xs={12} md={12}>
         <Row>
+          <Search/>
           {posts.map((post) => (
             <div>
               <Link href={`/posts/${post.slug}`} className="text-decoration-none">

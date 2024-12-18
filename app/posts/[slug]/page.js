@@ -1,5 +1,5 @@
 
-import { getPostBySlug, getAllPosts } from '../../services/posts';
+import { getPostBySlug, getAllPosts } from '../../services/posts.js';
 import markdownToHtml from '../../services/markdownToHtml';
 import Post from '@/app/components/Post';
 

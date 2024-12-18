@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node app/scripts/generate-search-data.js && next dev",
     "build": "next build && node app/scripts/generate-sitemap.js",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.11.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.10.0",
+    "lunr": "^2.3.9",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-bootstrap": "^2.10.5",
