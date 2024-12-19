@@ -9,11 +9,14 @@ export default async function Home() {
     <div>
       <div className="d-flex justify-content-center">
         <article className="w-75 max-w-sm mx-auto">
-          <header className="mb-10 text-left">
-            <h6><Search /></h6>
+          <header className="mb-10 text-center">
+            <h1>References</h1>
           </header>
+          <div className="mb-10 text-left">
+            <Search />
+          </div>
           {posts.map((post, i) => (
-            <div key={i}>
+            <div key={i} className="mt-3">
               <Link href={`/posts/${post.slug}`} className="text-decoration-none">
                 <h5 className="card-title">{post.title}</h5>
               </Link>

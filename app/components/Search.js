@@ -66,13 +66,13 @@ const Search = () => {
       <div id="results">
         {results.length > 0 && (
           results.map((doc) => (
-            <Row key={doc.id} className="mt-4">
-              <Col>
-                <Link href={`/posts/${doc.slug}`} className="text-decoration-none">
+            <ul key={doc.id} className="mt-4">
+              <li>
+                <Link href={`/posts/${doc.slug}`} className="">
                   <div className="mb-2">{doc.title}</div>
                 </Link>
-              </Col>
-            </Row>
+              </li>
+            </ul>
           ))
         )}
       </div>
