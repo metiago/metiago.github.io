@@ -4,10 +4,9 @@ export default function Ebook() {
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <article className="w-75 max-w-sm mx-auto px-4 py-5 text-left">
-          <header className="mb-4 text-center">
-            <h1 className="display-4">Ebooks</h1>
-            <p className="lead">Compartilhando alguns conhecimentos de programação pelos meus e-books!</p>
+        <article className="w-75 max-w-sm mx-auto">
+          <header className="mb-10 text-center">
+            <h1>eBooks</h1>
           </header>
           <div className="row">
             <div className="col-md-4 mb-4">
@@ -54,8 +53,11 @@ export default function Ebook() {
                   </a>
                 </div>
               </div>
+            </div>       
+           
+            <div className="mt-5">
+              <BarChart/>
             </div>
-            <BarChart/>
           </div>
         </article>
       </div>

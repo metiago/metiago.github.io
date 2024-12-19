@@ -64,9 +64,9 @@ const Search = () => {
         </Col>
       </Row>
       <div id="results">
-        {results.length > 0 ? (
+        {results.length > 0 && (
           results.map((doc) => (
-            <Row key={doc.id}>
+            <Row key={doc.id} className="mt-4">
               <Col>
                 <Link href={`/posts/${doc.slug}`} className="text-decoration-none">
                   <div className="mb-2">{doc.title}</div>
@@ -74,10 +74,7 @@ const Search = () => {
               </Col>
             </Row>
           ))
-        ) : (
-          <p>No results found.</p>
         )}
-        <hr/>
       </div>
     </>
   );

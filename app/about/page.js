@@ -2,9 +2,9 @@ import { Image } from "react-bootstrap";
 
 export default function About() {
   return (
-    <div className="bg-background text-foreground">
+    <div>
       <div className="d-flex justify-content-center">
-        <article className="w-75 max-w-sm mx-auto px-4 py-10 text-left">
+        <article className="w-75 max-w-sm mx-auto">
           <header className="mb-10 text-center">
             <h1>About Me</h1>
           </header>

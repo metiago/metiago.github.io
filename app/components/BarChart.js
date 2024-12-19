@@ -16,7 +16,7 @@ const BarChart = () => {
     labels: data.labels,
     datasets: [
       {
-        label: 'Number of Downloads',
+        label: 'Downloads',
         data: data.values,
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',

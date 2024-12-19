@@ -6,10 +6,12 @@ import Search from './components/Search';
 export default async function Home() {
   const posts = (await getAllPosts()).filter(p => !p?.draft);
   return (
-    <Row>      
-      <Col xs={12} md={12}>
-        <Row>
-          <Search/>
+    <div>
+      <div className="d-flex justify-content-center">
+        <article className="w-75 max-w-sm mx-auto">
+          <header className="mb-10 text-left">
+            <h6><Search /></h6>
+          </header>
           {posts.map((post, i) => (
             <div key={i}>
               <Link href={`/posts/${post.slug}`} className="text-decoration-none">
@@ -18,8 +20,8 @@ export default async function Home() {
               <hr />
             </div>
           ))}
-        </Row>
-      </Col>
-    </Row>
+        </article>
+      </div>
+    </div>
   );
 }
