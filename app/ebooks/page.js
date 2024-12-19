@@ -55,7 +55,7 @@ export default function Ebook() {
               </div>
             </div>       
            
-            <div className="mt-5">
+            <div style={{'marginTop': '5em'}}>
               <BarChart/>
             </div>
           </div>
