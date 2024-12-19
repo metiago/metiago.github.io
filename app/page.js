@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { Col, Row } from 'react-bootstrap';
-import { getAllPosts } from './services/posts.js';
 import Search from './components/Search';
+import { getAllPosts } from './services/posts.js';
 
 export default async function Home() {
   const posts = (await getAllPosts()).filter(p => !p?.draft);
