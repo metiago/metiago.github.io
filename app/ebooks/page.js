@@ -1,3 +1,5 @@
+import BarChart from "../components/BarChart";
+
 export default function Ebook() {
   return (
     <div>
@@ -53,6 +55,7 @@ export default function Ebook() {
                 </div>
               </div>
             </div>
+            <BarChart/>
           </div>
         </article>
       </div>
