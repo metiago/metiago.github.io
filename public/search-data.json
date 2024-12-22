@@ -1,6 +1,6 @@
 [
   {
-    "id": 49,
+    "id": 50,
     "slug": "2024-02-08-fetch-process-api-go-java",
     "title": "Fetch and Process Data with Go and Java",
     "date": "2024-02-08",
@@ -8,7 +8,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 48,
+    "id": 49,
     "slug": "2024-01-08-threads-virtual-threads",
     "title": "Java Virtual Threads",
     "date": "2024-01-08",
@@ -16,7 +16,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 47,
+    "id": 48,
     "slug": "2022-01-08-java-http-client",
     "title": "Java Http Client",
     "date": "2022-01-08",
@@ -24,10 +24,18 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 46,
+    "id": 47,
     "slug": "2021-01-08-java-jconsole",
     "title": "Profiling Quarkus Application",
     "date": "2021-01-08",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 46,
+    "slug": "2017-06-08-git",
+    "title": "Git - Quick Reference",
+    "date": "2017-06-08",
     "draft": false,
     "image": "https://placehold.co/600x400"
   },

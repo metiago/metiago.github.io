@@ -9,23 +9,17 @@ export default function About() {
             <h1>About Me</h1>
           </header>
           <div className="text-center mb-4">
-            <Image 
-              src="images/metiago.png"
-              alt="A photo of Tiago"
-              className="img-fluid"
-            />
+            <Image src="images/metiago.png" alt="me" className="img-fluid"/>
           </div>
           <div>
             <p>
-              👋 Hi, I’m Tiago, a passionate software engineer with a love for coding and technology. 
-              With a strong background in web-based systems, I’m constantly exploring new technologies and conducting experiments to expand my knowledge.
+             
             </p>
             <p>
-              This blog serves as my platform to document those experiments, share prototypes, 
-              and discuss the latest trends in software development.
+             
             </p>
             <p>
-              Happy researching!
+            
             </p>
           </div>
         </article>

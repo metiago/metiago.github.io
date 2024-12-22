@@ -32,7 +32,7 @@ const TopBar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/ebooks" className={`nav-link ${pathname === '/projects' ? 'active' : ''}`}>
+              <Link href="/ebooks" className={`nav-link ${pathname === '/ebooks' ? 'active' : ''}`}>
                 eBooks
               </Link>
             </li>
