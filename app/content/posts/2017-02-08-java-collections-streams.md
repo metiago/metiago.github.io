@@ -5,6 +5,31 @@ draft: false
 image: "https://placehold.co/600x400"
 ---
 
+#### Sorting Nulls
+```java
+// This method will sort by getCDKEYand then will sort by getVLRMX, if getCDKEY is null it'll sort by getVLRMN
+private Optional<ZSDST0004Dto> getPolicyByGreaterCdKey(List<ZSDST0004Dto> policies) {
+    return policies
+            .stream()
+            .max(Comparator.comparing(ZSDST0004Dto::getCDKEY)
+                    .thenComparing(Comparator.comparing(ZSDST0004Dto::getVLRMX, Comparator.nullsFirst(Comparator.reverseOrder()))
+                            .thenComparing(ZSDST0004Dto::getVLRMN, Comparator.nullsFirst(Comparator.reverseOrder()))));
+}
+```
+
+#### Count Duplicates 
+```java
+// counts the total number of duplicate CD keys in a list of ZSDST0004Dto objects by grouping and counting occurrences
+private long isCdKeyDuplicated(List<ZSDST0004Dto> policies) {
+    return policies.stream()
+            .collect(Collectors.groupingBy(ZSDST0004Dto::getCDKEY, Collectors.counting()))
+            .values().stream()
+            .filter(count -> count > 1)
+            .mapToInt(Long::intValue)
+            .sum();
+}
+```
+
 #### Converting primitive arrays to List
 
 ```java
