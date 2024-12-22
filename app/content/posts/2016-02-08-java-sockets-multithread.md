@@ -2,7 +2,7 @@
 title: 'Java Sockets'
 date: "2016-02-08"
 draft: false
-excerpt: "How to check web server status through TCP/IP using Java Socket."
+excerpt: ""
 image: "https://placehold.co/600x400"
 ---
 
