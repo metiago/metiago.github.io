@@ -19,9 +19,8 @@ public class PredicateExample {
 ```
 
 ### Bi Predicate
-
+Instead of one argument, BiPredicate will accept two arguments and return boolean.
 ```java
-// Instead of one argument, BiPredicate will accept two arguments and return boolean.
 public class BiPredicateExample {
 
     public static void main(String[] args) {
