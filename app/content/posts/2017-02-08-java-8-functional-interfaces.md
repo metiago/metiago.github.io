@@ -8,9 +8,6 @@ image: "https://placehold.co/600x400"
 ### Predicate
 
 ```java
-import java.util.List;
-import java.util.function.IntPredicate;
-
 public class PredicateExample {
 
     public static void main(String[] args){
@@ -24,15 +21,12 @@ public class PredicateExample {
 ### Bi Predicate
 
 ```java
-import java.util.Map;
-import java.util.function.BiPredicate;
-
 // Instead of one argument, BiPredicate will accept two arguments and return boolean.
 public class BiPredicateExample {
 
     public static void main(String[] args) {
         BiPredicate<String, Integer> validAnimal = (name, age) -> name.length() > 0 && age > 0;
-        var items = Map.of("moon", 1, "sun", -1000, "march", 2);
+        var items = Map.of("mouse", 1, "bat", -1000, "racoon", 2);
         items.entrySet().stream()
         .filter(m -> validAnimal.test(m.getKey(), m.getValue()))
         .forEach(System.out::println);
@@ -45,10 +39,6 @@ public class BiPredicateExample {
 The Consumer interface accepts one argument, but there is no return value.
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
-
 public class ConsumerExample {
 
     static List<String> pets = new ArrayList<>();
@@ -73,14 +63,6 @@ public class ConsumerExample {
 It is the extension of the Consumer, which is BiConsumer, accepts two arguments and returns nothing.
 
 ```java
-import com.javatutor.functionalinterface.custom.data.Employee;
-import com.javatutor.functionalinterface.custom.data.EmployeeDB;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.BiConsumer;
-
 public class BiConsumerExample {
 
     static Map<String, Integer> results = new HashMap<>();
@@ -107,9 +89,6 @@ This interface accepts one argument and returns a value after the required proce
 It is defined as below. The required processing logic will be executed on the invocation of the apply method.
 
 ```java
-import java.util.List;
-import java.util.function.Function;
-
 public class FunctionExample {
 
     public static void main(String[] args) {
@@ -136,9 +115,6 @@ The BiFunction is similar to Function except it accepts two inputs, whereas Func
 In the below interface code T and U are the inputs and R is the single output.
 
 ```java
-import java.util.Map;
-import java.util.function.BiFunction;
-
 public class BiFunctionExample {
 
     public static void main(String[] args) {
@@ -164,9 +140,6 @@ public class BiFunctionExample {
 Supplier functional interface does not accept any input and returns a single output
 
 ```java
-import java.util.function.Supplier;
-
-
 public class SupplierExample {
 
     public static void main(String[] args) {
@@ -181,8 +154,6 @@ public class SupplierExample {
 UnaryOperator accepts a single argument and return a single argument, but both the input and output argument should be of same or similar type.
 
 ```java
-import java.util.function.UnaryOperator;
-
 public class UnaryOperatorExample {
 
     public static void main(String[] args)
