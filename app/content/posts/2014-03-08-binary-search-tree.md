@@ -2,6 +2,7 @@
 title: 'Binary Search Tree'
 date: "2014-03-08"
 draft: false
+excerpt: ""
 image: "https://cdn.pixabay.com/photo/2020/03/18/06/55/binary-4942920_1280.jpg"
 ---
 

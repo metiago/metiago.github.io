@@ -2,6 +2,7 @@
 title:  'Linear Searching'
 date: "2014-09-08"
 draft: false
+excerpt: ""
 image: "https://cdn.pixabay.com/photo/2016/08/23/12/45/manuscript-1614234_1280.jpg"
 ---
 

@@ -2,6 +2,7 @@
 title: 'Doubly Linked Lists'
 date: "2014-04-08"
 draft: false
+excerpt: ""
 image: "https://cdn.pixabay.com/photo/2020/06/12/14/06/books-list-5290461_1280.jpg"
 ---
 

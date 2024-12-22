@@ -2,6 +2,7 @@
 title:  'Queues'
 date: "2014-07-03"
 draft: false
+excerpt: ""
 image: "https://images.pexels.com/photos/716661/pexels-photo-716661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 

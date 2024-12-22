@@ -38,7 +38,7 @@ const Post = ({ title, date, content, category, author }) => {
             <div className="text-center">
                 <h1 className="display-4">{title}</h1>
                 <div className="d-flex justify-content-start">
-                    <p className="text-muted mb-0 me-2"> by {author} - {date}</p>
+                    {/* <p className="text-muted mb-0 me-2"> by {author} | {date}</p> */}
                 </div>
             </div>
             <div className="content" dangerouslySetInnerHTML={{ __html: content }} />

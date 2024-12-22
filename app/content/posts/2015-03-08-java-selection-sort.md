@@ -2,6 +2,7 @@
 title: 'Selection Sort'
 date: "2015-03-08"
 draft: false
+excerpt: ""
 image: "https://placehold.co/600x400"
 ---
 

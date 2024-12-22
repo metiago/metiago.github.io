@@ -9,7 +9,7 @@ export default function About() {
             <h1>About Me</h1>
           </header>
           <div className="text-center mb-4">
-            <Image src="images/metiago.png" alt="me" className="img-fluid"/>
+            <Image src="/images/profile/me.png" alt="me" className="img-fluid rounded-circle" width={140}/>
           </div>
           <div>
             <p>

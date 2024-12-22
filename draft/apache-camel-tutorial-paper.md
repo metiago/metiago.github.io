@@ -7,7 +7,7 @@ image: "https://placehold.co/600x400"
 
 ### Resumo
 
-Este tutorial fornece um guia passo a passo para desenvolvedores que no dia-a-dia lidam com integração de sistemas. Também veremos os beneficios de utilizar Apache Camel, que é um framework de integração open source. Esse documento traz os conceitos básicos do Camel, sua arquitetura e como criar rotas de integração simples usando vários componentes.
+Este tutorial fornece um guia passo a passo para desenvolvedores que no dia-a-dia lidam com integração de sistemas. Também veremos os benefícios de utilizar Apache Camel, que é um framework de integração open source. Esse documento traz os conceitos básicos do Camel, sua arquitetura e como criar rotas de integração simples usando vários componentes.
 
 **1. Introdução**  
    - Visão geral dos desafios de integração em aplicações  
@@ -17,7 +17,7 @@ Este tutorial fornece um guia passo a passo para desenvolvedores que no dia-a-di
 **2. Pré-requisitos**  
    - Conhecimento básico de programação em Java  
    - Familiaridade com Maven ou Gradle  
-   - Compreensão de serviços RESTful e sistemas de mensageria  
+   - Compreensão de serviços RESTful e sistemas de mensageiria  
 
 **3. Configurando o Ambiente de Desenvolvimento**  
    - Instalando o Java Development Kit (JDK)  

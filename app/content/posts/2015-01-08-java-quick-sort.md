@@ -2,6 +2,7 @@
 title: 'Quick Sort'
 date: "2015-01-08"
 draft: false
+excerpt: ""
 image: "https://images.pexels.com/photos/5594336/pexels-photo-5594336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 

@@ -2,6 +2,7 @@
 title: 'Linear Searching - Minor Element'
 date: "2014-08-08"
 draft: false
+excerpt: ""
 image: "https://cdn.pixabay.com/photo/2017/09/04/16/00/feather-2714526_1280.jpg"
 ---
 

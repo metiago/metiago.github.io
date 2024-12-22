@@ -2,82 +2,11 @@
 title: 'Java Sockets'
 date: "2016-02-08"
 draft: false
+excerpt: "How to check web server status through TCP/IP using Java Socket."
 image: "https://placehold.co/600x400"
 ---
 
-Tool to check server's health `host:port` through TCP/IP.
-
-### Example
-
-`pom.xml`
-
-```xml
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.tiago</groupId>
-    <artifactId>monitor-server</artifactId>
-    <version>1.0.0</version>
-
-    <name>server</name>
-    <description>Monitoring via TCP</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-```
-
-`log4j.properties`
-
-```xml
-# Root logger option
-log4j.rootLogger=DEBUG, stdout, file
-
-# Redirect log messages to console
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-log4j.appender.stdout.Target=System.out
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
-
-# Redirect log messages to a log file, support file rolling.
-log4j.appender.file=org.apache.log4j.RollingFileAppender
-log4j.appender.file.File=log4j-application.log
-log4j.appender.file.MaxFileSize=5MB
-log4j.appender.file.MaxBackupIndex=10
-log4j.appender.file.layout=org.apache.log4j.PatternLayout
-log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
-```
-
-`Handler.java`
+#### Handler
 
 ```java
 package io.tiago.server;
@@ -100,7 +29,7 @@ public class Handler implements Runnable {
 
     private final static Logger LOGGER = Logger.getLogger(Handler.class.getName());
 
-    private final static String MSG = "Service on %s:%s is up: %s";
+    private final static String MSG = "Server listen on %s:%s is up: %s";
 
     private Socket clientSocket;
 
@@ -158,7 +87,7 @@ public class Handler implements Runnable {
 }
 ```
 
-`Server.java`
+#### Socket Server
 
 ```java
 package io.tiago.server;
@@ -200,7 +129,7 @@ public class Server {
 }
 ```
 
-`Caller.java`
+#### POJO
 
 ```java
 package io.tiago.domain;
@@ -362,15 +291,4 @@ public class Client {
         }
     }
 }
-```
-
-Once the `Server.java` is running we can run `Client.java` with the below input e:g.
-
-```bash
-Enter host ip: yahoo.com
-Enter port number: 80
-Enter poll frequency: 5
-Enter schedule start time (HH:mm): 10:00
-Enter schedule end time (HH:mm): 23:00
-Enter expiration time in milliseconds: 5
 ```
