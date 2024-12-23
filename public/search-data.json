@@ -1,6 +1,6 @@
 [
   {
-    "id": 32,
+    "id": 17,
     "slug": "2024-02-08-fetch-process-api-go-java",
     "title": "Fetch and Process Data with Go and Java",
     "date": "2024-02-08",
@@ -8,15 +8,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 31,
-    "slug": "2024-01-08-threads-virtual-threads",
-    "title": "Java Virtual Threads",
-    "date": "2024-01-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 30,
+    "id": 16,
     "slug": "2022-01-08-java-http-client",
     "title": "Java Http Client",
     "date": "2022-01-08",
@@ -24,7 +16,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 29,
+    "id": 15,
     "slug": "2021-01-08-java-jconsole",
     "title": "Profiling Quarkus Application",
     "date": "2021-01-08",
@@ -32,7 +24,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 28,
+    "id": 14,
     "slug": "2017-06-08-git",
     "title": "Git - Quick Reference",
     "date": "2017-06-08",
@@ -40,7 +32,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 27,
+    "id": 13,
     "slug": "2017-05-08-maven",
     "title": "Maven - Quick Reference",
     "date": "2017-05-08",
@@ -48,7 +40,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 22,
+    "id": 8,
     "slug": "2017-02-08-java-8-functional-interfaces",
     "title": "Java Functional Interfaces",
     "date": "2017-04-08",
@@ -56,7 +48,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 26,
+    "id": 12,
     "slug": "2017-04-08-zeromq",
     "title": "Zero MQ",
     "date": "2017-04-08",
@@ -64,7 +56,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 23,
+    "id": 9,
     "slug": "2017-02-08-java-8-optional",
     "title": "Java Optional API",
     "date": "2017-03-08",
@@ -72,7 +64,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 25,
+    "id": 11,
     "slug": "2017-03-08-java-aspectj",
     "title": "AspectJ",
     "date": "2017-03-08",
@@ -80,7 +72,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 24,
+    "id": 10,
     "slug": "2017-02-08-java-collections-streams",
     "title": "Collections, Streams & Lambdas",
     "date": "2017-02-08",
@@ -88,63 +80,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 21,
-    "slug": "2017-01-08-threads-throughput",
-    "title": "Throughput",
-    "date": "2017-01-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 20,
-    "slug": "2016-12-08-threads-sync",
-    "title": "Java Threads - Synchronized",
-    "date": "2016-12-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 19,
-    "slug": "2016-11-08-threads-locks",
-    "title": "ReentrantLock & ReentrantReadWriteLock",
-    "date": "2016-11-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 18,
-    "slug": "2016-10-08-threads-inter-com",
-    "title": "Inter Thread Communication",
-    "date": "2016-10-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 17,
-    "slug": "2016-09-08-threads-deadlock",
-    "title": "Java Threads - DeadLocks",
-    "date": "2016-09-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 16,
-    "slug": "2016-08-08-threads-data-race",
-    "title": "Data Race and Race Condition",
-    "date": "2016-08-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 14,
-    "slug": "2016-06-08-threads-atomic",
-    "title": "Java Threads - Atomic",
-    "date": "2016-06-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 13,
+    "id": 7,
     "slug": "2016-05-16-threads",
     "title": "Java Threads",
     "date": "2016-05-16",
@@ -152,7 +88,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 12,
+    "id": 6,
     "slug": "2016-05-08-jenkins-ci",
     "title": "Jenkins, Java & SonarQube",
     "date": "2016-05-08",
@@ -160,15 +96,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 11,
-    "slug": "2016-04-16-jenkins-job-periodically",
-    "title": "Jenkins Job Periodically",
-    "date": "2016-04-16",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 10,
+    "id": 5,
     "slug": "2016-04-08-jenkins-cd",
     "title": "Jenkins Continuous Delivery",
     "date": "2016-04-08",
@@ -176,7 +104,7 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 9,
+    "id": 4,
     "slug": "2016-03-08-java-xml-api",
     "title": "Java XML API - Quick reference",
     "date": "2016-03-08",
@@ -184,60 +112,12 @@
     "image": "https://placehold.co/600x400"
   },
   {
-    "id": 8,
+    "id": 3,
     "slug": "2016-02-08-java-sockets-multithread",
     "title": "Java Sockets",
     "date": "2016-02-08",
     "draft": false,
     "excerpt": "",
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 7,
-    "slug": "2016-01-08-solid-open-close-responsibility",
-    "title": "Open Closed Principle",
-    "date": "2016-01-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 6,
-    "slug": "2015-12-08-solid-liskov-substitution-principle",
-    "title": "Liskov Substitution Principle",
-    "date": "2015-12-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 5,
-    "slug": "2015-11-08-solid-interface-segregation-principle",
-    "title": "Interface Segregation Principle",
-    "date": "2015-11-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 4,
-    "slug": "2015-10-08-solid-single-responsibility",
-    "title": "Single Responsibility Principle",
-    "date": "2015-10-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 3,
-    "slug": "2015-09-08-solid-dependency-inversion-principle",
-    "title": "Dependency Inversion Principle",
-    "date": "2015-09-08",
-    "draft": false,
-    "image": "https://placehold.co/600x400"
-  },
-  {
-    "id": 15,
-    "slug": "2016-07-08-threads-blocking-io",
-    "title": "Thread Per Task - Thread Per Request",
-    "date": "2015-07-08",
-    "draft": false,
     "image": "https://placehold.co/600x400"
   },
   {
