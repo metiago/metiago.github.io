@@ -13,7 +13,7 @@ export default function Ebook() {
               <div className="card">
                 <div className="card-body">
                   <h6 className="card-title">Princípios de Programação</h6>
-                  <p className="card-text">Downloads: <strong>43,350</strong></p>
+                  <p className="card-text">Downloads: <strong>43,351</strong></p>
                   <a
                     href="/files/principios-de-programacao-book.pdf"
                     download

@@ -7,7 +7,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const data = {
   labels: ['Princípios de Programação', 'Proteção de Dados com Java', 'Segurança da Informação com Java'],
-  values: [43350, 37756, 39987],
+  values: [43351, 37756, 33987],
 };
 
 const BarChart = () => {
