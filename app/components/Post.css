@@ -2,6 +2,9 @@ pre {
     padding: 0 !important;
 }
 
+.p{
+    font-size: 1.25rem !important;
+}
 
 img {
     width: 100%;
