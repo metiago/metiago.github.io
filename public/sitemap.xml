@@ -2,83 +2,11 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-          <loc>https://metiago.github.io/posts/2014-01-08-balanced-brackets.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/2014-02-08-big-o.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2014-03-08-binary-search-tree.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-04-08-doubly-linked-lists.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-05-08-java-binary-search.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-06-08-java-bubble-sort.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-07-08-java-hashtable.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-08-08-java-linear-search-minor-element.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-09-08-java-linear-search.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-10-08-java-merge-sort.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-11-08-java-min-max.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2014-12-08-java-queue.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-01-08-java-quick-sort.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/2015-02-08-java-regex.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-03-08-java-selection-sort.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-04-08-graphs.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-05-08-java-insertion-sort.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-06-08-java-stack.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-07-08-java-tree.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-08-08-linked-lists.md</loc>
         </url>
       
         <url>
@@ -175,6 +103,14 @@
       
         <url>
           <loc>https://metiago.github.io/posts/2017-04-08-zeromq.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/2017-05-08-maven.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/2017-06-08-git.md</loc>
         </url>
       
         <url>

@@ -13,15 +13,15 @@ export default function About() {
           </div>
           <div>
             <p>
-            Hi there! My name's Tiago. I'm a seasoned software engineer with 15 years of experience. 
-            I have developed a passion for designing and building scalable, efficient, and reliable enterprise applications using Java.
-            My journey in software development began with a technical certificate in computer programming, 
-            where I gained a solid understanding of programming fundamentals, data structures, and algorithms.
-            Throughout my career, I have worked on various Java-based projects, from small-scale web applications 
-            to large-scale enterprise systems. 
+              Hi there! My name&apos;s Tiago. I&apos;m a seasoned software engineer with 15 years of experience. 
+              I have developed a passion for designing and building scalable, efficient, and reliable enterprise applications using Java.
+              My journey in software development began with a technical certificate in computer programming, 
+              where I gained a solid understanding of programming fundamentals, data structures, and algorithms.
+              Throughout my career, I have worked on various Java-based projects, from small-scale web applications 
+              to large-scale enterprise systems. 
             </p>
             <p>
-            This site is called "Just Experiments", and it's all about research and prototyping documentation.
+              This site is called Just Experiments, and it&apos;s all about research and prototyping documentation.
             </p>
             <p>
             
