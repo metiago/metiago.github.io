@@ -17,8 +17,8 @@
   },
   {
     "id": 15,
-    "slug": "2021-01-08-java-jconsole",
-    "title": "Profiling Quarkus Application",
+    "slug": "2021-01-08-jmx",
+    "title": "JMX",
     "date": "2021-01-08",
     "draft": false,
     "image": "https://placehold.co/600x400"
