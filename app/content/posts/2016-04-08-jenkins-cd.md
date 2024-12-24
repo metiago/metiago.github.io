@@ -1,7 +1,7 @@
 ---
 title: 'Jenkins Continuous Delivery'
 date: "2016-04-08"
-draft: false
+draft: true
 image: "https://placehold.co/600x400"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title:  'Java XML API - Quick reference'
+title:  'Java XML API'
 date: "2016-03-08"
 draft: false
 image: "https://placehold.co/600x400"
@@ -54,10 +54,8 @@ public class XmlApiExample {
             builder = factory.newDocumentBuilder();
             doc = builder.parse(XML_FILE_EMPLOYEE);
 
-            // Create XPathFactory object
             XPathFactory xpathFactory = XPathFactory.newInstance();
 
-            // Create XPath object
             XPath xpath = xpathFactory.newXPath();
 
             String name = getEmployeeNameById(doc, xpath, 4);
@@ -77,12 +75,13 @@ public class XmlApiExample {
     private static List<String> getFemaleEmployeesName(Document doc, XPath xpath) {
         List<String> list = new ArrayList<>();
         try {
-            //create XPathExpression object
+ 
             XPathExpression expr = xpath.compile("/Employees/Employee[gender='Female']/name/text()");
-            // EVALUATE EXPRESSION RESULT ON XML DOCUMENT
             NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-            for (int i = 0; i < nodes.getLength(); i++)
+            for (int i = 0; i < nodes.getLength(); i++) {
                 list.add(nodes.item(i).getNodeValue());
+            }
+
         } catch (XPathExpressionException e) {
             e.printStackTrace();
         }
@@ -187,8 +186,6 @@ public class XmlApiExample {
                             emp.setId(Integer.parseInt(idAttr.getValue()));
                         }
                     }
-
-                    //SET THE OTHER VARIBLES FROM XML ELEMENTS
                     else if (startElement.getName().getLocalPart().equals("age")) {
                         xmlEvent = xmlEventReader.nextEvent();
                         emp.setAge(Integer.parseInt(xmlEvent.asCharacters().getData()));
@@ -203,7 +200,7 @@ public class XmlApiExample {
                         emp.setRole(xmlEvent.asCharacters().getData());
                     }
                 }
-                //if Employee end element is reached, add employee object to list
+
                 if (xmlEvent.isEndElement()) {
                     EndElement endElement = xmlEvent.asEndElement();
                     if (endElement.getName().getLocalPart().equals("Employee")) {
@@ -211,6 +208,7 @@ public class XmlApiExample {
                     }
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -218,7 +216,8 @@ public class XmlApiExample {
         System.out.println(empList.size());
     }
 
-    // DOM PARSER PARSES THE ENTIRE XML DOCUMENT AND LOADS IT INTO MEMORY; THEN MODELS IT IN A "TREE" STRUCTURE FOR EASY TRAVERSAL OR MANIPULATION.
+    // DOM PARSER PARSES THE ENTIRE XML DOCUMENT AND LOADS IT INTO MEMORY
+    // THEN MODELS IT IN A "TREE" STRUCTURE FOR EASY TRAVERSAL / MANIPULATION.
     private static void domXMLparser() {
 
         try {
