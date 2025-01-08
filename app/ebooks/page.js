@@ -12,7 +12,7 @@ export default function Ebook() {
             <div className="col-md-4 mb-4">
               <div className="card">
                 <div className="card-body">
-                  <h6 className="card-title">Princípios de Programação</h6>
+                  <h6 className="card-title">Principles of Programming</h6>
                   <p className="card-text">Downloads: <strong>43,351</strong></p>
                   <a
                     href="/files/principios-de-programacao-book.pdf"
@@ -27,7 +27,7 @@ export default function Ebook() {
             <div className="col-md-4 mb-4">
               <div className="card">
                 <div className="card-body">
-                  <h6 className="card-title">Proteção de Dados com Java</h6>
+                  <h6 className="card-title">Data Protection with Java</h6>
                   <p className="card-text">Downloads: <strong>37,756</strong></p>
                   <a
                     href="/files/proteção-de-dados-com-java-book.pdf"
@@ -42,7 +42,7 @@ export default function Ebook() {
             <div className="col-md-4 mb-4">
               <div className="card">
                 <div className="card-body">
-                  <h6 className="card-title">Segurança da Informação com Java</h6>
+                  <h6 className="card-title">Information Security with Java</h6>
                   <p className="card-text">Downloads: <strong>33,987</strong></p>
                   <a
                     href="/files/seguranca-da-informacao-com-java-book.pdf"
