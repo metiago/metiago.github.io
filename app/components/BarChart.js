@@ -6,7 +6,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const data = {
-  labels: ['Princípios de Programação', 'Proteção de Dados com Java', 'Segurança da Informação com Java'],
+  labels: ['Principles of Programming', 'Data Protection with Java', 'Information Security with Java'],
   values: [43351, 37756, 33987],
 };
 
