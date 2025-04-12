@@ -1,7 +1,7 @@
 ---
 title: 'Jenkins, Java & SonarQube'
 date: "2016-05-08"
-draft: true
+draft: false
 image: "https://placehold.co/600x400"
 ---
 
