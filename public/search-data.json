@@ -66,7 +66,7 @@
   {
     "id": 11,
     "slug": "2017-03-08-java-aspectj",
-    "title": "AspectJ",
+    "title": "Aspect Oriented Programming",
     "date": "2017-03-08",
     "draft": false,
     "image": "https://placehold.co/600x400"
@@ -106,7 +106,7 @@
   {
     "id": 4,
     "slug": "2016-03-08-java-xml-api",
-    "title": "Java XML API - Quick reference",
+    "title": "Java XML API",
     "date": "2016-03-08",
     "draft": false,
     "image": "https://placehold.co/600x400"
