@@ -10,27 +10,7 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2015-09-08-solid-dependency-inversion-principle.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-10-08-solid-single-responsibility.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-11-08-solid-interface-segregation-principle.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2015-12-08-solid-liskov-substitution-principle.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-01-08-solid-open-close-responsibility.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-02-08-java-sockets-multithread.md</loc>
+          <loc>https://metiago.github.io/posts/2016-02-08-sockets.md</loc>
         </url>
       
         <url>
@@ -42,47 +22,11 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-04-16-jenkins-job-periodically.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/2016-05-08-jenkins-ci.md</loc>
         </url>
       
         <url>
           <loc>https://metiago.github.io/posts/2016-05-16-threads.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-06-08-threads-atomic.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-07-08-threads-blocking-io.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-08-08-threads-data-race.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-09-08-threads-deadlock.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-10-08-threads-inter-com.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-11-08-threads-locks.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2016-12-08-threads-sync.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/2017-01-08-threads-throughput.md</loc>
         </url>
       
         <url>
@@ -114,7 +58,7 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2021-01-08-java-jconsole.md</loc>
+          <loc>https://metiago.github.io/posts/2021-01-08-jmx.md</loc>
         </url>
       
         <url>
@@ -122,11 +66,11 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2024-01-08-threads-virtual-threads.md</loc>
+          <loc>https://metiago.github.io/posts/2024-02-08-fetch-process-api-go-java.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2024-02-08-fetch-process-api-go-java.md</loc>
+          <loc>https://metiago.github.io/posts/spring-boot-tests.md</loc>
         </url>
       
         <url>
