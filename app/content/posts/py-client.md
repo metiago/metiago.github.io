@@ -4,8 +4,6 @@ date: "2014-07-03"
 draft: false
 ---
 
-### Export Exchanges Config
-
 Code snippet demonstrates how to publish messages to a RabbitMQ exchange using the `pika` library. It establishes a connection to a RabbitMQ server running on `localhost`, declares a fanout exchange named `x-tracking-sale-delivery`, and sends a JSON-encoded message containing tracking information in a loop, with a 2-second delay between each message. The messages include custom headers for authorization and content type. Finally, the connection to RabbitMQ is closed after all messages are sent. The code can be enhanced with error handling and logging for better robustness and maintainability.
 
 ```python
