@@ -1,6 +1,6 @@
 [
   {
-    "id": 18,
+    "id": 40,
     "slug": "spring-boot-tests",
     "title": "Test - Quick Reference",
     "date": "2024-07-03",
@@ -12,6 +12,14 @@
     "slug": "2024-02-08-fetch-process-api-go-java",
     "title": "Fetch and Process Data with Go and Java",
     "date": "2024-02-08",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 37,
+    "slug": "spring-async",
+    "title": "Spring Async - Quick Reference",
+    "date": "2023-08-07",
     "draft": false,
     "image": "https://placehold.co/600x400"
   },
@@ -28,6 +36,30 @@
     "slug": "2021-01-08-jmx",
     "title": "JMX",
     "date": "2021-01-08",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 29,
+    "slug": "kubectl",
+    "title": "K8S Kubectl Quick Reference",
+    "date": "2019-05-18",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 23,
+    "slug": "docker-references",
+    "title": "Docker - Quick Reference",
+    "date": "2018-03-23",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 22,
+    "slug": "data-store-reference",
+    "title": "Data Store - Quick Reference",
+    "date": "2017-07-13",
     "draft": false,
     "image": "https://placehold.co/600x400"
   },
@@ -100,7 +132,7 @@
     "slug": "2016-05-08-jenkins-ci",
     "title": "Jenkins, Java & SonarQube",
     "date": "2016-05-08",
-    "draft": true,
+    "draft": false,
     "image": "https://placehold.co/600x400"
   },
   {
@@ -108,7 +140,15 @@
     "slug": "2016-04-08-jenkins-cd",
     "title": "Jenkins Continuous Delivery",
     "date": "2016-04-08",
-    "draft": true,
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 38,
+    "slug": "spring-batch",
+    "title": "Spring Batch - Quick Reference",
+    "date": "2016-04-08",
+    "draft": false,
     "image": "https://placehold.co/600x400"
   },
   {
@@ -136,6 +176,164 @@
     "draft": false,
     "excerpt": "",
     "image": "https://cdn.pixabay.com/photo/2020/08/12/09/42/dog-5482171_1280.jpg"
+  },
+  {
+    "id": 19,
+    "slug": "apache-camel",
+    "title": "Apache Camel - Quick Reference",
+    "date": "2014-07-03",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 20,
+    "slug": "aws-qldb-blockchain",
+    "title": "AWS QLDB & Lambda",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 21,
+    "slug": "cloud-starter",
+    "title": "Cloud Computing",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 24,
+    "slug": "elapsed-time",
+    "title": "Elapsed Time",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 25,
+    "slug": "java-aws-lambda-dynamodb",
+    "title": "Lambda & DynanoDB & Gateway",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 26,
+    "slug": "java-aws-lambda-s3",
+    "title": "Lambda & S3",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 27,
+    "slug": "java-install-cert",
+    "title": "Java Keytool - Quick References",
+    "date": "2014-07-03",
+    "draft": false,
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "id": 28,
+    "slug": "keycloack",
+    "title": "Spring Boot + Keycloak",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 30,
+    "slug": "mysql-ref",
+    "title": " MySQL Quick Reference",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 31,
+    "slug": "oci",
+    "title": "OCI",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 32,
+    "slug": "outbox-pattern",
+    "title": "Outbox Pattern",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 33,
+    "slug": "py-client",
+    "title": "Python Rabbit API",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 34,
+    "slug": "rabbit-mq-api",
+    "title": "RabbitMQ API",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 35,
+    "slug": "rabbit-mq-client",
+    "title": "RabbitMQ Client",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 36,
+    "slug": "service-discovery",
+    "title": "Kubernetes Service Discovery (DNS)",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 39,
+    "slug": "spring-boot-kafka",
+    "title": "Spring Boot - Kafka",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 41,
+    "slug": "spring-cache",
+    "title": "Spring Cache",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 42,
+    "slug": "spring-cloud-gateway-keycloak",
+    "title": "Spring Cloud Gateway + Keycloak",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 43,
+    "slug": "spring-errors",
+    "title": "Spring Boot - Errors",
+    "date": "2014-07-03",
+    "draft": false,
+    "image": "https://cdn.pixabay.com/photo/2017/01/04/13/28/problem-1951987_1280.jpg"
+  },
+  {
+    "id": 44,
+    "slug": "spring-security-oauth2",
+    "title": "Spring Security - OAuth2",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 45,
+    "slug": "vpc",
+    "title": "VPC & Networking",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 18,
+    "slug": "apache-ab",
+    "title": "Apache AB",
+    "date": "2014-03-03",
+    "draft": false,
+    "image": "https://cdn.pixabay.com/photo/2020/05/20/00/45/time-5193038_1280.jpg"
   },
   {
     "id": 1,
