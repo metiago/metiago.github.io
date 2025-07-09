@@ -13,7 +13,7 @@ export default function About() {
           </div>
           <div>
             <p>
-              Hi there! My name&apos;s Tiago. I&apos;m a seasoned software engineer passionate about creating effective and efficient software solutions.. 
+              Hi there! My name&apos;s Tiago. I&apos;m a seasoned software engineer passionate about creating effective and efficient software solutions.
               I have developed a passion for designing and building scalable, efficient, and reliable enterprise applications.
               My journey in software development began with a technical certificate in computer programming, 
               where I gained a solid understanding of programming fundamentals, data structures, and algorithms.
