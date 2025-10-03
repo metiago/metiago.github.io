@@ -2,7 +2,7 @@
 title: 'K8S Kubectl Quick Reference'
 date: "2019-05-18"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 ```bash

@@ -2,7 +2,7 @@
 title:  'Aspect Oriented Programming'
 date: "2017-03-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 AspectJ is a Java library that implements aspect-oriented programming. Aspect-Oriented Programming (AOP) is a programming paradigm that allows the separation of cross-cutting concerns (e.g. logging, security, or error handling) from the main business logic. It achieves this by defining *aspects* that can be applied to different parts of a program.

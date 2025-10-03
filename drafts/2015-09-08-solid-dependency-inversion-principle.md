@@ -2,7 +2,7 @@
 title: 'Dependency Inversion Principle'
 date: "2015-09-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 The principle defines two main points:

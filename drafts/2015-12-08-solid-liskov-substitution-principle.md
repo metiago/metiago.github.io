@@ -2,7 +2,7 @@
 title: 'Liskov Substitution Principle'
 date: "2015-12-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 This principle states that derived classes must be substitutable for the base class.

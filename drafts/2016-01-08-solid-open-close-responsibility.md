@@ -2,7 +2,7 @@
 title: 'Open Closed Principle'
 date: "2016-01-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 This pattern says (classes or modules) should be open for extension, but closed for modification. 

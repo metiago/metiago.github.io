@@ -2,7 +2,7 @@
 title:  'Java XML API'
 date: "2016-03-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 ```java

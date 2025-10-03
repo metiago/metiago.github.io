@@ -2,7 +2,6 @@
 title: 'Spring Batch - Quick Reference'
 date: "2016-04-08"
 draft: false
-image: "https://placehold.co/600x400"
 ---
 
 ### Spring Batch + Elasticsearch + JMS

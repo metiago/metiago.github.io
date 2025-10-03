@@ -2,7 +2,7 @@
 title: 'Jenkins Continuous Delivery'
 date: "2016-04-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 Continuous delivery (CD) is fundamentally a set of practices and disciplines in which software delivery teams produce valuable and robust software in short cycles. 

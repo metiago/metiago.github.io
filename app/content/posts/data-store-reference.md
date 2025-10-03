@@ -2,7 +2,6 @@
 title:  'Data Store - Quick Reference'
 date: "2017-07-13"
 draft: false
-image: "https://placehold.co/600x400"
 ---
 
 Weaknesses and strengths of different data stores and when to use each.

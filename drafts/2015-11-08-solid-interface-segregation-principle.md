@@ -2,7 +2,7 @@
 title: 'Interface Segregation Principle'
 date: "2015-11-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 The principle defines that clients should not be forced to implement methods that won't be used by them.

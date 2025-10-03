@@ -2,7 +2,7 @@
 title: 'Apache AB'
 date: "2014-03-03"
 draft: false
-image: "https://cdn.pixabay.com/photo/2020/05/20/00/45/time-5193038_1280.jpg"
+
 ---
 
 The ab command is a command line load testing and benchmarking tool for web servers that allows you to simulate high traffic to a website.

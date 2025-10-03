@@ -2,7 +2,7 @@
 title: 'Jenkins, Java & SonarQube'
 date: "2016-05-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 Continuous Integration (CI) is a practice of merging all developers' work several times a day. It's important to note that this practice is better achieved when following workflows different from pull request ones; opening multiple pull requests can slow down the development process and also create the famous "merging hell".

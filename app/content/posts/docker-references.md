@@ -2,7 +2,7 @@
 title: 'Docker - Quick Reference'
 date: "2018-03-23"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 #### Basic Commands
@@ -68,14 +68,14 @@ cat < /dev/tcp/127.0.0.1/22
 version: '3'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.0.1
+    
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
   broker:
-    image: confluentinc/cp-kafka:7.0.1
+    
     container_name: broker
     ports:
     # To learn about configuring Kafka for access across networks see
@@ -100,7 +100,7 @@ version: '3.6'
 
 services:
   adminer_container:
-    image: adminer:latest
+    
     environment:
       ADMINER_DEFAULT_SERVER: db
       ADMINER_DESIGN: dracula
@@ -108,7 +108,7 @@ services:
       - 8080:8080
   db:
     container_name: mysql8
-    image: mysql:8.0
+    
     command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -129,7 +129,7 @@ version: '3.8'
 services:
 
   mongo:
-    image: "mongo:4.0.2"
+    
     restart: always
     ports:
       - "27017:27017"
@@ -138,7 +138,7 @@ services:
       - south_net
 
   mongo-express:
-    image: "mongo-express:0.54"
+    
     restart: always
     ports:
       - "9091:8081"
@@ -152,7 +152,7 @@ services:
 
   redis:
       container_name: redis
-      image: redis:6.2-alpine
+      
       restart: always
       ports:
         - '6379:6379'
@@ -161,7 +161,7 @@ services:
         - south_net
 
   activemq:
-    image: "rmohr/activemq:5.15.9-alpine"
+    
     restart: always
     ports:
       - "61616:61616"
@@ -169,7 +169,7 @@ services:
       - south_net
 
   redis-commander:
-    image: rediscommander/redis-commander:latest
+    
     environment:
       - REDIS_HOSTS=local:redis:6379
       - HTTP_USER=root
@@ -182,7 +182,7 @@ services:
         - south_net
 
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    
     restart: always
     container_name: 'rabbitmq'
     ports:
@@ -204,14 +204,14 @@ version: '3.6'
 
 services:
   adminer_container:
-    image: adminer:latest
+    
     environment:
       ADMINER_DEFAULT_SERVER: db
       ADMINER_DESIGN: dracula
     ports:
       - 8080:8080
   db:
-    image: postgres:10.1-alpine
+    
     ports:
       - 5432:5432
     volumes:
@@ -220,7 +220,7 @@ services:
       - POSTGRES_PASSWORD=12345678
       - POSTGRES_USER=postgres
   elasticsearch:
-    image: elasticsearch:7.17.0
+    
     ports:
       - 9200:9200
     environment:

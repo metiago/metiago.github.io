@@ -49,7 +49,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: your-backend-image:tag
+          
           ports:
             - containerPort: 8080
 ```
@@ -92,7 +92,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-frontend-image:tag
+          
           ports:
             - containerPort: 8080
 ```

@@ -2,7 +2,7 @@
 title: 'Spring Async - Quick Reference'
 date: "2023-08-07"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 #### ThreadPoolTaskExecutor:

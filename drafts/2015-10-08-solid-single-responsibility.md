@@ -2,7 +2,7 @@
 title: 'Single Responsibility Principle'
 date: "2015-10-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 The `Single Responsibility Principle` says that a object should handle only one thing well.  

@@ -2,7 +2,7 @@
 title: 'Java Optional API'
 date: "2017-03-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 ### Return a boolean If The Optional Is Empty. Prefer Java 11, Optional.isEmpty()

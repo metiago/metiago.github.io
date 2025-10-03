@@ -2,7 +2,7 @@
 title: "Test - Quick Reference"
 date: "2024-07-03"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 ## Mockito

@@ -2,7 +2,7 @@
 title: 'Java Http Client'
 date: "2022-01-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 #### Concurrent Requests

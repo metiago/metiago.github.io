@@ -2,7 +2,7 @@
 title: 'Fetch and Process Data with Go and Java'
 date: "2024-02-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 Simple HTTP server written in Go that serves paginated articles from a JSON file (db.json). It defines a structure for the response and the article data, handles pagination, and returns the results in JSON format.

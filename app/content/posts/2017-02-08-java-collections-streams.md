@@ -2,7 +2,7 @@
 title: 'Collections, Streams & Lambdas'
 date: "2017-02-08"
 draft: false
-image: "https://placehold.co/600x400"
+
 ---
 
 #### Sorting Nulls
