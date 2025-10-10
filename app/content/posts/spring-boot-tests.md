@@ -17,6 +17,33 @@ Mockito is a popular mocking framework for Java that allows developers to create
 
 ### Unit Tests
 
+#### How to test private methods
+```java
+// Method under testing
+private List<Produto> getFutureTask(Future<List<Produto>> future, String nomeProduto) {
+    try {
+        return future.get();
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        throw new CapitalException("Thread interrompida ao obter tipo de produto: " + nomeProduto, e);
+    } catch (ExecutionException e) {
+        throw new CapitalException("Erro ao obter tipo de produto: " + nomeProduto, e.getCause());
+    }
+}
+
+@Test
+void testSomeException() throws Throwable {
+
+    when(futureMock.get()).thenThrow(new CapitalException("Erro ao obter tipoProduto: Produto X"));
+
+    MethodHandles.Lookup lookup = MethodHandles.privateLookupIn(DocumentoLegalService.class, MethodHandles.lookup());
+    MethodType mt = MethodType.methodType(List.class, Future.class, String.class);
+    MethodHandle mh = lookup.findVirtual(DocumentoLegalService.class, "getFutureTask", mt);
+
+    assertThrows(CapitalException.class, () -> mh.invoke(documentoLegalService, futureMock, "Produto X"));
+}
+```
+
 #### How to test void methods
 
 ```java
