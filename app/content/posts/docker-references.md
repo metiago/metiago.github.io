@@ -5,7 +5,7 @@ draft: false
 
 ---
 
-#### Basic Commands
+### Basic Commands
 
 ```bash
 
@@ -62,7 +62,7 @@ docker run --name gogs --link mysql:mysql -p 8080:3000 -d gogs
 cat < /dev/tcp/127.0.0.1/22
 ```
 
-#### Kafka
+### Kafka
 
 ```yaml
 version: '3'
@@ -93,7 +93,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 ```
 
-#### MySQL
+### MySQL
 
 ```yml
 version: '3.6'
@@ -122,7 +122,7 @@ services:
       - './docker/db/sql:/docker-entrypoint-initdb.d'
 ```
 
-#### RabbitMQ
+### RabbitMQ
 
 ```yml
 version: '3.8'
@@ -197,7 +197,7 @@ networks:
 
 ```
 
-#### PostgreSQL
+### PostgreSQL
 
 ```yml
 version: '3.6'

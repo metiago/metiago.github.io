@@ -1,24 +1,23 @@
 ---
-title: 'Spring Async - Quick Reference'
+title: 'The Async Advantage: A Spring Developer’s Quick Reference'
 date: "2023-08-07"
 draft: false
-
 ---
 
-#### ThreadPoolTaskExecutor:
+### ThreadPoolTaskExecutor
 
 ThreadPoolTaskExecutor is one of the most commonly used implementations of TaskExecutor in Spring.
 It manages a pool of threads and delegates task execution to these threads.
 You can configure various properties of the thread pool, such as core pool size, maximum pool size, queue capacity, and thread keep-alive time.
 This executor is suitable for scenarios where you want to control the number of concurrent tasks being executed and manage the resources allocated to task execution.
 
-#### SimpleAsyncTaskExecutor:
+### SimpleAsyncTaskExecutor
 
 SimpleAsyncTaskExecutor is a basic implementation of TaskExecutor that executes tasks asynchronously in a new thread for each task.
 Unlike ThreadPoolTaskExecutor, it does not manage a thread pool. Instead, it creates a new thread for each task, which can lead to resource contention and scalability issues if used in high-concurrency scenarios.
 This executor is suitable for lightweight asynchronous tasks or scenarios where the number of concurrent tasks is expected to be low and resource usage is not a concern.
 
-#### ConcurrentTaskExecutor:
+### ConcurrentTaskExecutor
 
 ConcurrentTaskExecutor is an adapter class that allows you to use a java.util.concurrent.Executor as a Spring TaskExecutor.
 It delegates task execution to the underlying Executor provided by the Java concurrency framework.
@@ -26,12 +25,12 @@ This executor is useful when you want to leverage custom or third-party implemen
 It provides seamless integration between Spring's asynchronous task execution mechanism and Java's concurrency utilities.
 In summary, ThreadPoolTaskExecutor is suitable for managing a pool of threads and controlling resource usage, SimpleAsyncTaskExecutor is suitable for lightweight asynchronous tasks with low concurrency, and ConcurrentTaskExecutor is useful for integrating with custom or third-party implementations of the Java Executor interface. Choose the appropriate executor based on your specific requirements and use case.
 
-#### Summary 
+### Summary
 
 For IO-bound tasks, where the tasks spend a significant amount of time waiting for input/output operations 
 (such as reading from or writing to files, making network requests, or accessing databases), it's generally more suitable to use a ThreadPoolTaskExecutor rather than SimpleAsyncTaskExecutor or ConcurrentTaskExecutor.
 
-#### Example
+### Example
 
 ```java
 import org.springframework.context.annotation.Bean;
@@ -58,7 +57,7 @@ public class AsyncConfig {
 
 In this example, Spring will create 4 threads and If there are more tasks it'll increase the number of threads until 8 and no more.
 
-#### Core Pool Size
+### Core Pool Size
 
 The "core pool size" refers to the number of threads that are kept alive in a thread pool, even when they are not actively executing tasks. These threads are known as "core threads" or "permanent threads."
 
@@ -74,7 +73,7 @@ Usage: The core pool size is typically set based on the expected concurrency lev
 
 In the context of the ThreadPoolTaskExecutor in Spring, the corePoolSize property specifies the initial number of threads in the thread pool. These threads are created when the thread pool is initialized and remain active unless explicitly terminated or if the thread pool implementation decides to scale the number of threads dynamically based on workload and configuration parameters. Adjusting the core pool size allows you to control the concurrency level and resource usage of the thread pool in your application.
 
-#### Max Pool Size
+### Max Pool Size
 
 The "max pool size" refers to the maximum number of threads that can exist simultaneously in a thread pool. When the number of threads in the pool reaches the maximum pool size, the pool will stop creating new threads, even if there are pending tasks in the task queue.
 
@@ -93,7 +92,7 @@ In the context of the ThreadPoolTaskExecutor in Spring:
 The maxPoolSize property specifies the maximum number of threads that can be active in the thread pool simultaneously.
 When configuring a ThreadPoolTaskExecutor, you can set the maxPoolSize to control the scalability and resource usage of the thread pool based on your application's requirements and the available resources in your environment.
 
-#### Queue Capacity
+### Queue Capacity
 
 The queueCapacity property in Spring's ThreadPoolTaskExecutor configuration specifies the maximum number of tasks that can be queued for execution when all threads in the thread pool are busy.
 
@@ -118,7 +117,7 @@ When configuring a ThreadPoolTaskExecutor, you can set the queueCapacity to cont
 executor.setQueueCapacity(100); // Set the queue capacity to 100 tasks
 ```
 
-#### What If there are more than 100 tasks ?
+### What If there are more than 100 tasks ?
 
 If the number of pending tasks exceeds the queueCapacity specified in the ThreadPoolTaskExecutor configuration, the behavior depends on the rejection policy configured for the thread pool.
 
@@ -134,7 +133,7 @@ Caller Runs Policy: When the task queue reaches its capacity, the thread that su
 
 You can configure the rejection policy using the setRejectedExecutionHandler() method of ThreadPoolTaskExecutor. 
 
-#### Does that mean I can loose tasks ?
+### Does that mean I can loose tasks ?
 
 Yes, depending on the rejection policy configured for the ThreadPoolTaskExecutor, it's possible to lose tasks if the task queue reaches its capacity and cannot accept any more tasks.
 

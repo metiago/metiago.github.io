@@ -101,7 +101,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 spring.datasource.hikari.connection-test-query=SELECT 1
-###### KEYCLOAK CONFIGURATION
+##### KEYCLOAK CONFIGURATION
 keycloak.auth-server-url=http://localhost:8180/auth
 keycloak.realm=SpringBootKeycloakApp
 keycloak.resource=SpringBootApp

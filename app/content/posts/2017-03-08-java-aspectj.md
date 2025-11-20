@@ -12,7 +12,7 @@ AspectJ is a Java library that implements aspect-oriented programming. Aspect-Or
 2. **Reusability:** Aspects can be reused across different parts of the application.
 3. **Easier maintenance:** Changes to concerns like logging or security can be made in one place rather than throughout the codebase.
 
-#### Example
+### Example
 
 `pom.xml`
 
@@ -58,7 +58,7 @@ public class YourClass {
 }
 ```
 
-#### Core Implementation
+### Core Implementation
 
 ```java
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -117,7 +117,7 @@ public class YourAspect {
 
 ### Code Breakdown:
 
-#### 1. **@Aspect Annotation**
+### 1. **@Aspect Annotation**
 ```java
 @Aspect
 public class YourAspect {
@@ -126,7 +126,7 @@ public class YourAspect {
 ```
 - **@Aspect**: This marks the class as an aspect. It tells AspectJ to treat this class as one that contains cross-cutting concerns (aspects).
   
-#### 2. **@Pointcut Definitions**
+### 2. **@Pointcut Definitions**
 ```java
 @Pointcut("@annotation(YourAnnotation)")
 public void annotationPointCutDefinition() { }
@@ -145,7 +145,7 @@ public void atExecution() { }
 
 These pointcuts are used to select specific join points (places in the code where the advice will apply).
 
-#### 3. **@Around Advice**
+### 3. **@Around Advice**
 ```java
 @Around("@annotation(YourAnnotation) && execution(* *(..))")
 public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -165,7 +165,7 @@ public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
   
 - **Exception Handling**: The `catch` block rethrows any `Throwable` exceptions that might occur during the method execution. This ensures the exception is propagated after the advice is done.
   
-#### 4. **@After Advice**
+### 4. **@After Advice**
 ```java
 @After("annotationPointCutDefinition() && atExecution()")
 public void printNewLine(JoinPoint pointcut) {

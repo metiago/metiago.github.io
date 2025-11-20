@@ -4,7 +4,7 @@ date: "2014-07-03"
 draft: false
 ---
 
-#### Eh Cache
+### Eh Cache
 
 ```java
 import org.springframework.cache.CacheManager;
@@ -33,7 +33,7 @@ public class CacheConfig {
 ```
 
 
-#### Redis
+### Redis
 
 ```java
 import org.springframework.context.annotation.Bean;
@@ -61,7 +61,7 @@ public class RedisConfig {
 }
 ```
 
-#### Examples 
+### Examples 
 
 ```java
 @Cacheable(

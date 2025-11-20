@@ -6,7 +6,7 @@ draft: false
 
 The "Outbox Pattern" is a design pattern commonly used in microservices architecture to ensure consistency and reliability when integrating multiple services asynchronously. In distributed systems, maintaining data consistency across different services can be challenging due to network failures, service outages, or other issues. The Outbox Pattern addresses this challenge by decoupling the act of modifying data from the act of notifying other services about those modifications.
 
-#### Outbox Processor
+### Outbox Processor
 
 Here's a breakdown of the responsibilities and characteristics of an outbox processor:
 
@@ -24,7 +24,7 @@ Scalability and Resilience: The outbox processor should be designed to scale hor
 
 Overall, the outbox processor is a critical component in the implementation of the outbox pattern, enabling reliable and asynchronous communication between microservices in a distributed system.
 
-#### Outbox Processor Workflow
+### Outbox Processor Workflow
 
 The outbox processor can update the outbox table's metadata to track processed events and ensure idempotency. Here's how this process typically works:
 
@@ -70,7 +70,7 @@ It's important for the outbox processor to handle concurrent access to the outbo
 ```
 
 
-#### Outbox Table
+### Outbox Table
 
 ```sql
 CREATE TABLE outbox (

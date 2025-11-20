@@ -9,6 +9,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import json from 'highlight.js/lib/languages/json';
 import yaml from 'highlight.js/lib/languages/yaml'
 import go from 'highlight.js/lib/languages/go'
+import sql from 'highlight.js/lib/languages/sql'
 
 import 'highlight.js/styles/github-dark.css';
 import './Post.css'
@@ -21,6 +22,7 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('sql', sql);
 
 
 const Post = ({ title, date, content, category, author }) => {

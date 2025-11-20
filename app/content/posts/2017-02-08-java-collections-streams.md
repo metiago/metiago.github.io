@@ -5,7 +5,7 @@ draft: false
 
 ---
 
-#### Sorting Nulls
+### Sorting Nulls
 ```java
 // This method will sort by getCDKEYand then will sort by getVLRMX, if getCDKEY is null it'll sort by getVLRMN
 private Optional<ZSDST0004Dto> getPolicyByGreaterCdKey(List<ZSDST0004Dto> policies) {
@@ -17,7 +17,7 @@ private Optional<ZSDST0004Dto> getPolicyByGreaterCdKey(List<ZSDST0004Dto> polici
 }
 ```
 
-#### Count Duplicates 
+### Count Duplicates 
 ```java
 // counts the total number of duplicate CD keys in a list of ZSDST0004Dto objects by grouping and counting occurrences
 private long isCdKeyDuplicated(List<ZSDST0004Dto> policies) {
@@ -30,7 +30,7 @@ private long isCdKeyDuplicated(List<ZSDST0004Dto> policies) {
 }
 ```
 
-#### Converting primitive arrays to List
+### Converting primitive arrays to List
 
 ```java
 int[] nums = {1,2, 3}
@@ -38,7 +38,7 @@ int[] nums = {1,2, 3}
 List<Integer> intList1 = Arrays.asList(Arrays.stream(nums1).boxed().toArray(Integer[]::new));
 ```
 
-#### Remove duplicates based on single attribute
+### Remove duplicates based on single attribute
 
 ```java
 List<Object> resultSet.stream().map(this::toDTO)
@@ -46,7 +46,7 @@ List<Object> resultSet.stream().map(this::toDTO)
 }
 ```
 
-#### Find the first non-repeated value
+### Find the first non-repeated value
 
 ```java
 
@@ -76,7 +76,7 @@ public static void main(String[] args) {
 } 
 ```
 
-#### Count duplicates
+### Count duplicates
 
 ```java
 import java.util.*;
@@ -96,7 +96,7 @@ public class StreamCountDuplicateElements {
 }
 ```
 
-#### Samples
+### Samples
 
 ```java
 package com.tiago.javacore;
@@ -324,7 +324,7 @@ public class ArrayChunk {
 }
 ```
 
-###### Map
+##### Map
 
 ```java
 import java.util.HashMap;
@@ -350,7 +350,7 @@ public class LoopMap {
 }
 ```
 
-###### Shuffle List
+##### Shuffle List
 
 ```java
 

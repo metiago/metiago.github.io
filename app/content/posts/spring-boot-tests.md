@@ -17,7 +17,7 @@ Mockito is a popular mocking framework for Java that allows developers to create
 
 ### Unit Tests
 
-#### How to test void methods
+### How to test void methods
 
 ```java
 
@@ -54,7 +54,7 @@ void testSomething() {
 
 ```
 
-#### How to test exceptions
+### How to test exceptions
 
 ```java
 @ExtendWith(MockitoExtension.class)

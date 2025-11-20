@@ -1,5 +1,5 @@
 ---
-title: 'Fetch and Process Data with Go and Java'
+title: 'Fetch and Process Data with Go and Java: A Comparative Guide'
 date: "2024-02-08"
 draft: false
 

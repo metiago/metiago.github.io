@@ -5,7 +5,7 @@ draft: false
 
 ---
 
-#### Concurrent Requests
+### Concurrent Requests
 
 ```java
 import java.net.URI;
@@ -64,7 +64,7 @@ public class App {
 }
 ```
 
-#### Asynchronous
+### Asynchronous
 ```java
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -101,7 +101,7 @@ public class Main {
 }
 ```
 
-#### Synchronous
+### Synchronous
 
 ```java
 import java.io.IOException;
@@ -140,7 +140,7 @@ public class Main {
 }
 ```
 
-#### POST Form Parameters
+### POST Form Parameters
 ```java
 import java.io.IOException;
 import java.net.URI;
@@ -201,7 +201,7 @@ public class App {
 
 ```
 
-#### Post JSON
+### Post JSON
 ```java
 import java.io.IOException;
 import java.net.URI;

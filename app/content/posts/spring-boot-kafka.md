@@ -1,14 +1,11 @@
 ---
-title: 'Spring Boot - Kafka'
+title: 'A Step-by-Step Guide to Setting Up Multiple Spring Boot Applications with Kafka'
 date: "2014-07-03"
 draft: false
 ---
 
-This is a guide to demonstrate how to set up three `Spring Boot` applications that communicate with `Kafka` message broker.
-
-In this example we have one producer that send messages to Kafka and two consumers that read messages from different partitions.
-
-Let's get start with the producer.
+This guide will walk you through the process of setting up three Spring Boot applications that communicate with a Kafka message broker. 
+In this example, we will have one producer that sends messages to Kafka and two consumers that read messages from different partitions.
 
 `pom.xml`
 

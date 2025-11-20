@@ -1,6 +1,6 @@
 [
   {
-    "id": 39,
+    "id": 40,
     "slug": "spring-boot-tests",
     "title": "Test - Quick Reference",
     "date": "2024-07-03",
@@ -9,14 +9,14 @@
   {
     "id": 17,
     "slug": "2024-02-08-fetch-process-api-go-java",
-    "title": "Fetch and Process Data with Go and Java",
+    "title": "Fetch and Process Data with Go and Java: A Comparative Guide",
     "date": "2024-02-08",
-    "draft": true
+    "draft": false
   },
   {
-    "id": 36,
+    "id": 37,
     "slug": "spring-async",
-    "title": "Spring Async - Quick Reference",
+    "title": "The Async Advantage: A Spring Developer’s Quick Reference",
     "date": "2023-08-07",
     "draft": false
   },
@@ -37,7 +37,7 @@
   {
     "id": 28,
     "slug": "kubectl",
-    "title": "K8S Kubectl Quick Reference",
+    "title": "Enhancing Your Kubernetes Workflow: A Comprehensive Kubectl Quick Reference",
     "date": "2019-05-18",
     "draft": false
   },
@@ -53,7 +53,7 @@
     "slug": "data-store-reference",
     "title": "Data Store - Quick Reference",
     "date": "2017-07-13",
-    "draft": true
+    "draft": false
   },
   {
     "id": 14,
@@ -126,11 +126,11 @@
     "draft": false
   },
   {
-    "id": 37,
+    "id": 38,
     "slug": "spring-batch",
     "title": "Spring Batch - Quick Reference",
     "date": "2016-04-08",
-    "draft": true
+    "draft": false
   },
   {
     "id": 4,
@@ -167,7 +167,7 @@
     "slug": "aws-qldb-blockchain",
     "title": "AWS QLDB & Lambda",
     "date": "2014-07-03",
-    "draft": true
+    "draft": false
   },
   {
     "id": 23,
@@ -206,94 +206,101 @@
   },
   {
     "id": 29,
-    "slug": "mysql-ref",
-    "title": " MySQL Quick Reference",
+    "slug": "mysql-encryption-standard",
+    "title": " MySQL Encryption Standard",
     "date": "2014-07-03",
     "draft": false
   },
   {
     "id": 30,
-    "slug": "oci",
-    "title": "OCI",
+    "slug": "mysql-json-storage",
+    "title": " MySQL JSON",
     "date": "2014-07-03",
-    "draft": true
+    "draft": false
   },
   {
     "id": 31,
+    "slug": "oci",
+    "title": "OCI",
+    "date": "2014-07-03",
+    "draft": false
+  },
+  {
+    "id": 32,
     "slug": "outbox-pattern",
     "title": "Outbox Pattern",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 32,
+    "id": 33,
     "slug": "py-client",
     "title": "Python Rabbit API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 33,
+    "id": 34,
     "slug": "rabbit-mq-api",
     "title": "RabbitMQ API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 34,
+    "id": 35,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 35,
+    "id": 36,
     "slug": "service-discovery",
     "title": "Kubernetes Service Discovery (DNS)",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 38,
+    "id": 39,
     "slug": "spring-boot-kafka",
-    "title": "Spring Boot - Kafka",
+    "title": "A Step-by-Step Guide to Setting Up Multiple Spring Boot Applications with Kafka",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 40,
+    "id": 41,
     "slug": "spring-cache",
     "title": "Spring Cache",
     "date": "2014-07-03",
-    "draft": true
+    "draft": false
   },
   {
-    "id": 41,
+    "id": 42,
     "slug": "spring-cloud-gateway-keycloak",
     "title": "Spring Cloud Gateway + Keycloak",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 42,
+    "id": 43,
     "slug": "spring-errors",
     "title": "Spring Boot - Errors",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 43,
+    "id": 44,
     "slug": "spring-security-oauth2",
     "title": "Spring Security - OAuth2",
     "date": "2014-07-03",
-    "draft": true
+    "draft": false
   },
   {
-    "id": 44,
+    "id": 45,
     "slug": "vpc",
     "title": "VPC & Networking",
     "date": "2014-07-03",
-    "draft": true
+    "draft": false
   },
   {
     "id": 18,
