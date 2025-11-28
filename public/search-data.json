@@ -1,8 +1,29 @@
 [
   {
-    "id": 40,
-    "slug": "spring-boot-tests",
-    "title": "Test - Quick Reference",
+    "id": 46,
+    "slug": "spring-test-repository",
+    "title": "Testing MongoDB Repositories in Spring Boot",
+    "date": "2025-07-03",
+    "draft": false
+  },
+  {
+    "id": 45,
+    "slug": "spring-test-controller",
+    "title": "Testing Application Controllers in Spring Boot",
+    "date": "2025-04-12",
+    "draft": false
+  },
+  {
+    "id": 29,
+    "slug": "mockito",
+    "title": "Mockito Quick Reference: Essential Tips for Effortless Mocking",
+    "date": "2024-07-03",
+    "draft": false
+  },
+  {
+    "id": 47,
+    "slug": "spring-test",
+    "title": "Spring Testing Quick Reference: Essential Tips for Seamless Unit and Integration Testing",
     "date": "2024-07-03",
     "draft": false
   },
@@ -14,7 +35,7 @@
     "draft": false
   },
   {
-    "id": 37,
+    "id": 38,
     "slug": "spring-async",
     "title": "The Async Advantage: A Spring Developer’s Quick Reference",
     "date": "2023-08-07",
@@ -126,7 +147,7 @@
     "draft": false
   },
   {
-    "id": 38,
+    "id": 39,
     "slug": "spring-batch",
     "title": "Spring Batch - Quick Reference",
     "date": "2016-04-08",
@@ -205,63 +226,63 @@
     "draft": false
   },
   {
-    "id": 29,
+    "id": 30,
     "slug": "mysql-encryption-standard",
     "title": " MySQL Encryption Standard",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 30,
+    "id": 31,
     "slug": "mysql-json-storage",
     "title": " MySQL JSON",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 31,
+    "id": 32,
     "slug": "oci",
     "title": "OCI",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 32,
+    "id": 33,
     "slug": "outbox-pattern",
     "title": "Outbox Pattern",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 33,
+    "id": 34,
     "slug": "py-client",
     "title": "Python Rabbit API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 34,
+    "id": 35,
     "slug": "rabbit-mq-api",
     "title": "RabbitMQ API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 35,
+    "id": 36,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 36,
+    "id": 37,
     "slug": "service-discovery",
     "title": "Kubernetes Service Discovery (DNS)",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 39,
+    "id": 40,
     "slug": "spring-boot-kafka",
     "title": "A Step-by-Step Guide to Setting Up Multiple Spring Boot Applications with Kafka",
     "date": "2014-07-03",
@@ -296,7 +317,7 @@
     "draft": false
   },
   {
-    "id": 45,
+    "id": 48,
     "slug": "vpc",
     "title": "VPC & Networking",
     "date": "2014-07-03",
