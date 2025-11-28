@@ -1,20 +1,27 @@
 [
   {
-    "id": 44,
+    "id": 26,
+    "slug": "java-flight-recorder",
+    "title": "Java Flight Recorder (JFR) Overview",
+    "date": "2025-08-03",
+    "draft": false
+  },
+  {
+    "id": 47,
     "slug": "spring-test-repository",
     "title": "Testing MongoDB Repositories in Spring Boot",
     "date": "2025-07-03",
     "draft": false
   },
   {
-    "id": 43,
+    "id": 46,
     "slug": "spring-test-controller",
     "title": "Testing Application Controllers in Spring Boot",
     "date": "2025-04-12",
     "draft": false
   },
   {
-    "id": 27,
+    "id": 28,
     "slug": "jvm-g1",
     "title": "JVM G1",
     "date": "2024-07-03",
@@ -22,13 +29,27 @@
   },
   {
     "id": 29,
+    "slug": "jvm-shenandoah",
+    "title": "JVM Shenandoah Garbage Collector",
+    "date": "2024-07-03",
+    "draft": false
+  },
+  {
+    "id": 30,
+    "slug": "jvm-zgc",
+    "title": "JVM Z (GC)",
+    "date": "2024-07-03",
+    "draft": false
+  },
+  {
+    "id": 32,
     "slug": "mockito",
     "title": "Mockito Quick Reference: Essential Tips for Effortless Mocking",
     "date": "2024-07-03",
     "draft": false
   },
   {
-    "id": 45,
+    "id": 48,
     "slug": "spring-test",
     "title": "Spring Testing Quick Reference: Essential Tips for Seamless Unit and Integration Testing",
     "date": "2024-07-03",
@@ -42,7 +63,7 @@
     "draft": false
   },
   {
-    "id": 37,
+    "id": 40,
     "slug": "spring-async",
     "title": "The Async Advantage: A Spring Developer’s Quick Reference",
     "date": "2023-08-07",
@@ -63,7 +84,7 @@
     "draft": false
   },
   {
-    "id": 28,
+    "id": 31,
     "slug": "kubectl",
     "title": "Enhancing Your Kubernetes Workflow: A Comprehensive Kubectl Quick Reference",
     "date": "2019-05-18",
@@ -154,7 +175,7 @@
     "draft": false
   },
   {
-    "id": 38,
+    "id": 41,
     "slug": "spring-batch",
     "title": "Spring Batch - Quick Reference",
     "date": "2016-04-08",
@@ -219,84 +240,84 @@
     "draft": false
   },
   {
-    "id": 26,
+    "id": 27,
     "slug": "java-install-cert",
     "title": "Java Keytool - Quick References",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 30,
+    "id": 33,
     "slug": "mysql-encryption-standard",
     "title": " MySQL Encryption Standard",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 31,
+    "id": 34,
     "slug": "mysql-json-storage",
     "title": " MySQL JSON",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 32,
+    "id": 35,
     "slug": "outbox-pattern",
     "title": "Outbox Pattern",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 33,
+    "id": 36,
     "slug": "py-client",
     "title": "Python Rabbit API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 34,
+    "id": 37,
     "slug": "rabbit-mq-api",
     "title": "RabbitMQ API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 35,
+    "id": 38,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 36,
+    "id": 39,
     "slug": "service-discovery",
     "title": "Kubernetes Service Discovery (DNS)",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 39,
+    "id": 42,
     "slug": "spring-boot-kafka",
     "title": "A Step-by-Step Guide to Setting Up Multiple Spring Boot Applications with Kafka",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 40,
+    "id": 43,
     "slug": "spring-cache",
     "title": "Spring Cache",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 41,
+    "id": 44,
     "slug": "spring-errors",
     "title": "Spring Boot - Errors",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 42,
+    "id": 45,
     "slug": "spring-security-oauth2",
     "title": "Spring Security - OAuth2",
     "date": "2014-07-03",
