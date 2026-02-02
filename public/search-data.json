@@ -1,5 +1,12 @@
 [
   {
+    "id": 36,
+    "slug": "post",
+    "title": "Serving LLM Locally (Without a GPU)",
+    "date": "2025-09-03",
+    "draft": false
+  },
+  {
     "id": 26,
     "slug": "java-flight-recorder",
     "title": "Java Flight Recorder (JFR) Overview",
@@ -7,14 +14,14 @@
     "draft": false
   },
   {
-    "id": 47,
+    "id": 48,
     "slug": "spring-test-repository",
     "title": "Testing MongoDB Repositories in Spring Boot",
     "date": "2025-07-03",
     "draft": false
   },
   {
-    "id": 46,
+    "id": 47,
     "slug": "spring-test-controller",
     "title": "Testing Application Controllers in Spring Boot",
     "date": "2025-04-12",
@@ -49,21 +56,21 @@
     "draft": false
   },
   {
-    "id": 48,
+    "id": 49,
     "slug": "spring-test",
     "title": "Spring Testing Quick Reference: Essential Tips for Seamless Unit and Integration Testing",
     "date": "2024-07-03",
     "draft": false
   },
   {
-    "id": 17,
-    "slug": "2024-02-08-fetch-process-api-go-java",
+    "id": 23,
+    "slug": "fetch-process-api-go-java",
     "title": "Fetch and Process Data with Go and Java: A Comparative Guide",
     "date": "2024-02-08",
     "draft": false
   },
   {
-    "id": 40,
+    "id": 41,
     "slug": "spring-async",
     "title": "The Async Advantage: A Spring Developer’s Quick Reference",
     "date": "2023-08-07",
@@ -91,14 +98,14 @@
     "draft": false
   },
   {
-    "id": 22,
+    "id": 21,
     "slug": "docker-references",
     "title": "Docker - Quick Reference",
     "date": "2018-03-23",
     "draft": false
   },
   {
-    "id": 21,
+    "id": 20,
     "slug": "data-store-reference",
     "title": "Data Store - Quick Reference",
     "date": "2017-07-13",
@@ -175,7 +182,7 @@
     "draft": false
   },
   {
-    "id": 41,
+    "id": 42,
     "slug": "spring-batch",
     "title": "Spring Batch - Quick Reference",
     "date": "2016-04-08",
@@ -205,21 +212,21 @@
     "excerpt": ""
   },
   {
-    "id": 19,
+    "id": 18,
     "slug": "apache-camel",
     "title": "Apache Camel - Quick Reference",
     "date": "2014-07-03",
     "draft": true
   },
   {
-    "id": 20,
+    "id": 19,
     "slug": "aws-qldb-blockchain",
     "title": "AWS QLDB & Lambda",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 23,
+    "id": 22,
     "slug": "elapsed-time",
     "title": "Elapsed Time",
     "date": "2014-07-03",
@@ -268,63 +275,63 @@
     "draft": false
   },
   {
-    "id": 36,
+    "id": 37,
     "slug": "py-client",
     "title": "Python Rabbit API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 37,
+    "id": 38,
     "slug": "rabbit-mq-api",
     "title": "RabbitMQ API",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 38,
+    "id": 39,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 39,
+    "id": 40,
     "slug": "service-discovery",
     "title": "Kubernetes Service Discovery (DNS)",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 42,
+    "id": 43,
     "slug": "spring-boot-kafka",
     "title": "A Step-by-Step Guide to Setting Up Multiple Spring Boot Applications with Kafka",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 43,
+    "id": 44,
     "slug": "spring-cache",
     "title": "Spring Cache",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 44,
+    "id": 45,
     "slug": "spring-errors",
     "title": "Spring Boot - Errors",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 45,
+    "id": 46,
     "slug": "spring-security-oauth2",
     "title": "Spring Security - OAuth2",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 18,
+    "id": 17,
     "slug": "apache-ab",
     "title": "Apache AB",
     "date": "2014-03-03",
