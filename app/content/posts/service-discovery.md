@@ -1,6 +1,6 @@
 ---
 title: 'Kubernetes Service Discovery (DNS)'
-date: "2014-07-03"
+date: "2020-07-03"
 draft: false
 ---
 
