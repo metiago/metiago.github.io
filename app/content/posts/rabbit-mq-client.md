@@ -1,7 +1,7 @@
 ---
 title: 'RabbitMQ Client'
 date: "2014-07-03"
-draft: false
+draft: true
 ---
 
 ```xml
