@@ -1,14 +1,9 @@
 ---
-title: 'Enhancing Your Kubernetes Workflow: A Comprehensive Kubectl Quick Reference'
+title: 'Kubectl Quick Reference'
 date: "2019-05-18"
 draft: false
 
 ---
-
-## Enhancing Your Kubernetes Workflow: A Comprehensive Kubectl Quick Reference
-
-In the fast-evolving world of container orchestration, Kubernetes has emerged as a powerful platform for managing containerized applications. 
-Understanding how to efficiently use **kubectl**, the command-line tool for interacting with Kubernetes, is crucial for developers and system administrators alike. This quick reference guide offers a handy collection of essential **kubectl** commands to streamline your Kubernetes operations.
 
 ---
 
@@ -118,7 +113,3 @@ kubectl create secret generic spring-security \
 # List secret in YAML format
 kubectl get secret spring-security -o yaml
 ```
-
----
-
-This enhanced reference serves as a valuable tool for anyone working with Kubernetes, providing quick access to commands that can simplify everyday tasks. Familiarizing yourself with these commands will help you effectively manage your Kubernetes clusters and applications, making your development workflow smoother and more efficient.

@@ -2,75 +2,127 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-          <loc>https://metiago.github.io/posts/2014-02-08-big-o.md</loc>
+          <loc>https://metiago.github.io/posts/apache-ab.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2015-02-08-java-regex.md</loc>
+          <loc>https://metiago.github.io/posts/apache-camel.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-02-08-sockets.md</loc>
+          <loc>https://metiago.github.io/posts/aws-qldb-blockchain.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-03-08-java-xml-api.md</loc>
+          <loc>https://metiago.github.io/posts/big-o.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-04-08-jenkins-cd.md</loc>
+          <loc>https://metiago.github.io/posts/data-store-reference.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-05-08-jenkins-ci.md</loc>
+          <loc>https://metiago.github.io/posts/docker-references.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2016-05-16-threads.md</loc>
+          <loc>https://metiago.github.io/posts/fetch-process-api-go-java.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-02-08-java-8-functional-interfaces.md</loc>
+          <loc>https://metiago.github.io/posts/functional-interfaces.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-02-08-java-8-optional.md</loc>
+          <loc>https://metiago.github.io/posts/git.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-02-08-java-collections-streams.md</loc>
+          <loc>https://metiago.github.io/posts/java-8-optional.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-03-08-java-aspectj.md</loc>
+          <loc>https://metiago.github.io/posts/java-aspectj.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-04-08-zeromq.md</loc>
+          <loc>https://metiago.github.io/posts/java-aws-lambda-dynamodb.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-05-08-maven.md</loc>
+          <loc>https://metiago.github.io/posts/java-aws-lambda-s3.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2017-06-08-git.md</loc>
+          <loc>https://metiago.github.io/posts/java-collections-streams.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2021-01-08-jmx.md</loc>
+          <loc>https://metiago.github.io/posts/java-flight-recorder.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2022-01-08-java-http-client.md</loc>
+          <loc>https://metiago.github.io/posts/java-http-client.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/2024-02-08-fetch-process-api-go-java.md</loc>
+          <loc>https://metiago.github.io/posts/java-install-cert.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/spring-boot-tests.md</loc>
+          <loc>https://metiago.github.io/posts/java-xml-api.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/jmx.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/jvm-g1.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/jvm-shenandoah.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/jvm-zgc.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/kubectl.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/llm.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/maven.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/py-client.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/rabbit-mq-client.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/regex.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/sockets.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/threads.md</loc>
+        </url>
+      
+        <url>
+          <loc>https://metiago.github.io/posts/zeromq.md</loc>
         </url>
       
         <url>
