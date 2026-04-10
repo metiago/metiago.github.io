@@ -1,7 +1,7 @@
 ---
 title: 'Serving LLM Locally (Without a GPU)'
 date: "2025-09-03"
-draft: false
+draft: true
 ---
 
 The goal is to run a real LLM behind a REST API on a low-cost machine, understand the serving stack, and measure basic performance.
