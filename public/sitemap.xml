@@ -10,15 +10,7 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/aws-qldb-blockchain.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/big-o.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/data-store-reference.md</loc>
         </url>
       
         <url>
@@ -43,14 +35,6 @@
       
         <url>
           <loc>https://metiago.github.io/posts/java-aspectj.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/java-aws-lambda-dynamodb.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/java-aws-lambda-s3.md</loc>
         </url>
       
         <url>
@@ -98,10 +82,6 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/maven.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/py-client.md</loc>
         </url>
       
@@ -110,11 +90,11 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/regex.md</loc>
+          <loc>https://metiago.github.io/posts/sockets.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/sockets.md</loc>
+          <loc>https://metiago.github.io/posts/thread-dumps.md</loc>
         </url>
       
         <url>
