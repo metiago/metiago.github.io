@@ -1,157 +1,135 @@
 [
   {
-    "id": 24,
+    "id": 20,
     "slug": "llm",
     "title": "Serving LLM Locally (Without a GPU)",
     "date": "2025-09-03",
-    "draft": true
+    "draft": false
   },
   {
-    "id": 15,
+    "id": 11,
     "slug": "java-flight-recorder",
     "title": "Java Flight Recorder (JFR) Overview",
     "date": "2025-08-03",
     "draft": false
   },
   {
-    "id": 20,
+    "id": 16,
     "slug": "jvm-g1",
     "title": "JVM G1",
     "date": "2024-07-03",
     "draft": false
   },
   {
-    "id": 21,
+    "id": 17,
     "slug": "jvm-shenandoah",
     "title": "JVM Shenandoah Garbage Collector",
     "date": "2024-07-03",
     "draft": false
   },
   {
-    "id": 22,
+    "id": 18,
     "slug": "jvm-zgc",
     "title": "JVM Z (GC)",
     "date": "2024-07-03",
     "draft": false
   },
   {
-    "id": 7,
+    "id": 5,
     "slug": "fetch-process-api-go-java",
     "title": "Fetch and Process Data with Go and Java: A Comparative Guide",
     "date": "2024-02-08",
     "draft": false
   },
   {
-    "id": 16,
+    "id": 12,
     "slug": "java-http-client",
     "title": "Java Http Client",
     "date": "2022-01-08",
     "draft": false
   },
   {
-    "id": 19,
+    "id": 15,
     "slug": "jmx",
     "title": "JMX",
     "date": "2021-01-08",
     "draft": false
   },
   {
-    "id": 23,
+    "id": 19,
     "slug": "kubectl",
-    "title": "Enhancing Your Kubernetes Workflow: A Comprehensive Kubectl Quick Reference",
+    "title": "Kubectl Quick Reference",
     "date": "2019-05-18",
     "draft": false
   },
   {
-    "id": 6,
+    "id": 4,
     "slug": "docker-references",
     "title": "Docker - Quick Reference",
     "date": "2018-03-23",
     "draft": false
   },
   {
-    "id": 5,
-    "slug": "data-store-reference",
-    "title": "Data Store - Quick Reference",
-    "date": "2017-07-13",
-    "draft": false
-  },
-  {
-    "id": 9,
+    "id": 7,
     "slug": "git",
     "title": "Git - Quick Reference",
     "date": "2017-06-08",
     "draft": false
   },
   {
-    "id": 25,
-    "slug": "maven",
-    "title": "Maven - Quick Reference",
-    "date": "2017-05-08",
-    "draft": false
-  },
-  {
-    "id": 8,
+    "id": 6,
     "slug": "functional-interfaces",
     "title": "Java Functional Interfaces",
     "date": "2017-04-08",
     "draft": false
   },
   {
-    "id": 31,
+    "id": 25,
     "slug": "zeromq",
     "title": "Zero MQ",
     "date": "2017-04-08",
     "draft": false
   },
   {
-    "id": 10,
+    "id": 8,
     "slug": "java-8-optional",
     "title": "Java Optional API",
     "date": "2017-03-08",
     "draft": false
   },
   {
-    "id": 11,
+    "id": 9,
     "slug": "java-aspectj",
     "title": "Aspect Oriented Programming",
     "date": "2017-03-08",
     "draft": false
   },
   {
-    "id": 14,
+    "id": 10,
     "slug": "java-collections-streams",
     "title": "Collections, Streams & Lambdas",
     "date": "2017-02-08",
     "draft": false
   },
   {
-    "id": 30,
+    "id": 24,
     "slug": "threads",
     "title": "Java Threads",
     "date": "2016-05-16",
     "draft": false
   },
   {
-    "id": 18,
+    "id": 14,
     "slug": "java-xml-api",
     "title": "Java XML API",
     "date": "2016-03-08",
     "draft": false
   },
   {
-    "id": 29,
+    "id": 23,
     "slug": "sockets",
     "title": "Java Sockets",
     "date": "2016-02-08",
-    "draft": false,
-    "excerpt": ""
-  },
-  {
-    "id": 28,
-    "slug": "regex",
-    "title": "Regular Expression",
-    "date": "2015-02-08",
     "draft": false,
     "excerpt": ""
   },
@@ -163,42 +141,21 @@
     "draft": true
   },
   {
-    "id": 3,
-    "slug": "aws-qldb-blockchain",
-    "title": "AWS QLDB & Lambda",
-    "date": "2014-07-03",
-    "draft": false
-  },
-  {
-    "id": 12,
-    "slug": "java-aws-lambda-dynamodb",
-    "title": "Lambda & DynanoDB & Gateway",
-    "date": "2014-07-03",
-    "draft": false
-  },
-  {
     "id": 13,
-    "slug": "java-aws-lambda-s3",
-    "title": "Lambda & S3",
-    "date": "2014-07-03",
-    "draft": false
-  },
-  {
-    "id": 17,
     "slug": "java-install-cert",
     "title": "Java Keytool - Quick References",
     "date": "2014-07-03",
     "draft": false
   },
   {
-    "id": 26,
+    "id": 21,
     "slug": "py-client",
     "title": "Python Rabbit API",
     "date": "2014-07-03",
     "draft": true
   },
   {
-    "id": 27,
+    "id": 22,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
@@ -212,7 +169,7 @@
     "draft": false
   },
   {
-    "id": 4,
+    "id": 3,
     "slug": "big-o",
     "title": "Big O Notation",
     "date": "2014-02-08",
