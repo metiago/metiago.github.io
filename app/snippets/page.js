@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Alert, Button, Card, Collapse, Form, Spinner } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Card,
+  Collapse,
+  Form,
+  Spinner,
+} from "react-bootstrap";
 import { getSupabaseClient } from "../lib/supabase";
 
 const initialForm = {
@@ -13,6 +20,7 @@ export default function SnippetsPage() {
   const supabase = getSupabaseClient();
   const [form, setForm] = useState(initialForm);
   const [snippets, setSnippets] = useState([]);
+  const [session, setSession] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
@@ -20,12 +28,17 @@ export default function SnippetsPage() {
   const [expandedIds, setExpandedIds] = useState([]);
 
   useEffect(() => {
-    async function loadSnippets() {
+    async function initialize() {
       if (!supabase) {
         setError("Supabase is not configured. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
         setIsLoading(false);
         return;
       }
+
+      const {
+        data: { session: currentSession },
+      } = await supabase.auth.getSession();
+      setSession(currentSession);
 
       const { data, error: fetchError } = await supabase
         .from("snippets")
@@ -41,7 +54,19 @@ export default function SnippetsPage() {
       setIsLoading(false);
     }
 
-    loadSnippets();
+    initialize();
+
+    const {
+      data: { subscription },
+    } = supabase
+      ? supabase.auth.onAuthStateChange((_event, currentSession) => {
+          setSession(currentSession);
+        })
+      : { data: { subscription: null } };
+
+    return () => {
+      subscription?.unsubscribe();
+    };
   }, [supabase]);
 
   function handleChange(event) {
@@ -59,6 +84,11 @@ export default function SnippetsPage() {
 
     if (!supabase) {
       setError("Supabase is not configured.");
+      return;
+    }
+
+    if (!session) {
+      setError("Sign in before saving snippets.");
       return;
     }
 
@@ -104,45 +134,46 @@ export default function SnippetsPage() {
       <article className="w-75 max-w-sm mx-auto">
         <header className="mb-4 text-center">
           <h1>Snippets</h1>
-          <p>Save short code snippets and review them below.</p>
         </header>
 
         {error ? <Alert variant="danger">{error}</Alert> : null}
         {success ? <Alert variant="success">{success}</Alert> : null}
 
-        <Card className="mb-4">
-          <Card.Body>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="snippet-title">
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="title"
-                  value={form.title}
-                  onChange={handleChange}
-                  placeholder="Example: Docker login command"
-                  maxLength={120}
-                />
-              </Form.Group>
+        {session ? (
+          <Card className="mb-4">
+            <Card.Body>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="snippet-title">
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="title"
+                    value={form.title}
+                    onChange={handleChange}
+                    placeholder="Example: Docker login command"
+                    maxLength={120}
+                  />
+                </Form.Group>
 
-              <Form.Group className="mb-3" controlId="snippet-code">
-                <Form.Label>Code Snippet</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={8}
-                  name="code"
-                  value={form.code}
-                  onChange={handleChange}
-                  placeholder="Paste code here"
-                />
-              </Form.Group>
+                <Form.Group className="mb-3" controlId="snippet-code">
+                  <Form.Label>Code Snippet</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={8}
+                    name="code"
+                    value={form.code}
+                    onChange={handleChange}
+                    placeholder="Paste code here"
+                  />
+                </Form.Group>
 
-              <Button type="submit" disabled={isSaving || !supabase}>
-                {isSaving ? "Saving..." : "Save Snippet"}
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
+                <Button type="submit" disabled={isSaving || !supabase}>
+                  {isSaving ? "Saving..." : "Save Snippet"}
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        ) : null}
 
         <section className="mt-0 border-0 pt-0">
           <h2 className="mb-3">Saved Snippets</h2>

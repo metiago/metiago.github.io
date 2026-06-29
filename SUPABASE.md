@@ -23,7 +23,7 @@ alter table public.snippets enable row level security;
 
 ## 3. Add policies
 
-If you want public read and public insert from the site:
+Keep public read if you want anyone to browse snippets, but do not allow anonymous inserts.
 
 ```sql
 create policy "public can read snippets"
@@ -31,19 +31,40 @@ on public.snippets
 for select
 to anon
 using (true);
+```
 
-create policy "public can insert snippets"
+Then allow inserts only for authenticated users.
+
+Use this policy:
+
+```sql
+create policy "authenticated can insert snippets"
 on public.snippets
 for insert
-to anon
+to authenticated
 with check (char_length(title) > 0 and char_length(code) > 0);
 ```
 
-If you prefer authenticated-only writes, use Supabase Auth and tighten the insert policy instead.
+If you previously created the anonymous insert policy, remove it:
+
+```sql
+drop policy if exists "public can insert snippets" on public.snippets;
+```
 
 ## 4. Configure env vars
 
-Copy `.env.example` to `.env.local` and fill in:
+Create `.env.local` and fill in:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+Example:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-publishable-anon-key
+```
+
+## 5. Enable sign-in
+
+In Supabase Auth, enable email/password sign-in for the site. The current UI uses `signInWithPassword`, so the allowed users need existing accounts with passwords.

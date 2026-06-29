@@ -1,17 +1,68 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Image } from 'react-bootstrap';
+import { useEffect, useRef, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { getSupabaseClient } from '../lib/supabase';
 
 const TopBar = () => {
   const pathname = usePathname();
+  const supabase = getSupabaseClient();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [session, setSession] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSigningIn, setIsSigningIn] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme') || 'light';
     setIsDarkMode(currentTheme === 'dark');
     document.body.setAttribute('data-bs-theme', currentTheme);
+  }, []);
+
+  useEffect(() => {
+    if (!supabase) {
+      return undefined;
+    }
+
+    async function loadSession() {
+      const {
+        data: { session: currentSession },
+      } = await supabase.auth.getSession();
+      setSession(currentSession);
+    }
+
+    loadSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      setSession(currentSession);
+      if (currentSession) {
+        setIsLoginOpen(false);
+        setEmail('');
+        setPassword('');
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [supabase]);
+
+  useEffect(() => {
+    function handleOutsideClick(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsLoginOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -21,10 +72,56 @@ const TopBar = () => {
     localStorage.setItem('theme', newTheme);
   };
 
+  const toggleLogin = () => {
+    setIsLoginOpen((current) => !current);
+  };
+
+  async function handleSignIn(event) {
+    event.preventDefault();
+
+    if (!supabase) {
+      return;
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (!normalizedEmail) {
+      return;
+    }
+
+    if (!password) {
+      return;
+    }
+
+    setIsSigningIn(true);
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: normalizedEmail,
+      password,
+    });
+
+    setIsSigningIn(false);
+
+    if (!error) {
+      setIsLoginOpen(false);
+      setEmail('');
+      setPassword('');
+    }
+  }
+
+  async function handleSignOut() {
+    if (!supabase) {
+      return;
+    }
+
+    await supabase.auth.signOut();
+    setIsLoginOpen(false);
+  }
+
   return (
     <>
       <div className="container">
-        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom gap-3">
           <ul className="nav nav-pills">
             <li className="nav-item">
               <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`} aria-current="page">
@@ -56,6 +153,42 @@ const TopBar = () => {
               </button>
             </li>
           </ul>
+          <div className="position-relative" ref={dropdownRef}>
+            <Button
+              variant="outline-secondary"
+              size="sm"
+              onClick={session ? handleSignOut : toggleLogin}
+            >
+              {session ? 'Logout' : 'Login'}
+            </Button>
+            {!session && isLoginOpen ? (
+              <div className="topbar-login-dropdown">
+                <Form onSubmit={handleSignIn} className="d-flex gap-2">
+                  <div className="d-flex flex-column gap-2 w-100">
+                    <Form.Control
+                      type="email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      placeholder="Email"
+                      autoComplete="email"
+                      size="sm"
+                    />
+                    <Form.Control
+                      type="password"
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                      placeholder="Password"
+                      autoComplete="current-password"
+                      size="sm"
+                    />
+                  </div>
+                  <Button type="submit" size="sm" disabled={isSigningIn || !supabase}>
+                    {isSigningIn ? '...' : 'Login'}
+                  </Button>
+                </Form>
+              </div>
+            ) : null}
+          </div>
         </header>
       </div>
     </>

@@ -146,3 +146,16 @@ a:hover {
   padding: 10px;
   resize: vertical;
 }
+
+.topbar-login-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1000;
+  min-width: 240px;
+  padding: 12px;
+  background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
