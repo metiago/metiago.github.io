@@ -84,7 +84,7 @@
     "draft": false
   },
   {
-    "id": 25,
+    "id": 26,
     "slug": "zeromq",
     "title": "Zero MQ",
     "date": "2017-04-08",
@@ -113,6 +113,13 @@
   },
   {
     "id": 24,
+    "slug": "thread-dumps",
+    "title": "Generating JVM Thread Dumps Programmatically with Java New dumpThreads() API",
+    "date": "2016-05-16",
+    "draft": false
+  },
+  {
+    "id": 25,
     "slug": "threads",
     "title": "Java Threads",
     "date": "2016-05-16",
