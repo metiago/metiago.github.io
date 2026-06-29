@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Alert, Button, Card, Form, Spinner } from "react-bootstrap";
+import { Alert, Button, Card, Collapse, Form, Spinner } from "react-bootstrap";
 import { getSupabaseClient } from "../lib/supabase";
 
 const initialForm = {
@@ -17,6 +17,7 @@ export default function SnippetsPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [expandedIds, setExpandedIds] = useState([]);
 
   useEffect(() => {
     async function loadSnippets() {
@@ -84,9 +85,18 @@ export default function SnippetsPage() {
     }
 
     setSnippets((current) => [data, ...current]);
+    setExpandedIds((current) => [data.id, ...current]);
     setForm(initialForm);
     setSuccess("Snippet saved.");
     setIsSaving(false);
+  }
+
+  function toggleSnippet(snippetId) {
+    setExpandedIds((current) =>
+      current.includes(snippetId)
+        ? current.filter((id) => id !== snippetId)
+        : [...current, snippetId]
+    );
   }
 
   return (
@@ -152,14 +162,28 @@ export default function SnippetsPage() {
             <Card className="mb-3" key={snippet.id}>
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-start gap-3">
-                  <h5 className="mb-2">{snippet.title}</h5>
-                  <small className="text-muted">
-                    {new Date(snippet.created_at).toLocaleString()}
-                  </small>
+                  <div>
+                    <h5 className="mb-2">{snippet.title}</h5>
+                    <small className="text-muted">
+                      {new Date(snippet.created_at).toLocaleString()}
+                    </small>
+                  </div>
+                  <Button
+                    variant="outline-secondary"
+                    size="sm"
+                    onClick={() => toggleSnippet(snippet.id)}
+                    aria-expanded={expandedIds.includes(snippet.id)}
+                  >
+                    {expandedIds.includes(snippet.id) ? "Collapse" : "Expand"}
+                  </Button>
                 </div>
-                <pre className="mb-0">
-                  <code>{snippet.code}</code>
-                </pre>
+                <Collapse in={expandedIds.includes(snippet.id)}>
+                  <div>
+                    <pre className="mb-0 mt-3">
+                      <code>{snippet.code}</code>
+                    </pre>
+                  </div>
+                </Collapse>
               </Card.Body>
             </Card>
           ))}
