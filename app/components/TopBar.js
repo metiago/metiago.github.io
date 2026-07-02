@@ -1,19 +1,16 @@
 "use client"
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Container, Form, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Button, Container, Form, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { getSupabaseClient } from '../lib/supabase';
 
 const TopBar = () => {
 
-  const pathname = usePathname();
   const supabase = getSupabaseClient();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSigningIn, setIsSigningIn] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -43,7 +40,6 @@ const TopBar = () => {
     } = supabase.auth.onAuthStateChange((_event, currentSession) => {
       setSession(currentSession);
       if (currentSession) {
-        setIsLoginOpen(false);
         setEmail('');
         setPassword('');
       }
@@ -123,7 +119,11 @@ const TopBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+          </svg>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
