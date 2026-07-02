@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Container, Form, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { getSupabaseClient } from '../lib/supabase';
 
 const TopBar = () => {
+
   const pathname = usePathname();
   const supabase = getSupabaseClient();
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -23,6 +24,7 @@ const TopBar = () => {
   }, []);
 
   useEffect(() => {
+
     if (!supabase) {
       return undefined;
     }
@@ -119,52 +121,37 @@ const TopBar = () => {
   }
 
   return (
-    <>
-      <div className="container">
-        <header className="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom gap-3">
-          <ul className="nav nav-pills">
-            <li className="nav-item">
-              <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`} aria-current="page">
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav>
+            <Nav.Item>
+              <Nav.Link as={Link} href="/" eventKey="/">
                 Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/ebooks" className={`nav-link ${pathname === '/ebooks' ? 'active' : ''}`}>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} href="/ebooks" eventKey="/ebooks">
                 eBooks
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} href="/about" eventKey="/about">
                 About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/snippets" className={`nav-link ${pathname === '/snippets' ? 'active' : ''}`}>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} href="/snippets" eventKey="/snippets">
                 Snippets
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button className="nav-link" onClick={toggleTheme} aria-label="Toggle theme">
-                {isDarkMode ? (
-                  <i className="bi bi-sun"></i>
-                ) : (
-                  <i className="bi bi-moon"></i>
-                )}
-              </button>
-            </li>
-          </ul>
-          <div className="position-relative" ref={dropdownRef}>
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              onClick={session ? handleSignOut : toggleLogin}
-            >
-              {session ? 'Logout' : 'Login'}
-            </Button>
-            {!session && isLoginOpen ? (
-              <div className="topbar-login-dropdown">
-                <Form onSubmit={handleSignIn} className="d-flex gap-2">
-                  <div className="d-flex flex-column gap-2 w-100">
+              </Nav.Link>
+            </Nav.Item>
+
+            {!session ? (
+              <Nav className="me-auto">
+                <NavDropdown title="Login" id="nav-dropdown">
+                  <Form onSubmit={handleSignIn} className="m-2">
                     <Form.Control
                       type="email"
                       value={email}
@@ -172,26 +159,55 @@ const TopBar = () => {
                       placeholder="Email"
                       autoComplete="email"
                       size="sm"
+                      className="mt-2"
                     />
                     <Form.Control
                       type="password"
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
                       placeholder="Password"
-                      autoComplete="current-password"
                       size="sm"
+                      className="mt-2"
                     />
-                  </div>
-                  <Button type="submit" size="sm" disabled={isSigningIn || !supabase}>
-                    {isSigningIn ? '...' : 'Login'}
-                  </Button>
-                </Form>
-              </div>
-            ) : null}
-          </div>
-        </header>
-      </div>
-    </>
+                    <Button
+                      type='submit'
+                      className="mt-2"
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={toggleLogin}
+                      disabled={isSigningIn || !supabase}
+                    >
+                      Login
+                    </Button>
+                  </Form>
+                </NavDropdown>
+              </Nav>
+
+            ) :
+
+              <Button
+                type='submit'
+                className="mt-2"
+                variant="outline-secondary"
+                size="sm"
+                onClick={handleSignOut}
+              >
+                Logout
+              </Button>
+            }
+            <Nav.Item>
+              <button className="nav-link" onClick={toggleTheme} aria-label="Toggle theme">
+                {isDarkMode ? (
+                  <i className="bi bi-sun"></i>
+                ) : (
+                  <i className="bi bi-moon"></i>
+                )}
+              </button>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
