@@ -50,28 +50,11 @@ const TopBar = () => {
     };
   }, [supabase]);
 
-  useEffect(() => {
-    function handleOutsideClick(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsLoginOpen(false);
-      }
-    }
-
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, []);
-
   const toggleTheme = () => {
     const newTheme = isDarkMode ? 'light' : 'dark';
     setIsDarkMode(!isDarkMode);
     document.body.setAttribute('data-bs-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-  };
-
-  const toggleLogin = () => {
-    setIsLoginOpen((current) => !current);
   };
 
   async function handleSignIn(event) {
@@ -101,7 +84,6 @@ const TopBar = () => {
     setIsSigningIn(false);
 
     if (!error) {
-      setIsLoginOpen(false);
       setEmail('');
       setPassword('');
     }
@@ -113,7 +95,6 @@ const TopBar = () => {
     }
 
     await supabase.auth.signOut();
-    setIsLoginOpen(false);
   }
 
   return (
@@ -174,7 +155,6 @@ const TopBar = () => {
                       className="mt-2"
                       variant="outline-secondary"
                       size="sm"
-                      onClick={toggleLogin}
                       disabled={isSigningIn || !supabase}
                     >
                       Login

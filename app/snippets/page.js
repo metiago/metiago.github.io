@@ -176,7 +176,6 @@ export default function SnippetsPage() {
         ) : null}
 
         <section className="mt-0 border-0 pt-0">
-          <h2 className="mb-3">Saved Snippets</h2>
 
           {isLoading ? (
             <div className="d-flex align-items-center gap-2">
