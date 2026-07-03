@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import hljs from "highlight.js/lib/core";
+import java from "highlight.js/lib/languages/java";
 import {
   Alert,
   Button,
@@ -10,6 +12,9 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { getSupabaseClient } from "../lib/supabase";
+import "highlight.js/styles/github-dark.css";
+
+hljs.registerLanguage("java", java);
 
 const initialForm = {
   title: "",
@@ -68,6 +73,13 @@ export default function SnippetsPage() {
       subscription?.unsubscribe();
     };
   }, [supabase]);
+
+  useEffect(() => {
+    const blocks = document.querySelectorAll("pre code");
+    blocks.forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  }, [snippets, expandedIds]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -210,7 +222,7 @@ export default function SnippetsPage() {
                 <Collapse in={expandedIds.includes(snippet.id)}>
                   <div>
                     <pre className="mb-0 mt-3">
-                      <code>{snippet.code}</code>
+                      <code className="language-java">{snippet.code}</code>
                     </pre>
                   </div>
                 </Collapse>
