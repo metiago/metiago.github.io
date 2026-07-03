@@ -26,6 +26,7 @@ export default function SnippetsPage() {
   const [form, setForm] = useState(initialForm);
   const [snippets, setSnippets] = useState([]);
   const [session, setSession] = useState(null);
+  const [editingSnippetId, setEditingSnippetId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
@@ -48,7 +49,7 @@ export default function SnippetsPage() {
       const { data, error: fetchError } = await supabase
         .from("snippets")
         .select("id, title, code, created_at")
-        .order("created_at", { ascending: false });
+        .order("title", { ascending: true });
 
       if (fetchError) {
         setError(fetchError.message);
@@ -89,6 +90,26 @@ export default function SnippetsPage() {
     }));
   }
 
+  function handleEdit(snippet) {
+    setError("");
+    setSuccess("");
+    setEditingSnippetId(snippet.id);
+    setForm({
+      title: snippet.title,
+      code: snippet.code,
+    });
+    setExpandedIds((current) =>
+      current.includes(snippet.id) ? current : [...current, snippet.id]
+    );
+  }
+
+  function handleCancelEdit() {
+    setEditingSnippetId(null);
+    setForm(initialForm);
+    setError("");
+    setSuccess("");
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     setError("");
@@ -114,22 +135,50 @@ export default function SnippetsPage() {
 
     setIsSaving(true);
 
-    const { data, error: insertError } = await supabase
-      .from("snippets")
-      .insert([{ title, code }])
-      .select("id, title, code, created_at")
-      .single();
+    if (editingSnippetId) {
+      const { error: saveError } = await supabase
+        .from("snippets")
+        .update({ title, code })
+        .eq("id", editingSnippetId);
 
-    if (insertError) {
-      setError(insertError.message);
-      setIsSaving(false);
-      return;
+      if (saveError) {
+        setError(saveError.message);
+        setIsSaving(false);
+        return;
+      }
+
+      setSnippets((current) =>
+        current.map((snippet) =>
+          snippet.id === editingSnippetId
+            ? {
+                ...snippet,
+                title,
+                code,
+              }
+            : snippet
+        )
+      );
+      setSuccess("Snippet updated.");
+    } else {
+      const { data, error: saveError } = await supabase
+        .from("snippets")
+        .insert([{ title, code }])
+        .select("id, title, code, created_at")
+        .single();
+
+      if (saveError) {
+        setError(saveError.message);
+        setIsSaving(false);
+        return;
+      }
+
+      setSnippets((current) => [data, ...current]);
+      setExpandedIds((current) => [data.id, ...current]);
+      setSuccess("Snippet saved.");
     }
 
-    setSnippets((current) => [data, ...current]);
-    setExpandedIds((current) => [data.id, ...current]);
+    setEditingSnippetId(null);
     setForm(initialForm);
-    setSuccess("Snippet saved.");
     setIsSaving(false);
   }
 
@@ -180,8 +229,23 @@ export default function SnippetsPage() {
                 </Form.Group>
 
                 <Button type="submit" disabled={isSaving || !supabase}>
-                  {isSaving ? "Saving..." : "Save Snippet"}
+                  {isSaving
+                    ? "Saving..."
+                    : editingSnippetId
+                      ? "Update Snippet"
+                      : "Save Snippet"}
                 </Button>
+                {editingSnippetId ? (
+                  <Button
+                    type="button"
+                    variant="outline-secondary"
+                    className="ms-2"
+                    onClick={handleCancelEdit}
+                    disabled={isSaving}
+                  >
+                    Cancel
+                  </Button>
+                ) : null}
               </Form>
             </Card.Body>
           </Card>
@@ -207,17 +271,28 @@ export default function SnippetsPage() {
                   <div>
                     <h5 className="mb-2">{snippet.title}</h5>
                     <small className="text-muted">
-                      {new Date(snippet.created_at).toLocaleString()}
+                      
                     </small>
                   </div>
-                  <Button
-                    variant="outline-secondary"
-                    size="sm"
-                    onClick={() => toggleSnippet(snippet.id)}
-                    aria-expanded={expandedIds.includes(snippet.id)}
-                  >
-                    {expandedIds.includes(snippet.id) ? "Collapse" : "Expand"}
-                  </Button>
+                  <div className="d-flex gap-2 ms-auto">
+                    <Button
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={() => toggleSnippet(snippet.id)}
+                      aria-expanded={expandedIds.includes(snippet.id)}
+                    >
+                      {expandedIds.includes(snippet.id) ? "Collapse" : "Expand"}
+                    </Button>
+                    {session ? (
+                      <Button
+                        variant="outline-primary"
+                        size="sm"
+                        onClick={() => handleEdit(snippet)}
+                      >
+                        Edit
+                      </Button>
+                    ) : null}
+                  </div>
                 </div>
                 <Collapse in={expandedIds.includes(snippet.id)}>
                   <div>
