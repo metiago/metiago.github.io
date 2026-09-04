@@ -29,6 +29,7 @@ export default function SnippetsPage() {
   const [editingSnippetId, setEditingSnippetId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [deletingSnippetId, setDeletingSnippetId] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [expandedIds, setExpandedIds] = useState([]);
@@ -190,6 +191,61 @@ export default function SnippetsPage() {
     );
   }
 
+  async function handleDelete(snippet) {
+    setError("");
+    setSuccess("");
+
+    if (!supabase) {
+      setError("Supabase is not configured.");
+      return;
+    }
+
+    if (!session) {
+      setError("Sign in before deleting snippets.");
+      return;
+    }
+
+    const shouldDelete = window.confirm(
+      `Delete "${snippet.title}"? This action cannot be undone.`
+    );
+
+    if (!shouldDelete) {
+      return;
+    }
+
+    setDeletingSnippetId(snippet.id);
+
+    try {
+      const { error: deleteError } = await supabase
+        .from("snippets")
+        .delete()
+        .eq("id", snippet.id);
+
+      if (deleteError) {
+        setError(deleteError.message);
+        return;
+      }
+
+      setSnippets((current) =>
+        current.filter((currentSnippet) => currentSnippet.id !== snippet.id)
+      );
+      setExpandedIds((current) =>
+        current.filter((id) => id !== snippet.id)
+      );
+
+      if (editingSnippetId === snippet.id) {
+        setEditingSnippetId(null);
+        setForm(initialForm);
+      }
+
+      setSuccess("Snippet deleted.");
+    } catch {
+      setError("Unable to delete the snippet. Please try again.");
+    } finally {
+      setDeletingSnippetId(null);
+    }
+  }
+
   return (
     <div className="d-flex justify-content-center">
       <article className="w-75 max-w-sm mx-auto">
@@ -288,8 +344,21 @@ export default function SnippetsPage() {
                         variant="outline-primary"
                         size="sm"
                         onClick={() => handleEdit(snippet)}
+                        disabled={deletingSnippetId === snippet.id}
                       >
                         Edit
+                      </Button>
+                    ) : null}
+                    {session ? (
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        onClick={() => handleDelete(snippet)}
+                        disabled={deletingSnippetId !== null}
+                      >
+                        {deletingSnippetId === snippet.id
+                          ? "Deleting..."
+                          : "Delete"}
                       </Button>
                     ) : null}
                   </div>

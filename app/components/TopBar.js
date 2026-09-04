@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import { Button, Container, Form, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { getSupabaseClient } from '../lib/supabase';
 
 const TopBar = () => {
@@ -12,7 +12,7 @@ const TopBar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const dropdownRef = useRef(null);
+  const [authError, setAuthError] = useState('');
 
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme') || 'light';
@@ -42,6 +42,7 @@ const TopBar = () => {
       if (currentSession) {
         setEmail('');
         setPassword('');
+        setAuthError('');
       }
     });
 
@@ -59,33 +60,44 @@ const TopBar = () => {
 
   async function handleSignIn(event) {
     event.preventDefault();
+    setAuthError('');
 
     if (!supabase) {
+      setAuthError('Login is currently unavailable.');
       return;
     }
 
     const normalizedEmail = email.trim().toLowerCase();
 
     if (!normalizedEmail) {
+      setAuthError('Enter your email address.');
       return;
     }
 
     if (!password) {
+      setAuthError('Enter your password.');
       return;
     }
 
     setIsSigningIn(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: normalizedEmail,
-      password,
-    });
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: normalizedEmail,
+        password,
+      });
 
-    setIsSigningIn(false);
+      if (error) {
+        setAuthError('Invalid email or password.');
+        return;
+      }
 
-    if (!error) {
       setEmail('');
       setPassword('');
+    } catch {
+      setAuthError('Unable to log in. Please try again.');
+    } finally {
+      setIsSigningIn(false);
     }
   }
 
@@ -107,7 +119,7 @@ const TopBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
+          <Nav className="me-auto">
             <Nav.Item>
               <Nav.Link as={Link} href="/" eventKey="/">
                 Home
@@ -129,52 +141,58 @@ const TopBar = () => {
               </Nav.Link>
             </Nav.Item>
 
+          </Nav>
+          <Nav className="ms-auto align-items-lg-center gap-2">
             {!session ? (
-              <Nav className="me-auto">
-                <NavDropdown title="Login" id="nav-dropdown">
-                  <Form onSubmit={handleSignIn} className="m-2">
-                    <Form.Control
-                      type="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      placeholder="Email"
-                      autoComplete="email"
-                      size="sm"
-                      className="mt-2"
-                    />
-                    <Form.Control
-                      type="password"
-                      value={password}
-                      onChange={(event) => setPassword(event.target.value)}
-                      placeholder="Password"
-                      size="sm"
-                      className="mt-2"
-                    />
-                    <Button
-                      type='submit'
-                      className="mt-2"
-                      variant="outline-secondary"
-                      size="sm"
-                      disabled={isSigningIn || !supabase}
-                    >
-                      Login
-                    </Button>
-                  </Form>
-                </NavDropdown>
-              </Nav>
-
-            ) :
-
+              <Form onSubmit={handleSignIn} className="d-flex gap-2 my-2 my-lg-0">
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    setAuthError('');
+                  }}
+                  placeholder="Email"
+                  aria-label="Email"
+                  autoComplete="email"
+                  size="sm"
+                />
+                <Form.Control
+                  type="password"
+                  value={password}
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                    setAuthError('');
+                  }}
+                  placeholder="Password"
+                  aria-label="Password"
+                  autoComplete="current-password"
+                  size="sm"
+                />
+                <Button
+                  type="submit"
+                  variant="outline-secondary"
+                  size="sm"
+                  disabled={isSigningIn || !supabase}
+                >
+                  {isSigningIn ? 'Logging in...' : 'Login'}
+                </Button>
+                {authError && (
+                  <span className="text-danger small align-self-center text-nowrap" role="alert">
+                    {authError}
+                  </span>
+                )}
+              </Form>
+            ) : (
               <Button
-                type='submit'
-                className="mt-2"
+                type="button"
                 variant="outline-secondary"
                 size="sm"
                 onClick={handleSignOut}
               >
                 Logout
               </Button>
-            }
+            )}
             <Nav.Item>
               <button className="nav-link" onClick={toggleTheme} aria-label="Toggle theme">
                 {isDarkMode ? (
