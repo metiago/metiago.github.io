@@ -2,10 +2,6 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-          <loc>https://metiago.github.io/posts/apache-ab.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/apache-camel.md</loc>
         </url>
       
@@ -14,19 +10,7 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/docker-references.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/fetch-process-api-go-java.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/functional-interfaces.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/git.md</loc>
         </url>
       
         <url>
@@ -38,15 +22,7 @@
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/java-collections-streams.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/java-flight-recorder.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/java-http-client.md</loc>
         </url>
       
         <url>
@@ -70,19 +46,15 @@
         </url>
       
         <url>
+          <loc>https://metiago.github.io/posts/jvm-troubleshooting-jfr.md</loc>
+        </url>
+      
+        <url>
           <loc>https://metiago.github.io/posts/jvm-zgc.md</loc>
         </url>
       
         <url>
-          <loc>https://metiago.github.io/posts/kubectl.md</loc>
-        </url>
-      
-        <url>
           <loc>https://metiago.github.io/posts/llm.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/py-client.md</loc>
         </url>
       
         <url>
@@ -99,10 +71,6 @@
       
         <url>
           <loc>https://metiago.github.io/posts/threads.md</loc>
-        </url>
-      
-        <url>
-          <loc>https://metiago.github.io/posts/zeromq.md</loc>
         </url>
       
         <url>

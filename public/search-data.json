@@ -1,6 +1,13 @@
 [
   {
-    "id": 13,
+    "id": 12,
+    "slug": "jvm-troubleshooting-jfr",
+    "title": "Java Production Troubleshooting: A Practical Guide with JFR and jcmd",
+    "date": "2026-10-23",
+    "draft": false
+  },
+  {
+    "id": 14,
     "slug": "llm",
     "title": "Serving LLM Locally (Without a GPU)",
     "date": "2025-09-03",
@@ -28,7 +35,7 @@
     "draft": false
   },
   {
-    "id": 12,
+    "id": 13,
     "slug": "jvm-zgc",
     "title": "JVM Z (GC)",
     "date": "2024-07-03",
@@ -63,14 +70,14 @@
     "draft": false
   },
   {
-    "id": 16,
+    "id": 17,
     "slug": "thread-dumps",
     "title": "Generating JVM Thread Dumps Programmatically with Java New dumpThreads() API",
     "date": "2016-05-16",
     "draft": false
   },
   {
-    "id": 17,
+    "id": 18,
     "slug": "threads",
     "title": "Java Threads",
     "date": "2016-05-16",
@@ -84,7 +91,7 @@
     "draft": false
   },
   {
-    "id": 15,
+    "id": 16,
     "slug": "sockets",
     "title": "Java Sockets",
     "date": "2016-02-08",
@@ -106,7 +113,7 @@
     "draft": false
   },
   {
-    "id": 14,
+    "id": 15,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
