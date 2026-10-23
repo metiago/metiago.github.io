@@ -14,8 +14,8 @@ This section provides a small Spring Boot playground and a practical JVM trouble
 
 Create a Spring Boot application with two endpoints:
 
-- `/leak` — Retains approximately 5 MB of memory per request.
-- `/block` — Holds a shared lock for five seconds, forcing concurrent requests to wait.
+- /leak — Retains approximately 5 MB of memory per request.
+- /block — Holds a shared lock for five seconds, forcing concurrent requests to wait.
 
 ```java
 package io.tiago.high_memory_cpu;
@@ -108,13 +108,13 @@ Replace `24476` with your actual Java process ID (PID).
 
 | Goal | Command |
 |---|---|
-| Find Java processes | `jcmd` |
-| List available commands | `jcmd 24476 help` |
-| Check JVM uptime | `jcmd 24476 VM.uptime` |
-| Inspect JVM flags | `jcmd 24476 VM.flags` |
-| Inspect system properties | `jcmd 24476 VM.system_properties` |
-| Check heap information | `jcmd 24476 GC.heap_info` |
-| Inspect thread states | `jcmd 24476 Thread.print -l` |
+| Find Java processes | jcmd |
+| List available commands | jcmd 24476 help |
+| Check JVM uptime | jcmd 24476 VM.uptime |
+| Inspect JVM flags | jcmd 24476 VM.flags |
+| Inspect system properties | jcmd 24476 VM.system_properties |
+| Check heap information | jcmd 24476 GC.heap_info |
+| Inspect thread states | jcmd 24476 Thread.print -l |
 
 **Tip:** Start with observation before changing anything. Thread dumps, heap information, and JFR recordings often provide enough evidence to narrow down a problem.
 
@@ -124,11 +124,11 @@ If heap usage keeps growing or garbage collection becomes increasingly frequent,
 
 | Goal | Command |
 |---|---|
-| Inspect heap regions | `jcmd 24476 GC.heap_info` |
-| Find classes consuming memory | `jcmd 24476 GC.class_histogram` |
-| Inspect finalizer queue | `jcmd 24476 GC.finalizer_info` |
-| Trigger garbage collection | `jcmd 24476 GC.run` |
-| Capture a heap dump | `jcmd 24476 GC.heap_dump C:\dumps\heap.hprof` |
+| Inspect heap regions | jcmd 24476 GC.heap_info |
+| Find classes consuming memory | jcmd 24476 GC.class_histogram |
+| Inspect finalizer queue | jcmd 24476 GC.finalizer_info |
+| Trigger garbage collection | jcmd 24476 GC.run |
+| Capture a heap dump | jcmd 24476 GC.heap_dump C:\dumps\heap.hprof |
 
 For native memory investigation, start the JVM with:
 
@@ -165,12 +165,12 @@ jcmd 24476 Thread.dump_to_file -format=json C:\dumps\threads.json
 
 Look for:
 
-- `BLOCKED` — Waiting to acquire a Java monitor.
-- `WAITING` — Waiting indefinitely for another action.
-- `TIMED_WAITING` — Waiting with a timeout, such as `Thread.sleep()`.
-- `RUNNABLE` — Executing or eligible to run; not necessarily consuming CPU.
+- BLOCKED — Waiting to acquire a Java monitor.
+- WAITING — Waiting indefinitely for another action.
+- TIMED_WAITING — Waiting with a timeout, such as Thread.sleep().
+- RUNNABLE — Executing or eligible to run; not necessarily consuming CPU.
 
-In our `/block` example, one request holds the monitor while others wait to acquire it.
+In our /block example, one request holds the monitor while others wait to acquire it.
 
 For a real deadlock, look for cyclic lock dependencies. Traditional thread dumps may explicitly report detected Java-level deadlocks.
 
@@ -220,24 +220,24 @@ Continuous recording retains a bounded history, useful for investigating inciden
 
 ### 6. Analyze JFR Without Opening a GUI
 
-The `jfr` command-line tool lets you inspect recordings directly.
+The jfr command-line tool lets you inspect recordings directly.
 
-Assuming the recording is saved at `C:\dumps\recording.jfr`:
+Assuming the recording is saved at C:\dumps\recording.jfr:
 
 | What to investigate | Command |
 |---|---|
-| Recording overview | `jfr summary C:\dumps\recording.jfr` |
-| Raw recorded events | `jfr print C:\dumps\recording.jfr` |
-| Export events to JSON | `jfr print --json C:\dumps\recording.jfr` |
-| Available analysis views | `jfr view all-views C:\dumps\recording.jfr` |
-| Thread CPU usage | `jfr view thread-cpu-load C:\dumps\recording.jfr` |
-| Execution samples | `jfr view execution-sample C:\dumps\recording.jfr` |
-| Garbage collection pauses | `jfr view gc-pauses C:\dumps\recording.jfr` |
-| Pinned virtual threads | `jfr view pinned-threads C:\dumps\recording.jfr` |
-| Network reads | `jfr view socket-reads C:\dumps\recording.jfr` |
-| Network writes | `jfr view socket-writes C:\dumps\recording.jfr` |
-| File reads | `jfr view file-reads C:\dumps\recording.jfr` |
-| File writes | `jfr view file-writes C:\dumps\recording.jfr` |
+| Recording overview | jfr summary C:\dumps\recording.jfr |
+| Raw recorded events | jfr print C:\dumps\recording.jfr |
+| Export events to JSON | jfr print --json C:\dumps\recording.jfr |
+| Available analysis views | jfr view all-views C:\dumps\recording.jfr |
+| Thread CPU usage | jfr view thread-cpu-load C:\dumps\recording.jfr |
+| Execution samples | jfr view execution-sample C:\dumps\recording.jfr |
+| Garbage collection pauses | jfr view gc-pauses C:\dumps\recording.jfr |
+| Pinned virtual threads | jfr view pinned-threads C:\dumps\recording.jfr |
+| Network reads | jfr view socket-reads C:\dumps\recording.jfr |
+| Network writes | jfr view socket-writes C:\dumps\recording.jfr |
+| File reads | jfr view file-reads C:\dumps\recording.jfr |
+| File writes | jfr view file-writes C:\dumps\recording.jfr |
 
 These predefined views are available on recent JDK versions, including JDK 25. Available views and event data may differ across JDK releases and recording configurations.
 
@@ -258,18 +258,18 @@ When something goes wrong, use the symptoms to choose your first diagnostic step
 
 | Symptom | Start with | Investigate |
 |---|---|---|
-| High CPU | `Thread.print`, JFR execution samples | Hot methods, busy threads |
-| High heap usage | `GC.heap_info`, class histogram | Growing objects, retention |
-| Frequent GC pauses | `jfr view gc-pauses` | Allocation pressure, GC duration |
-| Slow or hanging requests | `Thread.print -l` | Lock contention, deadlocks, waiting |
-| Native memory growth | `VM.native_memory detail.diff` | Off-heap allocations |
+| High CPU | Thread.print, JFR execution samples | Hot methods, busy threads |
+| High heap usage | GC.heap_info, class histogram | Growing objects, retention |
+| Frequent GC pauses | jfr view gc-pauses | Allocation pressure, GC duration |
+| Slow or hanging requests | Thread.print -l | Lock contention, deadlocks, waiting |
+| Native memory growth | VM.native_memory detail.diff | Off-heap allocations |
 | Slow external services | JFR socket views | Network I/O latency |
 | Slow disk operations | JFR file I/O views | File read/write latency |
-| Virtual thread issues | `jfr view pinned-threads` | Carrier-thread pinning |
+| Virtual thread issues | jfr view pinned-threads | Carrier-thread pinning |
 
 ### Final Thoughts
 
-JFR and `jcmd` should be part of every Java developer's production troubleshooting toolkit.
+JFR and jcmd should be part of every Java developer's production troubleshooting toolkit.
 
 A practical workflow is:
 
@@ -282,6 +282,6 @@ A practical workflow is:
 The goal is not to memorize every JVM command. It is to know which evidence to collect when production behaves unexpectedly.
 
 **Official references:**
-- [JDK `jcmd` documentation](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jcmd.html)
-- [JDK `jfr` documentation](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jfr.html)
+- [JDK jcmd documentation](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jcmd.html)
+- [JDK jfr documentation](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jfr.html)
 - [JDK Mission Control](https://openjdk.org/projects/jmc/)
