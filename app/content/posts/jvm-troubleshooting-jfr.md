@@ -8,7 +8,7 @@ Knowing what JFR does is useful. Knowing which command to run when your applicat
 
 This section provides a small Spring Boot playground and a practical JVM troubleshooting cheat sheet.
 
-> **Requirements:** JDK 25+ for the complete command reference, Spring Boot, PowerShell for the load-generation examples, and JDK Mission Control for visual analysis. Some commands also work on earlier JDK versions.
+> **Requirements:** JDK 25+ for the complete command reference, Spring Boot, bash for the load-generation examples, and JDK Mission Control for visual analysis. Some commands also work on earlier JDK versions.
 
 ### 1. Reproduce the Problems
 
@@ -72,21 +72,21 @@ public class HighMemoryCpuApplication {
 
 **Trigger memory growth**
 
-Run in PowerShell:
+Run in bash:
 
-```powershell
+```bash
 1..100 | ForEach-Object {
     Invoke-WebRequest http://localhost:8080/leak
 }
 ```
 
-This retains approximately 500 MB of byte arrays. Depending on your heap configuration, the application may eventually throw an `OutOfMemoryError`.
+This retains approximately 500 MB of byte arrays. Depending on your heap configuration, the application may eventually throw an OutOfMemoryError.
 
 **Trigger thread contention**
 
-Run in a separate PowerShell window:
+Run in a separate bash window:
 
-```powershell
+```bash
 1..10 | ForEach-Object {
     Start-Job -ScriptBlock {
         Invoke-WebRequest http://localhost:8080/block
@@ -104,7 +104,7 @@ The requests compete for the same monitor, producing blocked threads and increas
 
 When investigating a Java application, start by identifying its process and checking the JVM state.
 
-Replace `24476` with your actual Java process ID (PID).
+Replace 24476 with your actual Java process ID (PID).
 
 | Goal | Command |
 |---|---|
@@ -132,13 +132,13 @@ If heap usage keeps growing or garbage collection becomes increasingly frequent,
 
 For native memory investigation, start the JVM with:
 
-```powershell
+```bash
 java -XX:NativeMemoryTracking=detail -jar myapp.jar
 ```
 
 Then establish a baseline and compare later:
 
-```powershell
+```bash
 jcmd 24476 VM.native_memory baseline
 jcmd 24476 VM.native_memory detail.diff
 ```
@@ -153,13 +153,13 @@ When requests become slow or stop completing, inspect thread states.
 
 **Traditional thread dump**
 
-```powershell
+```bash
 jcmd 24476 Thread.print -l
 ```
 
 **JSON thread dump (JDK 21+)**
 
-```powershell
+```bash
 jcmd 24476 Thread.dump_to_file -format=json C:\dumps\threads.json
 ```
 
@@ -180,25 +180,25 @@ JFR is especially useful when the issue is intermittent or difficult to reproduc
 
 **Start a 30-second recording**
 
-```powershell
+```bash
 jcmd 24476 JFR.start duration=30s settings=profile filename=C:\dumps\recording.jfr
 ```
 
 **Check active recordings**
 
-```powershell
+```bash
 jcmd 24476 JFR.check
 ```
 
 **Dump the current recording**
 
-```powershell
+```bash
 jcmd 24476 JFR.dump filename=C:\dumps\emergency.jfr
 ```
 
 **Stop a recording**
 
-```powershell
+```bash
 jcmd 24476 JFR.stop
 ```
 
@@ -206,13 +206,13 @@ For multiple simultaneous recordings, use the recording name or ID to select the
 
 **Start recording when launching the application**
 
-```powershell
+```bash
 java -XX:StartFlightRecording=duration=60s,settings=profile,filename=boot.jfr -jar myapp.jar
 ```
 
 **Configure a bounded continuous recording**
 
-```powershell
+```bash
 java -XX:StartFlightRecording=disk=true,maxsize=500m,maxage=1d -jar myapp.jar
 ```
 
@@ -243,7 +243,7 @@ These predefined views are available on recent JDK versions, including JDK 25. A
 
 You can also inspect recent JFR events directly from a running JVM:
 
-```powershell
+```bash
 jcmd 24476 JFR.view hot-methods
 jcmd 24476 JFR.view memory-leaks-by-class
 ```
