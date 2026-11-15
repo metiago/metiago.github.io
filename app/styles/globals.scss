@@ -147,6 +147,35 @@ a:hover {
   resize: vertical;
 }
 
+.snippets-content {
+  max-width: 900px;
+}
+
+.attachment-dropzone {
+  padding: 1.5rem;
+  border: 2px dashed var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-tertiary-bg);
+  text-align: center;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.attachment-dropzone-active {
+  border-color: var(--bs-primary);
+  background: var(--bs-secondary-bg);
+}
+
+.attachment-list-item {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-tertiary-bg);
+}
+
+.snippet-toast {
+  z-index: 1080;
+}
+
 .topbar-login-dropdown {
   position: absolute;
   top: calc(100% + 8px);
