@@ -1,5 +1,4 @@
 
-import Container from "react-bootstrap/Container";
 import TopBar from "./components/TopBar";
 import "./styles/globals.scss";
 import Footer from './components/Footer';
@@ -12,19 +11,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-bs-theme="dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Montserrat:wght@700&family=Roboto:wght@400&display=swap"
-          rel="stylesheet"
-        />
-
-      </head>
+    <html lang="en">
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <TopBar />
-        <Container fluid='md'>
+        <main id="main-content" className="site-main container">
           {children}
-        </Container>
+        </main>
         <Footer />
       </body>
     </html>

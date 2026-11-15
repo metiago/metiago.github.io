@@ -1,5 +1,6 @@
 "use client"
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { getSupabaseClient } from '../lib/supabase';
@@ -7,6 +8,7 @@ import { getSupabaseClient } from '../lib/supabase';
 const TopBar = () => {
 
   const supabase = getSupabaseClient();
+  const pathname = usePathname();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
@@ -110,41 +112,37 @@ const TopBar = () => {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="site-navbar">
       <Container>
-        <Navbar.Brand href="#home">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-code-slash" viewBox="0 0 16 16">
-            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
-          </svg>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Brand as={Link} href="/">Tiago Souza<span className="brand-dot">.</span></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="site-nav me-auto">
             <Nav.Item>
-              <Nav.Link as={Link} href="/" eventKey="/">
+              <Nav.Link as={Link} href="/" eventKey="/" active={pathname === '/' || pathname.startsWith('/posts/')} aria-current={pathname === '/' || pathname.startsWith('/posts/') ? 'page' : undefined}>
                 Home
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} href="/ebooks" eventKey="/ebooks">
+              <Nav.Link as={Link} href="/ebooks" eventKey="/ebooks" active={pathname === '/ebooks'} aria-current={pathname === '/ebooks' ? 'page' : undefined}>
                 eBooks
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} href="/about" eventKey="/about">
+              <Nav.Link as={Link} href="/about" eventKey="/about" active={pathname === '/about'} aria-current={pathname === '/about' ? 'page' : undefined}>
                 About
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} href="/snippets" eventKey="/snippets">
+              <Nav.Link as={Link} href="/snippets" eventKey="/snippets" active={pathname.startsWith('/snippets')} aria-current={pathname.startsWith('/snippets') ? 'page' : undefined}>
                 Snippets
               </Nav.Link>
             </Nav.Item>
 
           </Nav>
-          <Nav className="ms-auto align-items-lg-center gap-2">
+          <Nav className="site-actions ms-auto align-items-lg-center gap-2">
             {!session ? (
-              <Form onSubmit={handleSignIn} className="d-flex gap-2 my-2 my-lg-0">
+              <Form onSubmit={handleSignIn} className="login-form d-flex gap-2 my-2 my-lg-0">
                 <Form.Control
                   type="email"
                   value={email}
@@ -194,7 +192,7 @@ const TopBar = () => {
               </Button>
             )}
             <Nav.Item>
-              <button className="nav-link" onClick={toggleTheme} aria-label="Toggle theme">
+              <button type="button" className="nav-link theme-toggle" onClick={toggleTheme} aria-label={isDarkMode ? 'Use light theme' : 'Use dark theme'}>
                 {isDarkMode ? (
                   <i className="bi bi-sun"></i>
                 ) : (

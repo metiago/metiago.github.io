@@ -5,28 +5,24 @@ import { getAllPosts } from './services/posts.js';
 export default async function Home() {
   const posts = (await getAllPosts()).filter(p => !p?.draft);
   return (
-    <div>
-      <div className="d-flex justify-content-center">
-        <article className="w-75 max-w-sm mx-auto">
-          <header className="mb-10 text-center">
-            <h1>References</h1>
-          </header>
-          <div className="mb-10 text-left">
-            <Search />
-          </div>
-          {posts.map((post, i) => (
-            <div key={i} className="mt-3">
-              <Link href={`/posts/${post.slug}`} className="text-decoration-none">
-                <h5 className="card-title">{post.title}</h5>
-                <p>
-                  {post?.excerpt}
-                </p>
-              </Link>
-              <hr />
-            </div>
-          ))}
-        </article>
-      </div>
+    <div className="reading-width home-page">
+      <header className="page-header">
+        <p className="eyebrow">Just Experiments</p>
+        <h1>References</h1>
+        <p className="page-lead">Research and prototyping documentation.</p>
+      </header>
+      <section className="home-search" aria-label="Search articles">
+        <Search />
+      </section>
+      <section className="article-list" aria-label="Articles">
+        {posts.map((post) => (
+          <article key={post.slug} className="article-list-item">
+            {post.date && <time className="article-date" dateTime={post.date}>{post.date}</time>}
+            <h2><Link href={`/posts/${post.slug}`}>{post.title}</Link></h2>
+            {post.excerpt && <p>{post.excerpt}</p>}
+          </article>
+        ))}
+      </section>
     </div>
   );
 }

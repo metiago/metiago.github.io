@@ -2,8 +2,8 @@ import { Container } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <footer className="py-3">
-      <Container className="text-center">
+    <footer className="site-footer">
+      <Container>
         <p>&copy; {new Date().getFullYear()} Tiago Souza. All rights reserved.</p>
       </Container>
     </footer>

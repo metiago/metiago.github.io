@@ -31,20 +31,23 @@ const Post = ({ title, date, content, category, author }) => {
         import("bootstrap/dist/js/bootstrap");
         const blocks = document.querySelectorAll('pre code');
         blocks.forEach((block) => {
-            hljs.highlightBlock(block);
+            hljs.highlightElement(block);
         });
     }, [])
 
     return (
-        <>
-            <div className="text-center">
-                <h1 className="display-4">{title}</h1>
-                <div className="d-flex justify-content-start">
-                    <p className="text-muted mb-0 me-2">{date}</p>
+        <article className="reading-width post-page">
+            <header className="page-header">
+                <p className="eyebrow">Just Experiments</p>
+                <h1>{title}</h1>
+                <div className="post-meta">
+                    {date && <time dateTime={date}>{date}</time>}
+                    {category && <span>{category}</span>}
+                    {author && <span>{author}</span>}
                 </div>
-            </div>
+            </header>
             <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
-        </>
+        </article>
     );
 }
 

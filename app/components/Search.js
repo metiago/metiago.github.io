@@ -60,15 +60,16 @@ const Search = () => {
     <>
       <Row>
         <Col>
-          <input type="text" value={query} onChange={handleSearch} placeholder="Search..." className="form-control" />
+          <label className="visually-hidden" htmlFor="article-search">Search articles</label>
+          <input id="article-search" type="search" value={query} onChange={handleSearch} placeholder="Search articles" className="form-control" />
         </Col>
       </Row>
       <div id="results">
         {results.length > 0 && (
           results.map((doc) => (
-            <ul key={doc.id} className="mt-4">
+            <ul key={doc.id} className="search-result">
               <li>
-                <Link href={`/posts/${doc.slug}`} className="">
+                <Link href={`/posts/${doc.slug}`}>
                   <div className="mb-2">{doc.title}</div>
                 </Link>
               </li>
