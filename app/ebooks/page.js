@@ -1,8 +1,7 @@
 export default function Ebook() {
   return (
     <article className="reading-width ebooks-page">
-      <header className="page-header">
-        <p className="eyebrow">Resources</p>
+      <header className="page-header">        
         <h1>eBooks</h1>
       </header>
       <ul className="resource-list">

@@ -1,10 +1,11 @@
+import { Image } from "react-bootstrap";
+
 export default function About() {
   return (
-    <article className="reading-width about-page">
-          <header className="page-header">
-            <p className="eyebrow">Tiago Souza</p>
-            <h1>About Me</h1>
-          </header>
+    <article className="reading-width about-page">          
+          <div className="text-center mb-4">
+            <Image src="/images/profile/me.png" alt="me" className="img-fluid rounded-circle" width={140}/>
+          </div>
           <div>
             <p>
               Hi there! My name&apos;s Tiago. I&apos;m a seasoned software engineer passionate about creating effective and efficient software solutions.

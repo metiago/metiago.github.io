@@ -114,7 +114,7 @@ const TopBar = () => {
   return (
     <Navbar expand="lg" className="site-navbar">
       <Container>
-        <Navbar.Brand as={Link} href="/">Tiago Souza<span className="brand-dot">.</span></Navbar.Brand>
+        <Navbar.Brand as={Link} href="/">Tiago Souza</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="site-nav me-auto">
