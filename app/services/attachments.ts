@@ -4,7 +4,7 @@ import type { Attachment } from "../types/snippets";
 
 export const ATTACHMENT_BUCKET = "snippet-attachments";
 export const MAX_ATTACHMENT_SIZE = 20 * 1024 * 1024;
-export const ACCEPTED_EXTENSIONS = ".pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.png,.jpg,.jpeg";
+export const ACCEPTED_EXTENSIONS = ".md,.pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.png,.jpg,.jpeg";
 const allowedExtensions = new Set(ACCEPTED_EXTENSIONS.split(","));
 
 export function validateAttachment(file: File): string | null {

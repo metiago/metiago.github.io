@@ -50,7 +50,7 @@ export default function AttachmentPicker({ files, disabled, onAdd, onRemove }: A
         <Button type="button" variant="outline-primary" size="sm" onClick={() => inputRef.current?.click()} disabled={disabled}>
           Choose files
         </Button>
-        <small className="d-block mt-2 text-body-secondary">PDF, Office, text, ZIP, PNG, or JPG. Up to 20 MB each.</small>
+        <small className="d-block mt-2 text-body-secondary">MD, PDF, Office, text, ZIP, PNG, or JPG. Up to 20 MB each.</small>
       </div>
       {files.length > 0 && (
         <ul className="attachment-list list-unstyled mt-3 mb-0" aria-label="Selected attachments">
