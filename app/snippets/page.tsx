@@ -248,7 +248,17 @@ export default function SnippetsPage() {
           {snippets.map((snippet) => (
             <Card className="mb-3" key={snippet.id}><Card.Body>
               <div className="d-flex justify-content-between align-items-start gap-3 flex-wrap">
-                <h5 className="mb-2">{snippet.title}</h5>
+                <h5 className="mb-2 d-flex align-items-center gap-2">
+                  {snippet.title}
+                  <span
+                    className="text-body-secondary"
+                    role="img"
+                    aria-label={snippet.visibility === "private" ? "Private snippet" : "Public snippet"}
+                    title={snippet.visibility === "private" ? "Private snippet" : "Public snippet"}
+                  >
+                    <i className={`bi ${snippet.visibility === "private" ? "bi-lock-fill" : "bi-globe"}`} aria-hidden="true" />
+                  </span>
+                </h5>
                 <div className="d-flex gap-2 ms-auto flex-wrap">
                   <Button variant="outline-secondary" size="sm" onClick={() => setExpandedIds((current) => current.includes(snippet.id) ? current.filter((id) => id !== snippet.id) : [...current, snippet.id])} aria-expanded={expandedIds.includes(snippet.id)}>
                     {expandedIds.includes(snippet.id) ? "Collapse" : "Expand"}
