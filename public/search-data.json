@@ -4,98 +4,98 @@
     "slug": "jvm-troubleshooting-jfr",
     "title": "Java Production Troubleshooting: A Practical Guide with JFR and jcmd",
     "date": "2026-10-23",
-    "draft": false
+    "draft": true
   },
   {
     "id": 14,
     "slug": "llm",
     "title": "Serving LLM Locally (Without a GPU)",
     "date": "2025-09-03",
-    "draft": false
+    "draft": true
   },
   {
     "id": 6,
     "slug": "java-flight-recorder",
     "title": "Java Flight Recorder (JFR) Overview",
     "date": "2025-08-03",
-    "draft": false
+    "draft": true
   },
   {
     "id": 10,
     "slug": "jvm-g1",
     "title": "JVM G1",
     "date": "2024-07-03",
-    "draft": false
+    "draft": true
   },
   {
     "id": 11,
     "slug": "jvm-shenandoah",
     "title": "JVM Shenandoah Garbage Collector",
     "date": "2024-07-03",
-    "draft": false
+    "draft": true
   },
   {
     "id": 13,
     "slug": "jvm-zgc",
     "title": "JVM Z (GC)",
     "date": "2024-07-03",
-    "draft": false
+    "draft": true
   },
   {
     "id": 9,
     "slug": "jmx",
     "title": "JMX",
     "date": "2021-01-08",
-    "draft": false
+    "draft": true
   },
   {
     "id": 3,
     "slug": "functional-interfaces",
     "title": "Java Functional Interfaces",
     "date": "2017-04-08",
-    "draft": false
+    "draft": true
   },
   {
     "id": 4,
     "slug": "java-8-optional",
     "title": "Java Optional API",
     "date": "2017-03-08",
-    "draft": false
+    "draft": true
   },
   {
     "id": 5,
     "slug": "java-aspectj",
     "title": "Aspect Oriented Programming",
     "date": "2017-03-08",
-    "draft": false
-  },
-  {
-    "id": 17,
-    "slug": "thread-dumps",
-    "title": "Generating JVM Thread Dumps Programmatically with Java New dumpThreads() API",
-    "date": "2016-05-16",
-    "draft": false
+    "draft": true
   },
   {
     "id": 18,
+    "slug": "thread-dumps",
+    "title": "Generating JVM Thread Dumps Programmatically with Java New dumpThreads() API",
+    "date": "2016-05-16",
+    "draft": true
+  },
+  {
+    "id": 19,
     "slug": "threads",
     "title": "Java Threads",
     "date": "2016-05-16",
-    "draft": false
+    "draft": true
   },
   {
     "id": 8,
     "slug": "java-xml-api",
     "title": "Java XML API",
     "date": "2016-03-08",
-    "draft": false
+    "draft": true
   },
   {
-    "id": 16,
+    "id": 17,
     "slug": "sockets",
     "title": "Java Sockets",
     "date": "2016-02-08",
-    "draft": false,
+    "draft": true,
     "excerpt": ""
   },
   {
@@ -110,10 +110,10 @@
     "slug": "java-install-cert",
     "title": "Java Keytool - Quick References",
     "date": "2014-07-03",
-    "draft": false
+    "draft": true
   },
   {
-    "id": 15,
+    "id": 16,
     "slug": "rabbit-mq-client",
     "title": "RabbitMQ Client",
     "date": "2014-07-03",
@@ -124,7 +124,11 @@
     "slug": "big-o",
     "title": "Big O Notation",
     "date": "2014-02-08",
-    "draft": false,
+    "draft": true,
     "excerpt": ""
+  },
+  {
+    "id": 15,
+    "slug": "posts-metiago.zip"
   }
 ]

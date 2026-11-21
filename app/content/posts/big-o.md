@@ -1,7 +1,7 @@
 ---
 title: 'Big O Notation'
 date: "2014-02-08"
-draft: false
+draft: true
 excerpt: ""
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Java Production Troubleshooting: A Practical Guide with JFR and jcmd"
 date: "2026-10-23"
-draft: false
+draft: true
 ---
 
 Knowing what JFR does is useful. Knowing which command to run when your application is slow, consuming too much memory, or blocking requests is even better.

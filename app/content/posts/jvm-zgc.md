@@ -1,7 +1,7 @@
 ---
 title: 'JVM Z (GC)'
 date: "2024-07-03"
-draft: false
+draft: true
 ---
 
 ## Enabling Z Garbage Collector (ZGC) in JVM

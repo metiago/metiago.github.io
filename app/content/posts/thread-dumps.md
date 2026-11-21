@@ -1,7 +1,7 @@
 ---
 title: 'Generating JVM Thread Dumps Programmatically with Java New dumpThreads() API'
 date: "2016-05-16"
-draft: false
+draft: true
 ---
 
 When diagnosing performance issues, deadlocks, or application hangs, one of the most valuable tools available to Java developers is a thread dump.

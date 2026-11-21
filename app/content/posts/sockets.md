@@ -1,7 +1,7 @@
 ---
 title: 'Java Sockets'
 date: "2016-02-08"
-draft: false
+draft: true
 excerpt: ""
 ---
 

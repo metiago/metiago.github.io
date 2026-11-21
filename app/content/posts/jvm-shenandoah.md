@@ -1,7 +1,7 @@
 ---
 title: 'JVM Shenandoah Garbage Collector'
 date: "2024-07-03"
-draft: false
+draft: true
 ---
 
 ## Enabling Shenandoah Garbage Collector in JVM

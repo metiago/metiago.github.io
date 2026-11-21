@@ -11,10 +11,13 @@ export default async function Home() {
         <h1>References</h1>
         <p className="page-lead">Research and prototyping documentation.</p>
       </header>
-      <section className="home-search" aria-label="Search articles">
-        <Search />
-      </section>
+      {posts.length > 0 && (
+        <section className="home-search" aria-label="Search articles">
+          <Search />
+        </section>
+      )}
       <section className="article-list" aria-label="Articles">
+        {posts.length === 0 && <p className="article-list-item text-body-secondary mb-0">No posts available yet.</p>}
         {posts.map((post) => (
           <article key={post.slug} className="article-list-item">
             {post.date && <time className="article-date" dateTime={post.date}>{post.date}</time>}

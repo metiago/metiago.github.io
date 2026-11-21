@@ -1,7 +1,7 @@
 ---
 title: 'JMX'
 date: "2021-01-08"
-draft: false
+draft: true
 
 ---
 

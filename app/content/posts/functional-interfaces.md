@@ -1,7 +1,7 @@
 ---
 title: 'Java Functional Interfaces'
 date: "2017-04-08"
-draft: false
+draft: true
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'JVM G1'
 date: "2024-07-03"
-draft: false
+draft: true
 ---
 
 ## Enabling the G1 Garbage Collector in JVM

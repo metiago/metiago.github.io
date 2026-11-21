@@ -1,7 +1,7 @@
 ---
 title:  'Aspect Oriented Programming'
 date: "2017-03-08"
-draft: false
+draft: true
 
 ---
 

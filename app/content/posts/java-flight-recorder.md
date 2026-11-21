@@ -1,7 +1,7 @@
 ---
 title: "Java Flight Recorder (JFR) Overview"
 date: "2025-08-03"
-draft: false
+draft: true
 ---
 
 ## Java Flight Recorder (JFR) Overview
