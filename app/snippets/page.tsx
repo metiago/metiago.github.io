@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
 import hljs from "highlight.js/lib/core";
@@ -14,7 +14,7 @@ import "highlight.js/styles/github-dark.css";
 
 hljs.registerLanguage("java", java);
 
-const initialForm = { title: "", code: "" };
+const initialForm = { title: "", code: "", isPrivate: false };
 const supabase = getSupabaseClient();
 
 export default function SnippetsPage() {
@@ -30,6 +30,7 @@ export default function SnippetsPage() {
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [toast, setToast] = useState("");
   const [expandedIds, setExpandedIds] = useState<number[]>([]);
+  const currentUserId = useRef<string | null>(null);
 
   useEffect(() => {
     if (!supabase) {
@@ -42,21 +43,43 @@ export default function SnippetsPage() {
       if (!supabase) return;
       try {
         const { data: { session: currentSession } } = await supabase.auth.getSession();
-        const { data, error: fetchError } = await supabase.from("snippets").select("*").order("title", { ascending: true });
         if (!active) return;
         setSession(currentSession);
-        if (fetchError) setError(fetchError.message);
-        else setSnippets(data ?? []);
       } catch {
         if (active) setError("Unable to load snippets. Please try again.");
-      } finally {
-        if (active) setIsLoading(false);
       }
     }
     void initialize();
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, currentSession) => setSession(currentSession));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      setSession(currentSession);
+      const nextUserId = currentSession?.user.id ?? null;
+      if (currentUserId.current !== nextUserId) {
+        setSnippets([]);
+        setEditingSnippetId(null);
+        setForm(initialForm);
+      }
+      currentUserId.current = nextUserId;
+    });
     return () => { active = false; subscription.unsubscribe(); };
   }, []);
+
+  useEffect(() => {
+    if (!supabase) return;
+    let active = true;
+    async function loadSnippets() {
+      if (!supabase) return;
+      setIsLoading(true);
+      const { data, error: fetchError } = await supabase.from("snippets").select("*").order("title", { ascending: true });
+      if (!active) return;
+      if (fetchError) setError(fetchError.message);
+      else { setSnippets(data ?? []); setError(""); }
+      setIsLoading(false);
+    }
+    void loadSnippets().catch(() => {
+      if (active) { setError("Unable to load snippets. Please try again."); setIsLoading(false); }
+    });
+    return () => { active = false; };
+  }, [session?.access_token]);
 
   useEffect(() => {
     document.querySelectorAll<HTMLElement>("pre code").forEach((block) => hljs.highlightElement(block));
@@ -93,7 +116,7 @@ export default function SnippetsPage() {
   function handleEdit(snippet: Snippet) {
     setError("");
     setEditingSnippetId(snippet.id);
-    setForm({ title: snippet.title, code: snippet.code });
+    setForm({ title: snippet.title, code: snippet.code, isPrivate: snippet.visibility === "private" });
     setFiles([]);
     setValidationErrors([]);
     setExpandedIds((current) => current.includes(snippet.id) ? current : [...current, snippet.id]);
@@ -107,6 +130,7 @@ export default function SnippetsPage() {
     if (!session) { setError("Sign in before saving snippets."); return; }
     const title = form.title.trim();
     const code = form.code.trim();
+    const visibility = form.isPrivate ? "private" : "public";
     if (!title || !code) { setError("Title and code snippet are required."); return; }
 
     const pendingFiles = files.filter((entry) => entry.status !== "uploaded");
@@ -118,12 +142,15 @@ export default function SnippetsPage() {
     try {
       let savedSnippet: Snippet;
       if (editingSnippetId) {
-        const { data, error: saveError } = await supabase.from("snippets").update({ title, code }).eq("id", editingSnippetId).select("*").single();
+        const { data, error: saveError } = await supabase.from("snippets").update({
+          title, code, visibility,
+          ...(visibility === "private" ? { owner_id: session.user.id } : {}),
+        }).eq("id", editingSnippetId).select("*").single();
         if (saveError || !data) throw new Error(saveError?.message || "Unable to update snippet.");
         savedSnippet = data;
         setSnippets((current) => current.map((snippet) => snippet.id === data.id ? data : snippet));
       } else {
-        const { data, error: saveError } = await supabase.from("snippets").insert({ title, code }).select("*").single();
+        const { data, error: saveError } = await supabase.from("snippets").insert({ title, code, visibility }).select("*").single();
         if (saveError || !data) throw new Error(saveError?.message || "Unable to save snippet.");
         savedSnippet = data;
         setSnippets((current) => [data, ...current]);
@@ -164,15 +191,15 @@ export default function SnippetsPage() {
     try {
       const { data: attached, error: listError } = await supabase.from("attachments").select("*").eq("snippet_id", snippet.id);
       if (listError) throw listError;
+      if (attached?.length) {
+        const { error: storageError } = await supabase.storage.from(ATTACHMENT_BUCKET).remove(attached.map((item) => item.storage_path));
+        if (storageError) throw storageError;
+      }
       const { error: deleteError } = await supabase.from("snippets").delete().eq("id", snippet.id);
       if (deleteError) throw deleteError;
       setSnippets((current) => current.filter((item) => item.id !== snippet.id));
       setExpandedIds((current) => current.filter((id) => id !== snippet.id));
       if (editingSnippetId === snippet.id) resetForm();
-      if (attached?.length) {
-        const { error: storageError } = await supabase.storage.from(ATTACHMENT_BUCKET).remove(attached.map((item) => item.storage_path));
-        if (storageError) setError(`Snippet deleted, but attachment cleanup failed: ${storageError.message}`);
-      }
       setToast("Snippet deleted.");
     } catch (deleteError) {
       setError(deleteError instanceof Error ? deleteError.message : "Unable to delete snippet.");
@@ -198,6 +225,10 @@ export default function SnippetsPage() {
               <Form.Group className="mb-3" controlId="snippet-title">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" name="title" value={form.title} onChange={handleChange} placeholder="Example: Docker login command" maxLength={120} required />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="snippet-private">
+                <Form.Check type="checkbox" name="isPrivate" label="Private snippet" checked={form.isPrivate} onChange={(event) => setForm((current) => ({ ...current, isPrivate: event.target.checked }))} />
+                <Form.Text className="text-body-secondary">Private snippets are visible only to you.</Form.Text>
               </Form.Group>
               <Form.Group className="mb-3" controlId="snippet-code">
                 <Form.Label>Code Snippet</Form.Label>

@@ -13,7 +13,7 @@ type Table<Row, Insert, Update> = {
 export type Database = {
   public: {
     Tables: {
-      snippets: Table<Snippet, Pick<Snippet, "title" | "code">, Partial<Pick<Snippet, "title" | "code">>>;
+      snippets: Table<Snippet, Pick<Snippet, "title" | "code" | "visibility">, Partial<Pick<Snippet, "title" | "code" | "visibility" | "owner_id">>>;
       attachments: Table<Attachment, Pick<Attachment, "snippet_id" | "file_name" | "storage_path"> & Partial<Pick<Attachment, "file_size" | "mime_type">>, never>;
     };
     Views: Record<string, never>;

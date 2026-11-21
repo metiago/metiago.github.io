@@ -1,7 +1,11 @@
+export type SnippetVisibility = "public" | "private";
+
 export interface Snippet {
   id: number;
   title: string;
   code: string;
+  visibility: SnippetVisibility;
+  owner_id: string | null;
   created_at: string;
 }
 

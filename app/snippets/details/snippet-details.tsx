@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import type { Session } from "@supabase/supabase-js";
 import { Alert, Button, Card, Spinner } from "react-bootstrap";
 import { getSupabaseClient } from "../../lib/supabase";
 import { createAttachmentDownloadUrl, formatFileSize } from "../../services/attachments";
@@ -17,6 +18,25 @@ export default function SnippetDetails() {
   const [isLoading, setIsLoading] = useState(true);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [error, setError] = useState("");
+  const [session, setSession] = useState<Session | null>(null);
+  const currentUserId = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!supabase) return;
+    let active = true;
+    void supabase.auth.getSession().then(({ data }) => {
+      if (active) setSession(data.session);
+    }).catch(() => {
+      if (active) setError("Unable to check sign-in status.");
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      setSession(currentSession);
+      const nextUserId = currentSession?.user.id ?? null;
+      if (currentUserId.current !== nextUserId) { setSnippet(null); setAttachments([]); }
+      currentUserId.current = nextUserId;
+    });
+    return () => { active = false; subscription.unsubscribe(); };
+  }, []);
 
   useEffect(() => {
     if (!supabase || !snippetId) {
@@ -29,6 +49,8 @@ export default function SnippetDetails() {
       if (!supabase || !snippetId) return;
       setIsLoading(true);
       setError("");
+      setSnippet(null);
+      setAttachments([]);
       const [snippetResult, attachmentResult] = await Promise.all([
         supabase.from("snippets").select("*").eq("id", snippetId).single(),
         supabase.from("attachments").select("*").eq("snippet_id", snippetId).order("created_at", { ascending: false }),
@@ -44,7 +66,7 @@ export default function SnippetDetails() {
       if (active) { setError("Unable to load snippet details."); setIsLoading(false); }
     });
     return () => { active = false; };
-  }, [snippetId]);
+  }, [snippetId, session?.access_token]);
 
   async function handleDownload(attachment: Attachment) {
     if (!supabase) return;
