@@ -7,9 +7,9 @@ export default async function Home() {
   return (
     <div className="reading-width home-page">
       <header className="page-header">
-        <p className="eyebrow">Just Experiments</p>
-        <h1>References</h1>
-        <p className="page-lead">Research and prototyping documentation.</p>
+        <p className="eyebrow">Lab Notes</p>
+        <h1>Experiments &amp; Prototypes</h1>
+        <p className="page-lead">A collection of technical findings, research logs, and builds in progress.</p>
       </header>
       {posts.length > 0 && (
         <section className="home-search" aria-label="Search articles">
